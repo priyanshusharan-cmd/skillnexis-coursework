@@ -1,0 +1,1 @@
+document.querySelector('#contact-form').addEventListener('submit', event => { event.preventDefault(); document.querySelector('#status').textContent = 'Thanks! This demo form does not send data.'; });
