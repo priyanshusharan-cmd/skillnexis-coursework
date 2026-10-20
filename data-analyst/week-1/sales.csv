@@ -1,0 +1,9 @@
+order_id,date,category,department,region,product,quantity,unit_price
+1,2024-01-04,Hardware,IT,North,Keyboard,2,25
+2,2024-02-12,Office,Operations,West,Notebook,10,3
+3,2024-03-20,Hardware,IT,South,Monitor,1,180
+4,2025-01-08,Office,Sales,East,Pen,20,1.5
+5,2025-04-17,Hardware,Operations,North,Mouse,4,18
+6,2025-06-03,Office,IT,West,Desk,1,220
+7,2024-08-23,Hardware,Sales,East,Headset,3,45
+8,2025-10-02,Office,Operations,South,Chair,2,95
