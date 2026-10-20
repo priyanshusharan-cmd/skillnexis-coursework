@@ -1,0 +1,13 @@
+requirement_id,requirement,test_case_ids,status
+AUTH-01,Valid user can sign in,LOGIN-01,Not executed
+AUTH-02,Invalid credentials are rejected,LOGIN-02,Not executed
+AUTH-03,Required fields are validated,LOGIN-03;LOGIN-04,Not executed
+AUTH-04,Password visibility can be toggled,LOGIN-05,Not executed
+AUTH-05,Inputs are normalized and bounded,LOGIN-06;LOGIN-09,Not executed
+AUTH-06,Authentication is keyboard and assistive-technology accessible,LOGIN-10;LOGIN-11,Not executed
+AUTH-07,Abuse and session controls follow documented policy,LOGIN-12;LOGIN-13;LOGIN-14,Requirements and execution needed
+CHECKOUT-01,Available items can be ordered, CHECKOUT-01,Test environment needed
+CHECKOUT-02,Unavailable items are handled safely,CHECKOUT-02,Test environment needed
+CHECKOUT-03,Totals update after cart changes,CHECKOUT-03,Test environment needed
+CHECKOUT-04,Declined payment does not create an order,CHECKOUT-04,Test environment needed
+CHECKOUT-05,Repeated submit does not duplicate an order,CHECKOUT-05,Test environment needed

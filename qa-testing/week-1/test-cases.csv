@@ -1,0 +1,21 @@
+id,area,precondition,steps,expected,result,status
+LOGIN-01,valid login,registered account,Enter valid email and password then submit,User reaches authenticated home,Not executed,Not run
+LOGIN-02,invalid password,registered account,Enter valid email and wrong password then submit,Error is clear and no session is created,Not executed,Not run
+LOGIN-03,required fields,logged out,Submit empty form,Required-field feedback appears,Not executed,Not run
+LOGIN-04,email format,logged out,Enter malformed email and submit,Input is rejected with accessible guidance,Not executed,Not run
+LOGIN-05,password visibility,login form,Toggle password visibility,Value visibility toggles without changing value,Not executed,Not run
+LOGIN-06,trim spaces,registered account,Enter email with leading and trailing spaces,Email is normalized or validation clearly explains the issue,Not executed,Not run
+LOGIN-07,case handling,registered account,Enter email with different letter casing,Account lookup follows documented case rules,Not executed,Not run
+LOGIN-08,password boundary,login form,Enter password at minimum allowed length,Boundary follows requirements,Not executed,Requirements needed
+LOGIN-09,oversized input,login form,Enter overlong email and password,Input is safely rejected without crash,Not executed,Not run
+LOGIN-10,keyboard access,login form,Use Tab and Enter to submit,Controls have visible focus and keyboard operation,Not executed,Not run
+LOGIN-11,screen reader labels,login form,Inspect accessible names of fields and errors,Fields and feedback have meaningful labels,Not executed,Not run
+LOGIN-12,lockout behavior,registered account,Repeat invalid login at defined threshold,Rate limiting follows product policy,Not executed,Requirements needed
+LOGIN-13,session persistence,valid login,Refresh after successful login,Session behavior follows documented policy,Not executed,Requirements needed
+LOGIN-14,logout,authenticated session,Log out then use browser back,Protected content is not exposed,Not executed,Not run
+LOGIN-15,small viewport,login form,Use 320px wide viewport and submit invalid data,Form remains readable with no horizontal overflow,Not executed,Not run
+CHECKOUT-01,guest checkout,cart has available item,Enter valid address and payment test data,Order confirmation and total are correct,Not executed,Test environment needed
+CHECKOUT-02,unavailable item,cart item becomes unavailable,Continue to checkout,User sees clear recovery and cart is not charged,Not executed,Test environment needed
+CHECKOUT-03,quantity update,cart has item,Change quantity and recalculate,Subtotal tax and total update correctly,Not executed,Test environment needed
+CHECKOUT-04,payment decline,sandbox payment method,Submit decline test card,Order is not placed and retry guidance appears,Not executed,Test environment needed
+CHECKOUT-05,duplicate submit,checkout form,Double-click place order,Only one order is created,Not executed,Test environment needed
