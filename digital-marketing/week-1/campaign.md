@@ -4,7 +4,9 @@
 
 ## Persona
 
-Aarav, 20, studies nearby and wants an affordable quiet place to meet friends. Finds options through Maps and Instagram; worries about price, Wi-Fi, and crowding.
+**Aarav, 20 — student:** studies nearby and wants an affordable, quiet place to meet friends. Finds options through Maps and Instagram; worries about price, Wi-Fi, and crowding.
+
+**Nisha, 29 — hybrid worker:** works from cafés several days a week and needs reliable Wi-Fi, outlets, clear opening hours, and a comfortable seat. Finds options through local search and reviews; compares noise, seating, and weekday offers before visiting.
 
 ## Keyword set with intent
 
