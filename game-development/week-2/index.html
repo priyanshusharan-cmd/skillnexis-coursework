@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gem Run: 2D Platformer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div id="stage">
+    <canvas id="game" width="640" height="352" aria-label="Game screen"></canvas>
+
+    <section id="menu" class="panel" aria-label="Main menu">
+      <h1>Gem Run</h1>
+      <p class="sub">Collect coins, dodge spikes, stomp enemies, reach the flag.</p>
+      <button id="btn-play">Play</button>
+      <div id="levels" class="row" aria-label="Level select"></div>
+      <label class="slider">Volume <input id="volume" type="range" min="0" max="100" aria-label="Volume"></label>
+      <button id="btn-mute" aria-pressed="false">Sound: on</button>
+      <p class="keys">Move: arrows or A/D &nbsp; Jump: Space, Up or W &nbsp; Pause: P or Esc &nbsp; Mute: M</p>
+    </section>
+
+    <section id="pause" class="panel" hidden aria-label="Pause menu">
+      <h2>Paused</h2>
+      <button id="btn-resume">Resume</button>
+      <button id="btn-restart">Restart level</button>
+      <button id="btn-quit">Main menu</button>
+    </section>
+
+    <section id="between" class="panel" hidden aria-label="Level complete">
+      <h2 id="between-title">Level complete</h2>
+      <p id="between-text"></p>
+      <button id="btn-next">Next level</button>
+    </section>
+
+    <section id="gameover" class="panel" hidden aria-label="Game over">
+      <h2>Game over</h2>
+      <p id="gameover-text"></p>
+      <button id="btn-retry">Try again</button>
+      <button id="btn-quit2">Main menu</button>
+    </section>
+
+    <section id="victory" class="panel" hidden aria-label="Victory">
+      <h2>You made it!</h2>
+      <p id="victory-text"></p>
+      <button id="btn-again">Play again</button>
+      <button id="btn-quit3">Main menu</button>
+    </section>
+  </div>
+</main>
+<script src="core.js"></script>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
