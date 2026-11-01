@@ -1,0 +1,6 @@
+row 24: missing Date set to 2020-12-22 (the neighbours are two days apart)
+row 14: exact duplicate of the row before it, dropped
+row 9: Duration 450 is above the outlier fence (60); corrected to 45
+row 25: Pulse and Maxpulse were in the wrong order, swapped
+row 20: missing Calories estimated as 247.0 (5.49 kcal/min median x 45 min)
+row 30: missing Calories estimated as 329.3 (5.49 kcal/min median x 60 min)
