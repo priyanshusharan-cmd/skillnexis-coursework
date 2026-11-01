@@ -1,0 +1,14 @@
+{
+  "name": "SkillNexis Retail",
+  "dataColors": ["#1F4E79", "#2A9D8F", "#E9A23B", "#C0392B", "#6A5ACD", "#7FA8D1", "#8C564B", "#7F7F7F"],
+  "background": "#FFFFFF",
+  "foreground": "#243447",
+  "tableAccent": "#1F4E79",
+  "good": "#1E8449",
+  "bad": "#C0392B",
+  "neutral": "#E9A23B",
+  "textClasses": {
+    "title": {"fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#1F4E79"},
+    "label": {"fontFace": "Segoe UI", "fontSize": 10, "color": "#243447"}
+  }
+}

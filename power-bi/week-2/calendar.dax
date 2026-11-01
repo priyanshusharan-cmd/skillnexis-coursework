@@ -1,0 +1,12 @@
+-- Calendar table, as given in the brief
+Calendar = CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Order Date]))
+
+-- Columns for the Year > Month > Day hierarchy (add as calculated columns on Calendar)
+Year      = YEAR(Calendar[Date])
+MonthNo   = MONTH(Calendar[Date])
+Month     = FORMAT(Calendar[Date], "MMM")
+Day       = DAY(Calendar[Date])
+
+-- Sort Month by MonthNo, then in Model view: right-click Year > "Create hierarchy"
+-- and add Month and Day beneath it to get Date Hierarchy: Year > Month > Day.
+-- Mark the table as a date table: Table tools > Mark as date table > Date.

@@ -1,0 +1,5 @@
+relationship (many -> one),one-side unique,orphan rows,dimension rows,ok
+Orders[Customer ID] -> Customers[Customer ID],True,0,17415,True
+Orders[Product ID] -> Products[Product ID],True,0,3788,True
+Orders[Region ID] -> Regions[Region ID],True,0,23,True
+Orders[Order Date] -> Calendar[Date],True,0,1461,True

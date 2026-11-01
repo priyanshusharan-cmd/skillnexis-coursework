@@ -1,0 +1,15 @@
+-- Week 3 measures, as given in the brief (table: Sales)
+Total Sales   = SUM(Sales[Sales])
+Total Profit  = SUM(Sales[Profit])
+Profit Margin = DIVIDE([Total Profit], [Total Sales])
+
+-- Extra measures used by the retail dashboard task
+Total Quantity  = SUM(Sales[Quantity])
+Average Discount = AVERAGE(Sales[Discount])
+Sales (SUMX)    = SUMX(Sales, Sales[Quantity] * Sales[Unit Price])   -- only if the table has a Unit Price column
+
+-- Same measure filtered with CALCULATE
+Loss-making Sales = CALCULATE([Total Sales], FILTER(Sales, Sales[Profit] < 0))
+
+-- Conditional formatting (Format > Cell elements > Font color > Rules, or this field-value measure)
+Profit Colour = IF([Total Profit] < 0, "#C0392B", "#1E8449")
