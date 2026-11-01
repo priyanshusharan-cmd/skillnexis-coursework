@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2: Gallery and Clock</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Interactive Gallery &amp; Clock</h1>
+  <p>Click an image to open the lightbox. Use the arrow keys to move, Esc to close.</p>
+</header>
+<main>
+  <section aria-labelledby="gallery-h">
+    <h2 id="gallery-h">Image gallery</h2>
+    <div id="gallery" class="grid"></div>
+  </section>
+  <section aria-labelledby="clock-h" class="clock-card">
+    <h2 id="clock-h">Digital clock</h2>
+    <div id="clock" aria-live="off">--:--:--</div>
+    <h3>Countdown</h3>
+    <label>Target date and time <input id="target" type="datetime-local"></label>
+    <div id="countdown">Pick a date.</div>
+  </section>
+</main>
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image preview">
+  <button id="prev" aria-label="Previous image">&#10094;</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button id="next" aria-label="Next image">&#10095;</button>
+  <button id="close" aria-label="Close preview">&times;</button>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To-Do App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>To-Do</h1>
+  <form id="add">
+    <input id="text" placeholder="What needs doing?" aria-label="New task" maxlength="120" required autofocus>
+    <button>Add</button>
+  </form>
+  <nav class="filters" aria-label="Filter tasks">
+    <button data-filter="all" aria-pressed="true">All</button>
+    <button data-filter="active" aria-pressed="false">Active</button>
+    <button data-filter="done" aria-pressed="false">Done</button>
+  </nav>
+  <ul id="list"></ul>
+  <footer>
+    <span id="count"></span>
+    <button id="clear" type="button">Clear completed</button>
+  </footer>
+</main>
+<script src="store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

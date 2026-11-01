@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>Weather</h1>
+  <form id="form">
+    <input id="city" placeholder="City name, e.g. Bengaluru" aria-label="City name" required autofocus>
+    <button>Search</button>
+  </form>
+  <details>
+    <summary>Use OpenWeatherMap instead</summary>
+    <p>Paste your own OpenWeatherMap API key. It stays in this browser. Without a key the app uses Open-Meteo.</p>
+    <input id="key" type="password" placeholder="OpenWeatherMap API key" aria-label="OpenWeatherMap API key" autocomplete="off">
+  </details>
+  <section id="card" class="card" aria-live="polite" hidden></section>
+  <p id="status" role="status"></p>
+</main>
+<script src="weather.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
