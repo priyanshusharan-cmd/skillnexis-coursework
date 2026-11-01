@@ -1,0 +1,200 @@
+[
+  {
+    "group": "local",
+    "label": "Register a new user",
+    "request": "POST /api/auth/register",
+    "expected": 201,
+    "actual": 201,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Register the same email again (negative)",
+    "request": "POST /api/auth/register",
+    "expected": 409,
+    "actual": 409,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Register with a 7-character password (negative)",
+    "request": "POST /api/auth/register",
+    "expected": 400,
+    "actual": 400,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Log in with the right password",
+    "request": "POST /api/auth/login",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Log in with the wrong password (negative)",
+    "request": "POST /api/auth/login",
+    "expected": 401,
+    "actual": 401,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "List tasks with no token (negative)",
+    "request": "GET /api/tasks",
+    "expected": 401,
+    "actual": 401,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Create a task",
+    "request": "POST /api/tasks",
+    "expected": 201,
+    "actual": 201,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "List tasks",
+    "request": "GET /api/tasks",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Update the task (PUT)",
+    "request": "PUT /api/tasks/6ae6e6f010b043feaf5d5df4",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Create a task with an empty title (negative)",
+    "request": "POST /api/tasks",
+    "expected": 400,
+    "actual": 400,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Get a task with a malformed id (negative)",
+    "request": "GET /api/tasks/not-an-id",
+    "expected": 400,
+    "actual": 400,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Send malformed JSON (negative)",
+    "request": "POST /api/tasks",
+    "expected": 400,
+    "actual": 400,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Send an oversized body of about 200 KB (negative)",
+    "request": "POST /api/tasks",
+    "expected": 413,
+    "actual": 413,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Delete the task",
+    "request": "DELETE /api/tasks/6ae6e6f010b043feaf5d5df4",
+    "expected": 204,
+    "actual": 204,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Delete the same task again (negative)",
+    "request": "DELETE /api/tasks/6ae6e6f010b043feaf5d5df4",
+    "expected": 404,
+    "actual": 404,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "local",
+    "label": "Security headers are present (helmet)",
+    "request": "GET /api/health",
+    "expected": "x-content-type-options: nosniff",
+    "actual": "nosniff",
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "GET a post",
+    "request": "GET /posts/1",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "GET a post that does not exist (negative)",
+    "request": "GET /posts/99999",
+    "expected": 404,
+    "actual": 404,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "POST a new post",
+    "request": "POST /posts",
+    "expected": 201,
+    "actual": 201,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "PUT replaces a post",
+    "request": "PUT /posts/1",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "PATCH changes one field",
+    "request": "PATCH /posts/1",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "group": "public",
+    "label": "DELETE a post",
+    "request": "DELETE /posts/1",
+    "expected": 200,
+    "actual": 200,
+    "result": "PASS",
+    "note": ""
+  }
+]

@@ -1,0 +1,250 @@
+[
+  {
+    "browser": "Google Chrome",
+    "version": "156.0.8078.76",
+    "viewport": "Desktop 1280x800",
+    "results": [
+      {
+        "check": "1. Unauthenticated visit to / redirects to the login page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "2. Registration form rejects an empty submit with a message",
+        "status": "PASS",
+        "note": "Enter your name"
+      },
+      {
+        "check": "3. Short password is rejected before submitting",
+        "status": "PASS",
+        "note": "Password must be at least 8 characters"
+      },
+      {
+        "check": "4. Valid registration signs the user in and shows the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "5. A task can be added and appears in the list",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "6. A task can be ticked and the remaining count updates",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "7. No horizontal scrolling at this width",
+        "status": "PASS",
+        "note": "1280px content in 1280px viewport"
+      },
+      {
+        "check": "8. Interactive controls are at least 24 px (WCAG 2.2 minimum target size)",
+        "status": "FAIL",
+        "note": "3 control(s) under 24 px: \"Tasks\" 41x18; \"Images\" 52x18; \"Mark Check the matrix done\" 13x13"
+      },
+      {
+        "check": "9. Controls reach the 44 px touch-friendly size (best practice, not a hard rule)",
+        "status": "FAIL",
+        "note": "10 control(s) under 44 px: \"Tasks\" 18px, \"Images\" 18px, \"Log out\" 35px, \"New task\" 39px, \"Add\" 35px, \"all\" 35px, \"active\" 35px, \"done\" 35px, \"Mark Check the mat\" 13px, \"Delete Check the m\" 35px"
+      },
+      {
+        "check": "10. Log out returns to the login page and protects the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "11. No console errors or uncaught exceptions during the session",
+        "status": "FAIL",
+        "note": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      }
+    ]
+  },
+  {
+    "browser": "Google Chrome",
+    "version": "156.0.8078.76",
+    "viewport": "Mobile 390x844",
+    "results": [
+      {
+        "check": "1. Unauthenticated visit to / redirects to the login page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "2. Registration form rejects an empty submit with a message",
+        "status": "PASS",
+        "note": "Enter your name"
+      },
+      {
+        "check": "3. Short password is rejected before submitting",
+        "status": "PASS",
+        "note": "Password must be at least 8 characters"
+      },
+      {
+        "check": "4. Valid registration signs the user in and shows the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "5. A task can be added and appears in the list",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "6. A task can be ticked and the remaining count updates",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "7. No horizontal scrolling at this width",
+        "status": "PASS",
+        "note": "390px content in 390px viewport"
+      },
+      {
+        "check": "8. Interactive controls are at least 24 px (WCAG 2.2 minimum target size)",
+        "status": "FAIL",
+        "note": "3 control(s) under 24 px: \"Tasks\" 41x18; \"Images\" 52x18; \"Mark Check the matrix done\" 13x13"
+      },
+      {
+        "check": "9. Controls reach the 44 px touch-friendly size (best practice, not a hard rule)",
+        "status": "FAIL",
+        "note": "9 control(s) under 44 px: \"Tasks\" 18px, \"Images\" 18px, \"New task\" 39px, \"Add\" 35px, \"all\" 35px, \"active\" 35px, \"done\" 35px, \"Mark Check the mat\" 13px, \"Delete Check the m\" 35px"
+      },
+      {
+        "check": "10. Log out returns to the login page and protects the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "11. No console errors or uncaught exceptions during the session",
+        "status": "PASS",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "browser": "Microsoft Edge",
+    "version": "156.0.4314.50",
+    "viewport": "Desktop 1280x800",
+    "results": [
+      {
+        "check": "1. Unauthenticated visit to / redirects to the login page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "2. Registration form rejects an empty submit with a message",
+        "status": "PASS",
+        "note": "Enter your name"
+      },
+      {
+        "check": "3. Short password is rejected before submitting",
+        "status": "PASS",
+        "note": "Password must be at least 8 characters"
+      },
+      {
+        "check": "4. Valid registration signs the user in and shows the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "5. A task can be added and appears in the list",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "6. A task can be ticked and the remaining count updates",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "7. No horizontal scrolling at this width",
+        "status": "PASS",
+        "note": "1280px content in 1280px viewport"
+      },
+      {
+        "check": "8. Interactive controls are at least 24 px (WCAG 2.2 minimum target size)",
+        "status": "FAIL",
+        "note": "3 control(s) under 24 px: \"Tasks\" 41x18; \"Images\" 52x18; \"Mark Check the matrix done\" 13x13"
+      },
+      {
+        "check": "9. Controls reach the 44 px touch-friendly size (best practice, not a hard rule)",
+        "status": "FAIL",
+        "note": "10 control(s) under 44 px: \"Tasks\" 18px, \"Images\" 18px, \"Log out\" 35px, \"New task\" 39px, \"Add\" 35px, \"all\" 35px, \"active\" 35px, \"done\" 35px, \"Mark Check the mat\" 13px, \"Delete Check the m\" 35px"
+      },
+      {
+        "check": "10. Log out returns to the login page and protects the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "11. No console errors or uncaught exceptions during the session",
+        "status": "FAIL",
+        "note": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      }
+    ]
+  },
+  {
+    "browser": "Microsoft Edge",
+    "version": "156.0.4314.50",
+    "viewport": "Mobile 390x844",
+    "results": [
+      {
+        "check": "1. Unauthenticated visit to / redirects to the login page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "2. Registration form rejects an empty submit with a message",
+        "status": "PASS",
+        "note": "Enter your name"
+      },
+      {
+        "check": "3. Short password is rejected before submitting",
+        "status": "PASS",
+        "note": "Password must be at least 8 characters"
+      },
+      {
+        "check": "4. Valid registration signs the user in and shows the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "5. A task can be added and appears in the list",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "6. A task can be ticked and the remaining count updates",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "7. No horizontal scrolling at this width",
+        "status": "PASS",
+        "note": "390px content in 390px viewport"
+      },
+      {
+        "check": "8. Interactive controls are at least 24 px (WCAG 2.2 minimum target size)",
+        "status": "FAIL",
+        "note": "3 control(s) under 24 px: \"Tasks\" 41x18; \"Images\" 52x18; \"Mark Check the matrix done\" 13x13"
+      },
+      {
+        "check": "9. Controls reach the 44 px touch-friendly size (best practice, not a hard rule)",
+        "status": "FAIL",
+        "note": "9 control(s) under 44 px: \"Tasks\" 18px, \"Images\" 18px, \"New task\" 39px, \"Add\" 35px, \"all\" 35px, \"active\" 35px, \"done\" 35px, \"Mark Check the mat\" 13px, \"Delete Check the m\" 35px"
+      },
+      {
+        "check": "10. Log out returns to the login page and protects the task page",
+        "status": "PASS",
+        "note": ""
+      },
+      {
+        "check": "11. No console errors or uncaught exceptions during the session",
+        "status": "PASS",
+        "note": ""
+      }
+    ]
+  }
+]
