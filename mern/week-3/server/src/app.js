@@ -30,6 +30,9 @@ function createApp({ jwtSecret, corsOrigin = 'http://localhost:5173', uploadDir 
   app.use((req, res) => res.status(404).json({ error: 'Not found' }));
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
+    // body-parser errors carry a type: a bad JSON body is the client's fault (400), not a server crash (500).
+    if (err.type === 'entity.parse.failed') return res.status(400).json({ error: 'Malformed JSON body' });
+    if (err.type === 'entity.too.large') return res.status(413).json({ error: 'Request body too large' });
     if (err.name === 'ValidationError') return res.status(400).json({ error: err.message });
     console.error(err);
     res.status(500).json({ error: 'Server error' });

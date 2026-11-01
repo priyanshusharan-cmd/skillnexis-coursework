@@ -139,3 +139,26 @@ describe('image upload', () => {
     assert.equal((await call('GET', '/api/uploads', { token: other })).body.length, 0);
   });
 });
+
+describe('error handling', () => {
+  const post = (body) => fetch(base + '/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+  it('answers malformed JSON with 400, not 500', async () => {
+    const res = await post('{"email": ');
+    assert.equal(res.status, 400);
+    assert.deepEqual(await res.json(), { error: 'Malformed JSON body' });
+  });
+  it('answers an oversized body with 413, not 500', async () => {
+    const res = await post(JSON.stringify({ email: 'x'.repeat(200000), password: 'y' }));
+    assert.equal(res.status, 413);
+  });
+});
+
+describe('password length limits', () => {
+  const send = (path, body) => fetch(base + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  it('accepts 72 bytes, rejects 73, and never lets a truncated password log in', async () => {
+    assert.equal((await send('/api/auth/register', { name: 'P', email: 'pw72@x.io', password: 'a'.repeat(72) })).status, 201);
+    assert.equal((await send('/api/auth/register', { name: 'P', email: 'pw73@x.io', password: 'a'.repeat(73) })).status, 400);
+    assert.equal((await send('/api/auth/login', { email: 'pw72@x.io', password: 'a'.repeat(72) })).status, 200);
+    assert.equal((await send('/api/auth/login', { email: 'pw72@x.io', password: 'a'.repeat(72) + 'extra' })).status, 401, 'extra characters are not ignored');
+  });
+});

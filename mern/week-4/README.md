@@ -21,6 +21,6 @@ cd ../client && npm install && npm run dev          # app on :5173
 
 ## What was checked
 
-- `npm test` in `server/`: 8 tests (auth, validation, ordering and paging, like toggling, comments, and author-only delete). All passed against a local MongoDB.
+- `npm test` in `server/`: 11 tests (auth, validation, ordering and paging, like toggling, comments, and author-only delete). All passed against a local MongoDB.
 - `npm run build` in `client/` succeeds.
 - Ran the API and built client together and used the real UI in a browser with two accounts: posted, liked, unliked, commented, and confirmed the other user has no Delete button on someone else's post.

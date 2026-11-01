@@ -18,6 +18,6 @@ npm start                # needs MongoDB at MONGO_URI
 
 ## Tests
 
-`npm test` runs 6 tests against a real MongoDB (set `MONGO_URI`, or it uses a throwaway database on localhost:27017). They cover validation, duplicate and login errors, hashed storage, rejected tokens, the full task lifecycle, and privacy between users. All 6 passed against a local MongoDB.
+`npm test` runs 9 tests against a real MongoDB (set `MONGO_URI`, or it uses a throwaway database on localhost:27017). They cover validation, duplicate and login errors, hashed storage, rejected tokens, the full task lifecycle, and privacy between users. All 6 passed against a local MongoDB.
 
 Testing was done with Node's built-in test runner and `fetch` instead of Postman; the endpoints are plain JSON and work from Postman too.

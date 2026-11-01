@@ -24,3 +24,9 @@ li.done span { text-decoration: line-through; color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .8rem; }
 .grid img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; }
 figure { margin: 0; } figcaption { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
+
+/* Tap targets: WCAG 2.2 asks for at least 24 px, and 44 px is the usual touch-friendly size. */
+.bar nav a { display: inline-block; padding: 14px 8px; }
+input[type=checkbox] { width: 24px; height: 24px; }
+button, input:not([type=checkbox]):not([type=file]) { min-height: 44px; }
+li > button { min-width: 44px; }

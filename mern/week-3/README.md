@@ -15,5 +15,5 @@ cd ../client && npm install && npm run dev          # app on :5173, proxies /api
 
 ## What was checked
 
-- Server: `npm test` has 10 tests, including upload cases (path-traversal filename, SVG, a fake PNG, an oversized file, and privacy between users). All passed against a local MongoDB.
+- Server: `npm test` has 13 tests, including upload cases (path-traversal filename, SVG, a fake PNG, an oversized file, and privacy between users). All passed against a local MongoDB.
 - Client: `npm run build` succeeds. I also ran the API and the built client together and used the real UI in a browser: registered (including validation messages), added, ticked, filtered and deleted tasks, reloaded to confirm they persisted, uploaded a PNG and saw it listed and loaded, saw a fake image rejected, and confirmed a logged-out visitor is redirected to the login page.

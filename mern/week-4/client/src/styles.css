@@ -33,3 +33,9 @@ textarea { width: 100%; padding: .6rem; border-radius: 8px; border: 1px solid #8
 .like[aria-pressed=true] { color: var(--err); }
 .post li { background: none; padding: 0; }
 .row .muted { margin-right: auto; }
+
+/* Tap targets: WCAG 2.2 asks for at least 24 px, and 44 px is the usual touch-friendly size. */
+.bar nav a { display: inline-block; padding: 14px 8px; }
+input[type=checkbox] { width: 24px; height: 24px; }
+button, input:not([type=checkbox]):not([type=file]) { min-height: 44px; }
+li > button { min-width: 44px; }
