@@ -68,7 +68,7 @@ def driver(request):
     # Keep a screenshot of every failure for the bug report.
     rep = getattr(request.node, "rep_call", None)
     if rep is not None and rep.failed:
-        out = HERE.parent / "results" / "screenshots"
+        out = Path(os.environ.get("RESULTS_DIR", HERE.parent / "results")) / "screenshots"
         out.mkdir(parents=True, exist_ok=True)
         d.save_screenshot(str(out / f"{request.node.name}.png"))
     d.quit()

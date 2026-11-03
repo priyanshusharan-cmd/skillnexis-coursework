@@ -1,0 +1,111 @@
+name: QA tests
+
+# Runs the QA course test suites on every push that touches them.
+on:
+  push:
+    paths:
+      - "qa-testing/week-3/**"
+      - "qa-testing/week-4/**"
+      - ".github/workflows/qa-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  functional:
+    name: Selenium + Postman
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qa-testing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test tools
+        run: |
+          pip install selenium pytest
+          npm ci --prefix week-3
+      - name: Selenium – 15 critical scenarios + 5 validation scripts (Firefox)
+        run: python -m pytest -v week-3/selenium week-4/selenium --junitxml=selenium-junit.xml
+        env:
+          RESULTS_DIR: ${{ github.workspace }}/qa-testing/ci-results
+      - name: Postman collection (Newman)
+        run: |
+          node week-3/demo-shop/server.js &
+          sleep 1
+          week-3/node_modules/.bin/newman run week-3/postman/demo-shop.postman_collection.json \
+            -e week-3/postman/local.postman_environment.json -r cli,junit --reporter-junit-export newman-junit.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: functional-results
+          path: |
+            qa-testing/selenium-junit.xml
+            qa-testing/newman-junit.xml
+            qa-testing/ci-results/
+
+  performance:
+    name: JMeter load + stress
+    runs-on: ubuntu-latest
+    needs: functional
+    env:
+      JMETER_VERSION: "5.6.3"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Cache JMeter
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: apache-jmeter-${{ env.JMETER_VERSION }}
+          key: jmeter-${{ env.JMETER_VERSION }}
+      - name: Download JMeter
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: curl -fsSL "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz" | tar xz
+      - name: Start Demo Shop
+        run: |
+          node qa-testing/week-3/demo-shop/server.js &
+          sleep 1 && curl -fs http://127.0.0.1:4300/api/health
+      - name: Load test – 25 users, 60 s
+        run: |
+          J=apache-jmeter-${JMETER_VERSION}/bin/jmeter
+          $J -n -t qa-testing/week-4/jmeter/demo-shop-load.jmx -Jusers=25 -Jrampup=25 -Jduration=60 \
+             -l load.jtl -e -o report-load
+      - name: Stress test – 100 users, 90 s
+        run: |
+          J=apache-jmeter-${JMETER_VERSION}/bin/jmeter
+          $J -n -t qa-testing/week-4/jmeter/demo-shop-load.jmx -Jusers=100 -Jrampup=10 -Jduration=90 \
+             -l stress.jtl -e -o report-stress
+      - name: Analyse results (fails above 1% errors or p95 over 500 ms)
+        run: |
+          S=qa-testing/week-4/jmeter/summarize.py
+          L=0; T=0
+          python3 $S load.jtl   --title "Load: 25 users, 60 s"   --out load.md   --json load.json   || L=$?
+          python3 $S stress.jtl --title "Stress: 100 users, 90 s" --out stress.md --json stress.json || T=$?
+          cat load.md stress.md >> "$GITHUB_STEP_SUMMARY"
+          exit $(( L || T ))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jmeter-results
+          path: |
+            load.jtl
+            stress.jtl
+            load.md
+            stress.md
+            load.json
+            stress.json
+            report-load/
+            report-stress/
