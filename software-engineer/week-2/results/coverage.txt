@@ -1,0 +1,23 @@
+_______________ coverage: platform linux, python 3.13.18-final-0 _______________
+Name                        Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------
+algorithms/problems.py        126      0     76      0   100%
+library/books.py               78      2     18      0    98%   42, 80
+library/cli.py                 83      1     30      2    97%   91->94, 107
+library/db.py                  30      0      6      0   100%
+library/events.py              30      0      6      1    97%   37->exit
+library/service.py             92      0     20      0   100%
+patterns/factory.py            36      0      0      0   100%
+patterns/observer.py           26      0      4      0   100%
+patterns/singleton.py          20      0      4      1    96%   17->19
+structures/__init__.py          6      0      0      0   100%
+structures/bst.py              89      0     36      0   100%
+structures/hash_map.py         60      0     20      0   100%
+structures/linked_list.py      85      1     38      1    98%   33
+structures/queue.py            39      0     12      0   100%
+structures/stack.py            36      0      8      0   100%
+-----------------------------------------------------------------------
+TOTAL                         836      4    278      5    99%
+3 empty files skipped.
+Required test coverage of 90.0% reached. Total coverage: 99.19%
+86 passed in 5.42s

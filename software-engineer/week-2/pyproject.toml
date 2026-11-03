@@ -1,0 +1,19 @@
+[project]
+name = "se-week2"
+version = "1.0.0"
+description = "SkillNexis Software Engineer week 2: data structures, algorithms, design patterns, library system"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+source = ["structures", "algorithms", "patterns", "library"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_empty = true
