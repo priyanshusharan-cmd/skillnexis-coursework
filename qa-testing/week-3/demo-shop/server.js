@@ -18,7 +18,7 @@ const orders = [];
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const page = (title, body, user) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · Demo Shop</title>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px}nav a{margin-right:12px}.error{color:#b00020}.item{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding:8px 0}input{margin:4px 0;padding:6px}button{padding:6px 12px}</style></head>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px}nav a,#checkout{display:inline-block;margin-right:12px;padding:10px 4px}.error{color:#b00020}.item{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding:8px 0}input{margin:4px 0;padding:6px}button{padding:6px 12px}</style></head>
 <body><nav>${user ? `<a id="nav-inventory" href="/inventory">Products</a><a id="nav-cart" href="/cart">Cart (<span id="cart-count">${cartCount(user)}</span>)</a><a id="logout" href="/logout">Log out</a>` : '<a href="/">Log in</a>'}</nav><h1>${esc(title)}</h1>${body}</body></html>`;
 const cartCount = s => [...s.cart.values()].reduce((a, b) => a + b, 0);
 const send = (res, code, body, type = 'text/html; charset=utf-8', headers = {}) => { res.writeHead(code, { 'Content-Type': type, ...headers }); res.end(body); };
