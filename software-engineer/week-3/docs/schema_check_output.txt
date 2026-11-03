@@ -1,0 +1,21 @@
+ok   self-follow rejected
+ok   double like rejected
+ok   duplicate email rejected
+ok   like on missing post rejected
+ok   bad notification type rejected
+
+Home feed for priya (people she follows, newest first):
+   ('meera', 'Lunch', 0)
+   ('meera', 'System design notes #python #sysdesign', 2)
+   ('arjun', 'Hello #python', 1)
+
+Posts tagged #python:
+   (1, 'Hello #python')
+   (2, 'System design notes #python #sysdesign')
+
+Follower counts:
+   ('meera', 2)
+   ('arjun', 1)
+   ('priya', 0)
+
+Deleting meera cascades to her posts, tags links and likes: ok
