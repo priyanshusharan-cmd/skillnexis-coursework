@@ -15,3 +15,20 @@ services:
         value: /tmp/blog.db        # free plan has no persistent disk: data resets on redeploy
       - key: PYTHON_VERSION
         value: "3.12.7"
+
+  # Software Engineer week 4: Blogly, deployed from its Dockerfile.
+  - type: web
+    name: blogly
+    runtime: docker
+    plan: free
+    rootDir: software-engineer/week-4
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false            # GitHub Actions deploys through the deploy hook after tests pass
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: METRICS_TOKEN
+        generateValue: true
+      - key: BLOG_DB
+        value: /tmp/blog.db      # free plan: no persistent disk

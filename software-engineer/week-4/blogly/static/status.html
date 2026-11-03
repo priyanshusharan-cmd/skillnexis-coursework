@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogly status</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:12px; }
+    .tile { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; }
+    .tile .k { color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; }
+    .tile .v { font-size:1.6rem; font-weight:700; font-variant-numeric:tabular-nums; }
+    .bad { color:var(--danger); } .good { color:var(--ok); }
+    table { width:100%; border-collapse:collapse; } td, th { text-align:left; padding:6px 4px; border-bottom:1px solid var(--line); }
+    td:last-child, th:last-child { text-align:right; font-variant-numeric:tabular-nums; }
+    canvas { width:100%; height:120px; }
+  </style>
+</head>
+<body>
+  <header class="top"><a class="brand" href="/">Blogly</a><span class="live">Status · refreshes every 5 s</span><nav><a href="/metrics">Raw metrics</a></nav></header>
+  <main>
+    <div class="grid" id="tiles"></div>
+    <section class="card"><h2>Requests per second (last 5 minutes)</h2><canvas id="chart" width="680" height="120" aria-label="Requests per second chart" role="img"></canvas></section>
+    <section class="card"><h2>Busiest routes</h2><table><thead><tr><th>Route</th><th>Requests</th></tr></thead><tbody id="routes"></tbody></table></section>
+    <p id="err" class="error" role="alert"></p>
+  </main>
+  <script>
+    const history = [];
+    let last = null;
+    const fmtUptime = s => s < 3600 ? `${Math.floor(s / 60)} min` : `${(s / 3600).toFixed(1)} h`;
+    function tile(k, v, cls = "") {
+      const d = document.createElement("div"); d.className = "tile";
+      const a = document.createElement("div"); a.className = "k"; a.textContent = k;
+      const b = document.createElement("div"); b.className = "v " + cls; b.textContent = v;
+      d.append(a, b); return d;
+    }
+    function draw() {
+      const c = document.getElementById("chart"), g = c.getContext("2d");
+      const css = getComputedStyle(document.documentElement);
+      g.clearRect(0, 0, c.width, c.height);
+      const max = Math.max(1, ...history);
+      g.strokeStyle = css.getPropertyValue("--brand"); g.lineWidth = 2; g.beginPath();
+      history.forEach((v, i) => { const x = i * (c.width / 59), y = c.height - 8 - (v / max) * (c.height - 16); i ? g.lineTo(x, y) : g.moveTo(x, y); });
+      g.stroke();
+      g.fillStyle = css.getPropertyValue("--muted"); g.font = "12px system-ui"; g.fillText(`peak ${max.toFixed(1)} req/s`, 4, 14);
+    }
+    async function tick() {
+      try {
+        const s = await fetch("/api/status").then(r => r.json());
+        if (last) history.push(Math.max(0, (s.requests_total - last.requests_total) / 5));
+        if (history.length > 60) history.shift();
+        last = s;
+        document.getElementById("tiles").replaceChildren(
+          tile("Uptime", fmtUptime(s.uptime_seconds)),
+          tile("Requests", s.requests_total.toLocaleString()),
+          tile("5xx error rate", (s.error_rate * 100).toFixed(2) + "%", s.error_rate > 0.01 ? "bad" : "good"),
+          tile("p95 latency", s.p95_latency_ms_upper_bound == null ? "–" : "≤ " + s.p95_latency_ms_upper_bound + " ms"),
+          tile("Live connections", s.websocket_clients),
+          tile("Sign-ups", s.signups));
+        document.getElementById("routes").replaceChildren(...s.top_routes.map(([r, n]) => {
+          const tr = document.createElement("tr"), a = document.createElement("td"), b = document.createElement("td");
+          a.textContent = r; b.textContent = n.toLocaleString(); tr.append(a, b); return tr;
+        }));
+        draw();
+        document.getElementById("err").textContent = "";
+      } catch (e) { document.getElementById("err").textContent = "Status unavailable: " + e.message; }
+    }
+    tick(); setInterval(tick, 5000);
+  </script>
+</body>
+</html>

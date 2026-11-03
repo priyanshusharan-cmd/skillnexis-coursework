@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogly</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b5bdb'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='sans-serif'>B</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">Blogly</a>
+    <span id="live" class="live" title="Real-time connection">● offline</span>
+    <nav>
+      <a href="/status">Status</a>
+      <a href="/docs">API docs</a>
+      <span id="who" hidden></span>
+      <button id="logout" class="link" hidden>Log out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="auth" class="card" aria-labelledby="auth-title">
+      <h2 id="auth-title">Log in or create an account</h2>
+      <form id="auth-form">
+        <label>Username <input id="username" name="username" autocomplete="username" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+"></label>
+        <label>Password <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="72"></label>
+        <div class="row">
+          <button type="submit" data-action="login">Log in</button>
+          <button type="submit" data-action="register" class="secondary">Create account</button>
+        </div>
+        <p id="auth-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="composer" class="card" hidden aria-labelledby="composer-title">
+      <h2 id="composer-title">Write a post</h2>
+      <form id="post-form">
+        <label>Title <input id="post-title" required maxlength="200"></label>
+        <label>Body <textarea id="post-body" required maxlength="10000" rows="4"></textarea></label>
+        <button type="submit">Publish</button>
+        <p id="post-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section aria-labelledby="feed-title">
+      <div class="feed-head">
+        <h2 id="feed-title">Latest posts</h2>
+        <form id="search-form" role="search"><input id="search" type="search" placeholder="Search posts" aria-label="Search posts" maxlength="100"></form>
+      </div>
+      <div id="new-banner" class="banner" hidden><button class="link" id="show-new">New posts, click to refresh</button></div>
+      <ol id="feed" class="feed"></ol>
+      <div class="pager">
+        <button id="prev" class="secondary" disabled>Newer</button>
+        <span id="page-info"></span>
+        <button id="next" class="secondary" disabled>Older</button>
+      </div>
+    </section>
+  </main>
+
+  <template id="post-tpl">
+    <li class="card post">
+      <h3 class="title"></h3>
+      <p class="meta"></p>
+      <p class="body"></p>
+      <div class="actions">
+        <button class="like secondary" aria-pressed="false">♥ <span class="likes">0</span></button>
+        <button class="toggle-comments link">💬 <span class="comments">0</span> <span class="comments-word">comments</span></button>
+        <button class="delete link danger" hidden>Delete</button>
+      </div>
+      <div class="comment-box" hidden>
+        <ul class="comment-list"></ul>
+        <form class="comment-form"><input class="comment-input" placeholder="Write a comment" maxlength="2000" aria-label="Write a comment" required><button>Send</button></form>
+      </div>
+    </li>
+  </template>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+line-length = 200
+target-version = "py310"
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "S"]
+ignore = ["S101", "S608", "B008", "S104"]   # asserts in tests; SQL built only from fixed fragments; FastAPI Depends defaults; container binds 0.0.0.0
+[lint.per-file-ignores]
+"tests/*" = ["S105", "S106", "S110", "S310", "S603", "S311"]

@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: blogly
+    metrics_path: /metrics
+    authorization:
+      credentials: local-metrics-token   # must match METRICS_TOKEN in docker-compose.yml
+    static_configs:
+      - targets: ["api:8000"]

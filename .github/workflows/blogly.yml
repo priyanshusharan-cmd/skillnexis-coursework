@@ -1,0 +1,114 @@
+name: Blogly CI/CD
+
+# lint → test (unit + real-browser) → build & smoke-test the Docker image and the compose stack
+# → publish the image to GitHub Container Registry → deploy (Render deploy hook, if configured)
+on:
+  push:
+    paths:
+      - "software-engineer/week-4/**"
+      - ".github/workflows/blogly.yml"
+  pull_request:
+    paths:
+      - "software-engineer/week-4/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blogly-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: software-engineer/week-4
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install ruff
+      - run: ruff check .
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: software-engineer/week-4/requirements-dev.txt }
+      - run: pip install -r requirements-dev.txt
+      - name: Unit and API tests (coverage gate 90%)
+        run: python -m pytest --cov=blogly --cov-branch --cov-report=term --cov-fail-under=90
+      - name: Browser end-to-end tests (two Firefox windows, live WebSocket updates)
+        run: python -m pytest tests/test_e2e.py -v
+        env: { E2E: "1" }
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t blogly:ci .
+      - name: Smoke-test the container
+        run: |
+          docker run -d --name blogly -p 8000:8000 -e JWT_SECRET="$(openssl rand -hex 32)" blogly:ci
+          for i in $(seq 30); do curl -fs localhost:8000/health && break; sleep 1; done
+          curl -fs -XPOST localhost:8000/auth/register -H 'content-type: application/json' -d '{"username":"ci_user","password":"ci-password-123"}'
+          TOKEN=$(curl -fs -XPOST localhost:8000/auth/login -H 'content-type: application/json' -d '{"username":"ci_user","password":"ci-password-123"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)["access_token"])')
+          curl -fs -XPOST localhost:8000/posts -H "authorization: Bearer $TOKEN" -H 'content-type: application/json' -d '{"title":"From CI","body":"container works"}'
+          curl -fs "localhost:8000/posts?q=CI" | grep -q '"From CI"'
+          test "$(docker inspect -f '{{.Config.User}}' blogly)" = "app"   # not running as root
+          sleep 35 && test "$(docker inspect -f '{{.State.Health.Status}}' blogly)" = "healthy"
+          docker logs blogly | tail -3
+      - name: Smoke-test the compose stack (Prometheus scrapes the API)
+        run: |
+          export JWT_SECRET="$(openssl rand -hex 32)"
+          docker compose up -d --build
+          for i in $(seq 60); do
+            curl -fs 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"value":\[[^]]*,"1"\]' && echo "Prometheus target is up" && break
+            sleep 2
+          done
+          curl -fs 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"1"\]'
+          curl -fs -u admin:admin localhost:3000/api/search?query=Blogly | grep -q '"uid":"blogly"' && echo "Grafana dashboard provisioned"
+          docker compose down -v
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: docker
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push ghcr.io image
+        run: |
+          IMAGE=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/blogly
+          docker build -t $IMAGE:${GITHUB_SHA::7} -t $IMAGE:latest .
+          docker push $IMAGE:${GITHUB_SHA::7}
+          docker push $IMAGE:latest
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: publish
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Trigger Render deploy
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_BLOGLY }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "RENDER_DEPLOY_HOOK_BLOGLY not set; skipping deploy"; exit 0; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Deploy triggered"
