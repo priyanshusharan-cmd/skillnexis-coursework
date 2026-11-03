@@ -1,0 +1,14 @@
+{
+  "name": "sn-qa-week3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SkillNexis QA week 3: Selenium automation and Postman API tests against a local demo shop",
+  "scripts": {
+    "shop": "node demo-shop/server.js",
+    "api": "newman run postman/demo-shop.postman_collection.json -e postman/local.postman_environment.json -r cli,json,junit --reporter-json-export results/newman.json --reporter-junit-export results/newman-junit.xml"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "newman": "^6.2.3"
+  }
+}

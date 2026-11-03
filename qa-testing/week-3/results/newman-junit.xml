@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Demo Shop API - QA Week 3" tests="15" time="0.092">
+  <testsuite name="01 Auth / POST /api/login - valid user saves token" id="f3bf3f5f-3966-4f27-99c3-8b366a462a1d" timestamp="2026-11-03T13:06:26.385Z" tests="3" failures="0" errors="0" time="0.035">
+    <testcase name="status is 200" time="0.035" classname="01AuthPostApiLoginValidUserSavesToken"/>
+    <testcase name="returns a 36-char hex token" time="0.035" classname="01AuthPostApiLoginValidUserSavesToken"/>
+    <testcase name="echoes the user" time="0.035" classname="01AuthPostApiLoginValidUserSavesToken"/>
+  </testsuite>
+  <testsuite name="01 Auth / POST /api/login - wrong password is 401" id="15c61ca4-383f-4e4b-af1b-e309fd86dce1" timestamp="2026-11-03T13:06:26.385Z" tests="3" failures="0" errors="0" time="0.004">
+    <testcase name="status is 401" time="0.004" classname="01AuthPostApiLoginWrongPasswordIs401"/>
+    <testcase name="error message" time="0.004" classname="01AuthPostApiLoginWrongPasswordIs401"/>
+    <testcase name="no token leaked" time="0.004" classname="01AuthPostApiLoginWrongPasswordIs401"/>
+  </testsuite>
+  <testsuite name="02 Products / GET /api/products - list" id="a33b40ed-cf51-4976-8e94-81d27d4dc684" timestamp="2026-11-03T13:06:26.385Z" tests="4" failures="0" errors="0" time="0.003">
+    <testcase name="status is 200" time="0.003" classname="02ProductsGetApiProductsList"/>
+    <testcase name="JSON content type" time="0.003" classname="02ProductsGetApiProductsList"/>
+    <testcase name="five products with id, name, price, stock" time="0.003" classname="02ProductsGetApiProductsList"/>
+    <testcase name="responds under 500 ms" time="0.003" classname="02ProductsGetApiProductsList"/>
+  </testsuite>
+  <testsuite name="02 Products / GET /api/products?q=lamp - search" id="61fed562-90fc-48e7-8f8f-5776658286eb" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.008">
+    <testcase name="status is 200" time="0.008" classname="02ProductsGetApiProductsQLampSearch"/>
+    <testcase name="only the Desk Lamp" time="0.008" classname="02ProductsGetApiProductsQLampSearch"/>
+  </testsuite>
+  <testsuite name="02 Products / GET /api/products/{{productId}} - one product" id="44c41c44-ad85-43e0-9901-bd5e14e47c40" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="status is 200" time="0.003" classname="02ProductsGetApiProductsProductIdOneProduct"/>
+    <testcase name="id matches the variable" time="0.003" classname="02ProductsGetApiProductsProductIdOneProduct"/>
+  </testsuite>
+  <testsuite name="02 Products / GET /api/products/999 - unknown id is 404" id="661f7749-f36d-4daa-a70e-a23ac1fea895" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="status is 404" time="0.003" classname="02ProductsGetApiProducts999UnknownIdIs404"/>
+    <testcase name="error message" time="0.003" classname="02ProductsGetApiProducts999UnknownIdIs404"/>
+  </testsuite>
+  <testsuite name="03 Cart / GET /api/cart - no token is 401" id="b2307d06-4a51-4149-91ab-bc42aec1cb16" timestamp="2026-11-03T13:06:26.385Z" tests="1" failures="0" errors="0" time="0.008">
+    <testcase name="status is 401" time="0.008" classname="03CartGetApiCartNoTokenIs401"/>
+  </testsuite>
+  <testsuite name="03 Cart / POST /api/cart - add item" id="e7570084-346d-4688-b308-0da44fd8534e" timestamp="2026-11-03T13:06:26.385Z" tests="3" failures="0" errors="0" time="0.004">
+    <testcase name="status is 201" time="0.004" classname="03CartPostApiCartAddItem"/>
+    <testcase name="cart has the product with qty 2" time="0.004" classname="03CartPostApiCartAddItem"/>
+    <testcase name="total = price x qty" time="0.004" classname="03CartPostApiCartAddItem"/>
+  </testsuite>
+  <testsuite name="03 Cart / POST /api/cart - qty 0 is 400" id="80e15d5c-6118-4e8d-b374-a854c4fc1922" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.005">
+    <testcase name="status is 400" time="0.005" classname="03CartPostApiCartQty0Is400"/>
+    <testcase name="explains the rule" time="0.005" classname="03CartPostApiCartQty0Is400"/>
+  </testsuite>
+  <testsuite name="03 Cart / PUT /api/cart/{{productId}} - change qty" id="1fa9349b-3fcf-443d-9eba-c16201419bab" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="status is 200" time="0.003" classname="03CartPutApiCartProductIdChangeQty"/>
+    <testcase name="qty is now 3" time="0.003" classname="03CartPutApiCartProductIdChangeQty"/>
+  </testsuite>
+  <testsuite name="03 Cart / PUT /api/cart/{{productId}} - qty 11 is 400" id="cdf06caf-3279-43b1-a835-e3bfd2ca03ad" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.002">
+    <testcase name="status is 400" time="0.002" classname="03CartPutApiCartProductIdQty11Is400"/>
+    <testcase name="explains the rule" time="0.002" classname="03CartPutApiCartProductIdQty11Is400"/>
+  </testsuite>
+  <testsuite name="04 Orders / POST /api/orders - invalid details is 400" id="6a13a0f4-2136-41e3-a89f-2eb47a1e57ad" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="status is 400" time="0.004" classname="04OrdersPostApiOrdersInvalidDetailsIs400"/>
+    <testcase name="lists email and PIN errors" time="0.004" classname="04OrdersPostApiOrdersInvalidDetailsIs400"/>
+  </testsuite>
+  <testsuite name="04 Orders / POST /api/orders - place order" id="ca8a3c46-1a9f-4ef8-a89e-341a69c404a7" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="status is 201" time="0.003" classname="04OrdersPostApiOrdersPlaceOrder"/>
+    <testcase name="order has id, items and ship-to" time="0.003" classname="04OrdersPostApiOrdersPlaceOrder"/>
+  </testsuite>
+  <testsuite name="04 Orders / GET /api/cart - empty after order" id="cd93dfc0-c5bf-4cf7-8844-62ab44f3713b" timestamp="2026-11-03T13:06:26.385Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="status is 200" time="0.004" classname="04OrdersGetApiCartEmptyAfterOrder"/>
+    <testcase name="cart is empty" time="0.004" classname="04OrdersGetApiCartEmptyAfterOrder"/>
+  </testsuite>
+  <testsuite name="05 Cleanup / DELETE /api/cart/{{productId}} - not in cart is 404" id="e8bd3540-7efe-4164-9ae8-c924eca18d73" timestamp="2026-11-03T13:06:26.385Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="status is 404" time="0.003" classname="05CleanupDeleteApiCartProductIdNotInCartIs404"/>
+  </testsuite>
+</testsuites>
