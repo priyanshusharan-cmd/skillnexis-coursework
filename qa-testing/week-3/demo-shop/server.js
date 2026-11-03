@@ -13,7 +13,24 @@ const PRODUCTS = [
   { id: 4, name: 'Desk Lamp', price: 24.0, stock: 5 },
   { id: 5, name: 'Notebook Set', price: 9.5, stock: 40 },
 ];
-const sessions = new Map(); // token -> { user, cart: Map<productId, qty> }
+const sessions = new Map(); // token -> { user, cart: Map<productId, qty>, lastSeen }
+// DEF-2 fix: sessions expire after SESSION_TTL_MS of inactivity and the store is capped at
+// MAX_SESSIONS (oldest evicted first), so repeated logins can no longer grow memory without limit.
+const SESSION_TTL_MS = Number(process.env.SESSION_TTL_MS || 30 * 60 * 1000);
+const MAX_SESSIONS = Number(process.env.MAX_SESSIONS || 10000);
+function getSession(token) {
+  const s = token && sessions.get(token);
+  if (!s) return undefined;
+  if (Date.now() - s.lastSeen > SESSION_TTL_MS) { sessions.delete(token); return undefined; }
+  s.lastSeen = Date.now();
+  sessions.delete(token); sessions.set(token, s); // keep Map order = least recently used first
+  return s;
+}
+function sweepSessions() {
+  const cutoff = Date.now() - SESSION_TTL_MS;
+  for (const [token, s] of sessions) if (s.lastSeen < cutoff) sessions.delete(token);
+}
+setInterval(sweepSessions, Math.min(60000, SESSION_TTL_MS)).unref();
 const orders = [];
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -38,7 +55,8 @@ function login(username, password) {
   if (USERS[username] !== password) return { error: 'Username and password do not match' };
   if (LOCKED.has(username)) return { error: 'This user has been locked out' };
   const token = crypto.randomBytes(18).toString('hex');
-  sessions.set(token, { user: username, cart: new Map() });
+  while (sessions.size >= MAX_SESSIONS) sessions.delete(sessions.keys().next().value);
+  sessions.set(token, { user: username, cart: new Map(), lastSeen: Date.now() });
   return { token };
 }
 function validateCheckout({ firstName = '', lastName = '', email = '', postalCode = '' }) {
@@ -78,7 +96,7 @@ const server = http.createServer(async (req, res) => {
   try {
     // ---------- REST API ----------
     if (p.startsWith('/api/')) {
-      if (p === '/api/health') return json(res, 200, { status: 'ok' });
+      if (p === '/api/health') return json(res, 200, { status: 'ok', sessions: sessions.size });
       if (p === '/api/login' && req.method === 'POST') {
         let body; try { body = JSON.parse(await readBody(req) || '{}'); } catch { return json(res, 400, { error: 'Body must be JSON' }); }
         const r = login(body.username, body.password);
@@ -93,7 +111,7 @@ const server = http.createServer(async (req, res) => {
         const x = PRODUCTS.find(y => y.id === Number(prod[1]));
         return x ? json(res, 200, x) : json(res, 404, { error: 'Product not found' });
       }
-      const s = sessions.get(bearer(req));
+      const s = getSession(bearer(req));
       if (!s) return json(res, 401, { error: 'Missing or invalid token' });
       if (p === '/api/cart' && req.method === 'GET') return json(res, 200, cartView(s));
       if (p === '/api/cart' && req.method === 'POST') {
@@ -124,7 +142,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // ---------- Web pages ----------
-    const s = sessions.get(cookieToken(req));
+    const s = getSession(cookieToken(req));
     if (p === '/' && req.method === 'GET') {
       const err = url.searchParams.get('error');
       return send(res, 200, page('Log in', `${err ? `<p class="error" id="login-error" role="alert">${esc(err)}</p>` : ''}

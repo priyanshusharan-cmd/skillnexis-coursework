@@ -1,59 +1,61 @@
 ID,Module,Title,Steps,Test data,Expected result,Priority,Type,Automated by,Status
-TC-001,Login,Valid login,"Open /, enter username and password, click Log in",standard_user / demo-pass-123,Products page with 5 items,P1,Functional,week-3/selenium/test_scenarios.py::test_s01_login_with_valid_credentials,see CI run
-TC-002,Login,Wrong password,"Enter valid username and wrong password, submit",standard_user / wrong-password,Error: Username and password do not match,P1,Negative,week-3/selenium/test_scenarios.py::test_s02_login_with_wrong_password_shows_error,see CI run
-TC-003,Login,Locked user,Log in as locked user,locked_user / demo-pass-123,Error: This user has been locked out,P1,Negative,week-3/selenium/test_scenarios.py::test_s03_locked_out_user_cannot_log_in,see CI run
-TC-004,Login,Empty username,"Leave username empty, enter password, submit",'' / anything,Error: Username is required,P2,Validation,week-3/selenium/test_form_validation.py::test_v01_login_requires_username,see CI run
-TC-005,Login,Empty password,"Enter username, leave password empty, submit",standard_user / '',Error: Password is required,P2,Validation,week-3/selenium/test_form_validation.py::test_v02_login_requires_password,see CI run
-TC-006,Login,Logout ends session,"Log in, click Log out, open /inventory",-,Login page with 'Please log in first',P1,Functional,week-3/selenium/test_scenarios.py::test_s04_logout_ends_session,see CI run
-TC-007,Login,Protected page without login,Open /checkout without logging in,-,Redirect to login with 'Please log in first',P1,Security,week-4/selenium/test_critical.py::test_c11_checkout_page_requires_login,see CI run
-TC-008,Login,Session cookie flags,Log in and inspect Set-Cookie header,-,Cookie has HttpOnly and SameSite=Lax,P2,Security,manual,Manual - not yet executed
-TC-009,Login,Password field masked,Type in the password field,any text,Characters are masked (type=password),P3,Usability,manual,Manual - not yet executed
-TC-010,Login,Username is case-sensitive,Log in as STANDARD_USER,STANDARD_USER / demo-pass-123,Error: Username and password do not match,P3,Negative,manual,Manual - not yet executed
-TC-011,Search,Search one match,Search 'lamp',lamp,"Only Desk Lamp, count '1 product(s)'",P2,Functional,week-3/selenium/test_scenarios.py::test_s05_search_finds_matching_products,see CI run
-TC-012,Search,Search no match,Search 'telescope',telescope,Empty list and no-results message,P2,Negative,week-3/selenium/test_scenarios.py::test_s06_search_with_no_match_shows_message,see CI run
-TC-013,Search,Search is escaped,Search an HTML tag,<b id=injected>bold</b>,"Shown as text, no element injected",P1,Security,week-4/selenium/test_critical.py::test_c14_search_text_is_escaped_not_rendered,see CI run
-TC-014,Search,Search is case-insensitive,Search 'LAMP',LAMP,Desk Lamp is listed,P3,Functional,manual,Manual - not yet executed
-TC-015,Search,Empty search lists all,Submit search with empty box,'',All 5 products listed,P3,Functional,manual,Manual - not yet executed
-TC-016,Search,Partial word match,Search 'note',note,Notebook Set listed,P3,Functional,manual,Manual - not yet executed
-TC-017,Cart,Add two products,"Add backpack and notebooks, open cart",-,"Badge 2, total ₹39.49",P1,Functional,week-3/selenium/test_scenarios.py::test_s07_add_two_products_to_cart,see CI run
-TC-018,Cart,Update quantity,"Add bottle, set qty 3, Update",qty 3,"Total ₹46.50, badge 3",P1,Functional,week-3/selenium/test_scenarios.py::test_s08_update_quantity_recalculates_total,see CI run
-TC-019,Cart,Remove item,"Add mouse, Remove",-,"'Your cart is empty.', badge 0",P1,Functional,week-3/selenium/test_scenarios.py::test_s09_remove_item_empties_cart,see CI run
-TC-020,Cart,Quantity above 10,Set qty 11,11,Error: whole number from 1 to 10; qty unchanged,P2,Boundary,week-4/selenium/test_critical.py::test_c12_quantity_above_ten_is_rejected,see CI run
-TC-021,Cart,Quantity above stock,Desk Lamp qty 6 (stock 5),6,Error: Only 5 in stock,P2,Boundary,week-4/selenium/test_critical.py::test_c13_quantity_above_stock_is_rejected,see CI run
-TC-022,Cart,Cart survives navigation,"Add 2 items, search, reopen cart",-,Both items still in cart,P2,Functional,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,see CI run
-TC-023,Cart,Quantity 0,"Set qty 0, Update",0,Error: whole number from 1 to 10,P2,Boundary,manual,Manual - not yet executed
-TC-024,Cart,Quantity 10 accepted,Set Notebook Set qty 10,10,"Qty 10, total ₹95.00",P3,Boundary,manual,Manual - not yet executed
-TC-025,Cart,Decimal quantity,Set qty 2.5,2.5,Error: whole number from 1 to 10,P3,Validation,manual,Manual - not yet executed
-TC-026,Cart,Empty cart has no Checkout link,Empty the cart,-,No Checkout link shown,P2,Functional,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,see CI run
-TC-027,Checkout,Place order,Checkout with valid details,Priya / Rao / priya@example.com / 560019,"Order placed, badge 0",P1,Functional,week-3/selenium/test_scenarios.py::test_s10_checkout_places_order,see CI run
-TC-028,Checkout,All fields empty,Submit empty checkout,-,4 field errors listed,P1,Validation,week-3/selenium/test_form_validation.py::test_v03_checkout_all_fields_required,see CI run
-TC-029,Checkout,Invalid email (no @),Email 'priya',priya,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya],see CI run
-TC-030,Checkout,Invalid email (no domain),Email 'priya@',priya@,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya@],see CI run
-TC-031,Checkout,Invalid email (no TLD),Email 'priya@example',priya@example,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya@example],see CI run
-TC-032,Checkout,Invalid email (space),Email 'priya @example.com',priya @example.com,Error: Enter a valid email address,P3,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya @example.com],see CI run
-TC-033,Checkout,PIN 5 digits,PIN 56001,56001,Error: PIN code must be 6 digits,P2,Boundary,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[56001],see CI run
-TC-034,Checkout,PIN 7 digits,PIN 5600199,5600199,Error: PIN code must be 6 digits,P2,Boundary,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[5600199],see CI run
-TC-035,Checkout,PIN with letter,PIN 56O019,56O019,Error: PIN code must be 6 digits,P3,Validation,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[56O019],see CI run
-TC-036,Checkout,PIN only spaces,PIN of 6 spaces,'      ',Error: PIN code must be 6 digits,P3,Validation,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[      ],see CI run
-TC-037,Checkout,Empty cart order,Open /checkout with empty cart and submit valid details,-,Error: Cart is empty,P2,Negative,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,see CI run
-TC-038,Checkout,Stock reduces after order,"Order 2 Desk Lamps, GET /api/products/4",-,Stock drops from 5 to 3,P2,Functional,manual,Manual - not yet executed
-TC-039,API,Login returns token,POST /api/login valid,standard_user,"200, 36-char hex token",P1,API,postman: 01 Auth / POST /api/login - valid user saves token,see CI run
-TC-040,API,Login wrong password,POST /api/login wrong password,-,"401, error message, no token",P1,API,postman: 01 Auth / POST /api/login - wrong password is 401,see CI run
-TC-041,API,List products,GET /api/products,-,"200, 5 items with id/name/price/stock, < 500 ms",P1,API,postman: 02 Products / GET /api/products - list,see CI run
-TC-042,API,Search products,GET /api/products?q=lamp,lamp,"200, only Desk Lamp",P2,API,postman: 02 Products / GET /api/products?q=lamp - search,see CI run
-TC-043,API,Product by id,GET /api/products/{{productId}},productId,"200, matching id",P2,API,postman: 02 Products / GET /api/products/{{productId}} - one product,see CI run
-TC-044,API,Unknown product,GET /api/products/999,999,"404, Product not found",P2,API,postman: 02 Products / GET /api/products/999 - unknown id is 404,see CI run
-TC-045,API,Cart needs token,GET /api/cart without token,-,401,P1,API Security,postman: 03 Cart / GET /api/cart - no token is 401,see CI run
-TC-046,API,Add to cart,POST /api/cart qty 2,"productId, 2","201, line qty 2, total = price × 2",P1,API,postman: 03 Cart / POST /api/cart - add item,see CI run
-TC-047,API,Add qty 0,POST /api/cart qty 0,0,"400, explains 1 to 10",P2,API,postman: 03 Cart / POST /api/cart - qty 0 is 400,see CI run
-TC-048,API,Update cart line,PUT /api/cart/{{productId}} qty 3,3,"200, qty 3",P2,API,postman: 03 Cart / PUT /api/cart/{{productId}} - change qty,see CI run
-TC-049,API,Update qty 11,PUT /api/cart/{{productId}} qty 11,11,"400, explains 1 to 10",P2,API,postman: 03 Cart / PUT /api/cart/{{productId}} - qty 11 is 400,see CI run
-TC-050,API,Order with invalid details,POST /api/orders bad email + PIN,priya@ / 5600,"400, two errors",P2,API,postman: 04 Orders / POST /api/orders - invalid details is 400,see CI run
-TC-051,API,Place order,POST /api/orders valid,-,"201, id, items, shipTo",P1,API,postman: 04 Orders / POST /api/orders - place order,see CI run
-TC-052,API,Cart empty after order,GET /api/cart after order,-,"200, no items, total 0",P2,API,postman: 04 Orders / GET /api/cart - empty after order,see CI run
-TC-053,API,Delete line not in cart,DELETE /api/cart/{{productId}},-,404,P3,API,postman: 05 Cleanup / DELETE /api/cart/{{productId}} - not in cart is 404,see CI run
-TC-054,API,Malformed JSON body,POST /api/login with body 'not json',not json,"400, Body must be JSON",P2,API,manual,Manual - not yet executed
-TC-055,Performance,Load: 25 users for 60 s,Run JMeter plan -Jusers=25,-,"Error rate ≤ 1%, p95 ≤ 500 ms",P1,Performance,"jmeter: Load: 25 users, 60 s",see CI run
-TC-056,Performance,Stress: 100 users for 90 s,Run JMeter plan -Jusers=100 -Jrampup=10,-,"Error rate ≤ 1%, p95 ≤ 500 ms",P1,Performance,"jmeter: Stress: 100 users, 90 s",see CI run
-TC-057,Usability,Mobile width,Open every page at 390 px wide,-,"No horizontal scroll, buttons usable",P3,Usability,manual,Manual - not yet executed
-TC-058,Accessibility,Form labels,Inspect login and checkout inputs,-,Every input has a visible label,P3,Accessibility,manual,Manual - not yet executed
+TC-001,Login,Valid login,"Open /, enter username and password, click Log in",standard_user / demo-pass-123,Products page with 5 items,P1,Functional,week-3/selenium/test_scenarios.py::test_s01_login_with_valid_credentials,Pass
+TC-002,Login,Wrong password,"Enter valid username and wrong password, submit",standard_user / wrong-password,Error: Username and password do not match,P1,Negative,week-3/selenium/test_scenarios.py::test_s02_login_with_wrong_password_shows_error,Pass
+TC-003,Login,Locked user,Log in as locked user,locked_user / demo-pass-123,Error: This user has been locked out,P1,Negative,week-3/selenium/test_scenarios.py::test_s03_locked_out_user_cannot_log_in,Pass
+TC-004,Login,Empty username,"Leave username empty, enter password, submit",'' / anything,Error: Username is required,P2,Validation,week-3/selenium/test_form_validation.py::test_v01_login_requires_username,Pass
+TC-005,Login,Empty password,"Enter username, leave password empty, submit",standard_user / '',Error: Password is required,P2,Validation,week-3/selenium/test_form_validation.py::test_v02_login_requires_password,Pass
+TC-006,Login,Logout ends session,"Log in, click Log out, open /inventory",-,Login page with 'Please log in first',P1,Functional,week-3/selenium/test_scenarios.py::test_s04_logout_ends_session,Pass
+TC-007,Login,Protected page without login,Open /checkout without logging in,-,Redirect to login with 'Please log in first',P1,Security,week-4/selenium/test_critical.py::test_c11_checkout_page_requires_login,Pass
+TC-008,Login,Session cookie flags,Log in and inspect Set-Cookie header,-,Cookie has HttpOnly and SameSite=Lax,P2,Security,week-4/scripted-checks.py,Pass
+TC-009,Login,Password field masked,Type in the password field,any text,Characters are masked (type=password),P3,Usability,week-4/scripted-checks.py,Pass
+TC-010,Login,Username is case-sensitive,Log in as STANDARD_USER,STANDARD_USER / demo-pass-123,Error: Username and password do not match,P3,Negative,week-4/scripted-checks.py,Pass
+TC-011,Search,Search one match,Search 'lamp',lamp,"Only Desk Lamp, count '1 product(s)'",P2,Functional,week-3/selenium/test_scenarios.py::test_s05_search_finds_matching_products,Pass
+TC-012,Search,Search no match,Search 'telescope',telescope,Empty list and no-results message,P2,Negative,week-3/selenium/test_scenarios.py::test_s06_search_with_no_match_shows_message,Pass
+TC-013,Search,Search is escaped,Search an HTML tag,<b id=injected>bold</b>,"Shown as text, no element injected",P1,Security,week-4/selenium/test_critical.py::test_c14_search_text_is_escaped_not_rendered,Pass
+TC-014,Search,Search is case-insensitive,Search 'LAMP',LAMP,Desk Lamp is listed,P3,Functional,week-4/scripted-checks.py,Pass
+TC-015,Search,Empty search lists all,Submit search with empty box,'',All 5 products listed,P3,Functional,week-4/scripted-checks.py,Pass
+TC-016,Search,Partial word match,Search 'note',note,Notebook Set listed,P3,Functional,week-4/scripted-checks.py,Pass
+TC-017,Cart,Add two products,"Add backpack and notebooks, open cart",-,"Badge 2, total ₹39.49",P1,Functional,week-3/selenium/test_scenarios.py::test_s07_add_two_products_to_cart,Pass
+TC-018,Cart,Update quantity,"Add bottle, set qty 3, Update",qty 3,"Total ₹46.50, badge 3",P1,Functional,week-3/selenium/test_scenarios.py::test_s08_update_quantity_recalculates_total,Pass
+TC-019,Cart,Remove item,"Add mouse, Remove",-,"'Your cart is empty.', badge 0",P1,Functional,week-3/selenium/test_scenarios.py::test_s09_remove_item_empties_cart,Pass
+TC-020,Cart,Quantity above 10,Set qty 11,11,Error: whole number from 1 to 10; qty unchanged,P2,Boundary,week-4/selenium/test_critical.py::test_c12_quantity_above_ten_is_rejected,Pass
+TC-021,Cart,Quantity above stock,Desk Lamp qty 6 (stock 5),6,Error: Only 5 in stock,P2,Boundary,week-4/selenium/test_critical.py::test_c13_quantity_above_stock_is_rejected,Pass
+TC-022,Cart,Cart survives navigation,"Add 2 items, search, reopen cart",-,Both items still in cart,P2,Functional,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,Pass
+TC-023,Cart,Quantity 0,"Set qty 0, Update",0,Error: whole number from 1 to 10,P2,Boundary,week-4/scripted-checks.py,Pass
+TC-024,Cart,Quantity 10 accepted,Set Notebook Set qty 10,10,"Qty 10, total ₹95.00",P3,Boundary,week-4/scripted-checks.py,Pass
+TC-025,Cart,Decimal quantity,Set qty 2.5,2.5,Error: whole number from 1 to 10,P3,Validation,week-4/scripted-checks.py,Pass
+TC-026,Cart,Empty cart has no Checkout link,Empty the cart,-,No Checkout link shown,P2,Functional,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,Pass
+TC-027,Checkout,Place order,Checkout with valid details,Priya / Rao / priya@example.com / 560019,"Order placed, badge 0",P1,Functional,week-3/selenium/test_scenarios.py::test_s10_checkout_places_order,Pass
+TC-028,Checkout,All fields empty,Submit empty checkout,-,4 field errors listed,P1,Validation,week-3/selenium/test_form_validation.py::test_v03_checkout_all_fields_required,Pass
+TC-029,Checkout,Invalid email (no @),Email 'priya',priya,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya],Pass
+TC-030,Checkout,Invalid email (no domain),Email 'priya@',priya@,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya@],Pass
+TC-031,Checkout,Invalid email (no TLD),Email 'priya@example',priya@example,Error: Enter a valid email address,P2,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya@example],Pass
+TC-032,Checkout,Invalid email (space),Email 'priya @example.com',priya @example.com,Error: Enter a valid email address,P3,Validation,week-3/selenium/test_form_validation.py::test_v04_checkout_rejects_invalid_email[priya @example.com],Pass
+TC-033,Checkout,PIN 5 digits,PIN 56001,56001,Error: PIN code must be 6 digits,P2,Boundary,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[56001],Pass
+TC-034,Checkout,PIN 7 digits,PIN 5600199,5600199,Error: PIN code must be 6 digits,P2,Boundary,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[5600199],Pass
+TC-035,Checkout,PIN with letter,PIN 56O019,56O019,Error: PIN code must be 6 digits,P3,Validation,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[56O019],Pass
+TC-036,Checkout,PIN only spaces,PIN of 6 spaces,'      ',Error: PIN code must be 6 digits,P3,Validation,week-3/selenium/test_form_validation.py::test_v05_checkout_rejects_bad_pin_code[      ],Pass
+TC-037,Checkout,Empty cart order,Open /checkout with empty cart and submit valid details,-,Error: Cart is empty,P2,Negative,week-4/selenium/test_critical.py::test_c15_cart_survives_navigation_and_empty_cart_cannot_checkout,Pass
+TC-038,Checkout,Stock reduces after order,"Order 2 Desk Lamps, GET /api/products/4",-,Stock drops from 5 to 3,P2,Functional,week-4/scripted-checks.py,Pass
+TC-039,API,Login returns token,POST /api/login valid,standard_user,"200, 36-char hex token",P1,API,postman: 01 Auth / POST /api/login - valid user saves token,Pass
+TC-040,API,Login wrong password,POST /api/login wrong password,-,"401, error message, no token",P1,API,postman: 01 Auth / POST /api/login - wrong password is 401,Pass
+TC-041,API,List products,GET /api/products,-,"200, 5 items with id/name/price/stock, < 500 ms",P1,API,postman: 02 Products / GET /api/products - list,Pass
+TC-042,API,Search products,GET /api/products?q=lamp,lamp,"200, only Desk Lamp",P2,API,postman: 02 Products / GET /api/products?q=lamp - search,Pass
+TC-043,API,Product by id,GET /api/products/{{productId}},productId,"200, matching id",P2,API,postman: 02 Products / GET /api/products/{{productId}} - one product,Pass
+TC-044,API,Unknown product,GET /api/products/999,999,"404, Product not found",P2,API,postman: 02 Products / GET /api/products/999 - unknown id is 404,Pass
+TC-045,API,Cart needs token,GET /api/cart without token,-,401,P1,API Security,postman: 03 Cart / GET /api/cart - no token is 401,Pass
+TC-046,API,Add to cart,POST /api/cart qty 2,"productId, 2","201, line qty 2, total = price × 2",P1,API,postman: 03 Cart / POST /api/cart - add item,Pass
+TC-047,API,Add qty 0,POST /api/cart qty 0,0,"400, explains 1 to 10",P2,API,postman: 03 Cart / POST /api/cart - qty 0 is 400,Pass
+TC-048,API,Update cart line,PUT /api/cart/{{productId}} qty 3,3,"200, qty 3",P2,API,postman: 03 Cart / PUT /api/cart/{{productId}} - change qty,Pass
+TC-049,API,Update qty 11,PUT /api/cart/{{productId}} qty 11,11,"400, explains 1 to 10",P2,API,postman: 03 Cart / PUT /api/cart/{{productId}} - qty 11 is 400,Pass
+TC-050,API,Order with invalid details,POST /api/orders bad email + PIN,priya@ / 5600,"400, two errors",P2,API,postman: 04 Orders / POST /api/orders - invalid details is 400,Pass
+TC-051,API,Place order,POST /api/orders valid,-,"201, id, items, shipTo",P1,API,postman: 04 Orders / POST /api/orders - place order,Pass
+TC-052,API,Cart empty after order,GET /api/cart after order,-,"200, no items, total 0",P2,API,postman: 04 Orders / GET /api/cart - empty after order,Pass
+TC-053,API,Delete line not in cart,DELETE /api/cart/{{productId}},-,404,P3,API,postman: 05 Cleanup / DELETE /api/cart/{{productId}} - not in cart is 404,Pass
+TC-054,API,Malformed JSON body,POST /api/login with body 'not json',not json,"400, Body must be JSON",P2,API,week-4/scripted-checks.py,Pass
+TC-055,Performance,Load: 25 users for 60 s,Run JMeter plan -Jusers=25,-,"Error rate ≤ 1%, p95 ≤ 500 ms",P1,Performance,"jmeter: Load: 25 users, 60 s",Pass
+TC-056,Performance,Stress: 100 users for 90 s,Run JMeter plan -Jusers=100 -Jrampup=10,-,"Error rate ≤ 1%, p95 ≤ 500 ms",P1,Performance,"jmeter: Stress: 100 users, 90 s",Pass
+TC-057,Usability,Mobile width and tap targets,Open every page at 390 px wide,-,No horizontal scroll; every link and button at least 24 x 24 px,P3,Usability,week-4/selenium/test_regression_def1.py,"Fail, then Pass after fix (DEF-1)"
+TC-058,Accessibility,Form labels,Inspect login and checkout inputs,-,Every input has a visible label,P3,Accessibility,week-4/scripted-checks.py,Pass
+TC-059,Login,Idle session expires,"Log in, stay idle past the session timeout, call /api/cart",SESSION_TTL_MS=400,401 after the timeout; active sessions stay alive,P2,Reliability,week-4/regression/sessions.test.js,"Fail, then Pass after fix (DEF-2)"
+TC-060,Login,Session store is bounded,"Log in 300 times with MAX_SESSIONS=50, read /api/health",MAX_SESSIONS=50,sessions <= 50; store empties once all are idle,P2,Reliability,week-4/regression/sessions.test.js,"Fail, then Pass after fix (DEF-2)"

@@ -31,10 +31,17 @@ jobs:
         run: |
           pip install selenium pytest
           npm ci --prefix week-3
-      - name: Selenium – 15 critical scenarios + 5 validation scripts (Firefox)
+      - name: Selenium – 15 critical scenarios, 5 validation scripts, DEF-1 regression (Firefox)
         run: python -m pytest -v week-3/selenium week-4/selenium --junitxml=selenium-junit.xml
         env:
           RESULTS_DIR: ${{ github.workspace }}/qa-testing/ci-results
+      - name: Regression tests for defects (Node)
+        run: node --test week-4/regression/sessions.test.js
+      - name: Scripted checks for the remaining test cases
+        run: |
+          PORT=4302 node week-3/demo-shop/server.js &
+          sleep 1
+          python week-4/scripted-checks.py http://127.0.0.1:4302
       - name: Postman collection (Newman)
         run: |
           node week-3/demo-shop/server.js &
