@@ -65,15 +65,16 @@ jobs:
           test "$(docker inspect -f '{{.Config.User}}' blogly)" = "app"   # not running as root
           sleep 35 && test "$(docker inspect -f '{{.State.Health.Status}}' blogly)" = "healthy"
           docker logs blogly | tail -3
+          docker rm -f blogly   # free port 8000 for the compose test
       - name: Smoke-test the compose stack (Prometheus scrapes the API)
         run: |
           export JWT_SECRET="$(openssl rand -hex 32)"
           docker compose up -d --build
           for i in $(seq 60); do
-            curl -fs 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"value":\[[^]]*,"1"\]' && echo "Prometheus target is up" && break
+            curl -fsg 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"value":\[[^]]*,"1"\]' && echo "Prometheus target is up" && break
             sleep 2
           done
-          curl -fs 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"1"\]'
+          curl -fsg 'localhost:9090/api/v1/query?query=up{job="blogly"}' | grep -q '"1"\]'
           curl -fs -u admin:admin localhost:3000/api/search?query=Blogly | grep -q '"uid":"blogly"' && echo "Grafana dashboard provisioned"
           docker compose down -v
 
