@@ -1,0 +1,28 @@
+name: Embedded firmware
+
+# Builds the ATmega328P firmware with avr-gcc, runs the host unit tests,
+# and runs the logger firmware in the simavr simulator with scripted sensor scenarios.
+on:
+  push:
+    paths: ["iot-c-embedded/**", ".github/workflows/embedded.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  firmware:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot-c-embedded/week-2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install AVR toolchain and simavr
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq gcc-avr avr-libc binutils-avr simavr libsimavr-dev libelf-dev
+      - name: Build both firmwares (-Wall -Wextra -Werror)
+        run: make all size
+      - name: Host unit tests (ASan + UBSan)
+        run: make test
+      - name: Run the logger in simavr
+        run: make sim

@@ -1,0 +1,45 @@
+Loaded 2840 .text at address 0x0
+Loaded 90 .data
+simavr: build/logger.elf on atmega328p @ 16 MHz
+  [    10 ms normal            buzzer off] # multi-sensor logger v1.0
+  [    30 ms normal            buzzer off] # ms,temp_c,dist_cm,light_pct,humidity_pct,alerts
+  [    39 ms normal            buzzer off] 6,24.9,80.0,60,55.2,-
+  [   516 ms normal            buzzer off] 506,24.9,80.0,60,55.2,-
+  [  1016 ms normal            buzzer off] 1006,24.9,80.0,60,55.2,-
+  [  1516 ms normal            buzzer off] 1506,24.9,80.0,60,55.2,-
+---- 2000 ms: scenario 'hot 36.5 C'
+  [  2016 ms hot 36.5 C        buzzer ON ] 2006,36.2,80.0,60,56.0,H
+  [  2516 ms hot 36.5 C        buzzer ON ] 2506,36.2,80.0,60,56.0,H
+  [  3016 ms hot 36.5 C        buzzer ON ] 3006,36.2,80.0,60,56.0,H
+  [  3516 ms hot 36.5 C        buzzer ON ] 3506,36.2,80.0,60,56.0,H
+---- 4000 ms: scenario 'cooling 34.5 C'
+  [  4016 ms cooling 34.5 C    buzzer ON ] 4006,34.2,80.0,60,56.0,H
+  [  4516 ms cooling 34.5 C    buzzer ON ] 4506,34.2,80.0,60,56.0,H
+---- 5000 ms: scenario 'cool + object 6cm'
+  [  5011 ms cool + object 6cm buzzer ON ] 5002,24.9,6.0,60,54.8,N
+  [  5511 ms cool + object 6cm buzzer ON ] 5502,24.9,6.0,60,54.8,N
+  [  6011 ms cool + object 6cm buzzer ON ] 6002,24.9,6.0,60,54.8,N
+  [  6511 ms cool + object 6cm buzzer ON ] 6502,24.9,6.0,60,54.8,N
+---- 7000 ms: scenario 'dark 10 %'
+  [  7016 ms dark 10 %         buzzer ON ] 7006,24.9,80.0,10,54.8,D
+  [  7516 ms dark 10 %         buzzer ON ] 7506,24.9,80.0,10,54.8,D
+  [  8016 ms dark 10 %         buzzer ON ] 8006,24.9,80.0,10,54.8,D
+  [  8516 ms dark 10 %         buzzer ON ] 8506,24.9,80.0,10,54.8,D
+---- 9000 ms: scenario 'node offline'
+  [  9015 ms node offline      buzzer off] 9007,24.9,NA,60,NA,-
+  [  9515 ms node offline      buzzer off] 9507,24.9,NA,60,NA,-
+  [ 10016 ms node offline      buzzer off] 10007,24.9,NA,60,NA,-
+  [ 10516 ms node offline      buzzer off] 10507,24.9,NA,60,NA,-
+---- 11000 ms: scenario 'LM35 unplugged'
+  [ 11016 ms LM35 unplugged    buzzer ON ] 11006,0.0,80.0,60,55.2,S
+  [ 11516 ms LM35 unplugged    buzzer ON ] 11506,0.0,80.0,60,55.2,S
+
+Scenario results (alerts shown on the last line of each scenario):
+  normal             expected -   got -    buzzer ok 4/4  humidity ok 4/4  PASS
+  hot 36.5 C         expected H   got H    buzzer ok 4/4  humidity ok 4/4  PASS
+  cooling 34.5 C     expected H   got H    buzzer ok 2/2  humidity ok 2/2  PASS
+  cool + object 6cm  expected N   got N    buzzer ok 4/4  humidity ok 4/4  PASS
+  dark 10 %          expected D   got D    buzzer ok 4/4  humidity ok 4/4  PASS
+  node offline       expected -   got -    buzzer ok 4/4  humidity ok 4/4  PASS
+  LM35 unplugged     expected S   got S    buzzer ok 2/2  humidity ok 2/2  PASS
+24 log lines, 7/7 scenarios passed
