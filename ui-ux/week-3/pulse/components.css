@@ -10,7 +10,7 @@ h1,h2,h3,p{margin:0} button,input,select,textarea{font:inherit;color:inherit}
 .btn:active{transform:scale(.97)} .btn:disabled,.btn.is-disabled{opacity:.45;cursor:not-allowed;transform:none}
 .btn-primary{background:var(--primary);color:var(--on-primary)} .btn-primary:hover:not(:disabled),.btn-primary.is-hover{background:var(--primary-strong)}
 .btn-secondary{background:var(--surface);border-color:var(--border-strong);color:var(--text)} .btn-secondary:hover:not(:disabled),.btn-secondary.is-hover{background:var(--surface-2)}
-.btn-ghost{background:transparent;color:var(--primary)} .btn-ghost:hover:not(:disabled),.btn-ghost.is-hover{background:var(--primary-soft)}
+.btn-ghost{background:transparent;color:var(--primary)} .btn-ghost:hover:not(:disabled),.btn-ghost.is-hover{background:var(--primary-soft);color:var(--primary-strong)}
 .btn-danger{background:var(--danger);color:#fff} .btn-danger:hover:not(:disabled),.btn-danger.is-hover{filter:brightness(.92)}
 .btn.is-focus{outline:2px solid var(--focus);outline-offset:2px}
 .btn-sm{height:32px;padding:0 var(--s3)} .btn-icon{width:40px;padding:0}
@@ -59,7 +59,7 @@ tbody tr{transition:background var(--dur-1)} tbody tr:hover{background:var(--sur
 /* Navigation */
 .nav-item{display:flex;align-items:center;gap:var(--s3);height:40px;padding:0 var(--s3);border-radius:var(--r-md);color:var(--text-2);text-decoration:none;font:var(--t-sm-b);
   transition:background var(--dur-1),color var(--dur-1);cursor:pointer;border:0;background:transparent;width:100%}
-.nav-item:hover{background:var(--surface-2);color:var(--text)} .nav-item[aria-current="page"]{background:var(--primary-soft);color:var(--primary)}
+.nav-item:hover{background:var(--surface-2);color:var(--text)} .nav-item[aria-current="page"]{background:var(--primary-soft);color:var(--primary-strong)}
 .tabs{display:flex;gap:var(--s5);border-bottom:1px solid var(--border)} .tabs button{all:unset;cursor:pointer;padding:10px 0;font:var(--t-sm-b);color:var(--text-2);position:relative}
 .tabs button[aria-selected="true"]{color:var(--text)} .tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--primary);border-radius:2px}
 .crumbs{display:flex;gap:6px;color:var(--text-3);font:var(--t-xs)} .crumbs b{color:var(--text-2)}

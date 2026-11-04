@@ -32,3 +32,6 @@
 | Dark | Chart 4 | `#B48AE6` | `#151B24` | 6.36:1 | 3:1 | pass |
 
 28/28 pass. First draft failed two chart colours on white (teal 2.94:1, amber 2.15:1); they were darkened for the light theme (4.22:1, 3.99:1) and the bright originals kept for dark mode, where they reach 5.9:1 and 8.1:1.
+
+## Automated audit (axe-core 4.10, WCAG 2.2 AA)
+A follow-up axe-core run found what the table above missed: the active navigation label (`primary` on `primary-soft`, 4.46:1) and four avatar colours with white initials (2.8–4.4:1). Fixed: the active label and ghost-button hover now use `primary-strong` (#1D44D6, 6.35:1 on the tint), and the avatar palette was darkened (all ≥ 4.5:1). The prototype and component library now report **0 violations**.
