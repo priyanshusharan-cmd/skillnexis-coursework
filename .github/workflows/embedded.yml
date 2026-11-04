@@ -55,9 +55,11 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - uses: actions/cache@v4
-        with:
-          path: ~/.platformio
-          key: pio-espidf-6.9.0
+        with:   # toolchains only: PlatformIO's Python env (penv) is not portable between cache restores
+          path: |
+            ~/.platformio/packages
+            ~/.platformio/platforms
+          key: pio-pkgs-espidf-6.9.0-v2
       - run: pip install platformio
       - name: Build ESP32 firmware (ESP-IDF via PlatformIO)
         run: pio run
@@ -90,9 +92,11 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - uses: actions/cache@v4
-        with:
-          path: ~/.platformio
-          key: pio-espidf-6.9.0
+        with:   # toolchains only: PlatformIO's Python env (penv) is not portable between cache restores
+          path: |
+            ~/.platformio/packages
+            ~/.platformio/platforms
+          key: pio-pkgs-espidf-6.9.0-v2
       - run: pip install platformio
       - name: Build agri node firmware (FreeRTOS tasks, deep sleep, OTA + rollback)
         run: pio run
