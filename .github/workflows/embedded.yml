@@ -26,3 +26,40 @@ jobs:
         run: make test
       - name: Run the logger in simavr
         run: make sim
+
+  week3:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot-c-embedded/week-3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install AVR toolchain, simavr and Mosquitto
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq gcc-avr avr-libc binutils-avr simavr libsimavr-dev libelf-dev mosquitto mosquitto-clients python3-pil
+      - name: Build (servo/OLED firmware, PC station, tests)
+        run: make all
+      - name: Unit tests (MQTT encoder, BME280 compensation vs datasheet)
+        run: make test
+      - name: MQTT end-to-end against a real Mosquitto broker
+        run: make mqtt-test
+      - name: Servo + OLED firmware in simavr
+        run: make sim
+
+  esp32:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot-c-embedded/week-3/esp32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-espidf-6.9.0
+      - run: pip install platformio
+      - name: Build ESP32 firmware (ESP-IDF via PlatformIO)
+        run: pio run
+      - name: Firmware size
+        run: pio run -t size | tail -15

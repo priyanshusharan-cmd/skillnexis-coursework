@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Station Dashboard</title>
+  <style>
+    :root { --bg:#0f172a; --card:#111c33; --ink:#e2e8f0; --muted:#94a3b8; --line:#1e2a44; --t:#f97316; --h:#38bdf8; --p:#a78bfa; --ok:#22c55e; --bad:#ef4444; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+    header { display:flex; flex-wrap:wrap; gap:12px; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line); }
+    h1 { font-size:1.15rem; margin:0; }
+    .pill { padding:3px 10px; border-radius:999px; font-size:.8rem; background:var(--line); color:var(--muted); }
+    .pill.ok { background:rgba(34,197,94,.15); color:var(--ok); } .pill.bad { background:rgba(239,68,68,.15); color:var(--bad); }
+    .controls { margin-left:auto; display:flex; gap:8px; align-items:center; color:var(--muted); font-size:.85rem; }
+    select, button { background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:6px 10px; font:inherit; min-height:36px; }
+    main { padding:16px 18px; display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; }
+    .k { color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
+    .v { font-size:2rem; font-weight:700; font-variant-numeric:tabular-nums; }
+    .v small { font-size:1rem; color:var(--muted); font-weight:500; }
+    canvas { width:100%; height:140px; display:block; margin-top:6px; }
+    footer { padding:0 18px 18px; color:var(--muted); font-size:.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weather Station</h1>
+    <span id="conn" class="pill">connecting…</span>
+    <span id="dev" class="pill">station: unknown</span>
+    <span id="seq" class="pill">0 readings</span>
+    <div class="controls">
+      <label for="interval">Publish every</label>
+      <select id="interval"><option>1</option><option selected>2</option><option>5</option><option>10</option></select>
+      <span>s</span>
+      <button id="send">Send to station</button>
+    </div>
+  </header>
+  <main>
+    <section class="card"><div class="k">Temperature</div><div class="v" id="t">–<small> °C</small></div><canvas id="ct" width="600" height="140"></canvas></section>
+    <section class="card"><div class="k">Humidity</div><div class="v" id="h">–<small> %RH</small></div><canvas id="ch" width="600" height="140"></canvas></section>
+    <section class="card"><div class="k">Pressure</div><div class="v" id="p">–<small> hPa</small></div><canvas id="cp" width="600" height="140"></canvas></section>
+  </main>
+  <footer id="foot">Broker: <span id="broker"></span> · topic weather/+/state · last update <span id="last">never</span> · gaps detected: <span id="gaps">0</span></footer>
+  <script src="vendor/mqtt.min.js"></script>
+  <script>
+    // Broker URL: ?broker=ws://host:9001 (default: same host as this page, port 9001).
+    const params = new URLSearchParams(location.search);
+    const BROKER = params.get("broker") || `ws://${location.hostname || "127.0.0.1"}:9001`;
+    const MAX = 120;
+    const series = { t: [], h: [], p: [] };
+    const colors = { t: "--t", h: "--h", p: "--p" };
+    let station = null, lastSeq = null, gaps = 0, count = 0;
+    document.getElementById("broker").textContent = BROKER;
+
+    function draw(key) {
+      const c = document.getElementById("c" + key), g = c.getContext("2d"), data = series[key];
+      const css = getComputedStyle(document.documentElement);
+      g.clearRect(0, 0, c.width, c.height);
+      if (data.length < 2) return;
+      const lo = Math.min(...data), hi = Math.max(...data), pad = (hi - lo) * 0.15 || 0.5;
+      const y = v => c.height - 16 - ((v - (lo - pad)) / (hi - lo + 2 * pad)) * (c.height - 28);
+      g.strokeStyle = css.getPropertyValue("--line"); g.lineWidth = 1;
+      for (let i = 1; i < 4; i++) { g.beginPath(); g.moveTo(0, i * c.height / 4); g.lineTo(c.width, i * c.height / 4); g.stroke(); }
+      g.strokeStyle = css.getPropertyValue(colors[key]); g.lineWidth = 2.5; g.beginPath();
+      data.forEach((v, i) => { const x = (i / (MAX - 1)) * c.width; i ? g.lineTo(x, y(v)) : g.moveTo(x, y(v)); });
+      g.stroke();
+      g.fillStyle = css.getPropertyValue("--muted"); g.font = "17px system-ui";
+      g.fillText(`min ${lo.toFixed(1)}  max ${hi.toFixed(1)}`, 6, 18);
+    }
+
+    function setPill(id, text, cls) { const el = document.getElementById(id); el.textContent = text; el.className = "pill " + (cls || ""); }
+
+    const client = mqtt.connect(BROKER, { clientId: "dash-" + Math.random().toString(16).slice(2, 8), reconnectPeriod: 2000 });
+    client.on("connect", () => { setPill("conn", "broker connected", "ok"); client.subscribe(["weather/+/state", "weather/+/status"]); });
+    client.on("reconnect", () => setPill("conn", "reconnecting…", "bad"));
+    client.on("offline", () => setPill("conn", "broker offline", "bad"));
+    client.on("message", (topic, buf) => {
+      const [, id, kind] = topic.split("/");
+      const text = buf.toString();
+      if (kind === "status") { setPill("dev", `${id}: ${text}`, text === "online" ? "ok" : "bad"); return; }
+      let m;
+      try { m = JSON.parse(text); } catch { return; }
+      station = id;
+      if (lastSeq !== null && m.seq > lastSeq + 1) gaps += m.seq - lastSeq - 1;
+      lastSeq = m.seq;
+      count++;
+      for (const k of ["t", "h", "p"]) { series[k].push(m[k]); if (series[k].length > MAX) series[k].shift(); draw(k); }
+      document.getElementById("t").firstChild.nodeValue = m.t.toFixed(1);
+      document.getElementById("h").firstChild.nodeValue = m.h.toFixed(1);
+      document.getElementById("p").firstChild.nodeValue = m.p.toFixed(1);
+      document.getElementById("seq").textContent = `${count} readings`;
+      document.getElementById("last").textContent = new Date().toLocaleTimeString();
+      document.getElementById("gaps").textContent = gaps;
+    });
+    document.getElementById("send").addEventListener("click", () => {
+      if (!station) return alert("No station has reported yet");
+      client.publish(`weather/${station}/cmd`, `interval=${document.getElementById("interval").value}`);
+    });
+  </script>
+</body>
+</html>

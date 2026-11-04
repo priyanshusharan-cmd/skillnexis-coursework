@@ -1,0 +1,12 @@
+weather/ws-test/status online
+weather/ws-test/state {"id":"ws-test","seq":1,"t":26.50,"h":55.00,"p":1006.50,"uptime":0}
+weather/ws-test/state {"id":"ws-test","seq":2,"t":26.98,"h":53.42,"p":1006.54,"uptime":2}
+weather/ws-test/state {"id":"ws-test","seq":3,"t":27.45,"h":51.86,"p":1006.58,"uptime":4}
+weather/ws-test/cmd interval=1
+weather/ws-test/state {"id":"ws-test","seq":4,"t":27.91,"h":50.32,"p":1006.63,"uptime":6}
+weather/ws-test/state {"id":"ws-test","seq":5,"t":28.13,"h":49.59,"p":1006.65,"uptime":7}
+weather/ws-test/state {"id":"ws-test","seq":6,"t":28.35,"h":48.86,"p":1006.67,"uptime":8}
+weather/ws-test/state {"id":"ws-test","seq":7,"t":28.55,"h":48.18,"p":1006.69,"uptime":9}
+weather/ws-test/state {"id":"ws-test","seq":8,"t":28.76,"h":47.49,"p":1006.71,"uptime":10}
+weather/ws-test/state {"id":"ws-test","seq":9,"t":28.96,"h":46.82,"p":1006.73,"uptime":11}
+weather/ws-test/status offline

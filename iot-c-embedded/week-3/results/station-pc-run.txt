@@ -1,0 +1,14 @@
+[mqtt] connected to 127.0.0.1:18883 as ws-test
+[mqtt] subscribed to weather/ws-test/cmd
+[pub] {"id":"ws-test","seq":1,"t":26.50,"h":55.00,"p":1006.50,"uptime":0}   | OLED: ws-test     MQTT / Temp    26.5 C / Hum     55.0 % / P   1006.5 hPa
+[pub] {"id":"ws-test","seq":2,"t":26.98,"h":53.42,"p":1006.54,"uptime":2}   | OLED: ws-test     MQTT / Temp    26.9 C / Hum     53.4 % / P   1006.5 hPa
+[pub] {"id":"ws-test","seq":3,"t":27.45,"h":51.86,"p":1006.58,"uptime":4}   | OLED: ws-test     MQTT / Temp    27.4 C / Hum     51.8 % / P   1006.5 hPa
+[cmd] weather/ws-test/cmd <- interval=1
+[cmd] publish interval is now 1000 ms
+[pub] {"id":"ws-test","seq":4,"t":27.91,"h":50.32,"p":1006.63,"uptime":6}   | OLED: ws-test     MQTT / Temp    27.9 C / Hum     50.3 % / P   1006.6 hPa
+[pub] {"id":"ws-test","seq":5,"t":28.13,"h":49.59,"p":1006.65,"uptime":7}   | OLED: ws-test     MQTT / Temp    28.1 C / Hum     49.5 % / P   1006.6 hPa
+[pub] {"id":"ws-test","seq":6,"t":28.35,"h":48.86,"p":1006.67,"uptime":8}   | OLED: ws-test     MQTT / Temp    28.3 C / Hum     48.8 % / P   1006.6 hPa
+[pub] {"id":"ws-test","seq":7,"t":28.55,"h":48.18,"p":1006.69,"uptime":9}   | OLED: ws-test     MQTT / Temp    28.5 C / Hum     48.1 % / P   1006.6 hPa
+[pub] {"id":"ws-test","seq":8,"t":28.76,"h":47.49,"p":1006.71,"uptime":10}   | OLED: ws-test     MQTT / Temp    28.7 C / Hum     47.4 % / P   1006.7 hPa
+[pub] {"id":"ws-test","seq":9,"t":28.96,"h":46.82,"p":1006.73,"uptime":11}   | OLED: ws-test     MQTT / Temp    28.9 C / Hum     46.8 % / P   1006.7 hPa
+[mqtt] done: 9 readings, 1 interval change(s)
