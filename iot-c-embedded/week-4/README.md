@@ -36,13 +36,13 @@ An ESP32 node that watches soil moisture, temperature and light, waters plants t
 
 | Scripted event | Expected | Result (FreeRTOS, CI) |
 | --- | --- | --- |
-| Day 2, 14:00–17:00: tank empty | Pump never runs; waters once refilled | PASS (lockout at 14:00, watered at 17:28) |
+| Day 2, 14:00–17:00: tank empty | Pump never runs; waters once refilled | PASS (lockout at 14:00, watered at 17:05 just after the refill) |
 | Day 3, 02:00–02:30: probe unplugged | Sensor-fault lockout, recovers | PASS |
 | Day 3, 07:00: MQTT `water` | Manual watering at the next wake-up | PASS |
 | Day 3, 12:00: MQTT `ota=...` | Reaches the OTA handler | PASS |
 | Whole run | No watering > 300 s, daily budget never exceeded, ≥ 1 watering/day, asleep > 95 % | PASS: 4 waterings, ~290 s of pumping per day, **awake 1.3–1.45 %** |
 
-On day 1 the soil crosses 35 % around 13:00 but the controller waits out the heat and waters at 16:35 (chart above). That is the heat rule doing its job.
+On day 1 the soil crosses 35 % around 13:00 but the controller waits out the heat and waters at about 16:40 (chart above; exact minutes vary by a few between runs because of sensor noise). That is the heat rule doing its job.
 
 ![Firmware flowchart](docs/flowchart.png)
 
