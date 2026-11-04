@@ -1,4 +1,4 @@
-name: AWS weeks 2-3 (IaC, emulated)
+name: AWS weeks 2-4 (IaC, emulated)
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        week: [week-2, week-3]
+        week: [week-2, week-3, week-4]
     defaults:
       run:
         working-directory: aws-cloud/${{ matrix.week }}

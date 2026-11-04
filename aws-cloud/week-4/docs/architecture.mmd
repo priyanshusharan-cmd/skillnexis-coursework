@@ -1,0 +1,32 @@
+flowchart LR
+  U["Students<br/>(browser / app)"]
+  subgraph edge["Edge"]
+    CF["CloudFront<br/>HTTPS, security headers"]
+    COG["Cognito<br/>user pool, MFA"]
+  end
+  subgraph region["ap-south-1 (Mumbai)"]
+    subgraph serverless["Serverless API (week 2)"]
+      APIGW["HTTP API<br/>JWT auth, throttling"] --> L["Lambda<br/>arm64, least privilege"]
+      L --> DDB[("DynamoDB<br/>PITR + daily backup")]
+      L --> S3A[("S3 attachments<br/>private, versioned")]
+    end
+    subgraph vpc["VPC 10.20.0.0/16, 2 AZs (weeks 2-3)"]
+      ALB["Application Load Balancer"] --> ASG["Auto Scaling group<br/>1-3 x t3.micro"]
+    end
+    S3S[("S3 static site<br/>OAC only")]
+    subgraph ops["Operations (week 4)"]
+      CW["CloudWatch dashboard<br/>+ composite alarm"]
+      CT["CloudTrail to locked bucket"] --> EB["EventBridge rules<br/>root login, no MFA, IAM/SG changes"]
+      BK["AWS Backup vault<br/>35 days, no early delete"]
+      SNS["SNS email alerts"]
+    end
+  end
+  GH["GitHub Actions<br/>OIDC role, no keys"]
+  U --> CF --> S3S
+  U --> COG
+  U --> APIGW
+  U --> ALB
+  CW --> SNS
+  EB --> SNS
+  BK -. nightly .-> DDB
+  GH -- "s3 sync + invalidate" --> S3S

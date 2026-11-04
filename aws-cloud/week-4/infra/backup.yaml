@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Daily AWS Backup of everything tagged backup=daily (the study-links DynamoDB table), kept 35 days, in a vault
+  that nobody can delete recovery points from early. Together with DynamoDB point-in-time recovery
+  (any second in the last 35 days) this gives RPO of seconds for accidents and 24 h for a bad deploy found late.
+
+Resources:
+  Vault:
+    Type: AWS::Backup::BackupVault
+    Properties:
+      BackupVaultName: study-links-vault
+      AccessPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: NoEarlyDeletes
+            Effect: Deny
+            Principal: "*"
+            Action: [backup:DeleteRecoveryPoint, backup:UpdateRecoveryPointLifecycle]
+            Resource: "*"
+
+  Plan:
+    Type: AWS::Backup::BackupPlan
+    Properties:
+      BackupPlan:
+        BackupPlanName: daily-35d
+        BackupPlanRule:
+          - RuleName: daily
+            TargetBackupVault: !Ref Vault
+            ScheduleExpression: cron(30 20 * * ? *)     # 02:00 IST
+            StartWindowMinutes: 60
+            CompletionWindowMinutes: 180
+            Lifecycle: { DeleteAfterDays: 35 }
+
+  BackupRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement: [{ Effect: Allow, Principal: { Service: backup.amazonaws.com }, Action: sts:AssumeRole }]
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup
+        - arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores
+
+  Selection:
+    Type: AWS::Backup::BackupSelection
+    Properties:
+      BackupPlanId: !Ref Plan
+      BackupSelection:
+        SelectionName: tagged-daily
+        IamRoleArn: !GetAtt BackupRole.Arn
+        ListOfTags: [{ ConditionType: STRINGEQUALS, ConditionKey: backup, ConditionValue: daily }]
