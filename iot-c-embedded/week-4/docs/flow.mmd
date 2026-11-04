@@ -1,0 +1,21 @@
+flowchart TD
+    A([Wake-up: RTC timer or button]) --> B[Restore state from RTC memory]
+    B --> C{WiFi + MQTT within 8 s?}
+    C -- yes --> D[Mark new firmware valid if pending OTA verify]
+    C -- no --> E[Offline mode: local control only]
+    D --> F[Start FreeRTOS tasks: sensor, control, display, net]
+    E --> F
+    F --> G[sensor task: sample soil, light, battery, BME280, float switch]
+    G --> H[control task: irrigation state machine]
+    H --> I{Tank empty or probe fault?}
+    I -- yes --> J[Pump OFF, lockout, report] --> P
+    I -- no --> K{Soil below 35 % and budget left?}
+    K -- no --> P
+    K -- yes --> L{Midday heat and soil not critical?}
+    L -- yes --> P[Decide sleep time 5 min - 2 h]
+    L -- no --> M[Pump ON - stay awake, sample every 2 s]
+    M --> N{Soil above 60 %, 300 s reached or budget used?}
+    N -- no --> M
+    N -- yes --> O[Pump OFF, rest 30 min] --> P
+    P --> Q[net task publishes final status]
+    Q --> R([Deep sleep, wake on timer or button])

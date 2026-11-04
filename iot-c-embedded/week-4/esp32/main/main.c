@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include "../../app/app.h"
+#include "../../app/hal.h"
 #include "driver/rtc_io.h"
 #include "esp_event.h"
 #include "esp_log.h"

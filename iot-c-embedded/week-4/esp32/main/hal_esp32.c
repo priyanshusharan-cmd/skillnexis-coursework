@@ -1,7 +1,7 @@
 /* ESP32 implementation of app/hal.h.
  *
  *  GPIO34 ADC1_CH6  soil probe (capacitive v1.2, powered from GPIO32 only while sampling)
- *  GPIO35 ADC1_CH7  LDR divider            GPIO33 ADC1_CH5  battery via 100k/100k divider
+ *  GPIO36 ADC1_CH0  LDR divider            GPIO33 ADC1_CH5  battery via 100k/100k divider
  *  GPIO27           tank float switch (to GND, internal pull-up; closed = water present)
  *  GPIO26           pump relay / MOSFET gate (active high)
  *  GPIO21/22        I2C: BME280 0x76 + SSD1306 0x3C
@@ -74,7 +74,7 @@ bool hal_read(hal_sample_t *o) {
     vTaskDelay(pdMS_TO_TICKS(100));           /* probe settles */
     o->soil_raw = (uint16_t)adc_avg(ADC_CHANNEL_6);
     gpio_set_level(PIN_SOIL_PWR, 0);
-    o->light_raw = (uint16_t)adc_avg(ADC_CHANNEL_7);
+    o->light_raw = (uint16_t)adc_avg(ADC_CHANNEL_0);
     o->batt_raw = (uint16_t)adc_avg(ADC_CHANNEL_5);
     o->tank_ok = gpio_get_level(PIN_TANK) == 0;
     o->temp_ok = false;
@@ -159,7 +159,7 @@ void hal_esp32_init(mqtt_client_t *mqtt, const char *node_id) {
     adc_oneshot_chan_cfg_t ch = {.atten = ADC_ATTEN_DB_12, .bitwidth = ADC_BITWIDTH_12};
     adc_oneshot_config_channel(s_adc, ADC_CHANNEL_5, &ch);
     adc_oneshot_config_channel(s_adc, ADC_CHANNEL_6, &ch);
-    adc_oneshot_config_channel(s_adc, ADC_CHANNEL_7, &ch);
+    adc_oneshot_config_channel(s_adc, ADC_CHANNEL_0, &ch);
 
     i2c_config_t i2c = {.mode = I2C_MODE_MASTER, .sda_io_num = 21, .scl_io_num = 22, .sda_pullup_en = GPIO_PULLUP_ENABLE,
                         .scl_pullup_en = GPIO_PULLUP_ENABLE, .master.clk_speed = 400000};

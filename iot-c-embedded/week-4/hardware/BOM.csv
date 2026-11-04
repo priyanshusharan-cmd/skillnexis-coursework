@@ -1,0 +1,26 @@
+Ref,Qty,Part,Value / MPN,Footprint,Notes,Approx price (INR)
+U2,1,ESP32 DevKit,DOIT ESP32 DevKit V1 (30-pin),2x PinSocket 1x15 2.54 mm,Plugs into sockets; remove its power LED for battery use,350
+U1,1,LDO 3.3 V 500 mA,ME6211C33M5G (or AP2112K-3.3),SOT-23-5,Low quiescent current (40 uA),15
+Q1,1,N-MOSFET logic-level,AO3400A,SOT-23,30 V / 5.7 A; Rds(on) < 50 mOhm at Vgs 2.5 V,5
+D1,1,Schottky flyback diode,SS14,SMA,Across the pump,3
+R1,1,Resistor,100 Ohm,0805,Gate series,1
+R2,1,Resistor,100k,0805,Gate pull-down: pump stays off while the ESP32 boots,1
+R3 R4,2,Resistor,100k 1%,0805,Battery divider (VBAT/2),2
+R5,1,Resistor,10k,0805,LDR divider,1
+C1 C2,2,Ceramic capacitor,10 uF 10 V X5R,0805,LDO in/out,4
+C3,1,Electrolytic capacitor,470 uF 6.3 V,CP_Elec_6.3x5.8,Covers WiFi current bursts,8
+C4,1,Ceramic capacitor,100 nF,0805,ADC filter on the divider,1
+SW1,1,Tactile switch,6x6 mm THT,SW_PUSH_6mm,Wake / water now,3
+J1 J2,2,Screw terminal,Phoenix MKDS 1.5/2 (5.00 mm),TerminalBlock_Phoenix,Battery in / pump out,20
+J3,1,Pin header,1x03 2.54 mm,PinHeader_1x03,Capacitive soil probe v1.2,2
+J4 J5,2,Pin header,1x02 2.54 mm,PinHeader_1x02,LDR / float switch,2
+J6 J7,2,Pin header,1x04 2.54 mm,PinHeader_1x04,BME280 / SSD1306 OLED,3
+-,1,Capacitive soil moisture sensor,v1.2 (corrosion-resistant),-,-,80
+-,1,BME280 module,I2C 0x76,-,-,250
+-,1,SSD1306 OLED 0.96 in,I2C 0x3C,-,-,180
+-,1,Float switch,Vertical PP,-,Normally closed when water present,60
+-,1,LDR,GL5528,-,-,5
+-,1,Mini submersible pump,3-6 V DC,-,With silicone tubing,120
+-,1,18650 cell + holder,3000 mAh protected,-,-,250
+-,1,Solar charger,TP4056 + DW01 module + 1 W 6 V panel,-,-,200
+-,1,PCB,85 x 62 mm 2-layer 1.6 mm,-,JLCPCB / PCBWay: 5 pcs,450
