@@ -63,3 +63,38 @@ jobs:
         run: pio run
       - name: Firmware size
         run: pio run -t size | tail -15
+
+  week4:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot-c-embedded/week-4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install plotting
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq python3-matplotlib
+      - name: Irrigation logic unit tests
+        run: make test
+      - name: 3-day simulation, real FreeRTOS kernel (POSIX port)
+        run: make sim-freertos
+      - name: 3-day simulation, pthread stand-in + chart
+        run: make sim
+
+  esp32-week4:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot-c-embedded/week-4/esp32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-espidf-6.9.0
+      - run: pip install platformio
+      - name: Build agri node firmware (FreeRTOS tasks, deep sleep, OTA + rollback)
+        run: pio run
+      - name: Firmware size
+        run: pio run -t size | tail -15

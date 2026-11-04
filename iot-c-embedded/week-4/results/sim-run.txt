@@ -1,0 +1,33 @@
+[day 1 16:38] state idle -> watering (dry) soil=31%
+[day 1 16:43] state watering -> resting (wet-enough) soil=60%
+[day 1 17:13] state resting -> idle (none) soil=59%
+[day 2 14:00] state idle -> lockout (tank-empty) soil=40%
+[day 2 17:05] state lockout -> watering (dry) soil=34%
+[day 2 17:09] state watering -> resting (wet-enough) soil=60%
+[day 2 17:39] state resting -> idle (none) soil=58%
+[day 3 02:12] state idle -> lockout (sensor-fault) soil=0%
+[day 3 02:33] state lockout -> idle (none) soil=52%
+[day 3 07:05] command: water
+[day 3 07:05] state idle -> watering (manual) soil=50%
+[day 3 07:07] state watering -> resting (wet-enough) soil=60%
+[day 3 07:37] state resting -> idle (none) soil=59%
+[day 3 12:09] command: ota=https://example.com/agri-node-v1.1.bin
+[day 3 12:09] OTA requested (simulated: no flash to write)
+[day 3 12:09] OTA failed, staying on the current firmware
+[day 3 17:46] state idle -> watering (dry) soil=34%
+[day 3 17:49] state watering -> resting (wet-enough) soil=60%
+[day 3 18:20] state resting -> idle (none) soil=57%
+
+3 simulated days: 413 wake-ups, 4 waterings, pump ran 865 s, awake 1.45% of the time (longest wake 298 s)
+Last OLED frame: | SOIL  53% idle | TEMP  16.5C HUM 90% | LIGHT   0% TANK OK | BAT 3.90V H2O 329s |
+
+  pump never ran while the tank was empty (day 2 14:00-17:00)    PASS
+  no watering longer than max_run_s (300 s)                      PASS
+  daily water budget never exceeded                              PASS
+  unplugged probe caused a sensor-fault lockout                  PASS
+  MQTT 'water' command started a manual watering                 PASS
+  MQTT 'ota=' command reached the OTA handler                    PASS
+  node slept more than 95% of the time                           PASS
+  soil was watered at least once per day                         PASS
+
+0 failure(s)
