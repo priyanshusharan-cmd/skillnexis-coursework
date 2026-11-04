@@ -1,0 +1,10 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+tensorflow-cpu
+ai-edge-litert
+paho-mqtt>=2
+cryptography
+streamlit
+pytest

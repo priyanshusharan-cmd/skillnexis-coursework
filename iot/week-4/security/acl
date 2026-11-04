@@ -1,0 +1,26 @@
+# Least privilege: each identity (certificate CN) can only touch its own topics.
+
+user esp32-living
+topic write home/living/telemetry
+topic write home/living/status
+topic read home/living/cmd
+
+user esp32-bedroom
+topic write home/bedroom/telemetry
+topic write home/bedroom/status
+topic read home/bedroom/cmd
+
+# the hub runs the automation: reads everything in the home, sends commands and notifications
+user hub
+topic readwrite home/#
+topic write notify/#
+
+# the phone app: sees notifications and state, may send manual commands, can't impersonate a sensor
+user phone
+topic read notify/#
+topic read home/+/state
+topic write home/+/request
+
+# the Pi's voice keyword spotter (week 3) may only send voice requests
+user voice
+topic write home/+/request

@@ -1,0 +1,62 @@
+name: AI smart home (IoT-AI week 4)
+
+on:
+  push:
+    paths: ["iot/week-4/**", ".github/workflows/smarthome.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: iot/week-4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: Install Mosquitto, mbedTLS and Python packages
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq mosquitto libmbedtls-dev
+          pip install -q -r requirements.txt
+      - name: Tests (security against the real broker config, firmware C++ on host, ML, hub end to end)
+        run: python -m pytest -q tests
+
+  esp32-tflite-micro:
+    runs-on: ubuntu-24.04
+    container: espressif/idf:v5.3.1
+    defaults:
+      run:
+        shell: bash
+        working-directory: iot/week-4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Device certificates (throwaway CA for the CI build)
+        run: ./security/gen_certs.sh /tmp/certs && ./firmware/provision.sh esp32-living /tmp/certs
+      - name: Build firmware with TensorFlow Lite Micro (esp-tflite-micro from the component registry)
+        working-directory: iot/week-4/firmware
+        run: |
+          . $IDF_PATH/export.sh
+          idf.py set-target esp32 build
+          idf.py size | tail -20
+      - name: Run the on-device model self-test in QEMU (ESP32 emulator)
+        working-directory: iot/week-4/firmware
+        run: |
+          . $IDF_PATH/export.sh
+          which qemu-system-xtensa || { python $IDF_PATH/tools/idf_tools.py install qemu-xtensa && . $IDF_PATH/export.sh; }
+          cd build
+          esptool.py --chip esp32 merge_bin --fill-flash-size 4MB -o flash.bin @flash_args
+          timeout 60 qemu-system-xtensa -nographic -machine esp32 -m 4M -drive file=flash.bin,if=mtd,format=raw \
+            -global driver=timer.esp32.timg,property=wdt_disable,value=true > qemu.log 2>&1 || true
+          grep -a -E "SELFTEST|Guru|abort" qemu.log || { tail -60 qemu.log; exit 1; }
+          grep -a -q "SELFTEST PASS" qemu.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: esp32-qemu-log
+          path: |
+            iot/week-4/firmware/build/qemu.log
+            iot/week-4/firmware/build/smarthome_node.bin

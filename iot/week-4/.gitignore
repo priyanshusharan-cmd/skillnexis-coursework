@@ -1,0 +1,8 @@
+security/certs/
+*.db
+__pycache__/
+firmware/build/
+firmware/sdkconfig
+firmware/managed_components/
+firmware/dependencies.lock
+firmware/main/certs/

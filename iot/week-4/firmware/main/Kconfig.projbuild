@@ -1,0 +1,29 @@
+menu "Smart home node"
+    config WIFI_SSID
+        string "WiFi SSID"
+        default "smarthome"
+    config WIFI_PASSWORD
+        string "WiFi password"
+        default "change-me"
+    config BROKER_URI
+        string "MQTT broker (TLS)"
+        default "mqtts://smarthome.local:8883"
+    config ROOM
+        string "Room name (living / bedroom)"
+        default "living"
+    config DEVICE_ID
+        string "Device id = certificate CN"
+        default "esp32-living"
+    config AES_KEY_HEX
+        string "Development AES-256 payload key (64 hex chars); production keys come from encrypted NVS"
+        default "0000000000000000000000000000000000000000000000000000000000000000"
+    config NODE_TZ
+        string "POSIX time zone"
+        default "IST-5:30"
+    config SOUND_DB_OFFSET
+        int "Microphone calibration: dB added to 20*log10(rms mV)"
+        default 18
+    config LDR_LUX_PER_V
+        int "LDR calibration: lux per volt (x1000 = per mV)"
+        default 250
+endmenu
