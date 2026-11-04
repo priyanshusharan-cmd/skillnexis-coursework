@@ -1,0 +1,12 @@
+numpy
+pandas
+opencv-python-headless<5
+scikit-image
+scikit-learn
+matplotlib
+tensorflow-cpu
+ai-edge-litert
+paho-mqtt>=2
+python_speech_features
+streamlit
+pytest
