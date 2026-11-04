@@ -1,0 +1,255 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hisaab · UI/UX case study</title><style>
+:root{--ink:#101828;--ink2:#344054;--ink3:#5D6B82;--brand:#0F766E;--tint:#D5F5EF;--dark:#0B3B37;--line:#E4E7EC;--bg:#FAFBFA}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif}
+header{background:var(--dark);color:#fff;padding:72px 24px 56px} header .in,main{max-width:960px;margin:auto} header .in{padding:0 24px}
+header .eyebrow{color:var(--tint);font:600 13px Inter;letter-spacing:.12em;text-transform:uppercase}
+header h1{font:800 clamp(34px,5vw,54px)/1.1 'Inter Display',Inter,sans-serif;margin:12px 0 16px;max-width:820px}
+header p{color:#cfe9e4;max-width:760px;margin:0} main{padding:24px 24px 96px}
+main>h1{display:none} h2{font:700 30px/1.2 'Inter Display',Inter;margin:72px 0 16px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font:700 21px 'Inter Display',Inter;margin:36px 0 12px} p,li{color:var(--ink2)} strong{color:var(--ink)}
+img{width:100%;border-radius:20px;background:#e9eeec;margin:16px 0;display:block}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.08)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top} th{background:var(--tint);color:var(--dark);font-weight:700}
+tr:last-child td{border-bottom:0} code{background:var(--tint);padding:1px 6px;border-radius:5px;font-size:.9em} a{color:var(--brand)}
+.sources{font-size:14px;color:var(--ink3);margin-top:64px;border-top:1px solid var(--line);padding-top:16px} .sources p{color:var(--ink3)}
+@media (max-width:640px){table{display:block;overflow-x:auto;white-space:nowrap}}
+</style></head><body>
+<header><div class="in"><div class="eyebrow">UI/UX case study · 2026</div><h1>Hisaab: settling hostel and trip expenses without the awkwardness</h1>
+<p>Solo project: research, information architecture, interaction and visual design, a clickable prototype and developer handoff for an expense-splitting app built around UPI.</p></div></header>
+<main><h1>Hisaab: settling hostel and trip expenses without the awkwardness</h1>
+<p><strong>Role:</strong> solo UI/UX designer (research, IA, interaction and visual design, prototyping, handoff) · <strong>Timeline:</strong> 1 week ·
+<strong>Platform:</strong> Android and iOS (mobile-first) · <strong>Tools:</strong> HTML/CSS design-in-code, Playwright for exports, axe-core for accessibility</p>
+<p><img alt="Hisaab: 18 high-fidelity screens" src="../exports/screens-overview.png" /></p>
+<h2>1. The problem</h2>
+<p>In a hostel room or on a group trip, money moves in small, frequent amounts: a ₹360 Maggi run, a ₹480 cab, the month's
+Wi-Fi recharge. Paying is effortless now, because almost every student has UPI (India processed about 21,860 crore UPI
+transactions in FY26 [1]). <strong>Keeping track of who owes whom is not.</strong> It lives in screenshots, notes apps and
+memory, and asking a friend for ₹120 feels petty enough that people stop asking.</p>
+<p><strong>How might we</strong> let a group of friends record shared expenses in seconds and settle them over UPI, without anyone
+having to play accountant or debt collector?</p>
+<h2>2. Research</h2>
+<p>Constraint: one week and no budget for interviews, so this was <strong>secondary research plus proto-personas</strong>, labelled
+as assumptions to validate (see section 9).</p>
+<ul>
+<li><strong>Market:</strong> UPI is the default payment rail for students, and peer-to-peer transfers are instant and free. The
+  gap is <em>bookkeeping</em>, not payment.</li>
+<li><strong>Review mining:</strong> the main Splitwise complaints in app-store review analyses are recent restrictions on the free
+  plan and pushes towards Pro [2]. Competitors report a daily cap on new expenses for free users. That claim comes
+  from interested parties and couldn't be verified independently [3].</li>
+<li><strong>Payment apps:</strong> Google Pay's <em>Split expense</em> splits <strong>one bill</strong> you paid. Only the creator receives money, and
+  there is no running balance across many expenses [4]. That works for one dinner, not a semester in Room 214.</li>
+</ul>
+<h3>Competitive analysis</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Splitwise</th>
+<th>Google Pay "Split expense"</th>
+<th>Notes app / group chat</th>
+<th><strong>Hisaab (proposed)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Running balances across many expenses</td>
+<td>✅</td>
+<td>❌ one bill at a time [4]</td>
+<td>❌ manual</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Unequal splits (exact, shares, %)</td>
+<td>✅</td>
+<td>❌ amounts per bill only</td>
+<td>manual maths</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Pay what you owe inside the flow</td>
+<td>❌ links out, no UPI focus</td>
+<td>✅ (to the creator only)</td>
+<td>❌</td>
+<td>✅ any UPI app, to whoever is owed</td>
+</tr>
+<tr>
+<td>Free for heavy daily use</td>
+<td>reported daily cap on free plan [2][3]</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ (no money held, low cost to run)</td>
+</tr>
+<tr>
+<td>Friends without the app</td>
+<td>invite needed</td>
+<td>✅ (GPay users)</td>
+<td>✅</td>
+<td>✅ WhatsApp link, view in browser</td>
+</tr>
+<tr>
+<td>Avoids awkward reminders</td>
+<td>generic push</td>
+<td>request notification</td>
+<td>❌</td>
+<td>✅ user-sent, tone presets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Opportunity:</strong> Splitwise's ledger, Google Pay's in-flow payment, and nothing that makes asking for money awkward.</p>
+<h3>Proto-personas</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Diya, 20, the organiser</strong></th>
+<th><strong>Kabir, 21, the forgetful one</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Context</td>
+<td>3rd-year CSE, shares Room 214 with three others; usually fronts the money for food and recharges</td>
+<td>Pays when asked, but loses track; hates being chased</td>
+</tr>
+<tr>
+<td>Goals</td>
+<td>Get paid back without looking stingy; one place for the room's shared costs</td>
+<td>Know exactly what he owes and clear it in one go</td>
+</tr>
+<tr>
+<td>Frustrations</td>
+<td>Keeps a notes-app ledger nobody reads; asking for ₹120 feels petty</td>
+<td>Five different "you owe me" messages; maths he can't check</td>
+</tr>
+<tr>
+<td>Quote</td>
+<td>“I'm not a bank, but I end up acting like one.”</td>
+<td>“Just tell me the number and let me pay.”</td>
+</tr>
+<tr>
+<td>Needs from Hisaab</td>
+<td>Fast entry, unequal splits, friendly reminders</td>
+<td>One balance, one tap to settle, a clear history</td>
+</tr>
+</tbody>
+</table>
+<h3>Journey map: Diya, one month in Room 214</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Pays for a late-night order</th>
+<th>Tries to track it</th>
+<th>Month end</th>
+<th>Asks friends</th>
+<th>Gets paid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doing</td>
+<td>Pays ₹360 by UPI at 11:40 pm</td>
+<td>Notes app: “Maggi 360/3”</td>
+<td>Scrolls UPI history to rebuild the month</td>
+<td>Messages each roommate separately</td>
+<td>Checks her bank app three times</td>
+</tr>
+<tr>
+<td>Thinking</td>
+<td>“I'll sort it later”</td>
+<td>“Was Aarav there or not?”</td>
+<td>“I'm sure I'm missing things”</td>
+<td>“Will this look stingy?”</td>
+<td>“Did Kabir pay the Wi-Fi share?”</td>
+</tr>
+<tr>
+<td>Feeling</td>
+<td>🙂</td>
+<td>😐</td>
+<td>😩</td>
+<td>😬 lowest point</td>
+<td>😐 relief, but incomplete</td>
+</tr>
+<tr>
+<td><strong>Opportunity</strong></td>
+<td>Add in under 10 s, right after paying</td>
+<td>Untick who wasn't there</td>
+<td>Running balance, always current</td>
+<td>Tone-picked reminder that <em>she</em> sends</td>
+<td>Payment marks itself settled; balance updates</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Design principles</h2>
+<ol>
+<li><strong>Ten seconds or it won't happen:</strong> adding an expense starts with the amount keypad, and smart defaults do the rest (paid by me, split equally, everyone in the group).</li>
+<li><strong>One number per relationship:</strong> people care about "what do I owe", not the ledger. The ledger is one tap away.</li>
+<li><strong>The app asks for money, not you:</strong> neutral wording, user-controlled reminders, never automatic nagging.</li>
+<li><strong>Never touch the money:</strong> UPI intents only. This is said plainly on screen, because trust is the product.</li>
+</ol>
+<h2>4. Information architecture and key flows</h2>
+<p>Tabs: <strong>Home</strong> (overall balance + groups) · <strong>Groups</strong> · <strong>Add</strong> · <strong>Activity</strong> · <strong>You</strong>.
+The three critical flows were wireframed first, in greyscale, to settle structure before visuals:</p>
+<ul>
+<li><strong>A. Onboard:</strong> value → split → settle promise → phone sign-in</li>
+<li><strong>B. Add an expense:</strong> FAB → amount → split → save → confirmation</li>
+<li><strong>C. Settle up:</strong> balance → simplified payments → UPI → success with the updated balance</li>
+</ul>
+<p><img alt="Wireframes of the key flow" src="../exports/wireframes-overview.png" /></p>
+<h2>5. Design system</h2>
+<ul>
+<li><strong>Colour:</strong> a calm teal (trust, not "bank blue"), plus semantic <strong>owe (red) / owed (green)</strong> with tints, amber for nudges, and a neutral ink ramp.</li>
+<li><strong>Type:</strong> Inter Display for numbers and titles (amounts are the hero, up to 52 px / 800), Inter for text, on a 1.25 scale.</li>
+<li><strong>Spacing and radius:</strong> a 4/8 grid, with 16 px gutters and 12–20 px radii.</li>
+<li><strong>Accessibility:</strong> all 15 colour pairs pass WCAG AA (<a href="../handoff/contrast.md">contrast.md</a>), and amounts are never colour-only: every red or green number carries "you owe" or "owes you".</li>
+<li><strong>Components:</strong> balance hero, group row, expense row, amount pill, segmented split control, keypad, FAB, payment option, success state.</li>
+</ul>
+<h2>6. High-fidelity screens (18)</h2>
+<p>Onboarding ×3, sign-in, home, group, add expense, split options, saved, expense detail, balances &amp; simplify, settle up,
+payment success, create group &amp; invite, activity, monthly insights, profile, friendly reminder. See the board at the top
+and <a href="../exports/screens/">exports/screens/</a>.</p>
+<p>Some decisions worth calling out:
+* <strong>Home leads with one signed number</strong> (+ ₹854) and two actions, <em>Settle up</em> and <em>Remind</em>. Diya's and Kabir's main jobs are one tap away.
+* <strong>Split options default to "Equally" with checkboxes</strong>, because the most common exception is "someone wasn't there", not percentages. The running total ("₹120 each · 3 people · Totals ₹360 ✓") prevents maths doubts.
+* <strong>Simplify debts</strong> shows the saving ("5 payments → 3"), so people understand why the suggested payments differ from the raw ledger.
+* <strong>Settle up</strong> names the payee's UPI ID, what the payment is for, and the reassurance "Paid directly bank to bank".
+* <strong>The success screen</strong> shows the <em>new</em> balance ("You owe ₹120, was ₹386") and offers the next payment. One session can clear everything.
+* <strong>Reminders</strong> come in three tones and are sent from the user's own WhatsApp: the awkward part becomes a choice, not a chore.</p>
+<h2>7. Prototype</h2>
+<p><a href="../design/prototype.html">prototype.html</a> links all 18 screens. The three key flows are fully clickable, with push and back
+transitions and keyboard support (<a href="../exports/prototype-walkthrough.mp4">walkthrough video</a>).</p>
+<p><img alt="Prototype walkthrough" src="../exports/prototype-walkthrough.gif" /></p>
+<h2>8. Evaluation so far</h2>
+<ul>
+<li><strong>Accessibility audit (axe-core 4.10, WCAG 2.2 AA):</strong> the first run found 12 tappable icons that were plain
+  <code>div</code>s with labels. They became real focusable buttons with names, and the screens and prototype now report <strong>0
+  violations</strong>. The same audit, run on my week-3 dashboard, caught contrast failures that my own token table had
+  missed. Lesson: compute <em>and</em> audit.</li>
+<li><strong>Cognitive walkthrough</strong> of the three key flows against the personas' goals:</li>
+<li>add expense: 4 taps with defaults;</li>
+<li>settle a debt from Home: 3 taps plus the UPI app;</li>
+<li>one issue found and fixed in the prototype: after saving, <em>Back</em> returned to the filled-in form, which invites duplicate expenses. Back now goes Home once a flow has finished.</li>
+</ul>
+<h2>9. What I'd validate next</h2>
+<ul>
+<li><strong>5 moderated usability tests</strong> with hostel students, giving each the three flows as tasks.
+  Success metrics: add an expense in under 15 s; correctly identify "what do I owe Diya?"; no one doubts that an equal split is fair.</li>
+<li><strong>Reminder tone A/B test:</strong> does "Friendly" get paid faster than "Direct"?</li>
+<li><strong>Risky assumption:</strong> that users are comfortable with Hisaab knowing their UPI ID. Test the copy and a "record cash
+  payment" fallback.</li>
+</ul>
+<h2>10. Outcome</h2>
+<p>A complete, developer-ready design:
+* 18 screens and a clickable prototype;
+* a token-based design system;
+* a handoff package with specs, assets, behaviour rules and a screen inventory (<a href="../handoff/handoff.md">handoff.md</a>);
+* onboarding UX copy with its rationale (<a href="../ux-copy.md">ux-copy.md</a>).</p>
+<p><strong>Biggest learning:</strong> the hard part of splitting expenses is social, not mathematical. The best design decisions
+here (one number, user-sent reminders, "never holds money") came from naming the awkwardness, not the arithmetic.</p>
+<div class="sources">
+<p><strong>Sources</strong>
+[1] Business Today, “UPI processes 21,860 crore transactions in FY26” (31 Mar 2026), <a href="https://www.businesstoday.in/india/story/upi-processes-21860-crore-transactions-in-fy26-peak-growth-seen-in-dec-jan-months-523412-2026-03-31">link</a>
+[2] Kimola, “Splitwise app faces criticism for changes in pricing and limitations” (review analysis), <a href="https://kimola.com/reports/splitwise-app-feedback-report-uncover-user-insights-google-play-en-144452">link</a>
+[3] Split Circle blog, “Splitwise daily limit” (a competitor; figures unverified), <a href="https://split-circle-landing.pages.dev/en/blog/splitwise-daily-limit">link</a>
+[4] Google Pay Help (India), “Split expenses with a group”, <a href="https://support.google.com/pay/india/answer/11420982">link</a></p></div></main></body></html>
