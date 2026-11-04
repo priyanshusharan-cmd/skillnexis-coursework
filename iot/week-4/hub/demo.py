@@ -16,17 +16,18 @@ import threading
 import time
 
 import numpy as np
-import pandas as pd
 import paho.mqtt.client as mqtt
+import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 for p in ("hub", "ml", "devices", "security"):
     sys.path.insert(0, os.path.join(ROOT, p))
-from hub import Hub  # noqa: E402
 from node_sim import NodeSim  # noqa: E402
 from occupancy import FEATURES, TRAIN_DAYS, make_features  # noqa: E402
 from policy import FAN_W, LIGHT_W, run  # noqa: E402
+
+from hub import Hub  # noqa: E402
 
 
 def start_broker(certs, port):

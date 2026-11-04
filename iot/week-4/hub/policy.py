@@ -56,7 +56,7 @@ def run(g, policy, proba=None, rng=None):
     asleep = g.asleep.to_numpy()
     hour = (g.timestamp.dt.hour + g.timestamp.dt.minute / 60).to_numpy()
     bedroom = g.room.iloc[0] == "bedroom"
-    l = f = False
+    lt = f = False
     since = 999
     ctl = MLController(bedroom)
     lux, temp = g.daylight_lux.to_numpy(), g.temp_c.to_numpy()
@@ -64,23 +64,23 @@ def run(g, policy, proba=None, rng=None):
         since = 0 if motion[i] else since + 1
         if policy == "manual":
             if need_l[i]:
-                l = True
+                lt = True
             if need_f[i]:
                 f = True
             if i and occ[i - 1] and not occ[i] and rng.random() < 0.6:
-                l = f = False
+                lt = f = False
             if asleep[i]:
-                l = False
+                lt = False
             if 0 <= hour[i] < 0.02 and not bedroom:        # last one to bed switches the living room off
-                l = f = False
+                lt = f = False
         elif policy == "pir_timer":
             if motion[i]:
-                l, f = l or dark[i], f or hot[i]
+                lt, f = lt or dark[i], f or hot[i]
             if since >= 10:
-                l = f = False
+                lt = f = False
         else:
-            l, f = ctl.step(proba[i], motion[i], lux[i], temp[i], hour[i])
-        light[i], fan[i] = l, f
+            lt, f = ctl.step(proba[i], motion[i], lux[i], temp[i], hour[i])
+        light[i], fan[i] = lt, f
     return light, fan
 
 
@@ -89,7 +89,7 @@ def evaluate(df, proba):
     out, days = {}, df.timestamp.dt.normalize().nunique()
     for policy in ("manual", "pir_timer", "ml"):
         kwh = miss_l = miss_f = cut_off = 0
-        for room, g in df.groupby("room", sort=False):
+        for _room, g in df.groupby("room", sort=False):
             light, fan = run(g, policy, proba[g.index.to_numpy() - df.index[0]] if policy == "ml" else None, rng)
             need_l, need_f = needs(g)
             kwh += (light.sum() * LIGHT_W + fan.sum() * FAN_W) / 60 / 1000
@@ -115,7 +115,7 @@ def plot_day(df, proba, path, day_offset=3):
     fig, ax = plt.subplots(figsize=(11, 3.6))
     rows = [("Someone needs light", needs(g)[0], "#3a7d44"), ("Motion-timer lights", lt_pir[sel], "#c8553d"),
             ("ML lights", lt_ml[sel], "#2f6690")]
-    for k, (name, v, c) in enumerate(rows):
+    for k, (_name, v, c) in enumerate(rows):
         ax.fill_between(h, k + 0.1, k + 0.1 + 0.8 * v, step="post", color=c, linewidth=0)
     ax.scatter(h[g.motion.to_numpy() == 1], np.full((g.motion == 1).sum(), 3.25), s=4, color="#555", label="PIR motion")
     ax.set_yticks([0.5, 1.5, 2.5, 3.25], [r[0] for r in rows] + ["PIR motion events"])

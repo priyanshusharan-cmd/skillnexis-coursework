@@ -1,0 +1,26 @@
+flowchart LR
+  subgraph room["Each room: ESP32 node (firmware/)"]
+    S["PIR · MAX4466 mic<br/>LDR · LM35"] --> F["Feature ring buffer<br/>13 features / min"]
+    F --> M["TFLite Micro<br/>int8 MLP, 4 KB<br/>73 µs"]
+    M --> SEAL["AES-256-GCM seal<br/>counter + AAD"]
+    R["Relays<br/>light · fan"]
+    M -. "hub silent 10 min:<br/>edge fallback" .-> R
+  end
+  subgraph broker["Mosquitto broker"]
+    B["TLS 1.2+ :8883<br/>client certificates<br/>per-identity ACL"]
+  end
+  subgraph pi["Raspberry Pi hub (hub/)"]
+    H["Open + verify<br/>replay check"] --> C["MLController<br/>hysteresis · sleep mode<br/>overrides"]
+    C --> DB[("SQLite<br/>hub.db")]
+    DB --> D["Streamlit<br/>dashboard"]
+    V["Voice KWS<br/>(week 3)"]
+  end
+  P["Phone app<br/>MQTT client / ntfy"]
+  SEAL -- "home/room/telemetry" --> B
+  B --> H
+  C -- "sealed home/room/cmd" --> B
+  B --> R
+  V -- "home/room/request" --> B
+  P -- "home/room/request" --> B
+  C -- "notify/phone" --> B
+  B --> P

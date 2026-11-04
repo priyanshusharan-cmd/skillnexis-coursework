@@ -1,12 +1,12 @@
-8 unseen test days, 2 room nodes + hub + phone + voice clients over the real TLS broker config (client certificates, ACL, AES-GCM payloads). 23,040 sealed telemetry messages, each answered by a sealed command; simulated time, ran in 54 s.
+8 unseen test days, 2 room nodes + hub + phone + voice clients over the real TLS broker config (client certificates, ACL, AES-GCM payloads). 23,040 sealed telemetry messages, each answered by a sealed command; simulated time, ran in 55 s.
 
 | Room | Minutes | Sensor → hub → relay round trip (median / p99) | Same decisions as the offline evaluation |
 |---|---:|---:|---:|
-| bedroom | 11,520 | 4.1 ms / 9.3 ms | 100.00% |
-| living | 11,520 | 4.1 ms / 9.3 ms | 99.48% |
+| living | 11,520 | 4.3 ms / 9.4 ms | 99.48% |
+| bedroom | 11,520 | 4.3 ms / 9.3 ms | 99.74% |
 
 Energy used by the lights and fans: **7.0 kWh/week** (offline estimate 7.0). Decisions differ from the offline run only while a voice/phone override was active.
-Hub processing per message: median 0.41 ms.
+Hub processing per message: median 0.43 ms.
 
 Security: 1 message(s) rejected: replay: counter 1 <= 11520.
 

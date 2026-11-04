@@ -15,8 +15,8 @@ Overrides from voice/phone last 60 min; an override that keeps a device on in an
 import argparse
 import json
 import os
-import sqlite3
 import socket
+import sqlite3
 import ssl
 import sys
 import threading
@@ -41,9 +41,9 @@ class Hub:
         self.opener = Opener(keys)
         self.sealers = {room: Sealer("hub", keys[dev]) for room, dev in ROOMS.items()}
         self.ctl = {room: MLController(room == "bedroom") for room in ROOMS}
-        self.override = {room: {} for room in ROOMS}          # device -> (state, until_minute)
+        self.override = {room: {} for room in ROOMS}          # device -> (state, until_minute, set_minute)
         self.empty_for = {room: 0 for room in ROOMS}
-        self.house_empty_since, self.heat_alerted = None, set()
+        self.house_empty_since, self.heat_alerted, self.last_ts = None, set(), {}
         self.ntfy_topic = ntfy_topic
         self.lock = threading.Lock()
         self.db = sqlite3.connect(db, check_same_thread=False)
@@ -109,23 +109,24 @@ class Hub:
         minute = r.get("minute", 0)
         for dev in ("light", "fan"):
             if r.get(dev) in ("on", "off"):
-                self.override[room][dev] = (r[dev] == "on", minute + OVERRIDE_MIN)
+                self.override[room][dev] = (r[dev] == "on", minute + OVERRIDE_MIN, minute)
             elif r.get(dev) == "auto":
                 self.override[room].pop(dev, None)
-        self.event(r.get("ts", time.time()), room, "request", json.dumps(r))
+        self.event(r.get("ts", self.last_ts.get(room, time.time())), room, "request", json.dumps(r))
 
     def on_telemetry(self, room, d, topic):
         t0 = time.perf_counter()
         ts, minute = d.get("ts", time.time()), d.get("minute", 0)
+        self.last_ts[room] = ts
         hour = (minute % 1440) / 60
         light, fan = self.ctl[room].step(d["occ"], d["motion"], d["lux"], d["temp_c"], hour)
         auto = {"light": light, "fan": fan}
         occupied = self.ctl[room].occ
         self.empty_for[room] = 0 if occupied else self.empty_for[room] + 1
-        for dev, (state, until) in list(self.override[room].items()):
+        for dev, (state, until, since) in list(self.override[room].items()):
             if minute >= until:
                 del self.override[room][dev]
-            elif state and self.empty_for[room] >= EMPTY_REVERT_MIN:
+            elif state and min(self.empty_for[room], minute - since) >= EMPTY_REVERT_MIN:   # empty for 30 min since the request
                 del self.override[room][dev]
                 self.notify("info", f"{room} {dev} switched off", f"The {dev} in the {room} was left on by request but the room "
                             f"has been empty for {EMPTY_REVERT_MIN} min, so it is back on automatic.", ts)

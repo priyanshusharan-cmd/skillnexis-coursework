@@ -1,0 +1,9 @@
+flowchart LR
+  A["sim/home.py<br/>28 days × 1440 min × 2 rooms"] --> B["make_features()<br/>causal, 13 features"]
+  B --> C["Train days 1-20"] --> D["Logistic · Random forest · MLP"]
+  B --> E["Test days 21-28<br/>(unseen)"]
+  D --> F["int8 post-training<br/>quantisation"] --> G["occupancy_int8.tflite<br/>4,112 B"]
+  G --> H["model_data.cc<br/>C array"] --> I["ESP32 TFLite Micro<br/>self-test in QEMU"]
+  G --> J["hub/policy.py<br/>energy evaluation"]
+  E --> J
+  G --> K["features.h (C++)<br/>= make_features, checked"]
