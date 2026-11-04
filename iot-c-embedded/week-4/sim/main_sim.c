@@ -52,6 +52,7 @@ static void supervisor(void *arg) {
         if (hal_now_s() / 86400 != prev_day) { used_prev = 0; prev_day = hal_now_s() / 86400; }
         (void)used_prev;
         sim_sleep(sleep_s);                     /* on the ESP32: esp_deep_sleep_start() */
+        if (wakes % 50 == 0) fprintf(stderr, "[sim] t=%.2f days, %u wake-ups\n", hal_now_s() / 86400.0, wakes);
     }
     sim_close();
 
@@ -99,6 +100,7 @@ static void supervisor(void *arg) {
 
 int main(int argc, char **argv) {
     sim_verbose = argc > 1 && !strcmp(argv[1], "-v");
+    setvbuf(stdout, NULL, _IOLBF, 0);
     srand(42);
     xTaskCreate(supervisor, "super", 8192, NULL, 5, NULL);
     vTaskStartScheduler();

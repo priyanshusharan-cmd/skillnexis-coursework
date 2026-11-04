@@ -79,7 +79,15 @@ jobs:
         run: make test
       - name: 3-day simulation, real FreeRTOS kernel (POSIX port)
         timeout-minutes: 12
-        run: make sim-freertos
+        run: |
+          sudo apt-get install -y -qq gdb > /dev/null
+          make build/agri_sim_freertos
+          timeout 120 ./build/agri_sim_freertos && exit 0
+          echo "::group::hang diagnosis: backtrace of every thread"
+          timeout -s INT 40 gdb -q -batch -ex "handle SIGALRM SIGUSR1 SIGUSR2 nostop noprint pass" -ex run -ex "info threads" \
+            -ex "thread apply all bt 12" ./build/agri_sim_freertos 2>&1 | grep -v "^\[New Thread\|^\[Thread" | tail -150
+          echo "::endgroup::"
+          exit 1
       - name: 3-day simulation, pthread stand-in + chart
         run: make sim
 
