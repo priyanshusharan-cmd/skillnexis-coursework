@@ -1,0 +1,2 @@
+# CI/QEMU build: stop after the on-device model self-test (QEMU has no WiFi radio)
+CONFIG_NODE_SELFTEST_HALT=y

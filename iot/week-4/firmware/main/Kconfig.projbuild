@@ -26,4 +26,7 @@ menu "Smart home node"
     config LDR_LUX_PER_V
         int "LDR calibration: lux per volt (x1000 = per mV)"
         default 250
+    config NODE_SELFTEST_HALT
+        bool "Stop after the model self-test (CI build for QEMU, which has no WiFi radio)"
+        default n
 endmenu

@@ -243,7 +243,13 @@ void sp_random(uint8_t* out, size_t n) { esp_fill_random(out, n); }
 
 extern "C" void app_main() {
   model_init();
-  model_selftest();
+  bool ok = model_selftest();
+#if CONFIG_NODE_SELFTEST_HALT
+  // CI runs this build in QEMU, which emulates the CPU, flash and timers but not the WiFi/PHY radio
+  printf("self-test-only build: halting (%s)\n", ok ? "ok" : "failed");
+  while (true) vTaskDelay(portMAX_DELAY);
+#endif
+  if (!ok) ESP_LOGE(TAG, "model self-test failed: check the model/firmware versions");
 
   esp_err_t err = nvs_flash_init();
   if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {

@@ -40,7 +40,7 @@ jobs:
         working-directory: iot/week-4/firmware
         run: |
           . $IDF_PATH/export.sh
-          idf.py set-target esp32 build
+          idf.py -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.ci" set-target esp32 build
           idf.py size | tail -20
       - name: Run the on-device model self-test in QEMU (ESP32 emulator)
         working-directory: iot/week-4/firmware
@@ -53,7 +53,8 @@ jobs:
             -global driver=timer.esp32.timg,property=wdt_disable,value=true > qemu.log 2>&1 || true
           grep -a -E "SELFTEST|Guru|abort" qemu.log || { tail -60 qemu.log; exit 1; }
           grep -a -q "SELFTEST PASS" qemu.log
-          echo "--- after the self-test ---"; grep -a -m1 -A40 "SELFTEST" qemu.log | tail -40
+          grep -a -q "self-test-only build: halting (ok)" qemu.log
+          ! grep -a -q "Guru Meditation" qemu.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
