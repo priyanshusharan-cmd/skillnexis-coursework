@@ -8,6 +8,7 @@
  *
  * Output: results/sim-telemetry.csv, results/sim-events.csv, and a pass/fail summary of the safety rules. */
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -25,7 +26,7 @@ static app_config_t cfg;
 static int failures;
 static uint32_t wakes, max_awake_s, budget_violations;
 
-void vAssertCalled(const char *f, int l) { fprintf(stderr, "configASSERT failed %s:%d\n", f, l); exit(9); }
+void vAssertCalled(const char *f, int l) { fprintf(stderr, "configASSERT failed %s:%d\n", f, l); fflush(NULL); _exit(9); }
 
 static void check(const char *what, int ok) { printf("  %-62s %s\n", what, ok ? "PASS" : "FAIL"); if (!ok) failures++; }
 
@@ -90,7 +91,10 @@ static void supervisor(void *arg) {
     check("node slept more than 95% of the time", awake_frac < 0.05);
     check("soil was watered at least once per day", waterings >= DAYS);
     printf("\n%d failure(s)\n", failures);
-    exit(failures != 0);
+    /* _exit, not exit: exit() runs atexit/stdio teardown from inside a task thread, which can deadlock the
+     * FreeRTOS POSIX port (its scheduler thread still owns signal handling). Flush, then leave immediately. */
+    fflush(NULL);
+    _exit(failures != 0);
 }
 
 int main(int argc, char **argv) {

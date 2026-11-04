@@ -78,6 +78,7 @@ jobs:
       - name: Irrigation logic unit tests
         run: make test
       - name: 3-day simulation, real FreeRTOS kernel (POSIX port)
+        timeout-minutes: 12
         run: make sim-freertos
       - name: 3-day simulation, pthread stand-in + chart
         run: make sim
