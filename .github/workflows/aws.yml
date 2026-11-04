@@ -1,4 +1,4 @@
-name: AWS week 2 (IaC + serverless, emulated)
+name: AWS weeks 2-3 (IaC, emulated)
 
 on:
   push:
@@ -11,9 +11,12 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        week: [week-2, week-3]
     defaults:
       run:
-        working-directory: aws-cloud/week-2
+        working-directory: aws-cloud/${{ matrix.week }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

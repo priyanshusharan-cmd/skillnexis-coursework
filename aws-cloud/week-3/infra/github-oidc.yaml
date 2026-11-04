@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Lets GitHub Actions deploy without any stored AWS keys: the workflow exchanges its short-lived OIDC token for
+  a 1-hour role session. Only the main branch of one repository can assume the role.
+
+Parameters:
+  Repo: { Type: String, Default: priyanshusharan-cmd/skillnexis-coursework }
+
+Resources:
+  GitHubOidc:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList: [sts.amazonaws.com]
+
+  DeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: { Federated: !Ref GitHubOidc }
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub "repo:${Repo}:ref:refs/heads/main"
+      Policies:
+        - PolicyName: deploy-week3-site
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: [s3:PutObject, s3:DeleteObject, s3:ListBucket]
+                Resource: ["arn:aws:s3:::week3-site-*", "arn:aws:s3:::week3-site-*/*"]
+              - Effect: Allow
+                Action: [cloudfront:CreateInvalidation]
+                Resource: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/*"
+              - Effect: Allow
+                Action: [cloudformation:DescribeStacks]
+                Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/week3-*/*"
+
+Outputs:
+  RoleArn: { Value: !GetAtt DeployRole.Arn, Description: put this in the repo variable AWS_DEPLOY_ROLE }

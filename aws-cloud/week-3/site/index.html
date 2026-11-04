@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 3 · Static site on S3 + CloudFront</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Served from the edge</h1>
+    <p>This page lives in a <strong>private</strong> S3 bucket. Only one CloudFront distribution can read it (Origin Access
+      Control), browsers are redirected to HTTPS, and every response carries security headers (HSTS, CSP, X-Frame-Options).</p>
+    <p>It is deployed by GitHub Actions with a one-hour role session obtained through OIDC, so no AWS keys are stored anywhere.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+name: Deploy week 3 static site to AWS (OIDC, no stored keys)
+
+# Runs only if the repository variable AWS_DEPLOY_ROLE is set (the RoleArn output of infra/github-oidc.yaml).
+# Without it the job is skipped, so this repo never needs AWS credentials to stay green.
+on:
+  push:
+    branches: [main]
+    paths: ["aws-cloud/week-3/site/**"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write      # lets the job request a GitHub OIDC token
+  contents: read
+
+jobs:
+  deploy:
+    if: ${{ vars.AWS_DEPLOY_ROLE != '' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE }}
+          aws-region: ap-south-1
+      - name: Upload and invalidate the CDN cache
+        run: |
+          BUCKET=$(aws cloudformation describe-stacks --stack-name week3-site --query "Stacks[0].Outputs[?OutputKey=='Bucket'].OutputValue" --output text)
+          DIST=$(aws cloudformation describe-stacks --stack-name week3-site --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" --output text)
+          aws s3 sync aws-cloud/week-3/site "s3://$BUCKET" --delete
+          aws cloudfront create-invalidation --distribution-id "$DIST" --paths "/*"
