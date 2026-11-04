@@ -32,6 +32,20 @@ def needs(g):
     return light.to_numpy(), fan.to_numpy()
 
 
+class MLController:
+    """The hub's automation for one room (also used offline below, so the evaluation is the deployed logic)."""
+
+    def __init__(self, bedroom):
+        self.bedroom, self.occ, self.low, self.since = bedroom, False, 0, 999
+
+    def step(self, p, motion, lux, temp, hour):
+        self.since = 0 if motion else self.since + 1
+        self.low = self.low + 1 if p < 0.4 else 0
+        self.occ = p > 0.6 if not self.occ else self.low < OFF_DELAY
+        sleep_mode = self.bedroom and (hour >= 22.5 or hour < 7) and self.since >= 15
+        return self.occ and lux < DARK_LUX and not sleep_mode, self.occ and temp > HOT_C
+
+
 def run(g, policy, proba=None, rng=None):
     """One room, minute by minute. Returns light and fan on/off arrays."""
     n = len(g)
@@ -43,7 +57,9 @@ def run(g, policy, proba=None, rng=None):
     hour = (g.timestamp.dt.hour + g.timestamp.dt.minute / 60).to_numpy()
     bedroom = g.room.iloc[0] == "bedroom"
     l = f = False
-    since, occ_hat, low = 999, False, 0
+    since = 999
+    ctl = MLController(bedroom)
+    lux, temp = g.daylight_lux.to_numpy(), g.temp_c.to_numpy()
     for i in range(n):
         since = 0 if motion[i] else since + 1
         if policy == "manual":
@@ -63,12 +79,7 @@ def run(g, policy, proba=None, rng=None):
             if since >= 10:
                 l = f = False
         else:
-            p = proba[i]
-            low = low + 1 if p < 0.4 else 0
-            occ_hat = p > 0.6 if not occ_hat else low < OFF_DELAY
-            sleep_mode = bedroom and (hour[i] >= 22.5 or hour[i] < 7) and since >= 15
-            l = occ_hat and dark[i] and not sleep_mode
-            f = occ_hat and hot[i]
+            l, f = ctl.step(proba[i], motion[i], lux[i], temp[i], hour[i])
         light[i], fan[i] = l, f
     return light, fan
 
