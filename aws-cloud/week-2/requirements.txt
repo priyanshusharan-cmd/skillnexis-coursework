@@ -3,3 +3,4 @@ moto[s3,dynamodb,iam,cloudformation,ec2,sts,ssm]
 cfn-lint
 parliament
 pytest
+setuptools<81
