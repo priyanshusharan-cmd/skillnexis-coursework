@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse · Component library</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css">
+<style>
+body{padding:48px;max-width:1240px;margin:auto} h1{font:var(--t-2xl)} .lead{color:var(--text-2);margin:8px 0 32px;max-width:760px}
+section{margin-bottom:40px} h2{font:var(--t-lg);margin-bottom:4px} .note{color:var(--text-3);font:var(--t-xs);margin-bottom:16px}
+.matrix{display:grid;grid-template-columns:120px repeat(5,1fr);gap:12px;align-items:center} .matrix .h{font:var(--t-xs);color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start} .w{width:260px} .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px}
+.static{position:static!important;transform:none!important;opacity:1!important;pointer-events:auto!important}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px} .tok{display:flex;flex-direction:column;gap:6px;font:var(--t-xs)} .tok i{height:44px;border-radius:8px;border:1px solid var(--border)}
+</style>
+</head>
+<body>
+<h1>Pulse component library</h1>
+<p class="lead">Every component is built only from tokens (<code>tokens.css</code>), so one change to a token restyles the whole product, including dark mode.
+States are shown side by side. Hover and focus are forced with classes here; in the prototype they come from real <code>:hover</code> and <code>:focus-visible</code>.</p>
+
+<section><h2>Buttons</h2><p class="note">40 px height (32 px small), 2 px focus ring offset 2 px, a 0.97 scale press, and a loading spinner that keeps the button's width.</p>
+<div class="matrix"><span></span><span class="h">Default</span><span class="h">Hover</span><span class="h">Focus</span><span class="h">Disabled</span><span class="h">Loading</span>
+<span class="h">Primary</span><button class="btn btn-primary">Save</button><button class="btn btn-primary is-hover">Save</button><button class="btn btn-primary is-focus">Save</button><button class="btn btn-primary" disabled>Save</button><button class="btn btn-primary is-loading">Save</button>
+<span class="h">Secondary</span><button class="btn btn-secondary">Export</button><button class="btn btn-secondary is-hover">Export</button><button class="btn btn-secondary is-focus">Export</button><button class="btn btn-secondary" disabled>Export</button><button class="btn btn-secondary is-loading" style="--on-primary:var(--text)">Export</button>
+<span class="h">Ghost</span><button class="btn btn-ghost">View all</button><button class="btn btn-ghost is-hover">View all</button><button class="btn btn-ghost is-focus">View all</button><button class="btn btn-ghost" disabled>View all</button><span></span>
+<span class="h">Danger</span><button class="btn btn-danger">Delete</button><button class="btn btn-danger is-hover">Delete</button><button class="btn btn-danger is-focus">Delete</button><button class="btn btn-danger" disabled>Delete</button><button class="btn btn-danger is-loading" style="--on-primary:#fff">Delete</button>
+</div></section>
+
+<section><h2>Form controls</h2><p class="note">A visible label on every field; hints and errors are linked with aria-describedby; errors say how to fix the problem, not just that there is one.</p>
+<div class="row">
+<div class="field w"><label for="a">Store name</label><input class="input" id="a" placeholder="e.g. Crunchy Bites"><span class="hint">Shown on invoices</span></div>
+<div class="field w"><label for="b">Store name (focus)</label><input class="input is-focus" id="b" value="Crunchy Bi"></div>
+<div class="field w"><label for="c">Support email</label><input class="input" id="c" value="help@crunchy" aria-invalid="true" aria-describedby="ce"><span class="error" id="ce">Enter a full email address, like help@crunchybites.in</span></div>
+<div class="field w"><label for="d">GSTIN</label><input class="input" id="d" value="29ABCDE1234F1Z5" disabled><span class="hint">Verified. Contact support to change it.</span></div>
+<div class="field w"><label for="e">Currency</label><select class="select" id="e"><option>Indian rupee (₹)</option></select></div>
+<div class="field w"><label>Search</label><div class="search"><svg class="ic" viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zm5 11.5L21 21"/></svg><input class="input" placeholder="Search customers…" aria-label="Search customers"></div></div>
+<div class="field w"><label>Choices</label><label class="check"><input type="checkbox" checked> Email receipts</label><label class="check"><input type="checkbox"> SMS receipts</label><label class="check"><input type="radio" name="r" checked> Monthly</label></div>
+<div class="field w"><label>Switch and segmented control</label><div style="display:flex;gap:16px;align-items:center"><button class="switch" role="switch" aria-checked="true" aria-label="On"></button><button class="switch" role="switch" aria-checked="false" aria-label="Off"></button>
+<div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button><button aria-pressed="false">90d</button></div></div></div>
+</div></section>
+
+<section><h2>Cards, badges, avatars</h2><p class="note">KPI cards pair the number with direction and context ("vs previous 30 days"). Status is never colour-only: every badge has a word.</p>
+<div class="cols"><div class="card kpi"><div class="label">Revenue</div><div class="value">₹16,44,100</div><span class="delta up">▲ 18.2%</span> <span class="hint">vs previous 30 days</span></div>
+<div class="card kpi"><div class="label">Refund rate</div><div class="value">1.8%</div><span class="delta down">▼ 0.4 pts</span> <span class="hint">vs previous 30 days</span></div>
+<div class="card"><div class="card-h"><h3>Status badges</h3></div><div class="row"><span class="badge b-success">Active</span><span class="badge b-warning">At risk</span><span class="badge b-danger">Churned</span><span class="badge b-neutral">Draft</span></div></div>
+<div class="card"><div class="card-h"><h3>Avatars</h3></div><div class="row"><div class="avatar" style="background:#2E5BFF">AS</div><div class="avatar" style="background:#13A8A0">DR</div><div class="avatar" style="background:#9B59D0">KM</div><div class="avatar" style="background:#E5484D">ZK</div></div></div></div></section>
+
+<section><h2>Table</h2><p class="note">Sortable headers are buttons with aria-sort; numbers are right-aligned in tabular figures; rows are keyboard-focusable; there's a designed empty state.</p>
+<div class="table-wrap"><table><thead><tr><th aria-sort="none"><button>Customer</button></th><th>Status</th><th class="num" aria-sort="descending"><button>Spent ▾</button></th><th class="num">Orders</th></tr></thead>
+<tbody><tr><td><div class="who"><div class="avatar" style="background:#13A8A0">YI</div><div>Yash Iyer<small>yash.iyer@example.com</small></div></div></td><td><span class="badge b-success">Active</span></td><td class="num">₹26,536</td><td class="num">23</td></tr>
+<tr style="background:var(--surface-2)"><td><div class="who"><div class="avatar" style="background:#9B59D0">MK</div><div>Meera Khan (hover)<small>meera.khan@example.com</small></div></div></td><td><span class="badge b-warning">At risk</span></td><td class="num">₹27,160</td><td class="num">23</td></tr>
+<tr><td colspan="4" class="empty"><b>No customers match “zzz”</b><br>Try a different name or clear the filter.</td></tr></tbody></table>
+<div class="pager"><span>Showing 1–10 of 48</span><div style="display:flex;gap:8px"><button class="btn btn-secondary btn-sm" disabled>Previous</button><button class="btn btn-secondary btn-sm">Next</button></div></div></div></section>
+
+<section><h2>Charts</h2><p class="note">One accent per series from the chart palette (all ≥ 3:1 on surface), a direct legend, and every SVG has an aria-label that states the data.</p>
+<div class="cols" style="grid-template-columns:1fr 1fr 1fr 1fr">
+<div class="tok"><i style="background:var(--chart-1)"></i>chart-1 · series A</div><div class="tok"><i style="background:var(--chart-2)"></i>chart-2 · series B</div><div class="tok"><i style="background:var(--chart-3)"></i>chart-3 · series C</div><div class="tok"><i style="background:var(--chart-4)"></i>chart-4 · series D</div></div>
+<p class="note" style="margin-top:12px">Live line, bar and donut charts: see the Overview and Reports screens of the prototype.</p></section>
+
+<section><h2>Navigation</h2><p class="note">Sidebar (desktop) → icon rail (tablet) → bottom bar (mobile), all with aria-current="page"; tabs use role="tab" and aria-selected.</p>
+<div class="row"><div class="panel" style="width:240px;padding:12px"><button class="nav-item" aria-current="page">Overview</button><button class="nav-item">Customers</button><button class="nav-item" style="background:var(--surface-2);color:var(--text)">Reports (hover)</button><button class="nav-item">Settings</button></div>
+<div class="panel" style="flex:1;min-width:320px"><div class="crumbs">Workspace <b>· Crunchy Bites</b> · Customers</div><div class="tabs" role="tablist" style="margin-top:16px"><button role="tab" aria-selected="true">All</button><button role="tab" aria-selected="false">Active</button><button role="tab" aria-selected="false">At risk</button><button role="tab" aria-selected="false">Churned</button></div></div></div></section>
+
+<section><h2>Overlays</h2><p class="note">Modal: focus moves in and returns to the trigger on close, Esc closes, destructive actions name the consequence. Toast: role="status", auto-dismisses after 2.6 s.</p>
+<div class="row"><div class="modal static" style="width:440px"><div style="display:flex;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:var(--danger-soft);color:var(--danger);display:grid;place-items:center;flex:none;font-weight:700">!</div>
+<div><h3 style="font:var(--t-lg)">Delete the test workspace?</h3><p style="color:var(--text-2);margin-top:6px">All 1,204 sample orders in “Test store” will be removed. This can't be undone.</p></div></div>
+<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:24px"><button class="btn btn-secondary">Cancel</button><button class="btn btn-danger">Delete workspace</button></div></div>
+<div style="display:flex;flex-direction:column;gap:16px"><div class="toast show static">✓ Store profile saved</div><div style="width:280px"><div class="skeleton" style="height:16px;width:60%"></div><div class="skeleton" style="height:36px;margin-top:10px"></div><div class="skeleton" style="height:12px;width:80%;margin-top:10px"></div><p class="note" style="margin-top:8px">Skeleton loading state</p></div></div></div></section>
+
+<section><h2>Motion</h2><p class="note">Three durations (120 / 200 / 320 ms) and two easings. Everything collapses to 0 ms under prefers-reduced-motion.</p>
+<div class="table-wrap"><table><thead><tr><th>Interaction</th><th>Motion</th><th>Duration / easing</th></tr></thead><tbody>
+<tr><td>Page change</td><td>Old view fades, new view rises 10 px (View Transitions API)</td><td>140 ms out · 260 ms ease-out</td></tr>
+<tr><td>Cards entering</td><td>Staggered rise, 40 ms apart</td><td>320 ms ease-out</td></tr>
+<tr><td>Customer drawer</td><td>Slides in from the right over a fading scrim</td><td>320 ms ease-out</td></tr>
+<tr><td>Modal</td><td>Scales from 0.96 and fades</td><td>320 ms ease-out</td></tr>
+<tr><td>Charts</td><td>Line draws left to right; bars grow from the baseline, staggered</td><td>700–1100 ms ease-out</td></tr>
+<tr><td>Button press / switch</td><td>0.97 scale; knob slides</td><td>120 / 200 ms</td></tr></tbody></table></div></section>
+</body></html>
