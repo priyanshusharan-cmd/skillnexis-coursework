@@ -1,0 +1,17 @@
+{
+  "versions_kept": 2,
+  "restored_body": "version 1",
+  "encryption": "AES256",
+  "share_link": "https://week2-s3-lab.s3.amazonaws.com/notes/week2.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FOOBARKEY%2F20261104%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20261104T065652Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=b9f95d7549be4520117352492feb5a5bb39538574f589bb4b6c10dfc06680bdc",
+  "object_ownership": "BucketOwnerEnforced",
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "lifecycle_rules": [
+    "logs-to-cheaper-storage",
+    "old-versions"
+  ]
+}

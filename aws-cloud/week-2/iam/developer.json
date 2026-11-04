@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DeployOnlyTheWeek2Stacks",
+      "Effect": "Allow",
+      "Action": ["cloudformation:CreateStack", "cloudformation:UpdateStack", "cloudformation:DeleteStack",
+                 "cloudformation:DescribeStacks", "cloudformation:DescribeStackEvents", "cloudformation:CreateChangeSet",
+                 "cloudformation:ExecuteChangeSet", "cloudformation:DescribeChangeSet"],
+      "Resource": "arn:aws:cloudformation:ap-south-1:123456789012:stack/week2-*/*"
+    },
+    {
+      "Sid": "ReadLogsAndMetrics",
+      "Effect": "Allow",
+      "Action": ["logs:FilterLogEvents", "logs:GetLogEvents", "cloudwatch:GetMetricData"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "NothingWithoutMfa",
+      "Effect": "Deny",
+      "NotAction": ["iam:CreateVirtualMFADevice", "iam:EnableMFADevice", "iam:ListMFADevices", "iam:ResyncMFADevice",
+                    "sts:GetSessionToken", "iam:ChangePassword", "iam:GetUser"],
+      "Resource": "*",
+      "Condition": {"BoolIfExists": {"aws:MultiFactorAuthPresent": "false"}}
+    },
+    {
+      "Sid": "StayInMumbai",
+      "Effect": "Deny",
+      "NotAction": ["iam:*", "sts:*", "budgets:*", "cloudfront:*", "route53:*", "support:*"],
+      "Resource": "*",
+      "Condition": {"StringNotEquals": {"aws:RequestedRegion": "ap-south-1"}}
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+name: AWS week 2 (IaC + serverless, emulated)
+
+on:
+  push:
+    paths: ["aws-cloud/**", ".github/workflows/aws.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: aws-cloud/week-2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -q -r requirements.txt
+      - name: Lint CloudFormation templates
+        run: cfn-lint infra/*.yaml
+      - name: Tests (moto AWS emulator, no account or credentials needed)
+        run: python -m pytest -q tests -W ignore

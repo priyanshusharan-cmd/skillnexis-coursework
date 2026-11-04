@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Safety net for a free-tier account. Emails at $0.01 actual spend and at 80 % of a $1 forecast. (Two budgets are free.)
+Parameters:
+  Email: { Type: String }
+Resources:
+  ZeroSpend:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: zero-spend
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit: { Amount: 1, Unit: USD }
+      NotificationsWithSubscribers:
+        - Notification: { NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 1, ThresholdType: PERCENTAGE }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref Email }]
+        - Notification: { NotificationType: FORECASTED, ComparisonOperator: GREATER_THAN, Threshold: 80 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref Email }]
