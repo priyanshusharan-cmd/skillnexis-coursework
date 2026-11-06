@@ -1,0 +1,24 @@
+{
+ "thread": [
+  "Style Guide for Python Code: In Python, this style is generally deemed unnecessary because attribute and method names are prefixed with an object, and function names are prefixed with a module name. 🧵",
+  "2/ The Python standard library is conservative and requires limiting lines to 79 characters.",
+  "3/ In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally.",
+  "4/ Module level \"dunders\" such as __all__, __author__, __version__, etc. should be placed after the module docstring but before any import statements except from __future__ imports.",
+  "5/ Each line of a block comment starts with a # and a single space.",
+  "6/ Full post, worth reading in full: https://raw.githubusercontent.com/python/peps/main/peps/pep-0008.rst"
+ ],
+ "linkedin": "In Python, this style is generally deemed unnecessary because attribute and method names are prefixed with an object, and function names are prefixed with a module name.\n\nI just read \"Style Guide for Python Code\" and the core idea is worth sharing. Three takeaways:\n\n✅ The Python standard library is conservative and requires limiting lines to 79 characters.\n✅ In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally.\n✅ Module level \"dunders\" such as __all__, __author__, __version__, etc. should be placed after the module docstring but before any import statements except from __future__ imports.\n\nWhich of these matches your experience with names?\n\n#Names #Code #Python",
+ "instagram": "Style Guide for Python Code 👇\nIn Python, this style is generally deemed unnecessary because attribute and method names are prefixed with an object, and function names are prefixed with a…\n\n💡 The Python standard library is conservative and requires limiting lines to 79 characters.\n🔍 In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent…\n🚀 Module level \"dunders\" such as __all__, __author__, __version__, etc. should be placed after the module docstring but…\n\n📌 Save this for later and share it with a friend who needs it.\n🔗 Full post: link in bio\n\n#Names #Code #Python #FunctionAnnotations #StandardLibrary #Line #AttributeName #Class #Module #Exception #StyleGuide #Comments #Public #NameMangling",
+ "engine": "offline:textrank + templates",
+ "checks": {
+  "thread_posts": 6,
+  "max_post_chars": 200,
+  "linkedin_chars": 742,
+  "linkedin_hook_chars": 169,
+  "instagram_chars": 762,
+  "instagram_hashtags": 14,
+  "fixes": []
+ },
+ "source": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0008.rst",
+ "title": "Style Guide for Python Code"
+}

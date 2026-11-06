@@ -1,0 +1,23 @@
+Subject: {{ first_name }}, {% if progress_pct >= 100 %}you finished {{ course }} 🎉{% elif progress_pct >= 50 %}you're past halfway in {{ course }}{% else %}your next small step in {{ course }}{% endif %}
+---
+Hi {{ first_name }},
+
+{% if progress_pct >= 100 -%}
+Congratulations: you've completed every lesson in {{ course }}. That's a real achievement.
+Your next step: try the grade-report mini project and share your code with us.
+{%- elif progress_pct >= 50 -%}
+You're {{ progress_pct }}% of the way through {{ course }}. Your last lesson was "{{ last_lesson }}".
+Keep the streak going: the next lesson takes about 5 minutes.
+{%- else -%}
+You started {{ course }} and stopped at "{{ last_lesson }}" ({{ progress_pct }}% done). That's completely normal.
+Pick it up with one 5-minute lesson today; small steps add up.
+{%- endif %}
+
+
+{% if company %}
+P.S. Learning with colleagues at {{ company }}? Forward this to them.
+{% endif %}
+
+Mina from Code in Small Steps
+
+You're receiving this because you joined the Code in Small Steps course. Reply "unsubscribe" to stop these emails.

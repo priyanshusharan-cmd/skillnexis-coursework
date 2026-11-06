@@ -1,0 +1,24 @@
+{
+ "thread": [
+  "httpx: HTTPX - A next-generation HTTP client for Python. 🧵",
+  "2/ It includes an integrated command line client, has support for both HTTP/1.1 and HTTP/2, and provides both sync and async APIs.",
+  "3/ Features HTTPX builds on the well-established usability of requests, and gives you:.",
+  "4/ Chunked Requests Installation Install with pip: $ pip install httpx Or, to include the optional HTTP/2 support, use: $ pip install httpx[http2] HTTPX requires Python 3.8+.",
+  "5/ Metadata Release files for httpx 0.28.1 For a detailed explanation of source distributions and built distributions, please see the package formats documentation.",
+  "6/ Full post, worth reading in full: https://pypi.org/project/httpx/"
+ ],
+ "linkedin": "HTTPX - A next-generation HTTP client for Python.\n\nI just read \"httpx\" and the core idea is worth sharing. Three takeaways:\n\n✅ It includes an integrated command line client, has support for both HTTP/1.1 and HTTP/2, and provides both sync and async APIs.\n✅ Features HTTPX builds on the well-established usability of requests, and gives you:.\n✅ Chunked Requests Installation Install with pip: $ pip install httpx Or, to include the optional HTTP/2 support, use: $ pip install httpx[http2] HTTPX requires Python 3.8+.\n\nWhich of these matches your experience with httpx?\n\n#Httpx #SupportOptional #HttpSupport",
+ "instagram": "httpx 👇\nHTTPX - A next-generation HTTP client for Python.\n\n💡 It includes an integrated command line client, has support for both HTTP/1.1 and HTTP/2, and provides both sync and…\n🔍 Features HTTPX builds on the well-established usability of requests, and gives you:.\n🚀 Chunked Requests Installation Install with pip: $ pip install httpx Or, to include the optional HTTP/2 support, use: $…\n\n📌 Save this for later and share it with a friend who needs it.\n🔗 Full post: link in bio\n\n#Httpx #SupportOptional #HttpSupport #PipInstall #Client #Release #Provenance #Requests #Security #Documentation #Package #CommandLine #Async #Files",
+ "engine": "offline:textrank + templates",
+ "checks": {
+  "thread_posts": 6,
+  "max_post_chars": 174,
+  "linkedin_chars": 605,
+  "linkedin_hook_chars": 49,
+  "instagram_chars": 625,
+  "instagram_hashtags": 14,
+  "fixes": []
+ },
+ "source": "https://pypi.org/project/httpx/",
+ "title": "httpx"
+}

@@ -1,0 +1,5 @@
+time,email,subject,status
+2026-11-06T15:59:41,aarav.mehta@example.com,"Aarav, you're past halfway in Python from zero",dry-run
+2026-11-06T15:59:41,meera.iyer@example.org,"Meera, your next small step in Python from zero",dry-run
+2026-11-06T15:59:41,rohan.das@example.net,"Rohan, you finished Debugging basics 🎉",dry-run
+2026-11-06T15:59:41,ananya.pillai@example.com,"Ananya, you're past halfway in Debugging basics",dry-run
