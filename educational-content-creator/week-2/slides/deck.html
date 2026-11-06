@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Variables: labelled boxes for values</title>
+<meta name="viewport" content="width=1920">
+<style>
+@font-face{font-family:"JB";src:url(../assets/jetbrains-mono-latin-400-normal.woff2)format("woff2");font-weight:400}
+@font-face{font-family:"JB";src:url(../assets/jetbrains-mono-latin-700-normal.woff2)format("woff2");font-weight:700}
+:root{--navy:#14213D;--ink:#1F2937;--muted:#5B6474;--cream:#FFF8EE;--card:#FFFFFF;--orange:#E8590C;--orange-t:#FFE8D6;--blue:#2F6DB5;--blue-t:#E2EDFA;--yellow:#FFD43B;--green:#2B8A3E;--green-t:#E3F5E7;--red:#C92A2A;--red-t:#FDE7E7;--line:#E9DFD0}
+*{box-sizing:border-box;margin:0}
+html,body{background:#2a2a2a}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink)}
+.slide{width:1920px;height:1080px;background:var(--cream);position:relative;overflow:hidden;display:none;padding:110px 140px}
+.slide.on{display:block}
+@media print{html,body{background:none}.slide{display:block!important;page-break-after:always}}
+.brand{position:absolute;left:140px;bottom:56px;font:600 24px Inter;color:var(--muted);display:flex;gap:14px;align-items:center}
+.brand i{width:30px;height:30px;border-radius:8px;background:var(--orange);display:inline-block}
+.num{position:absolute;right:140px;bottom:56px;font:600 24px Inter;color:var(--muted)}
+.kicker{font:700 30px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+h1{font:800 104px/1.05 "Inter Display",Inter;letter-spacing:-.02em;color:var(--navy);margin-top:22px}
+h2{font:800 76px/1.1 "Inter Display",Inter;letter-spacing:-.015em;color:var(--navy);margin-top:16px}
+p.lead{font:500 40px/1.45 Inter;color:var(--muted);margin-top:28px;max-width:1300px}
+code,.mono{font-family:JB,monospace}
+.a{animation:up .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+.pop{animation-name:pop}.wipe{animation-name:wipe;animation-duration:.9s}.fade{animation-name:fade}.grow{animation-name:grow;animation-duration:.8s}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.card{background:var(--card);border:3px solid var(--line);border-radius:28px;padding:40px 44px}
+.row{display:flex;gap:40px;align-items:stretch}
+.chip{display:inline-block;padding:10px 22px;border-radius:999px;font:700 30px Inter}
+.big{font:700 96px JB;color:var(--navy)}
+/* slide 4: box diagram */
+.box{width:300px;height:250px;border:8px solid var(--navy);border-top:none;border-radius:0 0 26px 26px;position:relative;display:flex;align-items:center;justify-content:center;font:700 96px JB;color:var(--blue)}
+.label{position:absolute;top:-70px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--yellow);border:5px solid var(--navy);padding:6px 26px;border-radius:12px;font:700 46px JB;color:var(--navy);white-space:nowrap}
+.arrow{height:8px;background:var(--navy);transform-origin:left;position:relative}
+.arrow:after{content:"";position:absolute;right:-6px;top:-14px;border:18px solid transparent;border-left:26px solid var(--navy)}
+.timer{width:340px;height:340px;border-radius:50%;border:16px solid var(--orange-t);display:flex;align-items:center;justify-content:center;font:800 150px "Inter Display";color:var(--orange);position:relative}
+.timer svg{position:absolute;inset:-16px;transform:rotate(-90deg)}
+.tb{font:400 34px/1.55 JB;background:#1E1E2E;color:#E6E6F0;border-radius:24px;padding:36px 44px;white-space:pre}
+.tb .e{color:#FF8787;font-weight:700}.tb .h{background:rgba(255,212,59,.25);border-radius:6px}
+ul.check{list-style:none;padding:0;margin-top:40px}
+ul.check li{font:600 46px/1.4 Inter;margin:22px 0;display:flex;gap:26px;align-items:center}
+ul.check li b{width:64px;height:64px;border-radius:18px;background:var(--orange);color:#fff;display:inline-flex;align-items:center;justify-content:center;font:800 34px Inter;flex:none}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide" data-dur="6">
+  <div style="position:absolute;right:-120px;top:120px;width:860px;height:860px;border-radius:50%;background:var(--orange-t)" class="a pop" ></div>
+  <div class="box a pop" style="position:absolute;right:300px;top:430px;--d:.5s">18<div class="label">age</div></div>
+  <div class="kicker a">Code in Small Steps · Lesson 1</div>
+  <h1 class="a" style="--d:.2s;max-width:1050px">Variables:<br>labelled boxes<br>for values</h1>
+  <p class="lead a" style="--d:.5s;max-width:900px">Python basics · 5 minutes · one tiny exercise</p>
+  <div class="brand"><i></i>Code in Small Steps</div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kicker a">A strange result</div>
+  <h2 class="a" style="--d:.15s">Same symbol. Different answer.</h2>
+  <div class="row" style="margin-top:90px">
+    <div class="card a pop" style="--d:.6s;flex:1;text-align:center"><div class="big">5 + 2</div><div class="a fade" style="--d:1.6s;font:800 120px JB;color:var(--green);margin-top:30px">7</div></div>
+    <div class="card a pop" style="--d:1.0s;flex:1;text-align:center"><div class="big">"5" + "2"</div><div class="a fade" style="--d:2.4s;font:800 120px JB;color:var(--orange);margin-top:30px">"52"</div></div>
+  </div>
+  <p class="lead a" style="--d:3s">Why? By the end of this lesson, you'll know.</p>
+  <div class="num">2</div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="kicker a">In this lesson</div>
+  <h2 class="a" style="--d:.15s">You will be able to…</h2>
+  <ul class="check">
+    <li class="a" style="--d:.6s"><b>1</b>Create a variable and give it a value</li>
+    <li class="a" style="--d:1.2s"><b>2</b>Tell <code>int</code>, <code>float</code> and <code>str</code> apart</li>
+    <li class="a" style="--d:1.8s"><b>3</b>Predict what <code>+</code> does with each type</li>
+    <li class="a" style="--d:2.4s"><b>4</b>Fix the most common variable error</li>
+  </ul>
+  <div class="num">3</div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="kicker a">The idea</div>
+  <h2 class="a" style="--d:.15s">A variable is a <span style="color:var(--orange)">name</span> that points to a <span style="color:var(--blue)">value</span></h2>
+  <div class="tb a wipe" style="--d:.8s;margin-top:60px;display:inline-block;font-size:56px">age = 18</div>
+  <div style="display:flex;align-items:center;gap:60px;margin-top:150px">
+    <div class="a pop" style="--d:1.6s;font:700 56px JB;background:var(--yellow);border:5px solid var(--navy);padding:10px 34px;border-radius:14px">age</div>
+    <div class="arrow a grow" style="--d:2.2s;width:200px"></div>
+    <div class="box a pop" style="--d:2.8s">18</div>
+    <p class="lead a" style="--d:3.4s;margin:0;max-width:440px">The <b>=</b> sign means “store”, not “is equal to”.</p>
+  </div>
+  <div class="num">4</div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="kicker a">Three basic types</div>
+  <h2 class="a" style="--d:.15s">Every value has a type</h2>
+  <div class="row" style="margin-top:80px">
+    <div class="card a" style="--d:.6s;flex:1;border-color:var(--blue)"><span class="chip" style="background:var(--blue-t);color:var(--blue)">int</span><div class="mono" style="font-size:50px;margin:36px 0 18px;font-weight:700;white-space:nowrap">age = 18</div><p style="font:500 34px/1.4 Inter;color:var(--muted)">whole numbers</p></div>
+    <div class="card a" style="--d:1.4s;flex:1;border-color:var(--green)"><span class="chip" style="background:var(--green-t);color:var(--green)">float</span><div class="mono" style="font-size:50px;margin:36px 0 18px;font-weight:700;white-space:nowrap">price = 2.5</div><p style="font:500 34px/1.4 Inter;color:var(--muted)">numbers with a decimal point</p></div>
+    <div class="card a" style="--d:2.2s;flex:1;border-color:var(--orange)"><span class="chip" style="background:var(--orange-t);color:var(--orange)">str</span><div class="mono" style="font-size:50px;margin:36px 0 18px;font-weight:700;white-space:nowrap">name = "Mina"</div><p style="font:500 34px/1.4 Inter;color:var(--muted)">text, always inside quotes</p></div>
+  </div>
+  <p class="lead a" style="--d:3s">Check any value with <code>type(…)</code></p>
+  <div class="num">5</div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="kicker a">What + means</div>
+  <h2 class="a" style="--d:.15s">The type decides what <code>+</code> does</h2>
+  <div class="row" style="margin-top:80px">
+    <div class="card a" style="--d:.6s;flex:1"><span class="chip" style="background:var(--blue-t);color:var(--blue)">int + int</span><div class="big" style="margin-top:30px;font-size:76px;white-space:nowrap">5 + 2 → <span style="color:var(--green)">7</span></div><p class="lead" style="font-size:36px">adds the numbers</p></div>
+    <div class="card a" style="--d:1.6s;flex:1"><span class="chip" style="background:var(--orange-t);color:var(--orange)">str + str</span><div class="big" style="margin-top:30px;font-size:76px;white-space:nowrap">"5" + "2" → <span style="color:var(--orange)">"52"</span></div><p class="lead" style="font-size:36px">joins the text</p></div>
+  </div>
+  <div class="card a pop" style="--d:2.8s;margin-top:44px;display:inline-block;background:var(--red-t);border-color:var(--red);font:600 40px Inter;color:var(--red)">"5" + 2 → <span class="mono">TypeError</span>: Python won't guess which one you meant</div>
+  <div class="num">6</div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="kicker a">Converting</div>
+  <h2 class="a" style="--d:.15s">Change the type on purpose</h2>
+  <div class="tb a" style="--d:.6s;margin-top:70px;font-size:52px">int("5") + int("2")   <span style="color:#8CE99A"># 7</span>
+str(18) + " years"    <span style="color:#8CE99A"># "18 years"</span>
+float("2.5") * 2      <span style="color:#8CE99A"># 5.0</span></div>
+  <p class="lead a" style="--d:1.6s">Text from <code>input()</code> is always a <code>str</code>, so convert it before doing maths.</p>
+  <div class="num">7</div>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="try">
+  <div class="kicker a">Your turn</div>
+  <h2 class="a" style="--d:.15s">Pause and try it</h2>
+  <div style="display:flex;gap:90px;align-items:center;margin-top:70px">
+    <div style="flex:1">
+      <ul class="check" style="margin-top:0">
+        <li class="a" style="--d:.6s"><b>1</b>Store two numbers in two variables</li>
+        <li class="a" style="--d:1.0s"><b>2</b>Print their sum</li>
+        <li class="a" style="--d:1.4s"><b>3</b>Bonus: print it inside a sentence</li>
+      </ul>
+    </div>
+    <div class="timer a pop" style="--d:1.2s"><svg viewBox="0 0 372 372"><circle id="ring" cx="186" cy="186" r="170" fill="none" stroke="#E8590C" stroke-width="16" stroke-dasharray="1068" stroke-dashoffset="0" stroke-linecap="round"/></svg><span id="count">10</span></div>
+  </div>
+  <div class="num">8</div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="kicker a">Most common error</div>
+  <h2 class="a" style="--d:.15s">Names must match exactly</h2>
+  <div class="tb a" style="--d:.6s;margin-top:60px;font-size:40px">score = 40
+print(scor)
+
+Traceback (most recent call last):
+  File "lesson.py", line 2, in &lt;module&gt;
+    print(scor)
+          ^^^^
+<span class="e h">NameError: name 'scor' is not defined. Did you mean: 'score'?</span></div>
+  <p class="lead a" style="--d:1.8s">Read the <b>last line</b> first. Python even suggests the fix.</p>
+  <div class="num">9</div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="kicker a">Recap</div>
+  <h2 class="a" style="--d:.15s">Three things to remember</h2>
+  <ul class="check">
+    <li class="a" style="--d:.6s"><b>1</b>A variable is a name that points to a value</li>
+    <li class="a" style="--d:1.2s"><b>2</b>The type changes what operators like <code>+</code> do</li>
+    <li class="a" style="--d:1.8s"><b>3</b>Convert types on purpose: <code>int()</code>, <code>str()</code>, <code>float()</code></li>
+  </ul>
+  <div class="card a pop" style="--d:2.6s;margin-top:50px;display:inline-flex;gap:30px;align-items:center;background:var(--navy);color:#fff;border-color:var(--navy)"><span style="font:700 34px Inter;color:var(--yellow)">NEXT LESSON</span><span style="font:700 44px Inter">If / else: let your program choose</span></div>
+  <div class="num">10</div>
+</section>
+
+<script>
+const S=[...document.querySelectorAll('.slide')];
+// Deterministic renderer used for export: show slide i at t seconds after it appears.
+window.show=(i,t,timerAt=2)=>{S.forEach((s,k)=>s.classList.toggle('on',k===i));
+  S[i].getAnimations({subtree:true}).forEach(a=>{a.pause();a.currentTime=Math.max(0,t*1000)});
+  if(S[i].id==='try'){const left=Math.max(0,10-Math.max(0,t-timerAt));document.getElementById('count').textContent=Math.ceil(left);
+    document.getElementById('ring').setAttribute('stroke-dashoffset',String(1068*(1-left/10)));}
+  return true};
+// Presenting by hand: arrow keys / click to move, animations play live.
+let cur=0;const go=k=>{cur=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===cur));S[cur].getAnimations({subtree:true}).forEach(a=>{a.currentTime=0;a.play()})};
+if(!location.hash.includes('export')){go(0);addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1)});addEventListener('click',()=>go(cur+1));
+  let t0=null;const tick=ts=>{if(S[cur].id==='try'){t0??=ts;const t=(ts-t0)/1000;const left=Math.max(0,10-Math.max(0,t-2));document.getElementById('count').textContent=Math.ceil(left);document.getElementById('ring').setAttribute('stroke-dashoffset',String(1068*(1-left/10)))}else t0=null;requestAnimationFrame(tick)};requestAnimationFrame(tick)}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Infographics</title>
+<style>
+@font-face{font-family:"JB";src:url(../assets/jetbrains-mono-latin-400-normal.woff2)format("woff2");font-weight:400}
+@font-face{font-family:"JB";src:url(../assets/jetbrains-mono-latin-700-normal.woff2)format("woff2");font-weight:700}
+:root{--navy:#14213D;--ink:#1F2937;--muted:#5B6474;--cream:#FFF8EE;--orange:#E8590C;--orange-t:#FFE8D6;--blue:#2F6DB5;--blue-t:#E2EDFA;--green:#2B8A3E;--green-t:#E3F5E7;--red:#C92A2A;--red-t:#FDE7E7;--yellow:#FFD43B;--line:#E9DFD0}
+*{box-sizing:border-box;margin:0}body{background:#ddd;font-family:Inter,sans-serif;color:var(--ink)}
+.ig{width:1080px;height:1350px;background:var(--cream);padding:76px 72px;position:relative;margin:0 0 20px}
+.k{font:700 24px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+h1{font:800 72px/1.04 "Inter Display";letter-spacing:-.02em;color:var(--navy);margin:14px 0 18px}
+.sub{font:500 30px/1.4 Inter;color:var(--muted)}
+.foot{position:absolute;left:72px;right:72px;bottom:52px;display:flex;justify-content:space-between;font:600 22px Inter;color:var(--muted)}
+.foot b{display:inline-flex;gap:10px;align-items:center}.foot b i{width:24px;height:24px;border-radius:7px;background:var(--orange);display:inline-block}
+.tb{background:#1E1E2E;color:#E6E6F0;border-radius:22px;padding:26px 30px;font:400 22px/1.6 JB;white-space:pre}
+.tb .e{color:#FF8787;font-weight:700}.dim{opacity:.45}
+.step{display:flex;gap:22px;align-items:flex-start;margin-top:26px}
+.n{flex:none;width:62px;height:62px;border-radius:18px;color:#fff;font:800 32px Inter;display:flex;align-items:center;justify-content:center}
+.step h3{font:800 34px Inter;color:var(--navy)}.step p{font:500 25px/1.4 Inter;color:var(--muted);margin-top:4px}
+.mono{font-family:JB}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px}
+.c{background:#fff;border:3px solid var(--line);border-radius:24px;padding:26px}
+.c .t{display:inline-block;font:800 24px JB;padding:6px 16px;border-radius:999px}
+.c .v{font:700 30px JB;margin:22px 0 10px;color:var(--navy)}.c p{font:500 22px/1.35 Inter;color:var(--muted)}
+.box{width:190px;height:150px;border:7px solid var(--navy);border-top:none;border-radius:0 0 20px 20px;position:relative;display:flex;align-items:center;justify-content:center;font:700 58px JB;color:var(--blue);margin:70px auto 0}
+.label{position:absolute;top:-52px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--yellow);border:4px solid var(--navy);padding:4px 18px;border-radius:10px;font:700 32px JB;color:var(--navy)}
+table{width:100%;border-collapse:separate;border-spacing:0 14px;margin-top:20px}td{font:600 28px JB;padding:18px 22px;background:#fff}td:first-child{border-radius:16px 0 0 16px}td:last-child{border-radius:0 16px 16px 0;text-align:right}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.col{background:#fff;border-radius:26px;padding:30px;border:3px solid var(--line)}
+.col h2{font:800 46px JB}.col .use{font:700 22px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:26px}
+.col li{font:500 26px/1.4 Inter;margin:10px 0 0 26px}
+.flow{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:22px;font:600 22px Inter}
+.flow div{padding:12px 18px;border-radius:14px;text-align:center;width:100%}
+.flow .ar{width:auto;padding:0;color:var(--muted);font-size:26px}
+</style></head><body>
+
+<section class="ig" id="ig1">
+  <div class="k">Debugging · Python</div><h1>Read any Python error in 3 steps</h1><p class="sub">A traceback reads bottom to top: the bottom is where it broke.</p>
+  <div class="tb" style="margin-top:36px"><span class="dim">Traceback (most recent call last):</span>
+<span style="color:#FFD43B">  File "report.py", line 8, in &lt;module&gt;</span>        <b style="color:#74C0FC">③</b>
+    report("Meera", [])
+<span style="color:#FFD43B">  File "report.py", line 2, in average</span>         <b style="color:#74C0FC">②</b>
+    return sum(scores) / len(scores)
+           ~~~~~~~~~~~~^~~~~~~~~~~~~
+<span class="e">ZeroDivisionError: division by zero</span>          <b style="color:#74C0FC">①</b></div>
+  <div class="step"><div class="n" style="background:var(--red)">1</div><div><h3>Read the last line</h3><p>Error <b>type</b> + <b>message</b>. <span class="mono">ZeroDivisionError: division by zero</span> already tells you the cause.</p></div></div>
+  <div class="step"><div class="n" style="background:var(--orange)">2</div><div><h3>Go up to the file and line</h3><p>The lowest <span class="mono">File … line N</span> is where it crashed. The <span class="mono">^~~</span> marks point at the exact part.</p></div></div>
+  <div class="step"><div class="n" style="background:var(--blue)">3</div><div><h3>Follow the chain to your code</h3><p>Each pair of lines is one function call. The top one is where it started; the real bug is often there (here: an empty list).</p></div></div>
+  <div class="foot"><b><i></i>Code in Small Steps</b><span>Shortened from real Python 3.13 output</span></div>
+</section>
+
+<section class="ig" id="ig2">
+  <div class="k">Python basics</div><h1>Variables are labelled boxes</h1><p class="sub">A name points to a value. The value's type decides what you can do with it.</p>
+  <div class="box"><div class="label">age</div>18</div>
+  <p class="sub mono" style="text-align:center;margin-top:18px;color:var(--navy);font-weight:700">age = 18 <span style="color:var(--muted);font-weight:400"># "=" means store</span></p>
+  <div class="cards">
+    <div class="c" style="border-color:var(--blue)"><span class="t" style="background:var(--blue-t);color:var(--blue)">int</span><div class="v">18</div><p>whole numbers</p></div>
+    <div class="c" style="border-color:var(--green)"><span class="t" style="background:var(--green-t);color:var(--green)">float</span><div class="v">2.5</div><p>decimal numbers</p></div>
+    <div class="c" style="border-color:var(--orange)"><span class="t" style="background:var(--orange-t);color:var(--orange)">str</span><div class="v">"Mina"</div><p>text, in quotes</p></div>
+  </div>
+  <table><tr><td>5 + 2</td><td style="color:var(--green)">7</td></tr><tr><td>"5" + "2"</td><td style="color:var(--orange)">"52"</td></tr>
+  <tr><td>"5" + 2</td><td style="color:var(--red)">TypeError</td></tr><tr><td>int("5") + 2</td><td style="color:var(--green)">7</td></tr></table>
+  <div class="foot"><b><i></i>Code in Small Steps</b><span>Lesson 1 · Variables</span></div>
+</section>
+
+<section class="ig" id="ig3">
+  <div class="k">Loops</div><h1>for or while?</h1><p class="sub">Both repeat code. Pick by what you know before the loop starts.</p>
+  <div class="two">
+    <div class="col" style="border-color:var(--blue)"><h2 style="color:var(--blue)">for</h2>
+      <div class="tb" style="margin-top:18px;font-size:21px">for score in scores:
+    print(score)</div>
+      <div class="use">Use when</div><ul><li>you have a collection</li><li>or know how many times</li></ul>
+      <div class="flow"><div style="background:var(--blue-t)">take the next item</div><div class="ar">↓</div><div style="background:var(--blue-t)">run the body</div><div class="ar">↓</div><div style="background:var(--blue-t)">stops by itself when items run out</div></div></div>
+    <div class="col" style="border-color:var(--orange)"><h2 style="color:var(--orange)">while</h2>
+      <div class="tb" style="margin-top:18px;font-size:21px">while balance &gt; 0:
+    balance -= 100</div>
+      <div class="use">Use when</div><ul><li>you repeat until a condition changes</li><li>count is unknown</li></ul>
+      <div class="flow"><div style="background:var(--orange-t)">check the condition</div><div class="ar">↓</div><div style="background:var(--orange-t)">run the body</div><div class="ar">↓</div><div style="background:var(--red-t);color:var(--red)">you must change something, or it never stops</div></div></div>
+  </div>
+  <div style="margin-top:30px;background:var(--navy);color:#fff;border-radius:24px;padding:28px 32px;font:600 30px/1.4 Inter">Rule of thumb: if you can say <span style="color:var(--yellow)">“for each …”</span>, use <span class="mono" style="color:var(--yellow)">for</span>. If you'd say <span style="color:var(--yellow)">“until …”</span>, use <span class="mono" style="color:var(--yellow)">while</span>.</div>
+  <div class="foot"><b><i></i>Code in Small Steps</b><span>Lesson 3 · Loops</span></div>
+</section>
+</body></html>

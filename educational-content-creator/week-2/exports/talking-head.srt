@@ -1,0 +1,63 @@
+1
+00:00:00,400 --> 00:00:06,340
+What exactly is an algorithm? It sounds
+complicated, but you already use them
+every day.
+
+2
+00:00:06,890 --> 00:00:11,142
+An algorithm is just a precise list of
+steps that solves a problem.
+
+3
+00:00:11,692 --> 00:00:13,202
+Think about making chai.
+
+4
+00:00:13,752 --> 00:00:19,386
+Boil a cup of water. Add one spoon of tea
+leaves. Add sugar, and simmer for two
+minutes.
+
+5
+00:00:19,936 --> 00:00:24,020
+Pour in the milk, bring it back to a boil,
+then strain it into a cup.
+
+6
+00:00:24,570 --> 00:00:28,055
+That's an algorithm. And notice three
+things about it.
+
+7
+00:00:28,605 --> 00:00:34,940
+First, it's precise. One spoon is clear.
+Some tea is not, and a computer can't
+guess.
+
+8
+00:00:35,490 --> 00:00:40,645
+Second, the order matters. Straining
+before you boil gives you a very sad cup
+of chai.
+
+9
+00:00:41,195 --> 00:00:45,768
+Third, it finishes. There's a clear last
+step, so you know when you're done.
+
+10
+00:00:46,318 --> 00:00:53,609
+Programs work the same way. When you write
+code, you're writing a recipe for the
+computer, one precise step at a time.
+
+11
+00:00:54,159 --> 00:00:59,198
+So next time you follow a recipe, ask
+yourself: could a computer follow this?
+
+12
+00:00:59,748 --> 00:01:04,327
+I'm Mina, and this is Code in Small Steps.
+See you in the next lesson.

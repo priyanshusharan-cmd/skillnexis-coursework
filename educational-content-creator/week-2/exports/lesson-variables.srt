@@ -1,0 +1,257 @@
+1
+00:00:00,400 --> 00:00:06,162
+Why can Python add five and two, but join
+the text five and two into fifty two?
+
+2
+00:00:06,662 --> 00:00:10,087
+Hi, I'm Mina, and this is Code in Small
+Steps.
+
+3
+00:00:10,587 --> 00:00:18,571
+In the next five minutes, you'll learn
+what a variable is, the three basic types,
+and how to fix the most common variable
+error.
+
+4
+00:00:20,066 --> 00:00:24,236
+This is lesson one. Variables: labelled
+boxes for values.
+
+5
+00:00:24,736 --> 00:00:34,720
+Here's the puzzle. Five plus two gives
+seven. But five plus two, in quotes, gives
+fifty two. Same symbol, different answer.
+
+6
+00:00:35,220 --> 00:00:43,604
+By the end, you'll be able to create a
+variable, tell three types apart, predict
+what plus does, and fix the most common
+error.
+
+7
+00:00:44,104 --> 00:00:48,319
+So, what is a variable? It's a name that
+points to a value.
+
+8
+00:00:48,819 --> 00:00:54,420
+When you write age equals eighteen, Python
+stores the value eighteen, and puts the
+label age on it.
+
+9
+00:00:54,920 --> 00:01:00,935
+Think of a sticky note on a jar. The note
+is the name, and whatever is inside the
+jar is the value.
+
+10
+00:01:01,435 --> 00:01:05,564
+The equals sign means store. It does not
+mean, is equal to.
+
+11
+00:01:07,066 --> 00:01:13,106
+Let's try it in the editor. I'll create
+three variables: an age, a name, and a
+price.
+
+12
+00:01:13,606 --> 00:01:18,119
+Print them, and Python looks up each label
+and shows its value.
+
+13
+00:01:18,619 --> 00:01:23,335
+Now let's ask Python what type each value
+is, using the type function.
+
+14
+00:01:23,835 --> 00:01:32,468
+Eighteen is an int, a whole number. Mina,
+in quotes, is a str, short for string. And
+two point five is a float.
+
+15
+00:01:32,968 --> 00:01:36,869
+Variables can also change. That's why
+they're called variables.
+
+16
+00:01:37,369 --> 00:01:42,730
+If I set age to nineteen and print it
+again, the label age now points to the new
+value.
+
+17
+00:01:44,200 --> 00:01:46,895
+One more thing before we move on: naming.
+
+18
+00:01:47,395 --> 00:01:54,787
+Names can use letters, numbers and
+underscores, but they can't start with a
+number, and they can't contain spaces.
+
+19
+00:01:55,287 --> 00:01:57,361
+Total underscore score works fine.
+
+20
+00:01:57,861 --> 00:02:05,325
+But if I replace the underscore with a
+space and run it, Python can't read the
+line, and stops with a syntax error.
+
+21
+00:02:05,825 --> 00:02:11,312
+So stick to lowercase words joined by
+underscores. That's the standard Python
+style.
+
+22
+00:02:12,800 --> 00:02:22,180
+Those are the three basic types. Ints are
+whole numbers. Floats have a decimal
+point. And strings are text, always inside
+quotes.
+
+23
+00:02:22,680 --> 00:02:26,895
+And here's the answer to our puzzle. The
+type decides what plus does.
+
+24
+00:02:27,395 --> 00:02:32,548
+With two ints, plus adds. With two
+strings, plus joins the text.
+
+25
+00:02:33,048 --> 00:02:39,533
+Mix a string and an int, and Python stops
+with a type error, because it won't guess
+what you meant.
+
+26
+00:02:41,000 --> 00:02:44,891
+Let's prove it in a new file, with all
+three cases side by side.
+
+27
+00:02:45,391 --> 00:02:45,829
+Run it.
+
+28
+00:02:46,329 --> 00:02:52,320
+Seven, then fifty two, and then a type
+error on line three, exactly as predicted.
+
+29
+00:02:53,800 --> 00:03:00,722
+To fix that, convert the type on purpose.
+int of five gives the number five. str of
+eighteen gives the text eighteen.
+
+30
+00:03:01,222 --> 00:03:06,132
+This matters a lot, because anything a
+user types into input arrives as a string.
+
+31
+00:03:06,632 --> 00:03:14,057
+So if someone types twelve, Python gives
+you the text one two, and you convert it
+with int before doing any maths.
+
+32
+00:03:15,533 --> 00:03:18,046
+Wrap the five in int, and run it again.
+
+33
+00:03:18,546 --> 00:03:20,634
+Now the last line prints seven.
+
+34
+00:03:22,133 --> 00:03:30,820
+Your turn. Store two numbers in two
+variables, and print their sum. Pause the
+video, or try it during this ten second
+timer.
+
+35
+00:03:42,799 --> 00:03:47,086
+Here's one solution. Twelve plus thirty
+prints forty two.
+
+36
+00:03:47,586 --> 00:03:51,127
+And with a comma, you can put the result
+inside a sentence.
+
+37
+00:03:52,600 --> 00:03:56,868
+Finally, the most common error. Names must
+match exactly.
+
+38
+00:03:57,368 --> 00:04:06,641
+Here, score is spelled correctly on line
+one, but misspelled on line two. Python
+raises a name error, and even suggests the
+right name.
+
+39
+00:04:08,133 --> 00:04:09,423
+Let's see it for real.
+
+40
+00:04:09,923 --> 00:04:16,375
+Read the last line first. Name error, s c
+o r is not defined. Did you mean, score?
+
+41
+00:04:16,875 --> 00:04:20,621
+Fix the spelling, run again, and it prints
+forty.
+
+42
+00:04:22,133 --> 00:04:26,034
+Let's recap. A variable is a name that
+points to a value.
+
+43
+00:04:26,534 --> 00:04:34,603
+The type changes what operators like plus
+do. And you can convert types on purpose,
+with int, str and float.
+
+44
+00:04:35,103 --> 00:04:39,951
+And whenever a result surprises you, check
+the types with the type function.
+
+45
+00:04:41,466 --> 00:04:46,191
+Next lesson, we'll use variables to make
+decisions, with if and else.
+
+46
+00:04:46,691 --> 00:04:52,238
+Before then, change the numbers in today's
+code, and predict the result before you
+run it.
+
+47
+00:04:52,738 --> 00:04:59,619
+Thanks for learning with me today. If this
+helped, subscribe, and leave a question in
+the comments.
+
+48
+00:05:00,119 --> 00:05:02,002
+See you in the next small step.
