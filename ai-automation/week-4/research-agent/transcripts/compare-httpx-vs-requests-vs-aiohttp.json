@@ -1,0 +1,95 @@
+{
+ "engine": "offline:planner + template",
+ "steps": [
+  {
+   "thought": "planner: pypi_package looks right for this question",
+   "action": "pypi_package",
+   "input": "httpx",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "httpx on PyPI",
+      "url": "https://pypi.org/project/httpx/",
+      "snippet": "The next generation HTTP client.",
+      "facts": {
+       "latest": "0.28.1",
+       "released": "2024-12-06",
+       "first_release": "2019-07-19",
+       "requires_python": ">=3.8",
+       "licence": "BSD-3-Clause",
+       "repo": "encode/httpx",
+       "repos": [
+        "encode/httpx"
+       ],
+       "releases": 77
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: pypi_package looks right for this question",
+   "action": "pypi_package",
+   "input": "requests",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "requests on PyPI",
+      "url": "https://pypi.org/project/requests/",
+      "snippet": "Python HTTP for Humans.",
+      "facts": {
+       "latest": "2.34.2",
+       "released": "2026-05-14",
+       "first_release": "2011-02-14",
+       "requires_python": ">=3.10",
+       "licence": "Apache-2.0",
+       "repo": "psf/requests",
+       "repos": [
+        "psf/requests"
+       ],
+       "releases": 163
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: pypi_package looks right for this question",
+   "action": "pypi_package",
+   "input": "aiohttp",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "aiohttp on PyPI",
+      "url": "https://pypi.org/project/aiohttp/",
+      "snippet": "Async http client/server framework (asyncio)",
+      "facts": {
+       "latest": "3.14.5",
+       "released": "2026-10-11",
+       "first_release": "2013-10-25",
+       "requires_python": ">=3.10",
+       "licence": "Apache-2.0 AND MIT",
+       "repo": "aio-libs/aiohttp",
+       "repos": [
+        "aio-libs/aiohttp"
+       ],
+       "releases": 314
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "answer": "**Question:** Compare httpx vs requests vs aiohttp\n\n- **httpx** 0.28.1 (released 2024-12-06, first release 2019-07-19, 77 releases, Python >=3.8): The next generation HTTP client. [1]\n- **requests** 2.34.2 (released 2026-05-14, first release 2011-02-14, 163 releases, Python >=3.10): Python HTTP for Humans. [2]\n- **aiohttp** 3.14.5 (released 2026-10-11, first release 2013-10-25, 314 releases, Python >=3.10): Async http client/server framework (asyncio) [3]",
+ "sources": [
+  "https://pypi.org/project/httpx/",
+  "https://pypi.org/project/requests/",
+  "https://pypi.org/project/aiohttp/"
+ ],
+ "failed": [],
+ "question": "Compare httpx vs requests vs aiohttp",
+ "date": "2026-11-06"
+}

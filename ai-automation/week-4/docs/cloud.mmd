@@ -1,0 +1,7 @@
+flowchart LR
+  U[HTTP client] -->|GET ?repos=| FURL[Lambda Function URL]
+  EB[EventBridge<br/>weekly cron] --> L
+  FURL --> L[lambda_handler] --> C[core.run]
+  G[GCF HTTP trigger] --> M[repo_health] --> C
+  C -->|stdlib urllib| GH[(GitHub API)]
+  L --> CW[(CloudWatch Logs)]

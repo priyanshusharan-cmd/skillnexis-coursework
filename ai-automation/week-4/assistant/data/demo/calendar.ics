@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Northwind demo//EN
+BEGIN:VEVENT
+SUMMARY:Leadership sync
+DTSTART;TZID=Asia/Kolkata:20261110T100000
+DTEND;TZID=Asia/Kolkata:20261110T110000
+UID:seed-1@northwind
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Instructor onboarding
+DTSTART;TZID=Asia/Kolkata:20261110T140000
+DTEND;TZID=Asia/Kolkata:20261110T160000
+UID:seed-2@northwind
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Board pack review
+DTSTART;TZID=Asia/Kolkata:20261111T130000
+DTEND;TZID=Asia/Kolkata:20261111T150000
+UID:seed-3@northwind
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Focus time
+DTSTART;TZID=Asia/Kolkata:20261109T090000
+DTEND;TZID=Asia/Kolkata:20261109T110000
+UID:seed-4@northwind
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ana / Priya: Workshop follow-up
+DTSTART;TZID=Asia/Kolkata:20261110T161500
+DTEND;TZID=Asia/Kolkata:20261110T164500
+UID:6e88f692-3e50-46fd-a720-ee68c196f25b@assistant
+ATTENDEE:mailto:ana.gomez@client.example.org
+DESCRIPTION:Booked by the assistant from the email 'Workshop follow-up'. R
+ eason: their proposed day (Tuesday\, afternoon)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Meera / Priya: Content partnership
+DTSTART;TZID=Asia/Kolkata:20261109T111500
+DTEND;TZID=Asia/Kolkata:20261109T114500
+UID:20e0de19-765e-48c7-893c-fc24ec29b3d3@assistant
+ATTENDEE:mailto:meera.iyer@partner.example.org
+DESCRIPTION:Booked by the assistant from the email 'Content partnership'. 
+ Reason: first free slot next week (tried: Thu 05 Nov 15:00 (past))
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Daniel / Priya: Quarterly review prep
+DTSTART;TZID=Asia/Kolkata:20261110T111500
+DTEND;TZID=Asia/Kolkata:20261110T121500
+UID:61a5f43e-67f7-47b7-b2d0-64bfa5aeeecf@assistant
+ATTENDEE:mailto:daniel@northwind.example.com
+DESCRIPTION:Booked by the assistant from the email 'Quarterly review prep'
+ . Reason: their proposed day (Tuesday morning)
+END:VEVENT
+END:VCALENDAR

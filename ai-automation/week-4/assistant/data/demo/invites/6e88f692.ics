@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI business assistant//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+SUMMARY:Ana / Priya: Workshop follow-up
+DTSTART;TZID=Asia/Kolkata:20261110T161500
+DTEND;TZID=Asia/Kolkata:20261110T164500
+UID:6e88f692-3e50-46fd-a720-ee68c196f25b@assistant
+ATTENDEE:mailto:ana.gomez@client.example.org
+DESCRIPTION:Booked by the assistant from the email 'Workshop follow-up'. R
+ eason: their proposed day (Tuesday\, afternoon)
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,12 @@
+From: Sophie Turner <sophie@northwind.example.com>
+To: Priya Shah <priya@northwind.example.com>
+Subject: Re: URGENT: certificate template broken
+Date: Thu, 05 Nov 2026 15:10:00 +0530
+Message-ID: <demo-012@northwind.example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Update: it's fixed now, the template had a timezone bug. Just make sure the f=
+ix is documented in the runbook by next week.
+Sophie

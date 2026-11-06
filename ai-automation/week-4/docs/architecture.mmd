@@ -1,0 +1,21 @@
+flowchart LR
+  subgraph Sources
+    IMAP[(IMAP inbox<br/>Gmail / Outlook)]
+    DEMO[(demo .eml folder)]
+  end
+  subgraph Service["AI business assistant (FastAPI, Docker)"]
+    POLL[[poller<br/>every N min]] --> ENG[engine.process]
+    ENG --> UND[understand<br/>LLM or rules + dateparser]
+    UND --> TASKS[tasks]
+    UND --> MEET[calendar_svc<br/>free-slot search]
+    UND --> REPLY[reply drafts<br/>LLM or templates]
+    TASKS & MEET & REPLY --> DB[(SQLite)]
+    DB --> API[/REST API/]
+    API --> DASH[web dashboard]
+    DB --> REP[daily summary<br/>weekly report]
+  end
+  IMAP --> POLL
+  DEMO --> POLL
+  MEET <--> CAL[(Google Calendar<br/>or local .ics)]
+  DASH -- approve --> SMTP[SMTP send]
+  LLM{{Gemini / OpenAI-compatible / Ollama<br/>optional}} -.-> UND & REPLY

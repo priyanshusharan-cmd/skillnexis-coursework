@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI business assistant//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+SUMMARY:Meera / Priya: Content partnership
+DTSTART;TZID=Asia/Kolkata:20261109T111500
+DTEND;TZID=Asia/Kolkata:20261109T114500
+UID:20e0de19-765e-48c7-893c-fc24ec29b3d3@assistant
+ATTENDEE:mailto:meera.iyer@partner.example.org
+DESCRIPTION:Booked by the assistant from the email 'Content partnership'. 
+ Reason: first free slot next week (tried: Thu 05 Nov 15:00 (past))
+END:VEVENT
+END:VCALENDAR

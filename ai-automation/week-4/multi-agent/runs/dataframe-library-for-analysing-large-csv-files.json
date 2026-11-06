@@ -1,0 +1,206 @@
+{
+ "need": "dataframe library for analysing large CSV files",
+ "candidates": [
+  "pandas",
+  "polars",
+  "duckdb"
+ ],
+ "criteria": {
+  "maintenance": 0.35,
+  "maturity": 0.2,
+  "popularity": 0.25,
+  "fit": 0.2,
+  "async_required": false
+ },
+ "facts": {
+  "pandas": {
+   "pypi": {
+    "title": "pandas on PyPI",
+    "url": "https://pypi.org/project/pandas/",
+    "snippet": "Powerful data structures for data analysis, time series, and statistics",
+    "facts": {
+     "latest": "3.1.1",
+     "released": "2026-11-04",
+     "first_release": "2009-12-25",
+     "requires_python": ">=3.11",
+     "licence": "BSD-3-Clause",
+     "repo": "pandas-dev/pandas",
+     "repos": [
+      "pandas-dev/pandas"
+     ],
+     "releases": 121
+    }
+   },
+   "github": {
+    "title": "pandas-dev/pandas",
+    "url": "https://github.com/pandas-dev/pandas",
+    "snippet": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+    "facts": {
+     "stars": 50439,
+     "forks": 20718,
+     "language": "Python",
+     "last_push": "2026-11-06",
+     "licence": "BSD-3-Clause",
+     "topics": [
+      "alignment",
+      "data-analysis",
+      "data-science",
+      "flexible",
+      "pandas",
+      "python"
+     ]
+    }
+   },
+   "error": null
+  },
+  "polars": {
+   "pypi": {
+    "title": "polars on PyPI",
+    "url": "https://pypi.org/project/polars/",
+    "snippet": "Blazingly fast DataFrame library",
+    "facts": {
+     "latest": "2.1.0",
+     "released": "2026-10-25",
+     "first_release": "2021-03-15",
+     "requires_python": ">=3.11",
+     "licence": "Copyright (c) 2025 Ritchie Vink\n        ",
+     "repo": "pola-rs/polars",
+     "repos": [
+      "pola-rs/polars"
+     ],
+     "releases": 434
+    }
+   },
+   "github": {
+    "title": "pola-rs/polars",
+    "url": "https://github.com/pola-rs/polars",
+    "snippet": "Extremely fast Query Engine for DataFrames, written in Rust",
+    "facts": {
+     "stars": 40274,
+     "forks": 3220,
+     "language": "Rust",
+     "last_push": "2026-11-06",
+     "licence": "MIT",
+     "topics": [
+      "arrow",
+      "dataframe",
+      "dataframe-library",
+      "dataframes",
+      "out-of-core",
+      "polars"
+     ]
+    }
+   },
+   "error": null
+  },
+  "duckdb": {
+   "pypi": {
+    "title": "duckdb on PyPI",
+    "url": "https://pypi.org/project/duckdb/",
+    "snippet": "DuckDB in-process database",
+    "facts": {
+     "latest": "2.0.0",
+     "released": "2026-10-21",
+     "first_release": "2019-05-08",
+     "requires_python": ">=3.11.0",
+     "licence": "",
+     "repo": "duckdb/duckdb-python",
+     "repos": [
+      "duckdb/duckdb-python"
+     ],
+     "releases": 159
+    }
+   },
+   "github": {
+    "title": "duckdb/duckdb-python",
+    "url": "https://github.com/duckdb/duckdb-python",
+    "snippet": "The DuckDB Python package",
+    "facts": {
+     "stars": 204,
+     "forks": 124,
+     "language": "Python",
+     "last_push": "2026-11-06",
+     "licence": "MIT",
+     "topics": []
+    }
+   },
+   "error": null
+  }
+ },
+ "scores": [
+  {
+   "package": "pandas",
+   "total": 0.984,
+   "maintenance": 1.0,
+   "maturity": 1,
+   "popularity": 0.94,
+   "fit": 1.0,
+   "latest": "3.1.1",
+   "released": "2026-11-04",
+   "days_since_release": 2,
+   "first_release": "2009-12-25",
+   "stars": 50439,
+   "url": "https://pypi.org/project/pandas/",
+   "repo_url": "https://github.com/pandas-dev/pandas"
+  },
+  {
+   "package": "polars",
+   "total": 0.914,
+   "maintenance": 0.98,
+   "maturity": 0.71,
+   "popularity": 0.92,
+   "fit": 1.0,
+   "latest": "2.1.0",
+   "released": "2026-10-25",
+   "days_since_release": 12,
+   "first_release": "2021-03-15",
+   "stars": 40274,
+   "url": "https://pypi.org/project/polars/",
+   "repo_url": "https://github.com/pola-rs/polars"
+  },
+  {
+   "package": "duckdb",
+   "total": 0.843,
+   "maintenance": 0.97,
+   "maturity": 0.94,
+   "popularity": 0.46,
+   "fit": 1.0,
+   "latest": "2.0.0",
+   "released": "2026-10-21",
+   "days_since_release": 16,
+   "first_release": "2019-05-08",
+   "stars": 204,
+   "url": "https://pypi.org/project/duckdb/",
+   "repo_url": "https://github.com/duckdb/duckdb-python"
+  }
+ ],
+ "draft": "# Library brief: dataframe library for analysing large CSV files\n\n**Recommendation: `pandas`** (score 0.98 of 1), chosen for the most recent release (3.1.1, 2026-11-04), the largest community (50,439 GitHub stars).\n\n| Package | Score | Latest | Released | First release | GitHub stars | Meets requirements |\n|---|---|---|---|---|---|---|\n| [pandas](https://pypi.org/project/pandas/) | 0.98 | 3.1.1 | 2026-11-04 | 2009-12-25 | 50,439 | yes |\n| [polars](https://pypi.org/project/polars/) | 0.91 | 2.1.0 | 2026-10-25 | 2021-03-15 | 40,274 | yes |\n| [duckdb](https://pypi.org/project/duckdb/) | 0.84 | 2.0.0 | 2026-10-21 | 2019-05-08 | 204 | yes |\n\n**Runner-up:** `polars` (0.91).\n\n*Scoring:* maintenance 35% (days since last release), popularity 25% (log GitHub stars), maturity 20% (years since first release), fit 20%. Data from PyPI and GitHub on 2026-11-06.",
+ "review": {
+  "ok": true,
+  "notes": [],
+  "numbers_checked": 15
+ },
+ "revisions": 0,
+ "log": [
+  {
+   "agent": "Planner",
+   "msg": "candidates ['pandas', 'polars', 'duckdb'] via rules; criteria {'maintenance': 0.35, 'maturity': 0.2, 'popularity': 0.25, 'fit': 0.2, 'async_required': False}"
+  },
+  {
+   "agent": "Researcher",
+   "msg": "PyPI + GitHub facts for pandas, polars, duckdb; failed: []"
+  },
+  {
+   "agent": "Analyst",
+   "msg": "ranking pandas 0.98, polars 0.91, duckdb 0.84"
+  },
+  {
+   "agent": "Writer",
+   "msg": "draft 858 chars via template"
+  },
+  {
+   "agent": "Reviewer",
+   "msg": "approved: 15 numbers verified"
+  }
+ ]
+}

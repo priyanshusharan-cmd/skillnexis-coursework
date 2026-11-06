@@ -1,0 +1,211 @@
+{
+ "need": "HTTP client for an async web scraper",
+ "candidates": [
+  "httpx",
+  "aiohttp",
+  "requests"
+ ],
+ "criteria": {
+  "maintenance": 0.35,
+  "maturity": 0.2,
+  "popularity": 0.25,
+  "fit": 0.2,
+  "async_required": true
+ },
+ "facts": {
+  "httpx": {
+   "pypi": {
+    "title": "httpx on PyPI",
+    "url": "https://pypi.org/project/httpx/",
+    "snippet": "The next generation HTTP client.",
+    "facts": {
+     "latest": "0.28.1",
+     "released": "2024-12-06",
+     "first_release": "2019-07-19",
+     "requires_python": ">=3.8",
+     "licence": "BSD-3-Clause",
+     "repo": "encode/httpx",
+     "repos": [
+      "encode/httpx"
+     ],
+     "releases": 77
+    }
+   },
+   "github": {
+    "title": "encode/httpx",
+    "url": "https://github.com/encode/httpx",
+    "snippet": "A next generation HTTP client for Python. \ud83e\udd8b",
+    "facts": {
+     "stars": 15738,
+     "forks": 2588,
+     "language": "Python",
+     "last_push": "2026-10-02",
+     "licence": "BSD-3-Clause",
+     "topics": [
+      "asyncio",
+      "http",
+      "python",
+      "trio"
+     ]
+    }
+   },
+   "error": null
+  },
+  "aiohttp": {
+   "pypi": {
+    "title": "aiohttp on PyPI",
+    "url": "https://pypi.org/project/aiohttp/",
+    "snippet": "Async http client/server framework (asyncio)",
+    "facts": {
+     "latest": "3.14.5",
+     "released": "2026-10-11",
+     "first_release": "2013-10-25",
+     "requires_python": ">=3.10",
+     "licence": "Apache-2.0 AND MIT",
+     "repo": "aio-libs/aiohttp",
+     "repos": [
+      "aio-libs/aiohttp"
+     ],
+     "releases": 314
+    }
+   },
+   "github": {
+    "title": "aio-libs/aiohttp",
+    "url": "https://github.com/aio-libs/aiohttp",
+    "snippet": "Asynchronous HTTP client/server framework for asyncio and Python",
+    "facts": {
+     "stars": 16605,
+     "forks": 2509,
+     "language": "Python",
+     "last_push": "2026-11-06",
+     "licence": "Apache-2.0",
+     "topics": [
+      "aiohttp",
+      "async",
+      "asyncio",
+      "hacktoberfest",
+      "http",
+      "http-client"
+     ]
+    }
+   },
+   "error": null
+  },
+  "requests": {
+   "pypi": {
+    "title": "requests on PyPI",
+    "url": "https://pypi.org/project/requests/",
+    "snippet": "Python HTTP for Humans.",
+    "facts": {
+     "latest": "2.34.2",
+     "released": "2026-05-14",
+     "first_release": "2011-02-14",
+     "requires_python": ">=3.10",
+     "licence": "Apache-2.0",
+     "repo": "psf/requests",
+     "repos": [
+      "psf/requests"
+     ],
+     "releases": 163
+    }
+   },
+   "github": {
+    "title": "psf/requests",
+    "url": "https://github.com/psf/requests",
+    "snippet": "A simple, yet elegant, HTTP library.",
+    "facts": {
+     "stars": 54643,
+     "forks": 11516,
+     "language": "Python",
+     "last_push": "2026-11-02",
+     "licence": "Apache-2.0",
+     "topics": [
+      "client",
+      "cookies",
+      "forhumans",
+      "http",
+      "humans",
+      "python"
+     ]
+    }
+   },
+   "error": null
+  }
+ },
+ "scores": [
+  {
+   "package": "aiohttp",
+   "total": 0.944,
+   "maintenance": 0.95,
+   "maturity": 1,
+   "popularity": 0.84,
+   "fit": 1.0,
+   "latest": "3.14.5",
+   "released": "2026-10-11",
+   "days_since_release": 26,
+   "first_release": "2013-10-25",
+   "stars": 16605,
+   "url": "https://pypi.org/project/aiohttp/",
+   "repo_url": "https://github.com/aio-libs/aiohttp"
+  },
+  {
+   "package": "httpx",
+   "total": 0.593,
+   "maintenance": 0,
+   "maturity": 0.91,
+   "popularity": 0.84,
+   "fit": 1.0,
+   "latest": "0.28.1",
+   "released": "2024-12-06",
+   "days_since_release": 700,
+   "first_release": "2019-07-19",
+   "stars": 15738,
+   "url": "https://pypi.org/project/httpx/",
+   "repo_url": "https://github.com/encode/httpx"
+  },
+  {
+   "package": "requests",
+   "total": 0.434,
+   "maintenance": 0.67,
+   "maturity": 1,
+   "popularity": 0.95,
+   "fit": 0.25,
+   "latest": "2.34.2",
+   "released": "2026-05-14",
+   "days_since_release": 176,
+   "first_release": "2011-02-14",
+   "stars": 54643,
+   "url": "https://pypi.org/project/requests/",
+   "repo_url": "https://github.com/psf/requests"
+  }
+ ],
+ "draft": "# Library brief: HTTP client for an async web scraper\n\n**Recommendation: `aiohttp`** (score 0.94 of 1), chosen for the most recent release (3.14.5, 2026-10-11), native async support, which the need requires.\n\n| Package | Score | Latest | Released | First release | GitHub stars | Meets requirements |\n|---|---|---|---|---|---|---|\n| [aiohttp](https://pypi.org/project/aiohttp/) | 0.94 | 3.14.5 | 2026-10-11 | 2013-10-25 | 16,605 | yes |\n| [httpx](https://pypi.org/project/httpx/) | 0.59 | 0.28.1 | 2024-12-06 | 2019-07-19 | 15,738 | yes |\n| [requests](https://pypi.org/project/requests/) | 0.43 | 2.34.2 | 2026-05-14 | 2011-02-14 | 54,643 | partial |\n\n**Runner-up:** `httpx` (0.59).\n\n*Async is a hard requirement here, so packages without native async support get a 40 % penalty.*  \n*Scoring:* maintenance 35% (days since last release), popularity 25% (log GitHub stars), maturity 20% (years since first release), fit 20%. Data from PyPI and GitHub on 2026-11-06.",
+ "review": {
+  "ok": true,
+  "notes": [],
+  "numbers_checked": 16
+ },
+ "revisions": 0,
+ "log": [
+  {
+   "agent": "Planner",
+   "msg": "candidates ['httpx', 'aiohttp', 'requests'] via rules; criteria {'maintenance': 0.35, 'maturity': 0.2, 'popularity': 0.25, 'fit': 0.2, 'async_required': True}"
+  },
+  {
+   "agent": "Researcher",
+   "msg": "PyPI + GitHub facts for httpx, aiohttp, requests; failed: []"
+  },
+  {
+   "agent": "Analyst",
+   "msg": "ranking aiohttp 0.94, httpx 0.59, requests 0.43"
+  },
+  {
+   "agent": "Writer",
+   "msg": "draft 963 chars via template"
+  },
+  {
+   "agent": "Reviewer",
+   "msg": "approved: 16 numbers verified"
+  }
+ ]
+}

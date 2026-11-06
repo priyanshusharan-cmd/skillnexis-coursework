@@ -1,0 +1,11 @@
+flowchart TB
+  Q[question] --> R{LLM configured?}
+  R -- yes --> RE[ReAct loop: think → tool → observe, max 6 steps]
+  R -- no --> PL[rule planner → tool plan]
+  RE & PL --> T1[github_search] & T2[pypi_package] & T3[wikipedia] & T4[web_search] & T5[read_page]
+  T1 & T2 & T3 & T4 & T5 --> A[cited answer + transcript]
+  subgraph Multi-agent["LangGraph: library selection brief"]
+    P[Planner] --> RS[Researcher] --> AN[Analyst] --> W[Writer] --> RV[Reviewer]
+    RV -- numbers not in data --> W
+    RV -- approved --> END((brief))
+  end

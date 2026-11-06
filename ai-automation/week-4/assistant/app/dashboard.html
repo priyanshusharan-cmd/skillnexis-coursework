@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assistant dashboard</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#16181d;--mute:#69707d;--line:#e4e7ec;--acc:#3b5bdb;--hi:#e03131;--md:#f08c00;--lo:#2b8a3e}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#1a1d24;--ink:#e9ecef;--mute:#9aa1ad;--line:#2a2e37;--acc:#748ffc}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+h1{font-size:18px;margin:0}.sub{color:var(--mute);font-size:13px}button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+button.p{background:var(--acc);border-color:var(--acc);color:#fff}main{max-width:1200px;margin:0 auto;padding:20px;display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}.kpi b{display:block;font-size:26px}.kpi span{color:var(--mute);font-size:12px}
+.grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}@media (max-width:900px){.grid{grid-template-columns:1fr}}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}section h2{font-size:15px;margin:0 0 10px}
+table{width:100%;border-collapse:collapse}td,th{padding:7px 6px;white-space:normal;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:11px;text-transform:uppercase;color:var(--mute);letter-spacing:.04em}
+.tw{overflow-x:auto}.pill{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11px;font-weight:700;color:#fff}.high{background:var(--hi)}.medium{background:var(--md)}.low{background:var(--lo)}
+.done td{color:var(--mute);text-decoration:line-through}.draft{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:10px}#drafts{max-height:760px;overflow:auto}.draft pre{white-space:pre-wrap;font:13px/1.5 system-ui;margin:8px 0}
+.meta{color:var(--mute);font-size:12px}.log{font:12px ui-monospace,monospace;max-height:320px;overflow:auto}.log div{padding:3px 0;border-bottom:1px dashed var(--line)}.error{color:var(--hi)}.warning{color:var(--md)}
+</style></head><body>
+<header><div><h1>AI business assistant</h1><div class="sub" id="sub">loading…</div></div><div><button onclick="run()" class="p">Check inbox now</button> <a href="/report/weekly"><button>Weekly report</button></a></div></header>
+<main>
+<div class="kpis" id="kpis"></div>
+<div class="grid">
+  <section><h2>Tasks from email</h2><div class="tw"><table id="tasks"></table></div></section>
+  <section><h2>Meetings booked</h2><div id="meetings"></div></section>
+</div>
+<div class="grid">
+  <section><h2>Reply drafts (sent only after approval)</h2><div id="drafts"></div></section>
+  <section><h2>Activity log</h2><div class="log" id="log"></div></section>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id), esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const j=(u,o)=>fetch(u,o).then(r=>r.json());
+async function load(){
+  const s=await j('/api/status');
+  $('sub').textContent=`source: ${s.source} · calendar: ${s.calendar} · SMTP ${s.smtp?'on':'off'} · last run ${s.last_run||'never'} · ${s.runs} run(s)`;
+  $('kpis').innerHTML=[['Emails processed',s.emails],['Open tasks',s.open_tasks],['Drafts awaiting approval',s.drafts_waiting],['Meetings booked',s.meetings],['Errors',s.errors]].map(([k,v])=>`<div class="kpi"><b>${v}</b><span>${k}</span></div>`).join('');
+  const t=await j('/api/tasks');
+  $('tasks').innerHTML='<tr><th>Priority</th><th>Task</th><th>Due</th><th></th></tr>'+t.map(x=>`<tr class="${x.status}"><td><span class="pill ${x.priority}">${x.priority}</span></td><td>${esc(x.text)}<div class="meta">${esc(x.source_subject)}</div></td><td style="white-space:nowrap">${x.due||'—'}</td><td>${x.status==='open'?`<button onclick="done(${x.id})">Done</button>`:'✓'}</td></tr>`).join('');
+  const m=await j('/api/meetings');
+  $('meetings').innerHTML=m.length?m.map(x=>`<div class="draft"><b>${new Date(x.start).toLocaleString([], {weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b> · ${x.minutes} min<div>${esc(x.title)}</div><div class="meta">${esc(x.reason)}</div></div>`).join(''):'<div class="meta">none yet</div>';
+  const d=await j('/api/drafts');
+  $('drafts').innerHTML=d.map(x=>`<div class="draft"><b>${esc(x.subject)}</b> → ${esc(x.to_addr)}<div class="meta">${esc(x.status)} · ${esc(x.engine)}</div><pre>${esc(x.body)}</pre>${x.status==='awaiting approval'?`<button class="p" onclick="approve(${x.id})">Approve &amp; send</button>`:''}</div>`).join('')||'<div class="meta">none</div>';
+  const l=await j('/api/logs?limit=60');
+  $('log').innerHTML=l.map(x=>`<div class="${x.level}">${x.time.slice(5,16).replace('T',' ')} ${esc(x.event)}: ${esc(x.detail).slice(0,160)}</div>`).join('');
+}
+async function run(){await j('/api/run',{method:'POST'});load()}
+async function done(id){await j(`/api/tasks/${id}/done`,{method:'POST'});load()}
+async function approve(id){await j(`/api/drafts/${id}/approve`,{method:'POST'});load()}
+load(); setInterval(load,30000);
+</script></body></html>

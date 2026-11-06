@@ -1,0 +1,100 @@
+{
+ "checked_at": "2026-11-06T16:14:55+00:00",
+ "results": [
+  {
+   "repo": "encode/httpx",
+   "score": 88,
+   "grade": "healthy",
+   "stars": 15738,
+   "open_issues": 140,
+   "last_push": "2026-10-02",
+   "last_release": null,
+   "last_release_date": null,
+   "licence": "BSD-3-Clause",
+   "archived": false,
+   "parts": {
+    "recent_push": 32,
+    "issue_ratio": 18,
+    "licence": 10,
+    "not_archived": 10
+   },
+   "data_source": "search-api"
+  },
+  {
+   "repo": "soimort/you-get",
+   "score": 90,
+   "grade": "healthy",
+   "stars": 56856,
+   "open_issues": 384,
+   "last_push": "2026-10-06",
+   "last_release": null,
+   "last_release_date": null,
+   "licence": "NOASSERTION",
+   "archived": false,
+   "parts": {
+    "recent_push": 33,
+    "issue_ratio": 19,
+    "licence": 10,
+    "not_archived": 10
+   },
+   "data_source": "search-api"
+  },
+  {
+   "repo": "aio-libs/aiohttp",
+   "score": 95,
+   "grade": "healthy",
+   "stars": 16605,
+   "open_issues": 301,
+   "last_push": "2026-11-06",
+   "last_release": null,
+   "last_release_date": null,
+   "licence": "Apache-2.0",
+   "archived": false,
+   "parts": {
+    "recent_push": 40,
+    "issue_ratio": 16,
+    "licence": 10,
+    "not_archived": 10
+   },
+   "data_source": "search-api"
+  },
+  {
+   "repo": "psf/requests",
+   "score": 98,
+   "grade": "healthy",
+   "stars": 54643,
+   "open_issues": 248,
+   "last_push": "2026-11-02",
+   "last_release": null,
+   "last_release_date": null,
+   "licence": "Apache-2.0",
+   "archived": false,
+   "parts": {
+    "recent_push": 39,
+    "issue_ratio": 19,
+    "licence": 10,
+    "not_archived": 10
+   },
+   "data_source": "search-api"
+  },
+  {
+   "repo": "scrapy/scrapy",
+   "score": 99,
+   "grade": "healthy",
+   "stars": 65239,
+   "open_issues": 182,
+   "last_push": "2026-11-06",
+   "last_release": null,
+   "last_release_date": null,
+   "licence": "BSD-3-Clause",
+   "archived": false,
+   "parts": {
+    "recent_push": 40,
+    "issue_ratio": 19,
+    "licence": 10,
+    "not_archived": 10
+   },
+   "data_source": "search-api"
+  }
+ ]
+}

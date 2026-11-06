@@ -1,0 +1,228 @@
+{
+ "engine": "offline:planner + template",
+ "steps": [
+  {
+   "thought": "planner: github_search looks right for this question",
+   "action": "github_search",
+   "input": "web scraping language:python",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "D4Vinci/Scrapling",
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "snippet": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
+      "facts": {
+       "stars": 98692,
+       "forks": 10335,
+       "language": "Python",
+       "last_push": "2026-11-05",
+       "licence": "BSD-3-Clause",
+       "topics": [
+        "ai",
+        "ai-scraping",
+        "automation",
+        "crawler",
+        "crawling",
+        "crawling-python"
+       ]
+      }
+     },
+     {
+      "title": "unclecode/crawl4ai",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "snippet": "Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. Free API key, 1,000 credits a month, no card. Fully open source: this repo is the Apache-2.0 crawler that powers it, and you can self-host it.",
+      "facts": {
+       "stars": 86995,
+       "forks": 9054,
+       "language": "Python",
+       "last_push": "2026-11-04",
+       "licence": "Apache-2.0",
+       "topics": [
+        "ai",
+        "ai-agents",
+        "crawl4ai-cloud",
+        "crawler",
+        "data-extraction",
+        "llm"
+       ]
+      }
+     },
+     {
+      "title": "scrapy/scrapy",
+      "url": "https://github.com/scrapy/scrapy",
+      "snippet": "Scrapy, a fast high-level web crawling & scraping framework for Python.",
+      "facts": {
+       "stars": 65239,
+       "forks": 12102,
+       "language": "Python",
+       "last_push": "2026-11-06",
+       "licence": "BSD-3-Clause",
+       "topics": [
+        "crawler",
+        "crawling",
+        "framework",
+        "hacktoberfest",
+        "python",
+        "scraping"
+       ]
+      }
+     },
+     {
+      "title": "soimort/you-get",
+      "url": "https://github.com/soimort/you-get",
+      "snippet": ":arrow_double_down: Dumb downloader that scrapes the web",
+      "facts": {
+       "stars": 56856,
+       "forks": 9661,
+       "language": "Python",
+       "last_push": "2026-10-06",
+       "licence": "NOASSERTION",
+       "topics": []
+      }
+     },
+     {
+      "title": "seleniumbase/SeleniumBase",
+      "url": "https://github.com/seleniumbase/SeleniumBase",
+      "snippet": "Browser automation, web scraping, E2E-testing, and stealth in one SDK. SeleniumBase CDP Mode can evade bot-detection and pass CAPTCHAs.",
+      "facts": {
+       "stars": 13228,
+       "forks": 1613,
+       "language": "Python",
+       "last_push": "2026-11-06",
+       "licence": "MIT",
+       "topics": [
+        "bot-detection",
+        "cdp",
+        "chrome-devtools-protocol",
+        "chromedriver",
+        "cloudflare-bypass",
+        "e2e-testing"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check scrapling on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "scrapling",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "scrapling on PyPI",
+      "url": "https://pypi.org/project/scrapling/",
+      "snippet": "Scrapling is an undetectable, powerful, flexible, high-performance Python framework that makes Web Scraping easy and effortless as it should be!",
+      "facts": {
+       "latest": "0.5.1",
+       "released": "2026-11-04",
+       "first_release": "2024-10-13",
+       "requires_python": ">=3.10",
+       "licence": "BSD 3-Clause License\n        \n        Co",
+       "repo": "d4vinci/scrapling",
+       "repos": [
+        "d4vinci/scrapling"
+       ],
+       "releases": 55
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check crawl4ai on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "crawl4ai",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "Crawl4AI on PyPI",
+      "url": "https://pypi.org/project/Crawl4AI/",
+      "snippet": "🚀🤖 Crawl4AI: Open-source LLM Friendly Web Crawler & scraper",
+      "facts": {
+       "latest": "0.9.5",
+       "released": "2026-10-14",
+       "first_release": "2024-09-25",
+       "requires_python": ">=3.10",
+       "licence": "Apache-2.0",
+       "repo": "unclecode/crawl4ai",
+       "repos": [
+        "unclecode/crawl4ai"
+       ],
+       "releases": 73
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check scrapy on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "scrapy",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "Scrapy on PyPI",
+      "url": "https://pypi.org/project/Scrapy/",
+      "snippet": "A high-level Web Crawling and Web Scraping framework",
+      "facts": {
+       "latest": "2.19.0",
+       "released": "2026-09-10",
+       "first_release": "2009-12-12",
+       "requires_python": ">=3.10",
+       "licence": "BSD-3-Clause",
+       "repo": "scrapy/scrapy",
+       "repos": [
+        "scrapy/scrapy"
+       ],
+       "releases": 115
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check you-get on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "you-get",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "you-get on PyPI",
+      "url": "https://pypi.org/project/you-get/",
+      "snippet": "Dumb downloader that scrapes the web",
+      "facts": {
+       "latest": "0.4.1743",
+       "released": "2025-01-04",
+       "first_release": "2012-08-31",
+       "requires_python": null,
+       "licence": "MIT",
+       "repo": null,
+       "repos": [],
+       "releases": 174
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "answer": "**Question:** Which Python libraries are most popular for web scraping, and are they maintained?\n\n**Most-starred matching repositories on GitHub** (searched 2026-11-06):\n- **D4Vinci/Scrapling**: 98,692 stars, last push 2026-11-05 (active); PyPI 0.5.1 released 2026-11-04 [1]. 🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't  [2]\n- **unclecode/crawl4ai**: 86,995 stars, last push 2026-11-04 (active); PyPI 0.9.5 released 2026-10-14 [3]. Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. Free API key, 1,000  [4]\n- **scrapy/scrapy**: 65,239 stars, last push 2026-11-06 (active); PyPI 2.19.0 released 2026-09-10 [5]. Scrapy, a fast high-level web crawling & scraping framework for Python. [6]\n- **soimort/you-get**: 56,856 stars, last push 2026-10-06 (active); its PyPI namesake doesn't link back to this repo, so no version is claimed. :arrow_double_down: Dumb downloader that scrapes the web [7]\n- **seleniumbase/SeleniumBase**: 13,228 stars, last push 2026-11-06 (active). Browser automation, web scraping, E2E-testing, and stealth in one SDK. SeleniumBase CDP Mode can evade bot-det [8]\n\n**Answer:** by GitHub stars the leaders are D4Vinci/Scrapling, unclecode/crawl4ai, scrapy/scrapy. 5 of 5 were pushed to in the last 90 days, a reasonable sign of active maintenance. Stars measure popularity, not quality, so check the docs and issue tracker before choosing.",
+ "sources": [
+  "https://pypi.org/project/scrapling/",
+  "https://github.com/D4Vinci/Scrapling",
+  "https://pypi.org/project/Crawl4AI/",
+  "https://github.com/unclecode/crawl4ai",
+  "https://pypi.org/project/Scrapy/",
+  "https://github.com/scrapy/scrapy",
+  "https://github.com/soimort/you-get",
+  "https://github.com/seleniumbase/SeleniumBase"
+ ],
+ "failed": [],
+ "question": "Which Python libraries are most popular for web scraping, and are they maintained?",
+ "date": "2026-11-06"
+}

@@ -1,0 +1,7 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+dateparser>=1.2
+icalendar>=5.0
+requests>=2.31
+google-api-python-client>=2.0   # only for Google Calendar
+google-auth>=2.0

@@ -1,0 +1,239 @@
+{
+ "engine": "offline:planner + template",
+ "steps": [
+  {
+   "thought": "planner: wikipedia looks right for this question",
+   "action": "wikipedia",
+   "input": "What is retrieval augmented generation?",
+   "observation": {
+    "ok": false,
+    "error": "ProxyError: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&list=search&srsearch=What+is+retrieval+augmented+"
+   }
+  },
+  {
+   "thought": "planner: web_search looks right for this question",
+   "action": "web_search",
+   "input": "What is retrieval augmented generation?",
+   "observation": {
+    "ok": false,
+    "error": "ProxyError: HTTPSConnectionPool(host='html.duckduckgo.com', port=443): Max retries exceeded with url: /html/?q=What+is+retrieval+augmented+generation%3F (Caused by ProxyErr"
+   }
+  },
+  {
+   "thought": "planner: general search unavailable, so look for projects on the topic instead",
+   "action": "github_search",
+   "input": "retrieval augmented generation",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "infiniflow/ragflow",
+      "url": "https://github.com/infiniflow/ragflow",
+      "snippet": "RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that grew into context infrastructure.",
+      "facts": {
+       "stars": 93680,
+       "forks": 11249,
+       "language": "Go",
+       "last_push": "2026-11-06",
+       "licence": "Apache-2.0",
+       "topics": [
+        "agent-harness",
+        "agent-native-database",
+        "agentic-ai",
+        "agentic-retrieval",
+        "agentic-search",
+        "ai"
+       ]
+      }
+     },
+     {
+      "title": "HKUDS/LightRAG",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "snippet": "[EMNLP2025] LightRAG: Simple and Fast Retrieval-Augmented Generation",
+      "facts": {
+       "stars": 40576,
+       "forks": 5765,
+       "language": "Python",
+       "last_push": "2026-11-05",
+       "licence": "MIT",
+       "topics": [
+        "docling",
+        "genai",
+        "gpt",
+        "graphrag",
+        "knowledge-graph",
+        "large-language-models"
+       ]
+      }
+     },
+     {
+      "title": "microsoft/graphrag",
+      "url": "https://github.com/microsoft/graphrag",
+      "snippet": "A modular graph-based Retrieval-Augmented Generation (RAG) system",
+      "facts": {
+       "stars": 36580,
+       "forks": 3871,
+       "language": "Python",
+       "last_push": "2026-11-02",
+       "licence": "MIT",
+       "topics": [
+        "gpt",
+        "gpt-4",
+        "gpt4",
+        "graphrag",
+        "llm",
+        "llms"
+       ]
+      }
+     },
+     {
+      "title": "NirDiamant/RAG_Techniques",
+      "url": "https://github.com/NirDiamant/RAG_Techniques",
+      "snippet": "This repository showcases various advanced techniques for Retrieval-Augmented Generation (RAG) systems. Each technique has a detailed notebook tutorial.",
+      "facts": {
+       "stars": 30252,
+       "forks": 3698,
+       "language": "Jupyter Notebook",
+       "last_push": "2026-11-02",
+       "licence": "NOASSERTION",
+       "topics": [
+        "agentic-rag",
+        "ai",
+        "embeddings",
+        "generative-ai",
+        "gpt",
+        "langchain"
+       ]
+      }
+     },
+     {
+      "title": "SciPhi-AI/R2R",
+      "url": "https://github.com/SciPhi-AI/R2R",
+      "snippet": "SoTA production-ready AI retrieval system. Agentic Retrieval-Augmented Generation (RAG) with a RESTful API.",
+      "facts": {
+       "stars": 8066,
+       "forks": 652,
+       "language": "Python",
+       "last_push": "2025-11-07",
+       "licence": "MIT",
+       "topics": [
+        "artificial-intelligence",
+        "large-language-models",
+        "python",
+        "question-answering",
+        "rag",
+        "retrieval-augmented-generation"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check ragflow on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "ragflow",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "ragflow on PyPI",
+      "url": "https://pypi.org/project/ragflow/",
+      "snippet": "Efficient Document-Based QA with Retrieval-Augmented Generation (RAG) and Large Language Models (LLM).",
+      "facts": {
+       "latest": "0.0.1",
+       "released": "2023-11-20",
+       "first_release": "2023-11-20",
+       "requires_python": "",
+       "licence": "Apache 2.0",
+       "repo": "breezedeus/ragflow",
+       "repos": [
+        "breezedeus/ragflow"
+       ],
+       "releases": 1
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check lightrag on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "lightrag",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "lightrag on PyPI",
+      "url": "https://pypi.org/project/lightrag/",
+      "snippet": "The Lightning Library for LLM Applications.",
+      "facts": {
+       "latest": "0.1.0b6",
+       "released": "2024-07-24",
+       "first_release": "2024-06-30",
+       "requires_python": "<4.0,>=3.9",
+       "licence": "MIT",
+       "repo": "sylphai-inc/lightrag",
+       "repos": [
+        "sylphai-inc/lightrag"
+       ],
+       "releases": 24
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check graphrag on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "graphrag",
+   "observation": {
+    "ok": true,
+    "results": [
+     {
+      "title": "graphrag on PyPI",
+      "url": "https://pypi.org/project/graphrag/",
+      "snippet": "GraphRAG: A graph-based retrieval-augmented generation (RAG) system.",
+      "facts": {
+       "latest": "3.3.0",
+       "released": "2026-10-08",
+       "first_release": "2024-03-26",
+       "requires_python": "<3.14,>=3.11",
+       "licence": "MIT",
+       "repo": "microsoft/graphrag",
+       "repos": [
+        "microsoft/graphrag"
+       ],
+       "releases": 52
+      }
+     }
+    ]
+   }
+  },
+  {
+   "thought": "planner: check rag_techniques on PyPI for its latest release",
+   "action": "pypi_package",
+   "input": "rag_techniques",
+   "observation": {
+    "ok": false,
+    "error": "HTTPError: 404 Client Error: Not Found for url: https://pypi.org/pypi/rag_techniques/json"
+   }
+  }
+ ],
+ "answer": "**Question:** What is retrieval augmented generation?\n\n**Most-starred matching repositories on GitHub** (searched 2026-11-06):\n- **infiniflow/ragflow**: 93,680 stars, last push 2026-11-06 (active); its PyPI namesake doesn't link back to this repo, so no version is claimed. RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that grew into context infr [1]\n- **HKUDS/LightRAG**: 40,576 stars, last push 2026-11-05 (active); its PyPI namesake doesn't link back to this repo, so no version is claimed. [EMNLP2025] LightRAG: Simple and Fast Retrieval-Augmented Generation [2]\n- **microsoft/graphrag**: 36,580 stars, last push 2026-11-02 (active); PyPI 3.3.0 released 2026-10-08 [3]. A modular graph-based Retrieval-Augmented Generation (RAG) system [4]\n- **NirDiamant/RAG_Techniques**: 30,252 stars, last push 2026-11-02 (active). This repository showcases various advanced techniques for Retrieval-Augmented Generation (RAG) systems. Each t [5]\n- **SciPhi-AI/R2R**: 8,066 stars, last push 2025-11-07 (364 days ago). SoTA production-ready AI retrieval system. Agentic Retrieval-Augmented Generation (RAG) with a RESTful API. [6]\n\n**Answer:** by GitHub stars the leaders are infiniflow/ragflow, HKUDS/LightRAG, microsoft/graphrag. 4 of 5 were pushed to in the last 90 days, a reasonable sign of active maintenance. Stars measure popularity, not quality, so check the docs and issue tracker before choosing.\n\n*Tools that failed (unreachable from this environment):* wikipedia(What is retrieval augmented generation?): ProxyError: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&list=search&srsearch=What+is+retrieval+augmented+; web_search(What is retrieval augmented generation?): ProxyError: HTTPSConnectionPool(host='html.duckduckgo.com', port=443): Max retries exceeded with url: /html/?q=What+is+retrieval+augmented+generation%3F (Caused by ProxyErr; pypi_package(rag_techniques): HTTPError: 404 Client Error: Not Found for url: https://pypi.org/pypi/rag_techniques/json",
+ "sources": [
+  "https://github.com/infiniflow/ragflow",
+  "https://github.com/HKUDS/LightRAG",
+  "https://pypi.org/project/graphrag/",
+  "https://github.com/microsoft/graphrag",
+  "https://github.com/NirDiamant/RAG_Techniques",
+  "https://github.com/SciPhi-AI/R2R"
+ ],
+ "failed": [
+  "wikipedia(What is retrieval augmented generation?): ProxyError: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&list=search&srsearch=What+is+retrieval+augmented+",
+  "web_search(What is retrieval augmented generation?): ProxyError: HTTPSConnectionPool(host='html.duckduckgo.com', port=443): Max retries exceeded with url: /html/?q=What+is+retrieval+augmented+generation%3F (Caused by ProxyErr",
+  "pypi_package(rag_techniques): HTTPError: 404 Client Error: Not Found for url: https://pypi.org/pypi/rag_techniques/json"
+ ],
+ "question": "What is retrieval augmented generation?",
+ "date": "2026-11-06"
+}

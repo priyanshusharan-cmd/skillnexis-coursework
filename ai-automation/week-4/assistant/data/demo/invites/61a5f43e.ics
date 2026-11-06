@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI business assistant//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+SUMMARY:Daniel / Priya: Quarterly review prep
+DTSTART;TZID=Asia/Kolkata:20261110T111500
+DTEND;TZID=Asia/Kolkata:20261110T121500
+UID:61a5f43e-67f7-47b7-b2d0-64bfa5aeeecf@assistant
+ATTENDEE:mailto:daniel@northwind.example.com
+DESCRIPTION:Booked by the assistant from the email 'Quarterly review prep'
+ . Reason: their proposed day (Tuesday morning)
+END:VEVENT
+END:VCALENDAR
