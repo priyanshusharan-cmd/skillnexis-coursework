@@ -1,3 +1,7 @@
 __pycache__/
 3d-cad-design/week-4/build/
 educational-content-creator/week-4/build/
+deep-learning/week-2/results/ckpt/
+deep-learning/week-2/results/resnet50_tomato5.keras
+deep-learning/**/data/cache/
+generative-ai-llm/week-3/captioning/cache/

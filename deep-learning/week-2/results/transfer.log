@@ -1,0 +1,41 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793991400.773726    3659 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793991402.467171    3659 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+loaded 106 layers
+/usr/local/lib/python3.13/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+{
+ "A_frozen": {
+  "test_accuracy": 0.94,
+  "best_val": 0.9667,
+  "epochs": 15,
+  "seconds": 235
+ },
+ "B_finetuned_conv5": {
+  "test_accuracy": 0.9633,
+  "best_val": 0.97,
+  "epochs": 8,
+  "seconds": 300,
+  "trainable_params": 14986245
+ },
+ "baseline_scratch_cnn": {
+  "test_accuracy": 0.2,
+  "best_val": 0.2633,
+  "epochs": 7,
+  "seconds": 143,
+  "params": 242885
+ },
+ "data": {
+  "classes": [
+   "healthy",
+   "Early blight",
+   "Late blight",
+   "Leaf Mold",
+   "Bacterial spot"
+  ],
+  "train": 1400,
+  "val": 300,
+  "test": 300
+ }
+}

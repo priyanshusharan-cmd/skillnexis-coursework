@@ -1,0 +1,115 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793995344.376243    8322 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793995346.138682    8322 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+{'train': 2781, 'val': 596, 'test': 596}
+{'A_frozen': {'test_accuracy': 0.896, 'minutes': 3.2}}
+Epoch 1/10
+87/87 - 153s - 2s/step - accuracy: 0.7846 - loss: 0.6516 - val_accuracy: 0.8205 - val_loss: 0.4882
+Epoch 2/10
+87/87 - 127s - 1s/step - accuracy: 0.8335 - loss: 0.4664 - val_accuracy: 0.8574 - val_loss: 0.4112
+Epoch 3/10
+87/87 - 105s - 1s/step - accuracy: 0.8655 - loss: 0.3924 - val_accuracy: 0.8691 - val_loss: 0.3793
+Epoch 4/10
+87/87 - 180s - 2s/step - accuracy: 0.8828 - loss: 0.3441 - val_accuracy: 0.8893 - val_loss: 0.3453
+Epoch 5/10
+87/87 - 145s - 2s/step - accuracy: 0.8896 - loss: 0.3116 - val_accuracy: 0.8909 - val_loss: 0.3145
+Epoch 6/10
+87/87 - 145s - 2s/step - accuracy: 0.9133 - loss: 0.2563 - val_accuracy: 0.8993 - val_loss: 0.2840
+Epoch 7/10
+87/87 - 120s - 1s/step - accuracy: 0.9230 - loss: 0.2283 - val_accuracy: 0.9094 - val_loss: 0.2952
+Epoch 8/10
+87/87 - 105s - 1s/step - accuracy: 0.9209 - loss: 0.2254 - val_accuracy: 0.9245 - val_loss: 0.2434
+Epoch 9/10
+87/87 - 99s - 1s/step - accuracy: 0.9292 - loss: 0.1904 - val_accuracy: 0.9060 - val_loss: 0.3249
+Epoch 10/10
+87/87 - 140s - 2s/step - accuracy: 0.9364 - loss: 0.1775 - val_accuracy: 0.9027 - val_loss: 0.2957
+val A 0.8826 val B 0.9245 -> deploying B_finetuned
+{
+ "A_frozen": {
+  "test_accuracy": 0.896,
+  "minutes": 3.2,
+  "val_accuracy": 0.8826
+ },
+ "B_finetuned": {
+  "val_accuracy": 0.9245,
+  "test_accuracy": 0.9144,
+  "minutes": 23.0,
+  "epochs": 10,
+  "history": {
+   "accuracy": [
+    0.7846,
+    0.8335,
+    0.8655,
+    0.8828,
+    0.8896,
+    0.9133,
+    0.923,
+    0.9209,
+    0.9292,
+    0.9364
+   ],
+   "loss": [
+    0.6516,
+    0.4664,
+    0.3924,
+    0.3441,
+    0.3116,
+    0.2563,
+    0.2283,
+    0.2254,
+    0.1904,
+    0.1775
+   ],
+   "val_accuracy": [
+    0.8205,
+    0.8574,
+    0.8691,
+    0.8893,
+    0.8909,
+    0.8993,
+    0.9094,
+    0.9245,
+    0.906,
+    0.9027
+   ],
+   "val_loss": [
+    0.4882,
+    0.4112,
+    0.3793,
+    0.3453,
+    0.3145,
+    0.284,
+    0.2952,
+    0.2434,
+    0.3249,
+    0.2957
+   ]
+  }
+ },
+ "deployed": {
+  "stage": "B_finetuned",
+  "test_accuracy": 0.9144,
+  "expected_calibration_error": 0.0106,
+  "threshold": 0.6,
+  "share_above_threshold": 0.9329,
+  "accuracy_above_threshold": 0.946
+ },
+ "classes": [
+  "Bacterial spot",
+  "Early blight",
+  "Late blight",
+  "Leaf Mold",
+  "Septoria leaf spot",
+  "Spider mites",
+  "Target Spot",
+  "Tomato Yellow Leaf Curl Virus",
+  "Tomato mosaic virus",
+  "healthy"
+ ],
+ "data": {
+  "train": 2781,
+  "val": 596,
+  "test": 596
+ }
+}

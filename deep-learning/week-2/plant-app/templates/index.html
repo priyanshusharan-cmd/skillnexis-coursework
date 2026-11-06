@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tomato leaf doctor</title>
+<style>:root{--bg:#f4f7f2;--card:#fff;--ink:#1b2a1e;--mute:#5d6b60;--acc:#2f7d32;--warn:#c77700;--line:#dfe6dc}
+@media (prefers-color-scheme:dark){:root{--bg:#111712;--card:#19211a;--ink:#e6efe6;--mute:#9db0a0;--line:#2a352b;--acc:#66bb6a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}main{max-width:820px;margin:0 auto;padding:28px 16px}
+h1{margin:0 0 4px;font-size:28px}.sub{color:var(--mute);margin:0 0 22px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+form{display:flex;gap:10px;flex-wrap:wrap;align-items:center}input[type=file]{flex:1;min-width:0}button{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:10px 18px;font-weight:700;font-size:15px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:600px){.res{grid-template-columns:1fr}}img{width:100%;border-radius:12px;display:block}
+.label{font-size:24px;font-weight:800}.conf{color:var(--mute)}.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:3px 0 10px}.bar i{display:block;height:100%;background:var(--acc)}
+.warn{color:var(--warn)}.err{color:#c62828;font-weight:600}.cap{font-size:13px;color:var(--mute);margin-top:6px}</style></head>
+<body><main><h1>🍅 Tomato leaf doctor</h1><p class="sub">Upload a photo of one tomato leaf. It recognises 9 common diseases and healthy leaves.</p>
+<div class="card"><form method="post" enctype="multipart/form-data"><input type="file" name="image" accept="image/*" required><button>Diagnose</button></form>{% if error %}<p class="err">{{ error }}</p>{% endif %}</div>
+{% if r %}<div class="card"><div class="label {{ '' if r.confident else 'warn' }}">{{ r.prediction }}</div><div class="conf">confidence {{ '%.0f' % (r.confidence*100) }}%</div>
+<p>{{ r.advice }}</p>{% for t in r.top3 %}<div>{{ t.label }} · {{ '%.1f' % (t.p*100) }}%</div><div class="bar"><i style="width:{{ t.p*100 }}%"></i></div>{% endfor %}</div>
+<div class="card res"><div><img src="{{ upload }}" alt="uploaded leaf"><div class="cap">Your photo</div></div><div><img src="{{ r.heatmap }}" alt="Grad-CAM heat map"><div class="cap">Where the model looked (Grad-CAM)</div></div></div>{% endif %}
+<p class="cap">A learning project trained on PlantVillage lab photos, not a substitute for an agronomist. Field photos with busy backgrounds are less reliable.</p></main></body></html>

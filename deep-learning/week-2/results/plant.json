@@ -1,0 +1,163 @@
+{
+ "A_frozen": {
+  "test_accuracy": 0.896,
+  "minutes": 3.2,
+  "val_accuracy": 0.8826
+ },
+ "B_finetuned": {
+  "val_accuracy": 0.9245,
+  "test_accuracy": 0.9144,
+  "minutes": 23.0,
+  "epochs": 10,
+  "history": {
+   "accuracy": [
+    0.7846,
+    0.8335,
+    0.8655,
+    0.8828,
+    0.8896,
+    0.9133,
+    0.923,
+    0.9209,
+    0.9292,
+    0.9364
+   ],
+   "loss": [
+    0.6516,
+    0.4664,
+    0.3924,
+    0.3441,
+    0.3116,
+    0.2563,
+    0.2283,
+    0.2254,
+    0.1904,
+    0.1775
+   ],
+   "val_accuracy": [
+    0.8205,
+    0.8574,
+    0.8691,
+    0.8893,
+    0.8909,
+    0.8993,
+    0.9094,
+    0.9245,
+    0.906,
+    0.9027
+   ],
+   "val_loss": [
+    0.4882,
+    0.4112,
+    0.3793,
+    0.3453,
+    0.3145,
+    0.284,
+    0.2952,
+    0.2434,
+    0.3249,
+    0.2957
+   ]
+  }
+ },
+ "deployed": {
+  "stage": "B_finetuned",
+  "test_accuracy": 0.9144,
+  "expected_calibration_error": 0.0106,
+  "threshold": 0.6,
+  "share_above_threshold": 0.9329,
+  "accuracy_above_threshold": 0.946
+ },
+ "classes": [
+  "Bacterial spot",
+  "Early blight",
+  "Late blight",
+  "Leaf Mold",
+  "Septoria leaf spot",
+  "Spider mites",
+  "Target Spot",
+  "Tomato Yellow Leaf Curl Virus",
+  "Tomato mosaic virus",
+  "healthy"
+ ],
+ "report": {
+  "Bacterial spot": {
+   "precision": 0.9180327868852459,
+   "recall": 0.9333333333333333,
+   "f1-score": 0.9256198347107438,
+   "support": 60.0
+  },
+  "Early blight": {
+   "precision": 0.8909090909090909,
+   "recall": 0.8166666666666667,
+   "f1-score": 0.8521739130434782,
+   "support": 60.0
+  },
+  "Late blight": {
+   "precision": 0.9574468085106383,
+   "recall": 0.75,
+   "f1-score": 0.8411214953271028,
+   "support": 60.0
+  },
+  "Leaf Mold": {
+   "precision": 0.8676470588235294,
+   "recall": 0.9833333333333333,
+   "f1-score": 0.921875,
+   "support": 60.0
+  },
+  "Septoria leaf spot": {
+   "precision": 0.8888888888888888,
+   "recall": 0.9333333333333333,
+   "f1-score": 0.9105691056910569,
+   "support": 60.0
+  },
+  "Spider mites": {
+   "precision": 0.9642857142857143,
+   "recall": 0.9,
+   "f1-score": 0.9310344827586207,
+   "support": 60.0
+  },
+  "Target Spot": {
+   "precision": 0.7971014492753623,
+   "recall": 0.9166666666666666,
+   "f1-score": 0.8527131782945736,
+   "support": 60.0
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+   "precision": 1.0,
+   "recall": 0.9666666666666667,
+   "f1-score": 0.9830508474576272,
+   "support": 60.0
+  },
+  "Tomato mosaic virus": {
+   "precision": 0.9482758620689655,
+   "recall": 0.9821428571428571,
+   "f1-score": 0.9649122807017544,
+   "support": 56.0
+  },
+  "healthy": {
+   "precision": 0.9508196721311475,
+   "recall": 0.9666666666666667,
+   "f1-score": 0.9586776859504132,
+   "support": 60.0
+  },
+  "accuracy": 0.9144295302013423,
+  "macro avg": {
+   "precision": 0.9183407331778584,
+   "recall": 0.9148809523809524,
+   "f1-score": 0.914174782393537,
+   "support": 596.0
+  },
+  "weighted avg": {
+   "precision": 0.918139826272549,
+   "recall": 0.9144295302013423,
+   "f1-score": 0.9138342622706631,
+   "support": 596.0
+  }
+ },
+ "data": {
+  "train": 2781,
+  "val": 596,
+  "test": 596
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "healthy": "No disease detected. Keep watering at the base of the plant and inspect leaves weekly.",
+ "Bacterial spot": "Bacterial spot (Xanthomonas). Remove affected leaves, avoid overhead watering, and use copper-based sprays as a preventive. Rotate crops next season.",
+ "Early blight": "Early blight (Alternaria). Remove lower infected leaves, mulch to stop soil splash, and space plants for airflow. Fungicides with chlorothalonil or copper help.",
+ "Late blight": "Late blight (Phytophthora infestans) spreads fast in cool, wet weather. Remove and bag infected plants and tell nearby growers. Preventive fungicides are the main control.",
+ "Leaf Mold": "Leaf mold (Passalora fulva) thrives in humid greenhouses. Increase ventilation, reduce humidity, and remove affected leaves.",
+ "Septoria leaf spot": "Septoria leaf spot. Remove infected lower leaves, avoid wetting foliage, and apply a protective fungicide. Rotate crops.",
+ "Spider mites": "Two-spotted spider mites. Spray leaf undersides with water or insecticidal soap; encourage predatory mites. Mites thrive in hot, dry conditions.",
+ "Target Spot": "Target spot (Corynespora). Improve airflow, remove debris, and use a labelled fungicide if it spreads.",
+ "Tomato Yellow Leaf Curl Virus": "Yellow leaf curl virus is spread by whiteflies. There's no cure: remove infected plants, control whiteflies, and use resistant varieties.",
+ "Tomato mosaic virus": "Tomato mosaic virus spreads on hands and tools. Remove infected plants, disinfect tools, wash hands, and choose resistant varieties."
+}

@@ -1,0 +1,66 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793983643.079510   30979 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793983644.326856   30979 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+/usr/local/lib/python3.13/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+352/352 - 265s - 753ms/step - accuracy: 0.3407 - loss: 2.3059 - val_accuracy: 0.2956 - val_loss: 2.7706
+Epoch 2/2
+352/352 - 269s - 764ms/step - accuracy: 0.5672 - loss: 1.6571 - val_accuracy: 0.2944 - val_loss: 4.7142
+Epoch 3/3
+352/352 - 250s - 711ms/step - accuracy: 0.6642 - loss: 1.3745 - val_accuracy: 0.3322 - val_loss: 3.9063
+Epoch 4/4
+352/352 - 195s - 554ms/step - accuracy: 0.7140 - loss: 1.1993 - val_accuracy: 0.2528 - val_loss: 5.0489
+Epoch 5/5
+352/352 - 203s - 577ms/step - accuracy: 0.7464 - loss: 1.0832 - val_accuracy: 0.6586 - val_loss: 1.4245
+Epoch 6/6
+352/352 - 197s - 559ms/step - accuracy: 0.7670 - loss: 1.0067 - val_accuracy: 0.5234 - val_loss: 1.9750
+Epoch 7/7
+352/352 - 192s - 547ms/step - accuracy: 0.7778 - loss: 0.9693 - val_accuracy: 0.6696 - val_loss: 1.3326
+Epoch 8/8
+352/352 - 194s - 551ms/step - accuracy: 0.7843 - loss: 0.9532 - val_accuracy: 0.5236 - val_loss: 1.7973
+Epoch 9/9
+352/352 - 200s - 569ms/step - accuracy: 0.7969 - loss: 0.9211 - val_accuracy: 0.5398 - val_loss: 1.9458
+Epoch 10/10
+352/352 - 199s - 564ms/step - accuracy: 0.8044 - loss: 0.9003 - val_accuracy: 0.7044 - val_loss: 1.3557
+Epoch 11/11
+352/352 - 200s - 567ms/step - accuracy: 0.8115 - loss: 0.8886 - val_accuracy: 0.6906 - val_loss: 1.2190
+Epoch 12/12
+352/352 - 200s - 568ms/step - accuracy: 0.8184 - loss: 0.8710 - val_accuracy: 0.5692 - val_loss: 1.6314
+Epoch 13/13
+352/352 - 204s - 580ms/step - accuracy: 0.8246 - loss: 0.8529 - val_accuracy: 0.6264 - val_loss: 1.5866
+Epoch 14/14
+352/352 - 205s - 583ms/step - accuracy: 0.8305 - loss: 0.8334 - val_accuracy: 0.7516 - val_loss: 1.0532
+Epoch 15/15
+352/352 - 208s - 590ms/step - accuracy: 0.8386 - loss: 0.8060 - val_accuracy: 0.7888 - val_loss: 0.9650
+Epoch 16/16
+352/352 - 204s - 579ms/step - accuracy: 0.8440 - loss: 0.7854 - val_accuracy: 0.7148 - val_loss: 1.1995
+Epoch 17/17
+352/352 - 193s - 549ms/step - accuracy: 0.8544 - loss: 0.7538 - val_accuracy: 0.7780 - val_loss: 1.0074
+Epoch 18/18
+352/352 - 200s - 568ms/step - accuracy: 0.8608 - loss: 0.7202 - val_accuracy: 0.6768 - val_loss: 1.5519
+Epoch 19/19
+352/352 - 190s - 539ms/step - accuracy: 0.8662 - loss: 0.6919 - val_accuracy: 0.7386 - val_loss: 1.1682
+Epoch 20/20
+352/352 - 194s - 552ms/step - accuracy: 0.8771 - loss: 0.6532 - val_accuracy: 0.7548 - val_loss: 1.0433
+Epoch 21/21
+352/352 - 192s - 546ms/step - accuracy: 0.8867 - loss: 0.6128 - val_accuracy: 0.8146 - val_loss: 0.8309
+Epoch 22/22
+352/352 - 197s - 560ms/step - accuracy: 0.8972 - loss: 0.5731 - val_accuracy: 0.8308 - val_loss: 0.7888
+Epoch 23/23
+352/352 - 196s - 557ms/step - accuracy: 0.9080 - loss: 0.5294 - val_accuracy: 0.7950 - val_loss: 0.9087
+Epoch 24/24
+352/352 - 188s - 534ms/step - accuracy: 0.9175 - loss: 0.4876 - val_accuracy: 0.8562 - val_loss: 0.6906
+Epoch 25/25
+352/352 - 188s - 533ms/step - accuracy: 0.9305 - loss: 0.4402 - val_accuracy: 0.8854 - val_loss: 0.5829
+Epoch 26/26
+352/352 - 197s - 560ms/step - accuracy: 0.9440 - loss: 0.3934 - val_accuracy: 0.8960 - val_loss: 0.5367
+Epoch 27/27
+352/352 - 191s - 542ms/step - accuracy: 0.9528 - loss: 0.3578 - val_accuracy: 0.9084 - val_loss: 0.4888
+Epoch 28/28
+352/352 - 186s - 529ms/step - accuracy: 0.9630 - loss: 0.3280 - val_accuracy: 0.9160 - val_loss: 0.4677
+Epoch 29/29
+352/352 - 187s - 531ms/step - accuracy: 0.9678 - loss: 0.3117 - val_accuracy: 0.9194 - val_loss: 0.4583
+Epoch 30/30
+352/352 - 187s - 531ms/step - accuracy: 0.9703 - loss: 0.3042 - val_accuracy: 0.9214 - val_loss: 0.4564
+TEST ACCURACY 0.9193999767303467
