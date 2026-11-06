@@ -12,9 +12,9 @@ Footage was made without a camera:
 | Required | How it's done |
 |---|---|
 | Hook intro | 8 s cold open: "Four roommates. Forty small payments a month. One question nobody can answer: who owes whom?" Kinetic text timed word-group by word-group to the narration, over colour-corrected b-roll |
-| Voiceover narration | 10 scenes, 39 sentences. Each sentence is synthesised separately so its exact start and end are known; the screen recording's taps are scheduled to those times (e.g. "tap the plus button" lands on the tap) |
+| Voiceover narration | 10 scenes, 38 sentences. Each sentence is synthesised separately so its exact start and end are known; the screen recording's taps are scheduled to those times (e.g. "tap the plus button" lands on the tap) |
 | Background music | Original 78 bpm lo-fi track ([src/music.py](src/music.py)), **ducked under the voice** with sidechain compression (threshold 0.03, ratio 8) |
-| Text call-outs | 19 call-outs slide in from the right with an ease-out ("Paid by: Diya", "5 payments → 3"…), plus burned-in captions placed beside the phone, never over it |
+| Text call-outs | 20 call-outs slide in from the right with an ease-out ("Paid by: Diya", "5 payments → 3"…), plus burned-in captions placed beside the phone, never over it |
 | Colour correction | The hook's b-roll is the corrected clip from the exercise below |
 | Subscribe CTA end screen | Recap "Add. Split. Settle." plus a SUBSCRIBE button and a 5 s end-screen hold |
 | Delivery | Loudness-normalised to the YouTube target, measured at **−14.6 LUFS** integrated, true peak −1.5 dB; captions as a soft SRT for upload |
