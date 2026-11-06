@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hisaab.example/sitemap.xml

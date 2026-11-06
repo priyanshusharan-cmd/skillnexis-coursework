@@ -1,0 +1,23 @@
+Date,Day,Time,Format,Asset,Purpose,Funnel stage
+2026-11-16,Mon,13:00,Feed,01-launch,Launch announcement,Interest
+2026-11-17,Tue,20:00,Feed,02-problem,Relatable problem,Interest
+2026-11-18,Wed,13:00,Reel,11-reel-demo,Product demo,Awareness
+2026-11-19,Thu,20:00,Story,14-story-poll,Poll,Awareness
+2026-11-21,Sat,13:00,Feed,03-howto,How it works,Interest
+2026-11-22,Sun,20:00,Carousel,09a-carousel,5 fair ways to split (value),Interest
+2026-11-23,Mon,13:00,Feed,07-meme,Meme,Interest
+2026-11-24,Tue,20:00,Feed,04-upi,Trust: we never hold money,Consideration
+2026-11-26,Thu,13:00,Reel,12-reel-pov,POV humour,Awareness
+2026-11-27,Fri,20:00,Feed,16-tag,Tag a roommate (engagement),Interest
+2026-11-28,Sat,13:00,Story,20-story-thisorthat,This or that,Awareness
+2026-11-30,Mon,20:00,Feed,05-simplify,Feature: simplify debts,Interest
+2026-12-01,Tue,13:00,Carousel,10a-carousel,Hisaab vs notes app,Interest
+2026-12-02,Wed,20:00,Feed,06-trip,Trips use case,Interest
+2026-12-03,Thu,13:00,Reel,13-reel-creator,Creator collab,Awareness
+2026-12-05,Sat,20:00,Feed,17-flat,Flats use case,Interest
+2026-12-06,Sun,13:00,Feed,18-founding,Founding roommates offer,Consideration
+2026-12-07,Mon,20:00,Story,21-story-countdown,Launch countdown,Consideration
+2026-12-08,Tue,13:00,Feed,08-free,"Free, no limits",Interest
+2026-12-10,Thu,20:00,Feed,19-tips,Trip money tip,Interest
+2026-12-11,Fri,13:00,Reel,22-reel-settleday,Monthly Settle Day,Awareness
+2026-12-12,Sat,20:00,Story,15-story-waitlist,Waitlist link sticker,Consideration
