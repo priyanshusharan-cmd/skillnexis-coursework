@@ -1,0 +1,125 @@
+{
+ "params": {
+  "module": 2.0,
+  "pressure_angle": 20.0,
+  "backlash": 0.1,
+  "face": 10.0,
+  "z_in": 15,
+  "z_idler": 25,
+  "z_out": 40,
+  "shaft_d": 8.0,
+  "shaft_len": 74.0,
+  "input_extra": 12.0,
+  "bore_clear": 0.05,
+  "key_w": 2.0,
+  "key_h": 1.0,
+  "plate_t": 6.0,
+  "plate_gap": 36.0,
+  "plate_h": 64.0,
+  "plate_margin": 18.0,
+  "shaft_height": 46.0,
+  "base_l": 200.0,
+  "base_w": 80.0,
+  "base_t": 8.0,
+  "mount_hole": 5.5,
+  "fillet": 3.0,
+  "hub_d": 18.0,
+  "hub_len": 6.0,
+  "collar_d": 14.0,
+  "collar_len": 5.0,
+  "crank_arm": 40.0,
+  "crank_t": 6.0,
+  "knob_d": 14.0,
+  "knob_len": 24.0
+ },
+ "shaft_x": [
+  -52.5,
+  -12.5,
+  52.5
+ ],
+ "axis_height": 54.0,
+ "phases_deg": {
+  "idler": 0.0,
+  "output": 4.5
+ },
+ "bom": [
+  {
+   "part": "base",
+   "qty": 1,
+   "material": "aluminium_anodised",
+   "mass_g_each": 342.9
+  },
+  {
+   "part": "plate",
+   "qty": 2,
+   "material": "aluminium_brushed",
+   "mass_g_each": 170.0
+  },
+  {
+   "part": "shaft_in",
+   "qty": 1,
+   "material": "steel",
+   "mass_g_each": 33.9
+  },
+  {
+   "part": "gear_in",
+   "qty": 1,
+   "material": "brass",
+   "mass_g_each": 63.1
+  },
+  {
+   "part": "collar",
+   "qty": 6,
+   "material": "steel_black",
+   "mass_g_each": 3.9
+  },
+  {
+   "part": "shaft",
+   "qty": 2,
+   "material": "steel",
+   "mass_g_each": 29.2
+  },
+  {
+   "part": "gear_idler",
+   "qty": 1,
+   "material": "acetal_white",
+   "mass_g_each": 28.0
+  },
+  {
+   "part": "gear_out",
+   "qty": 1,
+   "material": "brass",
+   "mass_g_each": 219.2
+  },
+  {
+   "part": "crank",
+   "qty": 1,
+   "material": "aluminium_red",
+   "mass_g_each": 26.1
+  }
+ ],
+ "total_mass_g": 1135.0,
+ "envelope_mm": [
+  200.0,
+  120.0,
+  95.9
+ ],
+ "clashes": [],
+ "joints": [
+  {
+   "joint": "revolute",
+   "part": "shaft_1 + gear_in + crank",
+   "ratio": 1.0
+  },
+  {
+   "joint": "revolute (coupled)",
+   "part": "shaft_2 + gear_idler",
+   "ratio": -0.6
+  },
+  {
+   "joint": "revolute (coupled)",
+   "part": "shaft_3 + gear_out",
+   "ratio": 0.375
+  }
+ ]
+}

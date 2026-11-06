@@ -1,0 +1,74 @@
+{
+ "centre_distances_mm": [
+  40.0,
+  65.0
+ ],
+ "steps": [
+  [
+   0.0,
+   0.0,
+   0.0
+  ],
+  [
+   3.0,
+   0.0,
+   0.0
+  ],
+  [
+   6.0,
+   0.0,
+   0.0
+  ],
+  [
+   9.0,
+   0.0,
+   0.0
+  ],
+  [
+   12.0,
+   0.0,
+   0.0
+  ],
+  [
+   15.0,
+   0.0,
+   0.0
+  ],
+  [
+   18.0,
+   0.0,
+   0.0
+  ],
+  [
+   21.0,
+   0.0,
+   0.0
+  ],
+  [
+   24.0,
+   0.0,
+   0.0
+  ]
+ ],
+ "worst_overlap_mm3": 0.0,
+ "overall_ratio": 2.6667,
+ "output_direction": "same as input (idler reverses twice)",
+ "contact_ratio": [
+  1.547,
+  1.663
+ ],
+ "phases_deg": {
+  "idler": 0.0,
+  "output": 4.5
+ },
+ "pitch_diameters_mm": [
+  30.0,
+  50.0,
+  80.0
+ ],
+ "outside_diameters_mm": [
+  34.0,
+  54.0,
+  84.0
+ ]
+}
