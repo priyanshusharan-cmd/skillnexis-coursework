@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Study Fuel · campaign dashboard</title>
+<style>body{margin:0;font:15px/1.5 Inter,system-ui,sans-serif;background:#F6F3EE;color:#2A1A10}.w{max-width:1100px;margin:auto;padding:24px}
+h1{font:800 26px 'Inter Display',Inter;margin:0}.badge{display:inline-block;background:#FFF0C2;color:#7A4D00;font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px;margin:8px 0 18px}
+.g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.c{background:#fff;border-radius:14px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.08)}.c b{display:block;font:800 28px 'Inter Display',Inter;margin-top:4px}
+.c small{color:#6B5444}.two{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:14px}table{width:100%;border-collapse:collapse}th,td{text-align:right;padding:8px 6px;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
+th{font-size:12px;text-transform:uppercase;color:#6B5444;letter-spacing:.04em}.bar{height:12px;border-radius:6px;background:#4E6B4A}.lab{display:flex;justify-content:space-between;font-size:13px;margin:10px 0 4px}
+input[type=file]{margin-top:8px}@media(max-width:760px){.g{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}</style></head><body><div class="w">
+<h1>Study Fuel · paid campaign dashboard</h1><div class="badge" id="mode">FORECAST (expected case): no live data yet</div>
+<div class="g" id="kpis"></div><div class="two"><div class="c"><h3 style="margin:0 0 8px">By channel</h3><table id="tbl"></table></div>
+<div class="c"><h3 style="margin:0 0 8px">Funnel (all channels)</h3><div id="funnel"></div><p style="font-size:13px;color:#6B5444">Load a GA4/Ads export to replace the forecast:<br><input type="file" id="csv" accept=".csv"><br>
+CSV columns: channel,spend,impressions,clicks,leads,redemptions</p></div></div></div>
+<script>
+let data={"Google Search": {"spend": 2800, "impressions": 3888.9, "clicks": 233.3, "leads": 28.0, "redemptions": 9.8, "cpl": 100.0, "cpa": 285.7}, "Google Display": {"spend": 1120, "impressions": 18666.7, "clicks": 93.3, "leads": 3.7, "redemptions": 1.3, "cpl": 300.0, "cpa": 857.1}, "Meta (FB/IG)": {"spend": 2100, "impressions": 23333.3, "clicks": 280.0, "leads": 28.0, "redemptions": 9.8, "cpl": 75.0, "cpa": 214.3}};
+const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN'), num=n=>Math.round(n).toLocaleString('en-IN');
+function render(){const t={spend:0,impressions:0,clicks:0,leads:0,redemptions:0};for(const m of Object.values(data))for(const k in t)t[k]+=+m[k];
+ const k=[['Spend',inr(t.spend),'14 days'],['Leads',num(t.leads),inr(t.spend/t.leads)+' per lead'],['Redemptions',num(t.redemptions),inr(t.spend/t.redemptions)+' each'],['Click-through',(100*t.clicks/t.impressions).toFixed(2)+'%',num(t.clicks)+' clicks']];
+ document.getElementById('kpis').innerHTML=k.map(([a,b,c])=>`<div class="c"><small>${a}</small><b>${b}</b><small>${c}</small></div>`).join('');
+ document.getElementById('tbl').innerHTML='<tr><th>Channel</th><th>Spend</th><th>Clicks</th><th>Leads</th><th>Cost/lead</th></tr>'+Object.entries(data).map(([c,m])=>`<tr><td>${c}</td><td>${inr(m.spend)}</td><td>${num(m.clicks)}</td><td>${num(m.leads)}</td><td>${inr(m.spend/Math.max(m.leads,1e-9))}</td></tr>`).join('');
+ const st=[['Impressions',t.impressions],['Clicks',t.clicks],['Leads',t.leads],['Redemptions',t.redemptions]];
+ document.getElementById('funnel').innerHTML=st.map(([n,v],i)=>`<div class="lab"><span>${n}</span><span>${num(v)}${i?' · '+(100*v/st[i-1][1]).toFixed(1)+'%':''}</span></div><div class="bar" style="width:${Math.max(2,100*Math.log10(v+1)/Math.log10(st[0][1]+1))}%"></div>`).join('')+'<p style="font-size:12px;color:#6B5444">Bar length on a log scale; % = conversion from the previous step.</p>';}
+document.getElementById('csv').addEventListener('change',e=>{const r=new FileReader();r.onload=()=>{const [h,...rows]=r.result.trim().split(/\r?\n/);const H=h.split(',');data={};
+ rows.forEach(l=>{const v=l.split(',');data[v[0]]=Object.fromEntries(H.slice(1).map((k,i)=>[k,+v[i+1]]))});document.getElementById('mode').textContent='LIVE DATA from '+e.target.files[0].name;document.getElementById('mode').style.background='#DCFAE6';render();};r.readAsText(e.target.files[0]);});
+render();</script></body></html>

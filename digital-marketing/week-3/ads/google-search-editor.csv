@@ -1,0 +1,32 @@
+Campaign,Campaign Type,Budget,Bid Strategy Type,Networks,Start Date,End Date,Ad Group,Keyword,Criterion Type,Headline 1,Headline 2,Headline 3,Headline 4,Headline 5,Headline 6,Headline 7,Headline 8,Headline 9,Headline 10,Headline 11,Headline 12,Headline 13,Headline 14,Headline 15,Description 1,Description 2,Description 3,Description 4,Path 1,Path 2,Final URL,Ad type,Status
+BB | Search | Study Fuel | Nov26,Search,200,Maximize conversions,Google search,2026-11-10,2026-11-23,,,,,,,,,,,,,,,,,,,,,,,,,,,Paused
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,,,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,study cafe near me,Exact,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,cafe to study near me,Exact,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,cafe with wifi near me,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,quiet cafe near me,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,cafe for studying bangalore,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,cafe with charging points,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Study cafe near me,,,Study Café 2 Min From Campus,"Fast Wi-Fi, Plugs at Each Seat",Quiet Loft for Exam Prep,Coffee + Banana Bread ₹149,Open 8 am–11 pm in Exams,Bean & Bloom Study Café,"Study 5 Days, 6th Coffee Free",Group Tables & Whiteboard,Free Water Refills,Show College ID for ₹149,,,,,,"Exam season? Grab a quiet table, 100 Mbps Wi-Fi and a ₹149 coffee + banana bread combo.","Quiet loft, plugs at every seat, open till 11 pm through exams. 2 min from the main gate.",Weekdays 3–7 pm with your college ID: filter coffee or chai + banana bread for ₹149.,Study 5 days with us and your 6th coffee is free. Get your Study Streak card today.,study-fuel,student-offer,https://beanandbloom.example/study-fuel?utm_source=google&utm_medium=cpc&utm_campaign=study_fuel_nov26&utm_content={adgroupid},Responsive search ad,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,,,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,cafe near bms college,Exact,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,cafe near basavanagudi,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,coffee shop near bull temple road,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,cafe near campus bangalore,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Cafe near college,,,Café Near Your College Gate,Coffee + Banana Bread ₹149,Basavanagudi Study Café,Everything Under ₹150,Open Till 11 pm,"Quiet Tables, Fast Wi-Fi",Group Study Table for 8,Student Offer: Show Your ID,,,,,,,,"Two minutes from the main gate. Coffee, chai and snacks under ₹150, plus fast Wi-Fi.","Study Fuel combo ₹149 on weekdays 3–7 pm. Quiet loft upstairs, plugs at every seat.",,,study-fuel,student-offer,https://beanandbloom.example/study-fuel?utm_source=google&utm_medium=cpc&utm_campaign=study_fuel_nov26&utm_content={adgroupid},Responsive search ad,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,,,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,coffee offer bangalore,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,student coffee discount,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,cheap cafe near me,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,coffee under 150,Phrase,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,Coffee offer,,,Study Fuel Combo ₹149,Coffee + Banana Bread Deal,"Student Offer, Weekdays 3–7",Save ₹61 With College ID,Valid Till 23 Nov,Bean & Bloom Café,,,,,,,,,,Filter coffee or chai + banana-walnut bread for ₹149 (usually ₹210). Weekdays 3–7 pm.,"Show your college ID. Dine-in only, valid 10–23 Nov. Fast Wi-Fi and quiet tables too.",,,study-fuel,student-offer,https://beanandbloom.example/study-fuel?utm_source=google&utm_medium=cpc&utm_campaign=study_fuel_nov26&utm_content={adgroupid},Responsive search ad,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,jobs,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,recipe,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,franchise,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,machine,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,beans online,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,cafe coffee day,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,starbucks,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,hiring,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,course,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled
+BB | Search | Study Fuel | Nov26,,,,,,,,near airport,Campaign negative broad,,,,,,,,,,,,,,,,,,,,,,,,Enabled

@@ -1,0 +1,32 @@
+{
+ "a": {
+  "validationErrorsShownOnEmptySubmit": 4,
+  "events": [
+   "form_error",
+   "form_start",
+   "generate_lead"
+  ],
+  "lead": {
+   "variant": "A",
+   "utm_source": "google",
+   "utm_medium": "cpc",
+   "utm_campaign": "study_fuel_nov26"
+  },
+  "axe": []
+ },
+ "b": {
+  "validationErrorsShownOnEmptySubmit": 3,
+  "events": [
+   "form_error",
+   "form_start",
+   "generate_lead"
+  ],
+  "lead": {
+   "variant": "B",
+   "utm_source": "google",
+   "utm_medium": "cpc",
+   "utm_campaign": "study_fuel_nov26"
+  },
+  "axe": []
+ }
+}
