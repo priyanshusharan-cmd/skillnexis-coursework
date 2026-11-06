@@ -1,0 +1,21 @@
+{
+ "filters": {
+  "naive": "colorkey=0x2EB14A:0.20:0",
+  "tuned": "chromakey=0x2EB14A:0.10:0.02,despill=type=green:mix=0.6:expand=0.1"
+ },
+ "frame": "t=1.5 s",
+ "naive": {
+  "edge_green_excess_mean": 8.3,
+  "edge_pixels_visibly_green_pct": 15.1,
+  "matte_mean_abs_error": 0.0041,
+  "holes_in_solid_subject_pct": 0.14,
+  "background_left_pct": 0.03
+ },
+ "tuned": {
+  "edge_green_excess_mean": 0.0,
+  "edge_pixels_visibly_green_pct": 0.0,
+  "matte_mean_abs_error": 0.0053,
+  "holes_in_solid_subject_pct": 0.68,
+  "background_left_pct": 0.06
+ }
+}
