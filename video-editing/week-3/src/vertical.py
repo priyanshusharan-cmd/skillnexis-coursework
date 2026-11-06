@@ -16,6 +16,7 @@ FONT = lambda name, size: ImageFont.truetype(F + name, size)
 CAP = FONT("InterDisplay-ExtraBold.otf", 88); HOOK = FONT("InterDisplay-ExtraBold.otf", 96); TAG = FONT("InterDisplay-Bold.otf", 54); SMALL = FONT("Inter-SemiBold.otf", 36)
 BRAND, MINT, YELLOW, PINK = (11, 59, 55), (213, 245, 239), (255, 216, 77), (232, 160, 166)
 SAFE = (80, 260, 920, 1480)          # x0, y0, x1, y1 kept clear of the platform UI (top bar, caption/buttons at bottom and right)
+CAP_Y = 1230                        # caption centre line (other projects can move it)
 GS = "exports/greenscreen-raw.mp4"   # the keyed green-screen plate (week 4 points this at week 3's copy)
 PHONE = "crop=552:982:404:49,scale=1080:1920:flags=lanczos"     # the phone in the 1920x1080 prototype recordings
 smooth = lambda u: u * u * (3 - 2 * u)
@@ -167,7 +168,7 @@ def render(name, clips, total, captions=None, vo=None, music_offset=8.0, music_g
             for ch in caps:                                            # word-by-word captions
                 if ch[0][0] - .05 <= tg < ch[-1][1] + .12:
                     hi = max([i for i, w in enumerate(ch) if w[0] <= tg] or [0]); age = tg - ch[0][0]
-                    paste_center(im, text_img([w[2] for w in ch], CAP, hi), W / 2, 1230, .86 + .14 * ease_out(min(1, max(0, age) / .1))); break
+                    paste_center(im, text_img([w[2] for w in ch], CAP, hi), W / 2, CAP_Y, .86 + .14 * ease_out(min(1, max(0, age) / .1))); break
             p.stdin.write(im.tobytes()); f += 1
         prev_last = im
         if rdr: rdr.close()

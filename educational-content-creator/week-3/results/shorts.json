@@ -1,0 +1,26 @@
+{
+ "short-1-equals-vs-double-equals": {
+  "source_range": [
+   135.74,
+   169.98
+  ],
+  "duration": 34.2,
+  "cover": "cover-equals.png"
+ },
+ "short-2-elif-order-matters": {
+  "source_range": [
+   91.08,
+   135.74
+  ],
+  "duration": 44.7,
+  "cover": "cover-elif.png"
+ },
+ "short-3-indentation-error": {
+  "source_range": [
+   45.74,
+   91.08
+  ],
+  "duration": 45.3,
+  "cover": "cover-indent.png"
+ }
+}

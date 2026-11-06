@@ -1,0 +1,408 @@
+{
+ "stats": {
+  "total": 304.1399682539682,
+  "clips": 30,
+  "jump_cuts": 12,
+  "raw_head": 145.99904761904764,
+  "kept_head": 89.98599999999999,
+  "retakes_removed": 3,
+  "transitions": {
+   "fade": 6,
+   "dip": 7,
+   "push": 4
+  },
+  "annotations": 21,
+  "zoom_moves": 29,
+  "lufs": -14.3,
+  "chapters": [
+   [
+    0.0,
+    "Intro"
+   ],
+   [
+    19.2,
+    "1. The idea"
+   ],
+   [
+    64.27,
+    "2. Indentation matters"
+   ],
+   [
+    91.08,
+    "3. elif: more than two choices"
+   ],
+   [
+    135.74,
+    "4. Comparing values"
+   ],
+   [
+    169.98,
+    "5. and / or: combining conditions"
+   ],
+   [
+    198.97,
+    "6. Putting it together"
+   ],
+   [
+    235.66,
+    "Try it"
+   ],
+   [
+    269.33,
+    "Recap"
+   ]
+  ]
+ },
+ "edl": [
+  {
+   "sec": "hook",
+   "kind": "head",
+   "a": 1.08,
+   "b": 7.194999999999999,
+   "out": 0.0,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_hook.mp4"
+  },
+  {
+   "sec": "hook",
+   "kind": "head",
+   "a": 8.061,
+   "b": 13.152000000000001,
+   "out": 6.114999999999999,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_hook.mp4"
+  },
+  {
+   "sec": "hook",
+   "kind": "head",
+   "a": 25.025,
+   "b": 33.016,
+   "out": 11.206,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_hook.mp4"
+  },
+  {
+   "sec": "c1",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 19.197,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "idea",
+   "kind": "head",
+   "a": 1.08,
+   "b": 5.098999999999999,
+   "out": 21.797,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": "fade",
+   "source": "raw_idea.mp4"
+  },
+  {
+   "sec": "idea",
+   "kind": "head",
+   "a": 12.682,
+   "b": 19.637,
+   "out": 25.816,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_idea.mp4"
+  },
+  {
+   "sec": "idea",
+   "kind": "head",
+   "a": 21.096,
+   "b": 25.762,
+   "out": 32.771,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_idea.mp4"
+  },
+  {
+   "sec": "idea",
+   "kind": "head",
+   "a": 27.384999999999998,
+   "b": 34.183,
+   "out": 37.437,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_idea.mp4"
+  },
+  {
+   "sec": "idea",
+   "kind": "head",
+   "a": 34.888000000000005,
+   "b": 36.397999999999996,
+   "out": 44.235,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_idea.mp4"
+  },
+  {
+   "sec": "demo",
+   "kind": "screen",
+   "a": 0,
+   "b": 18.5297052154195,
+   "out": 45.74499999999999,
+   "trans": "fade",
+   "source": "scr_demo.mp4"
+  },
+  {
+   "sec": "c2",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 64.27470521541949,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "indent",
+   "kind": "screen",
+   "a": 0,
+   "b": 24.20766439909297,
+   "out": 66.87470521541948,
+   "trans": "push",
+   "source": "scr_indent.mp4"
+  },
+  {
+   "sec": "c3",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 91.08236961451246,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "elif",
+   "kind": "screen",
+   "a": 0,
+   "b": 42.05569160997732,
+   "out": 93.68236961451245,
+   "trans": "push",
+   "source": "scr_elif.mp4"
+  },
+  {
+   "sec": "c4",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 135.73806122448977,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "compare",
+   "kind": "head",
+   "a": 1.08,
+   "b": 3.544,
+   "out": 138.33806122448976,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": "fade",
+   "source": "raw_compare.mp4"
+  },
+  {
+   "sec": "compare",
+   "kind": "head",
+   "a": 20.243,
+   "b": 24.381,
+   "out": 140.80206122448976,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_compare.mp4"
+  },
+  {
+   "sec": "compare",
+   "kind": "head",
+   "a": 26.003,
+   "b": 31.433999999999997,
+   "out": 144.94006122448977,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_compare.mp4"
+  },
+  {
+   "sec": "eq",
+   "kind": "screen",
+   "a": 0,
+   "b": 19.61079365079365,
+   "out": 150.37106122448978,
+   "trans": "fade",
+   "source": "scr_eq.mp4"
+  },
+  {
+   "sec": "c5",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 169.98185487528343,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "andor",
+   "kind": "screen",
+   "a": 0,
+   "b": 26.387709750566895,
+   "out": 172.58185487528343,
+   "trans": "push",
+   "source": "scr_andor.mp4"
+  },
+  {
+   "sec": "c6",
+   "kind": "card",
+   "a": 0,
+   "b": 2.6,
+   "out": 198.96956462585032,
+   "trans": "dip",
+   "source": "generated"
+  },
+  {
+   "sec": "ticket",
+   "kind": "screen",
+   "a": 0,
+   "b": 34.08625850340136,
+   "out": 201.56956462585032,
+   "trans": "push",
+   "source": "scr_ticket.mp4"
+  },
+  {
+   "sec": "try",
+   "kind": "try",
+   "a": 0,
+   "b": 20.78095238095238,
+   "out": 235.65582312925167,
+   "trans": "dip",
+   "source": "try.wav"
+  },
+  {
+   "sec": "solution",
+   "kind": "screen",
+   "a": 0,
+   "b": 12.895192743764172,
+   "out": 256.43677551020403,
+   "trans": "fade",
+   "source": "scr_solution.mp4"
+  },
+  {
+   "sec": "recap",
+   "kind": "head",
+   "a": 1.0819999999999999,
+   "b": 7.374,
+   "out": 269.3319682539682,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": "fade",
+   "source": "raw_recap.mp4"
+  },
+  {
+   "sec": "recap",
+   "kind": "head",
+   "a": 8.242,
+   "b": 15.068000000000001,
+   "out": 275.6239682539682,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_recap.mp4"
+  },
+  {
+   "sec": "recap",
+   "kind": "head",
+   "a": 16.526,
+   "b": 22.406,
+   "out": 282.4499682539682,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_recap.mp4"
+  },
+  {
+   "sec": "recap",
+   "kind": "head",
+   "a": 24.029999999999998,
+   "b": 31.253,
+   "out": 288.3299682539682,
+   "zoom": [
+    1.16,
+    0.69,
+    0.36
+   ],
+   "trans": null,
+   "source": "raw_recap.mp4"
+  },
+  {
+   "sec": "recap",
+   "kind": "head",
+   "a": 31.961000000000002,
+   "b": 40.548,
+   "out": 295.55296825396823,
+   "zoom": [
+    1.0,
+    0.5,
+    0.5
+   ],
+   "trans": null,
+   "source": "raw_recap.mp4"
+  }
+ ]
+}
