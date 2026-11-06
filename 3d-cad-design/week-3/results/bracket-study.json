@@ -1,0 +1,100 @@
+{
+ "nominal_root_stress_MPa": 83.33,
+ "convergence_R4": [
+  {
+   "r": 4.0,
+   "h": 6,
+   "elements": 3792,
+   "dofs": 20844,
+   "fillet_max_MPa": 104.02,
+   "global_max_MPa": 181.16,
+   "bolt_hole_max_MPa": 181.16,
+   "tip_deflection_mm": 1.271,
+   "safety_factor": 2.65,
+   "seconds": 8.2
+  },
+  {
+   "r": 4.0,
+   "h": 4,
+   "elements": 5815,
+   "dofs": 31794,
+   "fillet_max_MPa": 96.96,
+   "global_max_MPa": 185.22,
+   "bolt_hole_max_MPa": 185.22,
+   "tip_deflection_mm": 1.2766,
+   "safety_factor": 2.85,
+   "seconds": 14.4
+  },
+  {
+   "r": 4.0,
+   "h": 3,
+   "elements": 8868,
+   "dofs": 47181,
+   "fillet_max_MPa": 96.47,
+   "global_max_MPa": 183.1,
+   "bolt_hole_max_MPa": 183.1,
+   "tip_deflection_mm": 1.2779,
+   "safety_factor": 2.86,
+   "seconds": 24.8
+  },
+  {
+   "r": 4.0,
+   "h": 2.2,
+   "elements": 15957,
+   "dofs": 82173,
+   "fillet_max_MPa": 103.81,
+   "global_max_MPa": 183.44,
+   "bolt_hole_max_MPa": 183.44,
+   "tip_deflection_mm": 1.2815,
+   "safety_factor": 2.66,
+   "seconds": 92.5
+  },
+  {
+   "r": 4.0,
+   "h": 1.6,
+   "elements": 32058,
+   "dofs": 159627,
+   "fillet_max_MPa": 107.1,
+   "global_max_MPa": 190.79,
+   "bolt_hole_max_MPa": 190.79,
+   "tip_deflection_mm": 1.284,
+   "safety_factor": 2.58,
+   "seconds": 219.1
+  }
+ ],
+ "fillet_study_h2.2": [
+  {
+   "r": 1.0,
+   "h": 2.2,
+   "elements": 21804,
+   "dofs": 110607,
+   "fillet_max_MPa": 185.75,
+   "global_max_MPa": 185.75,
+   "bolt_hole_max_MPa": 181.49,
+   "tip_deflection_mm": 1.3823,
+   "safety_factor": 1.49
+  },
+  {
+   "r": 4.0,
+   "h": 2.2,
+   "elements": 15957,
+   "dofs": 82173,
+   "fillet_max_MPa": 103.81,
+   "global_max_MPa": 183.44,
+   "bolt_hole_max_MPa": 183.44,
+   "tip_deflection_mm": 1.2815,
+   "safety_factor": 2.66
+  },
+  {
+   "r": 8.0,
+   "h": 2.2,
+   "elements": 15830,
+   "dofs": 81435,
+   "fillet_max_MPa": 131.24,
+   "global_max_MPa": 183.39,
+   "bolt_hole_max_MPa": 183.39,
+   "tip_deflection_mm": 1.126,
+   "safety_factor": 2.1
+  }
+ ]
+}

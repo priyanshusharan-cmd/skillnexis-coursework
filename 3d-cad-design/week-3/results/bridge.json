@@ -1,0 +1,110 @@
+{
+ "span_m": 12.0,
+ "panels": 8,
+ "height_m": 2.5,
+ "width_m": 2.0,
+ "steel": "S355",
+ "sections": {
+  "bottom chord": "SHS 80x80x4.0",
+  "top chord": "SHS 90x90x5.0",
+  "diagonal": "SHS 50x50x3.0",
+  "floor beam": "RHS 80x120x4.0",
+  "top strut": "SHS 50x50x3.0",
+  "plan bracing": "CHS 33.7x2.6"
+ },
+ "members": 104,
+ "nodes": 43,
+ "self_weight_kN": 12.2,
+ "deck_dead_kN": 14.4,
+ "live_kN": 120.0,
+ "uls_total_vertical_kN": 216.0,
+ "sum_reactions_kN": 216.0,
+ "midspan_deflection_sls_mm": 4.3,
+ "deflection_limit_L_400_mm": 30.0,
+ "midspan_deflection_uls_mm": 7.7,
+ "hand_check_midspan_bottom_chord_kN": 64.8,
+ "fea_midspan_bottom_chord_kN": 60.4,
+ "max_utilisation": 0.889,
+ "critical": [
+  {
+   "kind": "diagonal",
+   "x_mid_m": 11.62,
+   "N_kN": -49.3,
+   "sigma_MPa": 116.6,
+   "util": 0.889,
+   "governed_by": "buckling"
+  },
+  {
+   "kind": "diagonal",
+   "x_mid_m": 0.38,
+   "N_kN": -49.3,
+   "sigma_MPa": 116.6,
+   "util": 0.889,
+   "governed_by": "buckling"
+  },
+  {
+   "kind": "diagonal",
+   "x_mid_m": 0.38,
+   "N_kN": -49.3,
+   "sigma_MPa": 116.6,
+   "util": 0.889,
+   "governed_by": "buckling"
+  },
+  {
+   "kind": "diagonal",
+   "x_mid_m": 11.62,
+   "N_kN": -49.3,
+   "sigma_MPa": 116.6,
+   "util": 0.889,
+   "governed_by": "buckling"
+  },
+  {
+   "kind": "diagonal",
+   "x_mid_m": 10.12,
+   "N_kN": -35.0,
+   "sigma_MPa": 100.4,
+   "util": 0.632,
+   "governed_by": "buckling"
+  },
+  {
+   "kind": "diagonal",
+   "x_mid_m": 1.88,
+   "N_kN": -35.0,
+   "sigma_MPa": 100.4,
+   "util": 0.632,
+   "governed_by": "buckling"
+  }
+ ],
+ "by_kind": {
+  "bottom chord": {
+   "max_tension_kN": 60.4,
+   "max_compression_kN": 0.0,
+   "max_util": 0.152
+  },
+  "top chord": {
+   "max_tension_kN": 0.0,
+   "max_compression_kN": 64.7,
+   "max_util": 0.119
+  },
+  "diagonal": {
+   "max_tension_kN": 48.5,
+   "max_compression_kN": 49.3,
+   "max_util": 0.889
+  },
+  "floor beam": {
+   "max_tension_kN": 0.0,
+   "max_compression_kN": 6.1,
+   "max_util": 0.331
+  },
+  "top strut": {
+   "max_tension_kN": 0.0,
+   "max_compression_kN": 0.2,
+   "max_util": 0.023
+  },
+  "plan bracing": {
+   "max_tension_kN": 3.9,
+   "max_compression_kN": 0.0,
+   "max_util": 0.075
+  }
+ }
+}
