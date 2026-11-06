@@ -1,0 +1,32 @@
+{
+ "epochs": 8,
+ "params": 97153,
+ "minutes": 5.0,
+ "train_mse": [
+  0.02249,
+  0.01497,
+  0.01435,
+  0.01406,
+  0.01386,
+  0.01374,
+  0.01366,
+  0.01351
+ ],
+ "test": {
+  "sigma_0.3": {
+   "psnr_noisy": 12.8,
+   "psnr_denoised": 20.28,
+   "gain_db": 7.47
+  },
+  "sigma_0.5": {
+   "psnr_noisy": 9.3,
+   "psnr_denoised": 19.16,
+   "gain_db": 9.86
+  },
+  "sigma_0.7": {
+   "psnr_noisy": 7.59,
+   "psnr_denoised": 16.62,
+   "gain_db": 9.03
+  }
+ }
+}

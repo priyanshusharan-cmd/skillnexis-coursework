@@ -1,0 +1,10 @@
+1 0.02249 39s
+2 0.01497 76s
+3 0.01435 112s
+4 0.01406 149s
+5 0.01386 187s
+6 0.01374 225s
+7 0.01366 263s
+8 0.01351 302s
+{'sigma_0.3': {'psnr_noisy': 12.8, 'psnr_denoised': 20.28, 'gain_db': 7.47}, 'sigma_0.5': {'psnr_noisy': 9.3, 'psnr_denoised': 19.16, 'gain_db': 9.86}, 'sigma_0.7': {'psnr_noisy': 7.59, 'psnr_denoised': 16.62, 'gain_db': 9.03}}
+exit 0

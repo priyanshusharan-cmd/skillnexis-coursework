@@ -1,0 +1,58 @@
+{
+ "reviews": 49582,
+ "train": 35698,
+ "val": 3967,
+ "test": 9917,
+ "duplicates_removed": 418,
+ "tfidf_logreg_test_accuracy": 0.9168,
+ "lstm_test_accuracy": 0.8694,
+ "lstm_test_auc": 0.9467,
+ "minutes": 6.4,
+ "params": 2658945,
+ "confusion": [
+  [
+   4130,
+   810
+  ],
+  [
+   485,
+   4492
+  ]
+ ],
+ "history": {
+  "accuracy": [
+   0.8133,
+   0.9224
+  ],
+  "loss": [
+   0.3929,
+   0.2084
+  ],
+  "val_accuracy": [
+   0.8641,
+   0.8445
+  ],
+  "val_loss": [
+   0.3313,
+   0.3541
+  ]
+ },
+ "demo": [
+  {
+   "text": "An absolute masterpiece, the acting and the score gave me chills.",
+   "p_positive": 0.879
+  },
+  {
+   "text": "I wanted to love it, but the plot was a mess and it dragged on forever.",
+   "p_positive": 0.42
+  },
+  {
+   "text": "Not bad at all. Not great either, but I'd watch it again.",
+   "p_positive": 0.409
+  },
+  {
+   "text": "The movie was not good.",
+   "p_positive": 0.553
+  }
+ ]
+}

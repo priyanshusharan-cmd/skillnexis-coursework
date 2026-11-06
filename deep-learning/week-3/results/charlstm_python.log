@@ -1,0 +1,13 @@
+{'step': 250, 'train_loss': 1.552, 'val_loss': 1.283, 'val_bpc': 1.852} 283s
+{'step': 500, 'train_loss': 1.184, 'val_loss': 1.047, 'val_bpc': 1.51} 538s
+{'step': 750, 'train_loss': 1.047, 'val_loss': 1.008, 'val_bpc': 1.455} 800s
+{'step': 1000, 'train_loss': 0.896, 'val_loss': 0.963, 'val_bpc': 1.39} 1074s
+{'step': 1250, 'train_loss': 0.877, 'val_loss': 0.95, 'val_bpc': 1.37} 1335s
+{'step': 1500, 'train_loss': 0.86, 'val_loss': 0.945, 'val_bpc': 1.363} 1596s
+{'step': 1750, 'train_loss': 0.812, 'val_loss': 0.94, 'val_bpc': 1.355} 1862s
+{'step': 2000, 'train_loss': 0.81, 'val_loss': 0.94, 'val_bpc': 1.356} 2125s
+{
+ "0.5": "\n                                                                                                                                                                                                                                                   # instance of the string in chars of the character in a l",
+ "0.8": "\n                            except TypeError:\n                    if self.func is not None:\n                        raise ValueError(\"see used to signal subsequence method is the number and {generate(str_match_args) is None\n\n            # So we can't check do not factory considered by the larger and",
+ "1.2": "\n\n    bu= += b+b / self * n:\n        raise StatisticsError,\n        ...   ('delete to predices month char' % self_to_refercip_cls.name + 'pus'.qsig() + next(self.afler)\n                    lines = indent_count[indent]\n\n                        ##########################################################"
+}

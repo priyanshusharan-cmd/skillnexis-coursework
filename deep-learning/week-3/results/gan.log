@@ -1,0 +1,13 @@
+{'epoch': 1, 'loss_G': 1.171, 'loss_D': 1.146} 150s
+{'epoch': 2, 'loss_G': 1.052, 'loss_D': 1.209} 311s
+{'epoch': 3, 'loss_G': 1.253, 'loss_D': 1.091} 459s
+{'epoch': 4, 'loss_G': 1.264, 'loss_D': 1.113} 609s
+{'epoch': 5, 'loss_G': 1.159, 'loss_D': 1.183} 762s
+{'epoch': 6, 'loss_G': 1.101, 'loss_D': 1.217} 911s
+{'epoch': 7, 'loss_G': 1.066, 'loss_D': 1.237} 1061s
+{'epoch': 8, 'loss_G': 1.047, 'loss_D': 1.245} 1215s
+{'epoch': 9, 'loss_G': 1.05, 'loss_D': 1.248} 1370s
+{'epoch': 10, 'loss_G': 1.048, 'loss_D': 1.248} 1528s
+{'epoch': 11, 'loss_G': 1.041, 'loss_D': 1.248} 1679s
+{'epoch': 12, 'loss_G': 1.049, 'loss_D': 1.251} 1826s
+{'epochs': 12, 'minutes': 31.6, 'judge_test_accuracy': 0.9866, 'generated': 10000, 'mean_judge_confidence_generated': 0.829, 'mean_judge_confidence_real': 0.982, 'share_confident_over_0_9': 0.515, 'class_histogram': [0.119, 0.067, 0.116, 0.135, 0.064, 0.095, 0.066, 0.101, 0.113, 0.126], 'class_entropy_bits': 3.275}
