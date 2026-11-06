@@ -1,0 +1,16 @@
+From: support-bot@codeinsmallsteps.example
+To: support@codeinsmallsteps.example
+Subject: [Escalation] asked for a human: session s11
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+A chat needs a human.
+
+Reason: asked for a human
+User email: learner@example.com
+Session: s11
+
+Transcript:
+
+[now] USER: i want to talk to a real person about the mini project review

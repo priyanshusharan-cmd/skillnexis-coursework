@@ -1,0 +1,88 @@
+s01 USER: hi
+    BOT [smalltalk]: Hi! I'm the Code in Small Steps helper. Ask me about the course, lessons, certificates or Python errors.
+s01 USER: python is not recognized in cmd after installing
+    BOT [kb]: If you see "'python' is not recognized as an internal or external command", PATH was not set: run the installer again, choose Modify, and tick "Add Py
+s01 USER: thanks!
+    BOT [smalltalk]: You're welcome! Anything else I can help with?
+s02 USER: how do I install python on my macbook
+    BOT [kb]: Download the macOS installer from python.org/downloads and run it. Then open Terminal and type `python3 --version`.  📄 Source: Installing Python on ma
+s02 USER: it asks to install developer tools, is that ok?
+    BOT [kb]: On a Mac the command is `python3`, not `python`. If `python3` asks to install command line developer tools, accept: it's a free Apple download.  📄 Sou
+s03 USER: is the course free?
+    BOT [faq]: The whole course is free: every video, cheat sheet and practice task. There's no paid tier and no card needed.
+s03 USER: do i get a certifcate at the end
+    BOT [kb]: There is no formal certificate. The best proof of your skills is the grade-report mini project from lesson 5: publish it on GitHub and link it on your
+s04 USER: I get IndentationError on line 3
+    BOT [faq]: Read the error from the bottom: the last line says what went wrong, and the line above it shows where. Our 3-minute video 'How to Read a Python Error 
+s04 USER: what does TypeError can only concatenate str mean
+    BOT [kb]: Common errors: - **NameError**: a variable name is misspelt or used before it is created. Python often suggests "Did you mean...". - **SyntaxError: in
+s05 USER: when is the next lesson coming out
+    BOT [faq]: A new lesson comes out every week. The course has 5 lessons; lessons 1-2 are out now, and loops, functions and the mini project follow weekly.
+s05 USER: how long will the whole course take
+    BOT [faq]: Each lesson is about 5 minutes of video plus about 20 minutes of practice. At 30 minutes a day you can finish in a week.
+s06 USER: can i do this on my phone without installing
+    BOT [kb]: You can follow every lesson in a browser. The free online shell at python.org/shell runs Python instantly. For saving files, free online editors such 
+s07 USER: please delete my account and all my data
+    BOT [escalate T-21A99A]: I've passed this to our support team (ticket T-21A99A). A person will reply within 24 hours. Please share your email address so they can reach you.
+s08 USER: how do i stop getting your emails
+    BOT [kb]: To stop course emails, click "unsubscribe" at the bottom of any email or reply with the word unsubscribe.  📄 Source: Account, emails and privacy
+s09 USER: what's the weather in pune
+    BOT [fallback]: I'm not sure I've got that right. Could you rephrase it, or tell me which lesson or error message it's about? You can also type 'human' to reach the t
+s09 USER: can you book me a train ticket
+    BOT [escalate T-B96556]: I've passed this to our support team (ticket T-B96556). A person will reply within 24 hours. Please share your email address so they can reach you.
+s10 USER: the loops video keeps buffering
+    BOT [kb]: If a lesson video won't play or keeps buffering, refresh the page, try another browser, or lower the quality to 480p in the player settings. On mobile
+s10 USER: still doesn't help, this is useless
+    BOT [escalate T-6C240A]: I've passed this to our support team (ticket T-6C240A). A person will reply within 24 hours. Please share your email address so they can reach you.
+s11 USER: i want to talk to a real person about the mini project review
+    BOT [escalate T-0126EC]: I've passed this to our support team (ticket T-0126EC). A person will reply to learner@example.com within 24 hours.
+s12 USER: where do i get feedback on my practice code
+    BOT [kb]: To get feedback on your own code, post it as a comment under the lesson video with the full error message (if any). For the mini project, share a GitH
+s12 USER: bye
+    BOT [smalltalk]: Bye! Keep taking small steps; one lesson a day adds up.
+{'ok': True, 'kb_paragraphs': 24, 'log_backend': 'sqlite'}
+# Support daily summary · 2026-11-06
+
+Window: last 24 h · log backend: sqlite
+
+| Metric | Value |
+|---|---|
+| conversations | 12 |
+| messages | 21 |
+| questions | 18 |
+| answered automatically | 13 |
+| auto answer rate | 72% |
+| conversations resolved without human | 8 |
+| escalations | 4 |
+
+## Escalations
+
+* **T-21A99A** 16:09: account/data request needs a person (saved outbox/20261106-160928-6f1142.eml (no SMTP configured))
+* **T-B96556** 16:09: two unanswered messages in a row (saved outbox/20261106-160928-a632dc.eml (no SMTP configured))
+* **T-6C240A** 16:09: user frustrated (saved outbox/20261106-160928-d3e45f.eml (no SMTP configured))
+* **T-0126EC** 16:09: asked for a human (saved outbox/20261106-160928-cb1ceb.eml (no SMTP configured))
+
+## Top intents
+
+* install_python: 4
+* fallback: 3
+* error_help: 2
+* schedule: 2
+* account_issue: 2
+* human_agent: 2
+
+## Knowledge-base articles used
+
+* install-python-mac.md: 2
+* install-python-windows.md: 1
+* price-and-certificate.md: 1
+* reading-errors.md: 1
+* no-install-online-editor.md: 1
+* account-and-privacy.md: 1
+* video-playback.md: 1
+* practice-and-feedback.md: 1
+
+## Not answered (candidates for new KB articles)
+
+* "what's the weather in pune"
+

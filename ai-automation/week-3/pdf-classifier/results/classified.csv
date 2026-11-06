@@ -1,0 +1,15 @@
+file,topic,predicted,confidence,chunk_agreement,runner_up,pages,words,reason
+digest-a.pdf,World,World,0.997,1.0,Sci/Tech 0.00,1,237,
+digest-b.pdf,World,World,0.998,1.0,Sci/Tech 0.00,1,233,
+digest-c.pdf,World,World,0.999,1.0,Business 0.00,1,247,
+digest-d.pdf,Sports,Sports,0.988,1.0,World 0.01,1,249,
+digest-e.pdf,Sports,Sports,1.0,1.0,Sci/Tech 0.00,1,204,
+digest-f.pdf,Sports,Sports,0.996,0.75,Sci/Tech 0.00,1,225,
+digest-g.pdf,Business,Business,0.997,1.0,World 0.00,1,236,
+digest-h.pdf,Business,Business,0.998,1.0,World 0.00,1,248,
+digest-i.pdf,Business,Business,0.998,1.0,World 0.00,1,246,
+digest-j.pdf,Sci/Tech,Sci/Tech,0.988,1.0,Business 0.01,1,203,
+digest-k.pdf,Sci/Tech,Sci/Tech,0.997,1.0,Business 0.00,1,261,
+digest-l.pdf,Sci/Tech,Sci/Tech,0.993,1.0,Business 0.01,1,213,
+digest-mixed.pdf,needs-review,Sci/Tech,0.705,0.2,World 0.23,1,312,"mixed topics across the document (Business 20%, Sci/Tech 20%, Sports 40%, World 20%)"
+scan-no-text.pdf,rejected,,0.0,,,1,0,only 0 words of text; scanned image? run OCR first

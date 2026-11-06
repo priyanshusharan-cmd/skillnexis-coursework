@@ -1,0 +1,57 @@
+{
+ "intents": 12,
+ "training_phrases": 144,
+ "cv_accuracy_mean": 0.694,
+ "cv_accuracy_std": 0.041,
+ "heldout_messages": 48,
+ "heldout_accuracy": 0.854,
+ "threshold": 0.26,
+ "heldout_answered_correctly": 0.833,
+ "heldout_sent_to_fallback": 0.083,
+ "out_of_scope_messages": 6,
+ "out_of_scope_caught": 0.667,
+ "errors": [
+  {
+   "text": "logging off",
+   "true": "goodbye",
+   "pred": "account_issue",
+   "conf": 0.33
+  },
+  {
+   "text": "brilliant, cheers",
+   "true": "thanks",
+   "pred": "prerequisites",
+   "conf": 0.11
+  },
+  {
+   "text": "do i need to pay anything to join",
+   "true": "course_price",
+   "pred": "install_python",
+   "conf": 0.32
+  },
+  {
+   "text": "how many videos per week",
+   "true": "schedule",
+   "pred": "course_length",
+   "conf": 0.82
+  },
+  {
+   "text": "length of each video?",
+   "true": "course_length",
+   "pred": "schedule",
+   "conf": 0.21
+  },
+  {
+   "text": "zero coding knowledge, is that ok",
+   "true": "prerequisites",
+   "pred": "thanks",
+   "conf": 0.22
+  },
+  {
+   "text": "what should i know first",
+   "true": "prerequisites",
+   "pred": "install_python",
+   "conf": 0.27
+  }
+ ]
+}

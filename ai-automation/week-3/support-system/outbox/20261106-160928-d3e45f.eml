@@ -1,0 +1,21 @@
+From: support-bot@codeinsmallsteps.example
+To: support@codeinsmallsteps.example
+Subject: [Escalation] user frustrated: session s10
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+A chat needs a human.
+
+Reason: user frustrated
+User email: not given
+Session: s10
+
+Transcript:
+[2026-11-06T16:09:28] USER: the loops video keeps buffering
+           BOT: If a lesson video won't play or keeps buffering, refresh the =
+page, try another browser, or lower the quality to 480p in the player setting=
+s. On mobile data, download the video in the YouTube app while on Wi-Fi.
+
+=F0=9F=93=84 Source: Videos not playing or buffering
+[now] USER: still doesn't help, this is useless

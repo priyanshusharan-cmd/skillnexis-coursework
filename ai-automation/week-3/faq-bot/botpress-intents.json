@@ -1,0 +1,280 @@
+{
+ "intents": [
+  {
+   "name": "greeting",
+   "utterances": {
+    "en": [
+     "hi",
+     "hello",
+     "hey there",
+     "good morning",
+     "hii",
+     "hello bot",
+     "namaste",
+     "hey can you help me",
+     "hi i have a question",
+     "yo",
+     "good evening",
+     "hello is anyone there"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "goodbye",
+   "utterances": {
+    "en": [
+     "bye",
+     "goodbye",
+     "see you",
+     "that's all thanks bye",
+     "talk later",
+     "i am done",
+     "cya",
+     "ok bye",
+     "see you tomorrow",
+     "gotta go",
+     "bye bye",
+     "end chat"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "thanks",
+   "utterances": {
+    "en": [
+     "thanks",
+     "thank you",
+     "thx",
+     "thanks a lot",
+     "that helped",
+     "great thank you",
+     "ty",
+     "appreciate it",
+     "thanks so much",
+     "awesome thanks",
+     "perfect that works",
+     "cool thanks"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "course_price",
+   "utterances": {
+    "en": [
+     "is the course free",
+     "how much does it cost",
+     "price of the course",
+     "do i have to pay",
+     "is there a fee",
+     "any hidden charges",
+     "cost?",
+     "is it really free",
+     "do you charge money",
+     "how much for the python course",
+     "subscription price",
+     "is there a paid version"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "certificate",
+   "utterances": {
+    "en": [
+     "do i get a certificate",
+     "is there a certificate",
+     "certificate after completion",
+     "how to get my certificate",
+     "can i put this on linkedin",
+     "completion certificate",
+     "will i get certified",
+     "where is my certificate",
+     "certificate download",
+     "is the certificate free",
+     "proof of completion",
+     "do you give certificates"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "install_python",
+   "utterances": {
+    "en": [
+     "how do i install python",
+     "python not installed",
+     "which python version",
+     "install python on windows",
+     "python setup mac",
+     "do i need to install anything",
+     "what editor should i use",
+     "vs code setup",
+     "python command not found",
+     "how to set up python",
+     "can i code on my phone",
+     "online python editor"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "schedule",
+   "utterances": {
+    "en": [
+     "when is the next lesson",
+     "how often do you upload",
+     "new video schedule",
+     "when does lesson 3 come out",
+     "upload days",
+     "is there a new lesson this week",
+     "release schedule",
+     "how many lessons are there",
+     "when is the loops lesson",
+     "next video date",
+     "weekly schedule",
+     "are lessons live"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "course_length",
+   "utterances": {
+    "en": [
+     "how long is the course",
+     "how much time per day",
+     "how long does it take to finish",
+     "duration of the course",
+     "how many hours",
+     "how long are the videos",
+     "can i finish in a week",
+     "time commitment",
+     "how long is each lesson",
+     "is it a long course",
+     "minutes per lesson",
+     "total duration"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "prerequisites",
+   "utterances": {
+    "en": [
+     "do i need experience",
+     "i am a complete beginner",
+     "is it for beginners",
+     "do i need maths",
+     "what do i need to know before",
+     "prerequisites",
+     "i never coded before",
+     "is this too advanced",
+     "can a non it person learn",
+     "do i need a good laptop",
+     "what are the requirements",
+     "can kids take it"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "error_help",
+   "utterances": {
+    "en": [
+     "i got an error",
+     "my code is not working",
+     "nameerror",
+     "syntax error help",
+     "indentation error",
+     "typeerror what does it mean",
+     "python shows red text",
+     "traceback help",
+     "why does my program crash",
+     "invalid syntax",
+     "error in line 3",
+     "my code gives an error"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "human_agent",
+   "utterances": {
+    "en": [
+     "i want to talk to a human",
+     "connect me to support",
+     "real person please",
+     "can i speak to someone",
+     "this bot is useless",
+     "agent please",
+     "contact support team",
+     "i need human help",
+     "email support",
+     "escalate this",
+     "talk to mentor",
+     "customer care"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  },
+  {
+   "name": "account_issue",
+   "utterances": {
+    "en": [
+     "i can't log in",
+     "forgot my password",
+     "delete my account",
+     "change my email",
+     "unsubscribe me",
+     "stop sending emails",
+     "my progress is gone",
+     "account locked",
+     "update my name",
+     "remove my data",
+     "login not working",
+     "reset password"
+    ]
+   },
+   "slots": [],
+   "contexts": [
+    "global"
+   ]
+  }
+ ]
+}

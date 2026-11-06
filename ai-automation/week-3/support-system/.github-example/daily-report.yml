@@ -1,0 +1,26 @@
+# Copy to .github/workflows/daily-report.yml in a repository that holds this folder. Runs every day at 09:00 IST
+# (03:30 UTC) on GitHub's free runners. Secrets: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SUPPORT_EMAIL,
+# and GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT + SHEET_ID if the log lives in Google Sheets.
+name: support-daily-report
+on:
+  schedule: [{cron: "30 3 * * *"}]
+  workflow_dispatch: {}
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r ai-automation/week-3/support-system/requirements.txt
+      - run: echo "$SA" > /tmp/sa.json
+        env: {SA: "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_CONTENT }}"}
+      - run: cd ai-automation/week-3/faq-bot && python train.py && cd ../support-system && python daily_report.py
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SUPPORT_EMAIL: ${{ secrets.SUPPORT_EMAIL }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: /tmp/sa.json
+          SHEET_ID: ${{ secrets.SHEET_ID }}

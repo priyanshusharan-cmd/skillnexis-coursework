@@ -1,0 +1,5 @@
+Timestamp,Full name,Email address,Coding experience,Status
+2026-11-06 09:00,aarav mehta,Aarav.Mehta@Example.com,Never coded,OK
+2026-11-06 09:05,Rohan Das,rohan@example,a little,INVALID: invalid email
+2026-11-06 09:10,meera iyer,meera@example.org,some school python,OK
+2026-11-06 09:12,,x@example.com,none,INVALID: name missing

@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support chat</title>
+<style>:root{--bg:#FFF8EE;--ink:#14213D;--me:#E8590C;--bot:#fff}@media (prefers-color-scheme:dark){:root{--bg:#0f1830;--ink:#f3eee6;--bot:#17223f}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}main{max-width:640px;margin:0 auto;padding:16px;display:flex;flex-direction:column;height:100vh;box-sizing:border-box}
+h1{font-size:20px;margin:6px 0 12px}#log{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px}.m{max-width:85%;padding:10px 14px;border-radius:16px;white-space:pre-wrap}
+.u{align-self:flex-end;background:var(--me);color:#fff;border-bottom-right-radius:4px}.b{align-self:flex-start;background:var(--bot);border:1px solid #0001;border-bottom-left-radius:4px}
+.t{font-size:12px;opacity:.6;margin-top:4px}form{display:flex;gap:8px;margin-top:10px}input{flex:1;padding:12px;border-radius:12px;border:1px solid #0003;font:inherit}button{padding:0 18px;border:0;border-radius:12px;background:var(--ink);color:var(--bg);font-weight:700}</style></head>
+<body><main><h1>Code in Small Steps · support</h1><div id="log"><div class="m b">Hi! Ask me about installing Python, errors, the lesson schedule, certificates or your account.</div></div>
+<form id="f"><input id="q" placeholder="Type your question…" autocomplete="off" required><button>Send</button></form></main>
+<script>const s=crypto.randomUUID().slice(0,8);const add=(t,c,x)=>{const d=document.createElement('div');d.className='m '+c;d.textContent=t;if(x){const e=document.createElement('div');e.className='t';e.textContent=x;d.appendChild(e)}log.appendChild(d);log.scrollTop=1e9};
+f.onsubmit=async e=>{e.preventDefault();const m=q.value;q.value='';add(m,'u');const r=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session:s,message:m})}).then(r=>r.json());add(r.reply,'b',r.action+(r.ticket?' · '+r.ticket:''))}</script></body></html>

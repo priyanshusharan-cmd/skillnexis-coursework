@@ -1,0 +1,15 @@
+file,true_topic
+digest-a.pdf,World
+digest-b.pdf,World
+digest-c.pdf,World
+digest-d.pdf,Sports
+digest-e.pdf,Sports
+digest-f.pdf,Sports
+digest-g.pdf,Business
+digest-h.pdf,Business
+digest-i.pdf,Business
+digest-j.pdf,Sci/Tech
+digest-k.pdf,Sci/Tech
+digest-l.pdf,Sci/Tech
+digest-mixed.pdf,mixed (expect review)
+scan-no-text.pdf,no text (expect rejection)

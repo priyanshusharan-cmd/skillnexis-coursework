@@ -1,0 +1,88 @@
+{
+ "checks": {
+  "students": 4,
+  "emails_sent": 4,
+  "invalid": 2,
+  "duplicates_updated": 2,
+  "unique_emails": true,
+  "every_response_has_status": true
+ },
+ "results": [
+  {
+   "row": 2,
+   "status": "OK",
+   "email": "aarav.mehta@example.com",
+   "name": "Aarav Mehta",
+   "track": "Python from zero",
+   "cohort": "2026-11-02"
+  },
+  {
+   "row": 3,
+   "status": "OK",
+   "email": "meera@example.org",
+   "name": "Meera Iyer",
+   "track": "Python from zero (fast)",
+   "cohort": "2026-11-02"
+  },
+  {
+   "row": 4,
+   "status": "INVALID",
+   "reason": "invalid email \"rohan@example\""
+  },
+  {
+   "row": 5,
+   "status": "INVALID",
+   "reason": "name missing"
+  },
+  {
+   "row": 6,
+   "status": "DUPLICATE-UPDATED",
+   "email": "aarav.mehta@example.com",
+   "name": "Aarav Mehta",
+   "track": "Python from zero (fast)",
+   "cohort": "2026-11-02"
+  },
+  {
+   "row": 7,
+   "status": "OK",
+   "email": "ananya.pillai@example.net",
+   "name": "Ananya Pillai",
+   "track": "Debugging basics",
+   "cohort": "2026-11-02"
+  },
+  {
+   "row": 8,
+   "status": "OK",
+   "email": "vikram@example.com",
+   "name": "Vikram Rao",
+   "track": "Python from zero",
+   "cohort": "2026-11-02"
+  },
+  {
+   "row": 9,
+   "status": "DUPLICATE-UPDATED",
+   "email": "meera@example.org",
+   "name": "Meera Iyer",
+   "track": "Python from zero (fast)",
+   "cohort": "2026-11-09"
+  }
+ ],
+ "emails": [
+  {
+   "to": "aarav.mehta@example.com",
+   "subject": "Welcome, Aarav! Your first small step"
+  },
+  {
+   "to": "meera@example.org",
+   "subject": "Welcome, Meera! Your first small step"
+  },
+  {
+   "to": "ananya.pillai@example.net",
+   "subject": "Welcome, Ananya! Your first small step"
+  },
+  {
+   "to": "vikram@example.com",
+   "subject": "Welcome, Vikram! Your first small step"
+  }
+ ]
+}

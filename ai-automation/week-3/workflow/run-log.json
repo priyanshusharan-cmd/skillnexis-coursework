@@ -1,0 +1,50 @@
+{
+ "steps": [
+  {
+   "row": 2,
+   "email": "aarav.mehta@example.com",
+   "name": "Aarav Mehta",
+   "track": "Python from zero",
+   "status": "OK"
+  },
+  {
+   "row": 3,
+   "email": "rohan@example",
+   "name": "Rohan Das",
+   "track": "Python from zero (fast)",
+   "status": "INVALID: invalid email"
+  },
+  {
+   "row": 4,
+   "email": "meera@example.org",
+   "name": "Meera Iyer",
+   "track": "Python from zero (fast)",
+   "status": "OK"
+  },
+  {
+   "row": 5,
+   "email": "x@example.com",
+   "name": "",
+   "track": "Python from zero",
+   "status": "INVALID: name missing"
+  }
+ ],
+ "emails_received": [
+  {
+   "to": "aarav.mehta@example.com",
+   "subject": "Welcome, Aarav! Your first small step"
+  },
+  {
+   "to": "meera@example.org",
+   "subject": "Welcome, Meera! Your first small step"
+  }
+ ],
+ "slack_messages": [
+  {
+   "text": "New sign-up: Aarav Mehta (Python from zero)"
+  },
+  {
+   "text": "New sign-up: Meera Iyer (Python from zero (fast))"
+  }
+ ]
+}

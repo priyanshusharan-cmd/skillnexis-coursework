@@ -1,0 +1,19 @@
+From: support-bot@codeinsmallsteps.example
+To: support@codeinsmallsteps.example
+Subject: [Escalation] two unanswered messages in a row: session s09
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+A chat needs a human.
+
+Reason: two unanswered messages in a row
+User email: not given
+Session: s09
+
+Transcript:
+[2026-11-06T16:09:28] USER: what's the weather in pune
+           BOT: I'm not sure I've got that right. Could you rephrase it, or t=
+ell me which lesson or error message it's about? You can also type 'human' to=
+ reach the team.
+[now] USER: can you book me a train ticket

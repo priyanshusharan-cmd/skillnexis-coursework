@@ -1,0 +1,38 @@
+# FAQ chatbot for "Code in Small Steps" (a free beginner Python course). 12 intents.
+# Each intent: training phrases (varied wording, typos, short and long forms) and responses.
+greeting:
+  examples: [hi, hello, hey there, good morning, hii, hello bot, namaste, hey can you help me, hi i have a question, yo, good evening, hello is anyone there]
+  responses: ["Hi! I'm the Code in Small Steps helper. Ask me about the course, lessons, certificates or Python errors."]
+goodbye:
+  examples: [bye, goodbye, see you, "that's all thanks bye", talk later, i am done, cya, ok bye, see you tomorrow, gotta go, bye bye, end chat]
+  responses: ["Bye! Keep taking small steps; one lesson a day adds up."]
+thanks:
+  examples: [thanks, thank you, thx, thanks a lot, that helped, great thank you, ty, appreciate it, thanks so much, awesome thanks, perfect that works, cool thanks]
+  responses: ["You're welcome! Anything else I can help with?"]
+course_price:
+  examples: [is the course free, how much does it cost, price of the course, do i have to pay, is there a fee, any hidden charges, "cost?", is it really free, do you charge money, how much for the python course, subscription price, is there a paid version]
+  responses: ["The whole course is free: every video, cheat sheet and practice task. There's no paid tier and no card needed."]
+certificate:
+  examples: [do i get a certificate, is there a certificate, certificate after completion, how to get my certificate, can i put this on linkedin, completion certificate, will i get certified, where is my certificate, certificate download, is the certificate free, proof of completion, do you give certificates]
+  responses: ["There's no formal certificate. The best proof is the grade-report mini project from lesson 5: put it on GitHub and link it on your CV or LinkedIn."]
+install_python:
+  examples: [how do i install python, python not installed, which python version, install python on windows, python setup mac, do i need to install anything, what editor should i use, vs code setup, python command not found, how to set up python, can i code on my phone, online python editor]
+  responses: ["Install Python 3.12+ from python.org (on Windows, tick 'Add python.exe to PATH'). Any editor works; we use VS Code. No install? Use the free online shell at python.org/shell."]
+schedule:
+  examples: [when is the next lesson, how often do you upload, new video schedule, when does lesson 3 come out, upload days, is there a new lesson this week, release schedule, how many lessons are there, when is the loops lesson, next video date, weekly schedule, are lessons live]
+  responses: ["A new lesson comes out every week. The course has 5 lessons; lessons 1-2 are out now, and loops, functions and the mini project follow weekly."]
+course_length:
+  examples: [how long is the course, how much time per day, how long does it take to finish, duration of the course, how many hours, how long are the videos, can i finish in a week, time commitment, how long is each lesson, is it a long course, minutes per lesson, total duration]
+  responses: ["Each lesson is about 5 minutes of video plus about 20 minutes of practice. At 30 minutes a day you can finish in a week."]
+prerequisites:
+  examples: [do i need experience, i am a complete beginner, is it for beginners, do i need maths, what do i need to know before, prerequisites, i never coded before, is this too advanced, can a non it person learn, do i need a good laptop, what are the requirements, can kids take it]
+  responses: ["No experience needed: it's built for complete beginners. Basic computer use is enough, and any laptop (or the free online editor) works."]
+error_help:
+  examples: [i got an error, my code is not working, nameerror, syntax error help, indentation error, typeerror what does it mean, python shows red text, traceback help, why does my program crash, invalid syntax, error in line 3, my code gives an error]
+  responses: ["Read the error from the bottom: the last line says what went wrong, and the line above it shows where. Our 3-minute video 'How to Read a Python Error Message' walks through it. Still stuck? Paste the full error here."]
+human_agent:
+  examples: [i want to talk to a human, connect me to support, real person please, can i speak to someone, this bot is useless, agent please, contact support team, i need human help, email support, escalate this, talk to mentor, customer care]
+  responses: ["I'll pass this to the support team. They reply by email within 24 hours."]
+account_issue:
+  examples: [i can't log in, forgot my password, delete my account, change my email, unsubscribe me, stop sending emails, my progress is gone, account locked, update my name, remove my data, login not working, reset password]
+  responses: ["Account and privacy requests are handled by the team. I'll open a ticket for you; please don't share your password here."]

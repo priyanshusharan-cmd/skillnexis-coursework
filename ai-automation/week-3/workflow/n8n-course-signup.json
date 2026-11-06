@@ -1,0 +1,197 @@
+{
+ "name": "Course sign-up: Sheets → validate → Gmail → Slack",
+ "nodes": [
+  {
+   "parameters": {
+    "pollTimes": {
+     "item": [
+      {
+       "mode": "everyMinute"
+      }
+     ]
+    },
+    "documentId": {
+     "__rl": true,
+     "mode": "url",
+     "value": "REPLACE_WITH_YOUR_SHEET_URL"
+    },
+    "sheetName": {
+     "__rl": true,
+     "mode": "name",
+     "value": "Form responses 1"
+    },
+    "event": "rowAdded"
+   },
+   "name": "1 · New form response (Google Sheets)",
+   "type": "n8n-nodes-base.googleSheetsTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    300
+   ],
+   "id": "bc1aac35-f9b1-5eb8-913a-fb8c870caa89"
+  },
+  {
+   "parameters": {
+    "jsCode": "// Step 2: validate + normalise every new row\nreturn $input.all().map(item => {\n  const r = item.json;\n  const email = String(r['Email address'] || '').trim().toLowerCase();\n  const name = String(r['Full name'] || '').trim().replace(/\\s+/g, ' ').replace(/\\b\\w/g, c => c.toUpperCase());\n  const exp = String(r['Coding experience'] || '').toLowerCase();\n  const valid = !!name && /^[^\\s@]+@[^\\s@]+\\.[a-z]{2,}$/i.test(email);\n  const track = /never|none|beginner/.test(exp) ? 'Python from zero' : /some|little|school/.test(exp) ? 'Python from zero (fast)' : 'Debugging basics';\n  return { json: { row_number: r.row_number, email, name, first: name.split(' ')[0], track, valid,\n                   problem: !name ? 'name missing' : (valid ? '' : 'invalid email') } };\n});"
+   },
+   "name": "2 · Validate & normalise",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    240,
+    300
+   ],
+   "id": "5ab7ade3-b228-5bc1-8dc4-a28bb7c44ec7"
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "boolean": [
+      {
+       "value1": "={{ $json.valid }}",
+       "value2": true
+      }
+     ]
+    }
+   },
+   "name": "3 · Valid?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 1,
+   "position": [
+    480,
+    300
+   ],
+   "id": "abc9a233-5c1e-5ec9-b669-34c8bbebde89"
+  },
+  {
+   "parameters": {
+    "sendTo": "={{ $json.email }}",
+    "subject": "=Welcome, {{ $json.first }}! Your first small step",
+    "emailType": "text",
+    "message": "=Hi {{ $json.first }},\n\nYou're in the {{ $json.track }} track. Start with lesson 1 (about 5 minutes).\n\nMina, Code in Small Steps",
+    "options": {}
+   },
+   "name": "4 · Send welcome email (Gmail)",
+   "type": "n8n-nodes-base.gmail",
+   "typeVersion": 2,
+   "position": [
+    720,
+    200
+   ],
+   "id": "d46fbcbe-8971-5acf-9cdb-e2b375bad8bf"
+  },
+  {
+   "parameters": {
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "name",
+     "value": "#signups"
+    },
+    "text": "=New sign-up: {{ $('2 · Validate & normalise').item.json.name }} ({{ $('2 · Validate & normalise').item.json.track }})",
+    "otherOptions": {}
+   },
+   "name": "5 · Notify team (Slack)",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2,
+   "position": [
+    960,
+    200
+   ],
+   "id": "a776349f-e56f-5163-8cf1-43a40d5d58fb"
+  },
+  {
+   "parameters": {
+    "operation": "update",
+    "documentId": {
+     "__rl": true,
+     "mode": "url",
+     "value": "REPLACE_WITH_YOUR_SHEET_URL"
+    },
+    "sheetName": {
+     "__rl": true,
+     "mode": "name",
+     "value": "Form responses 1"
+    },
+    "columns": {
+     "mappingMode": "defineBelow",
+     "value": {
+      "row_number": "={{ $json.row_number }}",
+      "Status": "=INVALID: {{ $json.problem }}"
+     },
+     "matchingColumns": [
+      "row_number"
+     ]
+    },
+    "options": {}
+   },
+   "name": "5b · Mark row invalid (Google Sheets)",
+   "type": "n8n-nodes-base.googleSheets",
+   "typeVersion": 4,
+   "position": [
+    720,
+    420
+   ],
+   "id": "6ac39986-0741-5ed1-8df0-2ac724486bb1"
+  }
+ ],
+ "connections": {
+  "1 · New form response (Google Sheets)": {
+   "main": [
+    [
+     {
+      "node": "2 · Validate & normalise",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "2 · Validate & normalise": {
+   "main": [
+    [
+     {
+      "node": "3 · Valid?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "3 · Valid?": {
+   "main": [
+    [
+     {
+      "node": "4 · Send welcome email (Gmail)",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "5b · Mark row invalid (Google Sheets)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "4 · Send welcome email (Gmail)": {
+   "main": [
+    [
+     {
+      "node": "5 · Notify team (Slack)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "active": false,
+ "settings": {
+  "executionOrder": "v1"
+ },
+ "tags": []
+}
