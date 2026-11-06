@@ -1,0 +1,29 @@
+{
+ "clash_volumes_mm3": {
+  "base \u00d7 phone_stand": 0.0,
+  "base \u00d7 pen_cup": 0.0,
+  "base \u00d7 pebble_planter": 0.0,
+  "phone_stand \u00d7 pen_cup": 0.0,
+  "phone_stand \u00d7 pebble_planter": 0.0,
+  "pen_cup \u00d7 pebble_planter": 0.0
+ },
+ "dovetail_fit": {
+  "groove_top_mm": 10.0,
+  "groove_bottom_mm": 14.62,
+  "key_top_mm": 9.5,
+  "clearance_per_flank_mm": 0.25,
+  "vertical_gap_mm": 0.25,
+  "note": "0.25 mm per flank suits a 0.4 mm nozzle; tune \u00b10.05 mm after a test print"
+ },
+ "volumes_cm3": {
+  "base": 165.9,
+  "phone_stand": 98.5,
+  "pen_cup": 55.6,
+  "pebble_planter": 24.0
+ },
+ "envelope_mm": [
+  210.0,
+  96.0,
+  105.0
+ ]
+}

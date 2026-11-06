@@ -1,0 +1,27 @@
+{
+ "v1_solid_cheeks": {
+  "volume_cm3": 121.6,
+  "peak_von_mises_MPa": 0.14,
+  "top_deflection_mm": 0.002
+ },
+ "volume_cm3": 96.6,
+ "mesh": {
+  "elements": 35218,
+  "dofs": 183183
+ },
+ "structural": {
+  "tap_N": 10.0,
+  "phone_N": 1.96,
+  "peak_von_mises_MPa": 0.28,
+  "safety_factor_vs_50MPa": 176.1,
+  "top_deflection_mm": 0.003
+ },
+ "thermal": {
+  "phone_C": 38.0,
+  "ambient_C": 25.0,
+  "heat_through_stand_W": 0.719,
+  "base_mean_C": 25.28,
+  "max_C": 38.0,
+  "note": "PLA softens near 55-60 \u00b0C: 38 \u00b0C contact is safe; PLA insulates, so the stand barely helps cool the phone"
+ }
+}

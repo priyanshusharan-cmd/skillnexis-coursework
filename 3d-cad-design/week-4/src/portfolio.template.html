@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Priyanshu Sharan · CAD Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe8;--ink:#1d1d20;--mute:#6b6660;--card:#fffdf9;--line:#e2dad0;--acc:#d06a3e;--acc2:#4f7a5a}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--ink:#ece8e2;--mute:#9a948c;--card:#1d1d21;--line:#2c2c31;--acc:#ec8a5c;--acc2:#8fbf98}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 40px}header .k{color:var(--acc);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+header h1{font-size:clamp(36px,6vw,68px);margin:10px 0 14px}header p{max-width:720px;color:var(--mute);font-size:18px;margin:0}
+nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:12px;padding-bottom:12px}nav a{color:var(--ink);text-decoration:none;font-weight:500;white-space:nowrap;font-size:15px}nav a:hover{color:var(--acc)}
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.lbl{font-family:"Space Grotesk",system-ui,sans-serif;color:var(--acc);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+section h2{font-size:clamp(28px,4vw,42px);margin:6px 0 12px}.lead{color:var(--mute);max-width:760px;margin:0 0 28px}
+.hero{border-radius:14px;overflow:hidden;border:1px solid var(--line)}.hero img{display:block;width:100%}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:16px}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}figure img{display:block;width:100%;height:auto}
+figcaption{padding:10px 14px;font-size:14px;color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}.stat b{display:block;font:700 26px "Space Grotesk",system-ui,sans-serif;color:var(--ink)}.stat span{font-size:13px;color:var(--mute)}
+.steps{counter-reset:s;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));margin:24px 0}
+.steps div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px}.steps div::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font:700 13px "Space Grotesk",system-ui,sans-serif;color:var(--acc);margin-bottom:4px}
+.steps b{font-family:"Space Grotesk",system-ui,sans-serif}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tools span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;background:var(--card)}
+a{color:var(--acc)}footer{padding:40px 0 70px;color:var(--mute);font-size:14px}
+</style></head><body>
+<header class="wrap"><div class="k">3D Modeling &amp; CAD for Simulation · SkillNexis</div>
+<h1>Priyanshu Sharan<br>CAD &amp; simulation portfolio</h1>
+<p>Parametric mechanical design, assemblies with real mates, finite-element analysis validated against theory, and path-traced product renders. Everything here is built with free, scriptable tools, so every part, number and image regenerates from source.</p>
+<div class="tools"><span>CadQuery / OpenCASCADE</span><span>gmsh</span><span>scikit-fem</span><span>PyVista / VTK</span><span>Mitsuba 3</span><span>trimesh + manifold</span><span>OpenSCAD</span></div></header>
+<nav><div class="wrap"><a href="#stackr">Stackr (capstone)</a><a href="#gears">Gear train</a><a href="#fea">Simulation</a><a href="#basics">Foundations</a><a href="https://github.com/priyanshusharan-cmd/skillnexis-coursework/tree/main/3d-cad-design">Source on GitHub</a></div></nav>
+
+<section id="stackr"><div class="wrap"><div class="lbl">Week 4 · capstone product</div><h2>Stackr: a modular, 3D-printable desk organiser</h2>
+<p class="lead">A base with three dovetail rails and slide-in modules: a phone stand, a hex pen cup and an organic pebble planter. Any module fits any rail. It went from concept sketches through CAD, print preparation, structural and thermal simulation, drawings and renders.</p>
+<div class="hero"><img src="img/stackr-hero.jpg" alt="Stackr assembled with a phone, pens and a succulent"></div>
+<div class="stats"><div class="stat"><b>{{ENV}}</b><span>envelope, mm</span></div><div class="stat"><b>{{FIL}} g</b><span>PLA for the full kit</span></div><div class="stat"><b>{{HRS}} h</b><span>print time, 0.2 mm layers</span></div><div class="stat"><b>0.25 mm</b><span>dovetail clearance per flank</span></div><div class="stat"><b>SF {{SF}}</b><span>phone stand under a 10 N tap</span></div><div class="stat"><b>0 mm³</b><span>clash volume, all part pairs</span></div></div>
+<div class="steps"><div><b>Concept</b><br>Three directions scored on printability, modularity, stability, weight and no-tools install; the rail system won 14 to 11.</div><div><b>Parametric CAD</b><br>One PARAMS table drives the base, the dovetail key on every module, and the stand angle (65°).</div><div><b>Organic form</b><br>The planter is a signed-distance-field sculpt, meshed and boolean-joined to the CAD key.</div><div><b>Print prep</b><br>Wall thickness by ray casting, overhang area, orientation and a slicing estimate for each part.</div><div><b>Simulation</b><br>Peak {{VM}} MPa under a tap; a thermal model shows {{HEAT}} W leaves a 38 °C phone through the stand. Version 2 of the stand uses 19 % less material.</div><div><b>Drawings &amp; renders</b><br>Three A3 sheets with a dovetail detail at 5:1, HDRI-lit path-traced renders and an assembly animation.</div></div>
+<div class="grid">
+<figure><img src="img/stackr-concept.jpg" alt="Concept sketches"><figcaption>Concept sketches, evaluation matrix and the two phone-stand profiles</figcaption></figure>
+<figure><img src="img/stackr-exploded.jpg" alt="Modules pulled back along rails"><figcaption>Modules pulled back along their rails</figcaption></figure>
+<figure><img src="img/stackr.gif" alt="Assembly animation"><figcaption>Assembly, orbit, then the pen cup and planter swap rails</figcaption></figure>
+<figure><img src="img/stackr-stress.jpg" alt="Phone stand von Mises stress"><figcaption>Phone stand: von Mises stress under a 10 N tap plus the phone's weight</figcaption></figure>
+<figure><img src="img/stackr-thermal.jpg" alt="Thermal map"><figcaption>Steady-state heat flow from a warm phone into the stand</figcaption></figure>
+<figure><img src="img/stackr-layers.jpg" alt="Slicing preview"><figcaption>Layer preview and print orientation</figcaption></figure>
+<figure><img src="img/draw-01-phone-stand.jpg" alt="Phone stand drawing"><figcaption>Sheet 1: phone stand, first-angle projection</figcaption></figure>
+<figure><img src="img/draw-03-assembly.jpg" alt="Assembly drawing"><figcaption>Sheet 3: assembly with BOM (filament and print hours)</figcaption></figure>
+</div></div></section>
+
+<section id="gears"><div class="wrap"><div class="lbl">Week 2 · assembly</div><h2>Hand-cranked spur gear train</h2>
+<p class="lead">z15 → z25 → z40 at module 2, with involute teeth generated from first principles. A mate solver couples the joints, and a boolean check shows 0.000 mm³ overlap through a full tooth cycle. Contact ratios are 1.55 and 1.66. There are 16 part instances, with dimensioned A3 drawings in ISO conventional gear representation.</p>
+<div class="hero"><img src="img/gear-hero.jpg" alt="Gear train render"></div>
+<div class="grid"><figure><img src="img/gear-exploded.jpg" alt="Exploded"><figcaption>Exploded view (the same mate solver at explode = 1)</figcaption></figure><figure><img src="img/gear-closeup.jpg" alt="Close-up of the gear mesh"><figcaption>Close-up of the teeth in mesh</figcaption></figure><figure><img src="img/gears.gif" alt="Gear animation"><figcaption>Assembling, then one crank revolution driving the coupled joints</figcaption></figure></div></div></section>
+
+<section id="fea"><div class="wrap"><div class="lbl">Week 3 · simulation</div><h2>FEA you can trust</h2>
+<p class="lead">The solver was validated first: a cantilever matches beam theory to 0.03 % in stress. A bracket study then separates the real fillet stress (about 104 MPa, SF 2.6) from a bolt-bore singularity, and a fillet sweep shows R4 beats both R1 and R8. The mini project is a 12 m steel footbridge as a 3D frame model: equilibrium closes exactly, SLS deflection is 4.3 mm against an L/400 limit, and resizing cut the steel by 54 %.</p>
+<div class="grid"><figure><img src="img/bracket.jpg" alt="Bracket stress"><figcaption>Al 6061 shelf bracket: von Mises stress</figcaption></figure><figure><img src="img/bridge.jpg" alt="Bridge utilisation"><figcaption>Footbridge member utilisation (EN 1993 buckling)</figcaption></figure><figure><img src="img/hdri.jpg" alt="HDRI product shot"><figcaption>Product shot lit only by an HDR environment map</figcaption></figure></div></div></section>
+
+<section id="basics"><div class="wrap"><div class="lbl">Week 1 · foundations</div><h2>Parametric modelling basics</h2>
+<p class="lead">An OpenSCAD desk scene with five parametric objects and a documented three-point lighting layout. It started the habit carried through every later week: dimensions live in parameters, not in mouse clicks.</p></div></section>
+<footer class="wrap">Source, STEP/STL files, drawings and reproduction steps: <a href="https://github.com/priyanshusharan-cmd/skillnexis-coursework/tree/main/3d-cad-design">github.com/priyanshusharan-cmd/skillnexis-coursework</a> · Priyanshu Sharan</footer>
+</body></html>
