@@ -1,0 +1,273 @@
+1
+00:00:00,119 --> 00:00:05,894
+What if your program could make a
+decision, like printing pass or fail,
+depending on a score?
+
+2
+00:00:06,234 --> 00:00:10,985
+That's exactly what if and else do, and
+they're the reason programs feel smart.
+
+3
+00:00:11,325 --> 00:00:18,977
+I'm Mina, this is Code in Small Steps, and
+by the end of this video, you'll write a
+grade checker that handles four different
+grades.
+
+4
+00:00:21,917 --> 00:00:25,596
+An if statement asks a question that's
+either true or false.
+
+5
+00:00:25,935 --> 00:00:32,551
+If the answer is true, Python runs the
+indented code underneath. If it's false,
+Python skips it.
+
+6
+00:00:32,891 --> 00:00:37,217
+Else is the backup plan. It runs only when
+the condition was false.
+
+7
+00:00:37,556 --> 00:00:44,014
+It's like the gate at a cinema. If you
+have a ticket, you go in. Else, you go to
+the ticket counter.
+
+8
+00:00:44,355 --> 00:00:45,525
+Let's see it in code.
+
+9
+00:00:46,144 --> 00:00:47,822
+Here's a score of seventy two.
+
+10
+00:00:48,322 --> 00:00:53,145
+If the score is at least forty, print
+pass. Otherwise, print fail.
+
+11
+00:00:53,645 --> 00:00:57,665
+Run it, and we get pass, because seventy
+two is at least forty.
+
+12
+00:00:58,165 --> 00:01:03,174
+Change the score to thirty five and run it
+again. Now the else branch runs instead.
+
+13
+00:01:07,274 --> 00:01:11,025
+Notice the four spaces before print.
+They're not decoration.
+
+14
+00:01:11,525 --> 00:01:15,427
+In Python, indentation tells it which
+lines belong to the if.
+
+15
+00:01:15,927 --> 00:01:20,801
+Delete the spaces and run it, and Python
+refuses, with an indentation error.
+
+16
+00:01:21,301 --> 00:01:26,996
+It even tells you why: it expected an
+indented block after the if statement on
+line two.
+
+17
+00:01:27,496 --> 00:01:29,982
+Put the spaces back, and it runs again.
+
+18
+00:01:34,082 --> 00:01:38,921
+Pass or fail is fine, but real grades have
+more levels. That's what elif is for.
+
+19
+00:01:39,421 --> 00:01:44,448
+Elif means, else if. Python checks each
+condition from top to bottom.
+
+20
+00:01:44,948 --> 00:01:52,335
+Seventy two isn't ninety or more, and it
+isn't seventy five or more, but it is
+forty or more. So we get a C.
+
+21
+00:01:52,835 --> 00:01:57,998
+And here's the important part. Python
+stops at the first condition that's true.
+
+22
+00:01:58,498 --> 00:02:03,476
+Watch what happens if I put the forty
+check first, and use a score of ninety
+five.
+
+23
+00:02:03,976 --> 00:02:11,162
+Ninety five should be an A, but we get a
+C, because forty or more was true first,
+and Python never looked any further.
+
+24
+00:02:11,662 --> 00:02:14,638
+So always check the strictest condition
+first.
+
+25
+00:02:18,458 --> 00:02:20,582
+Conditions usually compare two values.
+
+26
+00:02:20,802 --> 00:02:20,802
+Double equals checks if two things are
+equal. An exclamation mark and equals
+checks if they're different.
+
+27
+00:02:20,921 --> 00:02:24,720
+And you've got less than, greater than,
+and their or-equal versions.
+
+28
+00:02:25,060 --> 00:02:30,151
+The most common mistake is using a single
+equals sign inside an if. Let me show you.
+
+29
+00:02:30,771 --> 00:02:34,486
+Here I wrote, if score equals forty, with
+one equals sign.
+
+30
+00:02:34,986 --> 00:02:40,591
+Python stops with a syntax error, and the
+message is brilliant. Maybe you meant
+double equals?
+
+31
+00:02:41,091 --> 00:02:45,713
+Remember, one equals sign stores a value.
+Two equals signs compare.
+
+32
+00:02:46,213 --> 00:02:48,881
+Add the second equals sign, and it works.
+
+33
+00:02:52,981 --> 00:02:57,453
+One last tool. You can combine conditions,
+with and, and or.
+
+34
+00:02:57,953 --> 00:03:04,708
+With and, both sides must be true. Here
+the age is twenty, and has I D is true, so
+entry is allowed.
+
+35
+00:03:05,208 --> 00:03:10,438
+Set has I D to false, and the whole
+condition becomes false, even though the
+age is fine.
+
+36
+00:03:10,938 --> 00:03:17,869
+With or, only one side needs to be true.
+That's handy for checks like, if the day
+is Saturday, or Sunday.
+
+37
+00:03:21,969 --> 00:03:25,243
+Let's put it all together, with a cinema
+ticket price.
+
+38
+00:03:25,743 --> 00:03:33,483
+Children under five go free. Anyone under
+eighteen, or any student, pays a hundred.
+Everyone else pays two hundred.
+
+39
+00:03:33,983 --> 00:03:39,885
+Our viewer is fifteen, so the first check
+is false, but the elif is true. One
+hundred.
+
+40
+00:03:40,385 --> 00:03:43,066
+Now let's try an adult who isn't a
+student.
+
+41
+00:03:43,566 --> 00:03:48,312
+Both sides of the or are false, so we fall
+through to else, and pay two hundred.
+
+42
+00:03:48,812 --> 00:03:54,555
+The order, the or, and the else all work
+together. That's most of what you need for
+real decisions.
+
+43
+00:03:56,055 --> 00:04:05,336
+Your turn. Store an age, and print can
+vote if it's eighteen or more, and not yet
+otherwise. Pause the video, or try it
+during this timer.
+
+44
+00:04:16,836 --> 00:04:17,996
+Here's one solution.
+
+45
+00:04:18,496 --> 00:04:21,279
+With seventeen, it prints, not yet.
+
+46
+00:04:21,779 --> 00:04:28,231
+Change it to eighteen, and it prints, can
+vote, because greater than or equal
+includes eighteen itself.
+
+47
+00:04:29,449 --> 00:04:35,405
+Let's recap. If runs code only when a
+condition is true, and else catches
+everything else.
+
+48
+00:04:35,743 --> 00:04:42,229
+Elif adds more choices, and Python stops
+at the first true one, so put the
+strictest check first.
+
+49
+00:04:42,570 --> 00:04:48,111
+Indentation decides what belongs to the
+if. And in conditions, compare with double
+equals.
+
+50
+00:04:48,450 --> 00:04:55,335
+If you got stuck anywhere, rewatch that
+chapter, then change the numbers and
+predict the output before you run it.
+
+51
+00:04:55,673 --> 00:05:03,921
+Next time, we'll make code repeat itself
+with loops. Subscribe so you don't miss
+it, and I'll see you in the next small
+step.

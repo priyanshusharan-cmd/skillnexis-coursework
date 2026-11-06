@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Priyanshu Sharan · Educational Content Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF8EE;--ink:#14213D;--mute:#5a6478;--card:#fff;--line:#eee2cf;--acc:#E8590C;--ok:#2B8A3E}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1830;--ink:#f3eee6;--mute:#a8b3c9;--card:#17223f;--line:#24345c;--acc:#ff8a4c;--ok:#69db7c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:1140px;margin:0 auto;padding:0 20px}h1,h2,h3{letter-spacing:-.02em;line-height:1.1;margin:0}
+header{padding:64px 0 36px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}@media (max-width:640px){header{grid-template-columns:1fr}}
+header .av{width:132px;height:132px;border-radius:50%;background:#f3d7b6;overflow:hidden;position:relative;border:5px solid var(--card)}header .av img{width:118px;position:absolute;left:4px;top:8px}
+.k{color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase}header h1{font-size:clamp(34px,5.5vw,56px);font-weight:900;margin:8px 0}header p{color:var(--mute);max-width:700px;margin:0;font-size:18px}
+nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:3}nav .w{display:flex;gap:20px;overflow-x:auto;padding-top:12px;padding-bottom:12px}nav a{text-decoration:none;color:var(--ink);font-weight:600;white-space:nowrap;font-size:15px}
+section{padding:56px 0;border-bottom:1px solid var(--line)}section h2{font-size:clamp(26px,4vw,38px);font-weight:900;margin-bottom:8px}.lead{color:var(--mute);max-width:760px;margin:0 0 24px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 8px}.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}.stat b{display:block;font-size:26px;font-weight:900}.stat span{font-size:13px;color:var(--mute)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}.grid.v{grid-template-columns:repeat(auto-fit,minmax(min(46%,180px),1fr))}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}figure img,figure video{display:block;width:100%;height:auto;background:#000}figcaption{padding:10px 14px;font-size:14px;color:var(--mute)}figcaption b{display:block;color:var(--ink);font-size:15px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card);border-radius:12px;overflow:hidden}th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute)}.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.note{background:var(--card);border-left:4px solid var(--acc);border-radius:8px;padding:14px 18px;color:var(--mute);margin-top:18px;font-size:15px}.ok{color:var(--ok);font-weight:800}
+.skills{display:flex;flex-wrap:wrap;gap:8px}.skills span{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 12px;font-size:13px}
+footer{padding:36px 0 70px;color:var(--mute);font-size:14px}a{color:var(--acc)}
+</style></head><body>
+<header class="w"><div class="av"><img src="img/mina.png" alt="Mina, the channel host"></div><div><div class="k">Educational content creator · SkillNexis</div><h1>Priyanshu Sharan</h1>
+<p>I plan, script, produce and edit beginner programming lessons for <b>Code in Small Steps</b>: 5-minute long-form videos, Shorts, slides, infographics and a free mini course, built around one rule: one idea, real output, then practice.</p></div></header>
+<nav><div class="w"><a href="#work">Best work</a><a href="#shorts">Shorts</a><a href="#design">Design</a><a href="#process">Process</a><a href="#analytics">Analytics</a><a href="../landing/index.html">Landing page</a></div></nav>
+
+<section id="work"><div class="w"><h2>Launch videos</h2><p class="lead">Three long-form lessons, each with a thumbnail, SEO metadata, chapters, captions and a 20-second end screen.</p>
+<div class="stats"><div class="stat"><b>3</b><span>long-form videos (3–5 min + end screen)</span></div><div class="stat"><b>5</b><span>Shorts, 34–58 s</span></div><div class="stat"><b>−14 LUFS</b><span>loudness on every upload</span></div><div class="stat"><b>100 %</b><span>videos with hand-timed captions</span></div><div class="stat"><b>38 %</b><span>raw footage cut in the lesson 2 edit</span></div></div>
+<div class="grid" style="margin-top:16px">
+<figure><video controls preload="none" poster="img/yt-variables.jpg" src="../upload/01-python-variables.mp4"></video><figcaption><b>Python Variables for Beginners</b>Slides, screen demo and talking head, with original lo-fi music ducked under the voice.</figcaption></figure>
+<figure><video controls preload="none" poster="img/yt-if-else.jpg" src="../upload/03-python-if-else.mp4"></video><figcaption><b>Python If Else Explained</b>Edited from raw takes: jump cuts with punch-ins, 29 zooms, 21 annotations.</figcaption></figure>
+<figure><video controls preload="none" poster="img/yt-errors.jpg" src="../upload/02-read-python-errors.mp4"></video><figcaption><b>How to Read a Python Error Message</b>A Loom-style screen tutorial showing three real tracebacks.</figcaption></figure>
+</div></div></section>
+
+<section id="shorts"><div class="w"><h2>Shorts</h2><p class="lead">Each Short is cut from a long-form video and reframed for 9:16, with word-by-word captions and a hook in the first 2.6 seconds.</p>
+<div class="grid v">
+<figure><video controls preload="none" poster="img/cover-equals.jpg" src="../../week-3/exports/short-1-equals-vs-double-equals.mp4"></video><figcaption><b>= vs ==</b>34 s</figcaption></figure>
+<figure><video controls preload="none" poster="img/cover-elif.jpg" src="../../week-3/exports/short-2-elif-order-matters.mp4"></video><figcaption><b>elif order matters</b>45 s</figcaption></figure>
+<figure><video controls preload="none" poster="img/cover-indent.jpg" src="../../week-3/exports/short-3-indentation-error.mp4"></video><figcaption><b>IndentationError</b>45 s</figcaption></figure>
+<figure><video controls preload="none" poster="img/cover-52.jpg" src="../exports/short-4-why-5-plus-2-is-52.mp4"></video><figcaption><b>"5" + "2" = "52"</b>58 s</figcaption></figure>
+<figure><video controls preload="none" poster="img/cover-bottom-up.jpg" src="../exports/short-5-read-errors-bottom-up.mp4"></video><figcaption><b>Read errors bottom-up</b>45 s</figcaption></figure>
+</div></div></section>
+
+<section id="design"><div class="w"><h2>Slides, infographics &amp; course</h2><p class="lead">One brand across everything: cream, navy and orange, set in Inter and JetBrains Mono. Ligatures are turned off so <code>&gt;=</code> looks the way beginners type it.</p>
+<div class="grid"><figure><img src="img/slide-04.jpg" alt="Variable as a labelled box slide"><figcaption><b>Animated 10-slide deck</b>Build animations and a live countdown</figcaption></figure><figure><img src="img/slide-06.jpg" alt="Slide 6"><figcaption><b>Type decides what + does</b></figcaption></figure>
+<figure><img src="img/read-a-python-error.jpg" alt="Infographic"><figcaption><b>Infographic: read a Python error</b>1080×1350 for feeds</figcaption></figure><figure><img src="img/variables-labelled-boxes.jpg" alt="Infographic"><figcaption><b>Infographic: variables</b></figcaption></figure><figure><img src="img/for-vs-while.jpg" alt="Infographic"><figcaption><b>Infographic: for vs while</b></figcaption></figure></div>
+<p style="margin-top:20px">📘 <a href="../course/mini-course-outline.md">Python in 5 Small Steps</a>: a 5-lesson mini course outline with objectives, practice tasks and self-checks (<a href="../course/mini-course-outline.pdf">PDF</a>).</p></div></section>
+
+<section id="process"><div class="w"><h2>Process</h2><p class="lead">The same production pipeline is used for every lesson.</p>
+<div class="tw"><table><tr><th>Stage</th><th>What I do</th><th>Evidence</th></tr>
+<tr><td>Plan</td><td>Personas, content pillars, a month-long calendar, a topic pipeline with search intent</td><td><a href="../../week-1/channel-plan.md">channel plan</a></td></tr>
+<tr><td>Script</td><td>Hook → demo → contrast → try it → common error → recap; every code sample verified</td><td><a href="../../week-1/scripts.md">scripts</a></td></tr>
+<tr><td>Produce</td><td>Three-point lighting, framing on thirds, a voice chain (HPF, compression, −14 LUFS), slides with build animations</td><td><a href="../../week-2/docs/production-notes.md">production notes</a></td></tr>
+<tr><td>Edit</td><td>Silence detection, flubbed takes removed, punch-in jump cuts, zooms and call-outs, ducked music</td><td><a href="../../week-3/README.md">week 3 edit</a></td></tr>
+<tr><td>Publish</td><td>SEO titles within 100 characters, chapters, tags, captions, end screens, cards, playlists, an altered-content disclosure</td><td><a href="../upload/UPLOAD-SHEET.md">upload sheet</a></td></tr>
+</table></div>
+<div class="skills" style="margin-top:18px"><span>Scriptwriting</span><span>Instructional design</span><span>Screen recording</span><span>Video editing</span><span>Motion graphics</span><span>Audio mixing</span><span>Thumbnail design</span><span>YouTube SEO</span><span>Short-form reframing</span><span>Python</span></div></div></section>
+
+<section id="analytics"><div class="w"><h2>Analytics</h2><p class="lead">The measured pre-launch quality numbers are below. Audience numbers start once the channel is live.</p>
+<div class="tw"><table><tr><th>Video</th><th>Length</th><th>Loudness</th><th>True peak</th><th>Captioned</th><th>Title</th></tr>
+<tr><td>01 Variables</td><td>5:23</td><td>−13.9 LUFS <span class="ok">✓</span></td><td>−1.5 dBTP</td><td>84 % of content time</td><td>56 / 100</td></tr>
+<tr><td>02 Read errors</td><td>3:24</td><td>−14.1 LUFS <span class="ok">✓</span></td><td>−1.7 dBTP</td><td>91 %</td><td>70 / 100</td></tr>
+<tr><td>03 If / else</td><td>5:24</td><td>−14.3 LUFS <span class="ok">✓</span></td><td>−1.5 dBTP</td><td>82 %</td><td>70 / 100</td></tr></table></div>
+<div class="note"><b>First-week performance: pending launch.</b> Views, CTR, retention and subscribers exist only once the videos are public, so no numbers are shown or invented here. After 7 days, export the YouTube Studio <i>Content</i> report to <code>analytics/first-week.csv</code> and run <code>python src/analytics.py</code>; it writes the first-week table and charts into <a href="../analytics/report.md">analytics/report.md</a>. Targets for the first week: impressions CTR 4–10 %, at least 40 % average viewed, at least 60 % retention at 30 seconds.</div></div></section>
+<footer class="w">Source and all files: <a href="https://github.com/priyanshusharan-cmd/skillnexis-coursework/tree/main/educational-content-creator">github.com/priyanshusharan-cmd/skillnexis-coursework</a>. The presenter is an illustrated character and the voice is synthetic; all code output shown is real.</footer>
+</body></html>

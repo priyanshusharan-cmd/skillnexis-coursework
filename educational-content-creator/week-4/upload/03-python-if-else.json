@@ -1,0 +1,63 @@
+{
+ "file": "upload/03-python-if-else.mp4",
+ "thumbnail": "upload/03-python-if-else-thumbnail.png",
+ "captions": "upload/03-python-if-else.en.srt",
+ "title": "Python If Else Explained for Beginners (elif, and/or, Common Mistakes)",
+ "description": "Learn Python if, else and elif in about 5 minutes, with real code you can run. You'll build a grade checker, see why the ORDER of elif conditions matters, fix the two most common beginner errors (IndentationError and = vs ==), and combine conditions with and/or.\n\nCHAPTERS\n0:00 Intro\n0:19 The idea\n1:04 Indentation matters\n1:31 elif: more than two choices\n2:15 Comparing values\n2:49 and / or: combining conditions\n3:18 Putting it together\n3:55 Try it\n4:29 Recap\n\nPRACTICE: write a program that stores an age and prints \"Can vote\" if it's 18 or more, otherwise \"Not yet\". The solution is at the end of the Try it chapter.\n\nWatch next: Python Variables for Beginners: Why \"5\" + \"2\" Gives \"52\"\n\nCode in Small Steps: one useful Python idea at a time, with real code you can run. New lesson every week.\nThe presenter is an illustrated character and the voice is synthetic; every program and every output shown is real (Python 3.13).\n\n#python #learnpython #codinglesson",
+ "tags": [
+  "python if else",
+  "python elif",
+  "python for beginners",
+  "if else statement python",
+  "python conditions",
+  "python tutorial",
+  "learn python",
+  "indentationerror python",
+  "python comparison operators",
+  "python and or",
+  "coding for beginners",
+  "code in small steps"
+ ],
+ "category": "Education (27)",
+ "language": "English",
+ "audience": "Not made for kids",
+ "playlist": "Python from zero",
+ "license": "Standard YouTube License",
+ "altered_or_synthetic_content": "Yes: synthetic voice and illustrated presenter (declare in YouTube Studio's 'Altered content' setting)",
+ "duration_s": 324.2,
+ "content_s": 304.2,
+ "end_screen": {
+  "start_s": 304.2,
+  "length_s": 20.0,
+  "elements": [
+   {
+    "type": "video",
+    "target": "01-python-variables",
+    "label": "Next lesson",
+    "left": 0.078,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "video",
+    "target": "best_for_viewer",
+    "left": 0.547,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "subscribe",
+    "left": 0.4375,
+    "top": 0.741,
+    "width": 0.125
+   }
+  ]
+ },
+ "cards": [
+  {
+   "at": "2:30",
+   "video": "02-read-python-errors",
+   "teaser": "Got an IndentationError? Read it like this"
+  }
+ ]
+}

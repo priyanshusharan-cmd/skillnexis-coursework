@@ -1,0 +1,62 @@
+{
+ "file": "upload/02-read-python-errors.mp4",
+ "thumbnail": "upload/02-read-python-errors-thumbnail.png",
+ "captions": "upload/02-read-python-errors.en.srt",
+ "title": "How to Read a Python Error Message (Traceback Explained for Beginners)",
+ "description": "Python error messages look scary, but every one follows the same pattern. Read three real errors with me (NameError, TypeError and a ZeroDivisionError with a 3-step traceback) and learn the one habit that fixes most of them: start at the bottom line.\n\nCHAPTERS\n0:00 Errors follow a pattern\n0:18 Error 1: NameError (read the last line first)\n1:03 Error 2: TypeError\n1:41 Error 3: a longer traceback\n2:37 The 3-step method\n2:57 Your turn\n\nPRACTICE: break a working program on purpose (misspell a name, divide by zero) and read the traceback bottom-up before fixing it.\n\nWatch next: Python If Else Explained for Beginners (elif, and/or, Common Mistakes)\n\nCode in Small Steps: one useful Python idea at a time, with real code you can run. New lesson every week.\nThe presenter is an illustrated character and the voice is synthetic; every program and every output shown is real (Python 3.13).\n\n#python #learnpython #codinglesson",
+ "tags": [
+  "python error",
+  "python traceback",
+  "how to read python errors",
+  "python nameerror",
+  "python typeerror",
+  "zerodivisionerror python",
+  "python debugging",
+  "python for beginners",
+  "learn python",
+  "debugging for beginners",
+  "code in small steps"
+ ],
+ "category": "Education (27)",
+ "language": "English",
+ "audience": "Not made for kids",
+ "playlist": "Debugging basics",
+ "license": "Standard YouTube License",
+ "altered_or_synthetic_content": "Yes: synthetic voice and illustrated presenter (declare in YouTube Studio's 'Altered content' setting)",
+ "duration_s": 204.6,
+ "content_s": 184.6,
+ "end_screen": {
+  "start_s": 184.6,
+  "length_s": 20.0,
+  "elements": [
+   {
+    "type": "video",
+    "target": "03-python-if-else",
+    "label": "Next lesson",
+    "left": 0.078,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "video",
+    "target": "best_for_viewer",
+    "left": 0.547,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "subscribe",
+    "left": 0.4375,
+    "top": 0.741,
+    "width": 0.125
+   }
+  ]
+ },
+ "cards": [
+  {
+   "at": "2:20",
+   "video": "01-python-variables",
+   "teaser": "Why \"5\" + 2 fails: the variables lesson"
+  }
+ ]
+}

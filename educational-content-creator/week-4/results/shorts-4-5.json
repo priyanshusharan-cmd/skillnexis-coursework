@@ -1,0 +1,42 @@
+{
+ "short-4-why-5-plus-2-is-52": {
+  "source": "lesson-variables-1080p.mp4",
+  "source_range": [
+   142.68,
+   200.63
+  ],
+  "duration": 57.9,
+  "shots": [
+   [
+    "slide",
+    18.0
+   ],
+   [
+    "screen",
+    12.8
+   ],
+   [
+    "slide",
+    21.8
+   ],
+   [
+    "screen",
+    5.4
+   ]
+  ]
+ },
+ "short-5-read-errors-bottom-up": {
+  "source": "screen-tutorial.mp4",
+  "source_range": [
+   18.12,
+   63.0
+  ],
+  "duration": 44.9,
+  "shots": [
+   [
+    "screen",
+    44.9
+   ]
+  ]
+ }
+}

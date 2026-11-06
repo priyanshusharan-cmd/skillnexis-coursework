@@ -1,0 +1,63 @@
+{
+ "file": "upload/01-python-variables.mp4",
+ "thumbnail": "upload/01-python-variables-thumbnail.png",
+ "captions": "upload/01-python-variables.en.srt",
+ "title": "Python Variables for Beginners: Why \"5\" + \"2\" Gives \"52\"",
+ "description": "Why can Python add 5 and 2, but join \"5\" and \"2\" into \"52\"? In this beginner lesson you'll learn what a variable really is (a labelled box for a value), the three basic types (int, float, str), and how the type decides what + does.\n\nCHAPTERS\n0:00 Why does \"5\" + \"2\" give \"52\"?\n0:20 What a variable is\n1:07 Creating and printing variables\n1:44 Naming rules (and a real SyntaxError)\n2:12 Three basic types\n2:41 Proof: 5 + 2 vs \"5\" + \"2\"\n2:53 Converting types: int(), str(), float()\n3:22 Try it (10-second challenge)\n3:42 Solution\n3:52 The most common error: NameError\n4:22 Recap\n4:41 Practise and what is next\n\nPRACTICE: store two numbers in two variables, add them, and print the result inside a sentence. The solution is in the Solution chapter.\n\nWatch next: How to Read a Python Error Message (Traceback Explained for Beginners)\n\nCode in Small Steps: one useful Python idea at a time, with real code you can run. New lesson every week.\nThe presenter is an illustrated character and the voice is synthetic; every program and every output shown is real (Python 3.13).\n\n#python #learnpython #codinglesson",
+ "tags": [
+  "python variables",
+  "python for beginners",
+  "python data types",
+  "int float str python",
+  "python type conversion",
+  "python typeerror",
+  "python nameerror",
+  "learn python",
+  "python tutorial",
+  "coding for beginners",
+  "python course",
+  "code in small steps"
+ ],
+ "category": "Education (27)",
+ "language": "English",
+ "audience": "Not made for kids",
+ "playlist": "Python from zero",
+ "license": "Standard YouTube License",
+ "altered_or_synthetic_content": "Yes: synthetic voice and illustrated presenter (declare in YouTube Studio's 'Altered content' setting)",
+ "duration_s": 323.1,
+ "content_s": 303.1,
+ "end_screen": {
+  "start_s": 303.1,
+  "length_s": 20.0,
+  "elements": [
+   {
+    "type": "video",
+    "target": "02-read-python-errors",
+    "label": "Next lesson",
+    "left": 0.078,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "video",
+    "target": "best_for_viewer",
+    "left": 0.547,
+    "top": 0.278,
+    "width": 0.375
+   },
+   {
+    "type": "subscribe",
+    "left": 0.4375,
+    "top": 0.741,
+    "width": 0.125
+   }
+  ]
+ },
+ "cards": [
+  {
+   "at": "2:41",
+   "video": "02-read-python-errors",
+   "teaser": "Errors scare you? Watch this next"
+  }
+ ]
+}

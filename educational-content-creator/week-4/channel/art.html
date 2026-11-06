@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Channel art</title><style>
+@font-face{font-family:"JB";src:url(../assets/jetbrains-mono-latin-700-normal.woff2)format("woff2");font-weight:700}
+:root{--navy:#14213D;--cream:#FFF8EE;--orange:#E8590C;--yellow:#FFD43B;--blue:#2F6DB5}
+*{box-sizing:border-box;margin:0}body{background:#888;font-family:Inter,sans-serif}
+section{position:relative;overflow:hidden;margin-bottom:30px}
+.code{font-family:JB;font-weight:700;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+.cut{position:absolute;filter:drop-shadow(0 18px 30px rgba(0,0,0,.3))}
+.steps{position:absolute;display:flex;align-items:flex-end;gap:14px}.steps i{display:block;width:70px;border-radius:12px 12px 4px 4px}
+.chip{display:inline-block;padding:10px 26px;border-radius:16px;font:800 44px Inter}
+</style></head><body>
+<!-- logo 800x800: three rising steps + a prompt cursor -->
+<section id="logo" style="width:800px;height:800px;background:var(--navy);border-radius:0">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+    <div style="display:flex;align-items:flex-end;gap:34px">
+      <i style="display:block;width:150px;height:170px;background:var(--blue);border-radius:30px 30px 10px 10px"></i>
+      <i style="display:block;width:150px;height:300px;background:var(--yellow);border-radius:30px 30px 10px 10px"></i>
+      <i style="display:block;width:150px;height:430px;background:var(--orange);border-radius:30px 30px 10px 10px;position:relative"><b class="code" style="position:absolute;left:0;right:0;top:56px;text-align:center;color:var(--navy);font-size:120px">&gt;_</b></i>
+    </div></div>
+</section>
+<!-- watermark 150x150 (subscribe button overlay) -->
+<section id="watermark" style="width:150px;height:150px;background:var(--orange);border-radius:50%">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff"><b class="code" style="font-size:52px;line-height:1">&gt;_</b><span style="font:800 18px Inter;margin-top:6px">SUBSCRIBE</span></div>
+</section>
+<!-- banner 2560x1440; everything important inside the 1546x423 centre safe area (shown on every device) -->
+<section id="banner" style="width:2560px;height:1440px;background:var(--cream)">
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 78% 50%,#ffe9cf 0,transparent 38%)"></div>
+  <div class="code" style="position:absolute;left:40px;top:120px;font-size:44px;color:#e9dcc6;line-height:1.7">for step in lesson:<br>&nbsp;&nbsp;&nbsp;&nbsp;understand(step)<br>&nbsp;&nbsp;&nbsp;&nbsp;practise(step)<br>print("you can code")</div>
+  <div class="code" style="position:absolute;right:60px;bottom:120px;font-size:44px;color:#e9dcc6;line-height:1.7;text-align:right">age = 19<br>if score &gt;= 40:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Pass")</div>
+  <div id="safe" style="position:absolute;left:507px;top:508px;width:1546px;height:423px">
+    <div style="position:absolute;left:400px;top:70px"><div style="font:900 92px/1 'Inter Display',Inter;color:var(--navy);letter-spacing:-.03em">Code in Small Steps</div>
+      <div style="font:600 42px Inter;color:#4a5568;margin-top:20px">Python for beginners · one idea at a time</div>
+      <div style="margin-top:30px"><span class="chip" style="background:var(--navy);color:#fff;font-size:36px">New lesson every week</span></div></div>
+  </div>
+  <div style="position:absolute;left:520px;top:540px;width:350px;height:350px;border-radius:50%;overflow:hidden;background:#f3d7b6;border:10px solid #fff;box-shadow:0 14px 34px rgba(0,0,0,.18)"><img src="../../week-3/thumbnails/cut_smile.png" style="position:absolute;width:300px;left:15px;top:20px"></div>
+</section>
+<!-- end screen background 1920x1080: slots line up with the YouTube end-screen elements in upload/endscreen.json -->
+<section id="endscreen" style="width:1920px;height:1080px;background:var(--navy)">
+  <div style="position:absolute;left:0;right:0;top:90px;text-align:center;font:900 76px 'Inter Display',Inter;color:#fff">Keep going: <span style="color:var(--yellow)">next small step</span></div>
+  <div style="position:absolute;left:150px;top:300px;width:720px;height:405px;border:4px dashed #3b4f7a;border-radius:18px"><div style="position:absolute;bottom:-58px;left:0;font:700 34px Inter;color:#9fb1d4">▶ Next lesson</div></div>
+  <div style="position:absolute;left:1050px;top:300px;width:720px;height:405px;border:4px dashed #3b4f7a;border-radius:18px"><div style="position:absolute;bottom:-58px;left:0;font:700 34px Inter;color:#9fb1d4">▶ Best for you</div></div>
+  <div style="position:absolute;left:840px;top:800px;width:240px;height:240px;border-radius:50%;border:4px dashed var(--orange)"></div>
+  <img class="cut" src="../../week-3/thumbnails/cut_smile.png" style="height:330px;left:40px;bottom:-30px">
+  <div style="position:absolute;right:70px;bottom:70px;font:600 30px Inter;color:#9fb1d4;text-align:right">Try today's exercise,<br>then press play on the next one.</div>
+</section>
+<!-- Shorts covers 1080x1920 -->
+<section id="cover-52" style="width:1080px;height:1920px;background:var(--navy)">
+  <div style="position:absolute;left:70px;top:230px;font:900 96px/1.05 'Inter Display';color:#fff">Why does<br>Python say</div>
+  <div class="code" style="position:absolute;left:70px;top:520px;font-size:120px;color:var(--yellow)">"5"+"2"</div>
+  <div class="code" style="position:absolute;left:70px;top:690px;font-size:190px;color:var(--orange)">= "52"</div>
+  <img class="cut" src="../../week-3/thumbnails/cut_surprised.png" style="height:900px;right:-40px;bottom:-60px">
+  <div class="chip" style="position:absolute;left:70px;top:960px;background:#fff;color:var(--navy)">the type decides</div>
+</section>
+<section id="cover-bottom-up" style="width:1080px;height:1920px;background:var(--cream)">
+  <div style="position:absolute;left:70px;top:220px;font:900 104px/1.02 'Inter Display';color:var(--navy)">Read errors<br>from the<br><span style="color:var(--orange)">BOTTOM ↑</span></div>
+  <div class="code" style="position:absolute;left:70px;top:680px;width:940px;background:#1E1E2E;border-radius:22px;padding:34px 36px;font-size:34px;color:#cdd6f4;line-height:1.55">Traceback (most recent call last):<br>&nbsp;&nbsp;File "grades.py", line 3<br>&nbsp;&nbsp;&nbsp;&nbsp;average = totl / len(scores)<br><span style="color:#ff8a8a;background:#4a1f2a">NameError: name 'totl' is not defined</span></div>
+  <img class="cut" src="../../week-3/thumbnails/cut_smile.png" style="height:820px;right:-30px;bottom:-60px">
+</section>
+</body></html>
