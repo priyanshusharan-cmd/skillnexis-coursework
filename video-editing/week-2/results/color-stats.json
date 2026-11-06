@@ -1,0 +1,71 @@
+{
+ "coffee": {
+  "degraded": {
+   "YAVG": 25.0,
+   "YLOW": 0.0,
+   "YHIGH": 56.2,
+   "UAVG": 101.3,
+   "VAVG": 164.9
+  },
+  "corrected": {
+   "YAVG": 103.5,
+   "YLOW": 62.0,
+   "YHIGH": 147.2,
+   "UAVG": 97.9,
+   "VAVG": 167.9
+  },
+  "original": {
+   "YAVG": 103.3,
+   "YLOW": 35.0,
+   "YHIGH": 162.3,
+   "UAVG": 101.3,
+   "VAVG": 164.9
+  }
+ },
+ "rocket": {
+  "degraded": {
+   "YAVG": 174.1,
+   "YLOW": 160.3,
+   "YHIGH": 190.3,
+   "UAVG": 141.2,
+   "VAVG": 120.7
+  },
+  "corrected": {
+   "YAVG": 73.3,
+   "YLOW": 51.1,
+   "YHIGH": 100.6,
+   "UAVG": 141.2,
+   "VAVG": 120.7
+  },
+  "original": {
+   "YAVG": 71.3,
+   "YLOW": 49.5,
+   "YHIGH": 97.3,
+   "UAVG": 141.2,
+   "VAVG": 120.7
+  }
+ },
+ "astronaut": {
+  "degraded": {
+   "YAVG": 93.7,
+   "YLOW": 9.0,
+   "YHIGH": 178.0,
+   "UAVG": 123.1,
+   "VAVG": 142.9
+  },
+  "corrected": {
+   "YAVG": 122.6,
+   "YLOW": 45.0,
+   "YHIGH": 198.0,
+   "UAVG": 114.2,
+   "VAVG": 149.4
+  },
+  "original": {
+   "YAVG": 118.0,
+   "YLOW": 16.5,
+   "YHIGH": 198.0,
+   "UAVG": 117.4,
+   "VAVG": 146.1
+  }
+ }
+}

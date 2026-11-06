@@ -1,0 +1,151 @@
+1
+00:00:00,350 --> 00:00:01,102
+Four roommates.
+
+2
+00:00:01,602 --> 00:00:03,195
+Forty small payments a month.
+
+3
+00:00:03,695 --> 00:00:05,826
+And one question nobody can answer:
+
+4
+00:00:06,326 --> 00:00:07,077
+who owes whom?
+
+5
+00:00:08,177 --> 00:00:16,491
+In the next three minutes, I'll show you how to track every shared expense in your room, split it fairly, and settle up with UPI in one tap.
+
+6
+00:00:16,991 --> 00:00:18,808
+We'll use a free app called Hisaab.
+
+7
+00:00:19,908 --> 00:00:20,916
+Why does this matter?
+
+8
+00:00:21,416 --> 00:00:28,492
+In a shared room, money moves in tiny amounts. A cab here, a food order there, the Wi-Fi recharge at the end of the month.
+
+9
+00:00:28,992 --> 00:00:31,790
+Paying is easy with UPI. Remembering is not.
+
+10
+00:00:32,290 --> 00:00:38,657
+And asking a friend for a hundred and twenty rupees feels awkward enough that most people just stop asking.
+
+11
+00:00:39,757 --> 00:00:44,372
+When you open Hisaab for the first time, three short screens explain the idea.
+
+12
+00:00:44,872 --> 00:00:50,723
+Add an expense in seconds. Split it any way that's fair. And settle up with any UPI app.
+
+13
+00:00:51,223 --> 00:00:57,284
+Notice the promise on the last screen: Hisaab never holds your money, and never sees your UPI PIN.
+
+14
+00:00:57,784 --> 00:01:01,644
+Then you sign in with your phone number, so your friends can find you.
+
+15
+00:01:02,743 --> 00:01:04,024
+This is the home screen.
+
+16
+00:01:04,524 --> 00:01:08,500
+At the top is one number: your overall balance across every group.
+
+17
+00:01:09,000 --> 00:01:12,543
+Here, I'm owed eight hundred and fifty four rupees in total.
+
+18
+00:01:13,043 --> 00:01:19,164
+Below it are your groups. One for the hostel room, one for a trip, and one for a college project.
+
+19
+00:01:20,264 --> 00:01:24,708
+Let's add an expense. Open the room group and tap the plus button.
+
+20
+00:01:25,208 --> 00:01:30,599
+Type the amount: three hundred and sixty rupees for a late night Maggi and chai run.
+
+21
+00:01:31,099 --> 00:01:33,403
+Diya paid, so we set paid by to Diya.
+
+22
+00:01:33,903 --> 00:01:38,024
+Now tap split. By default it's split equally between everyone.
+
+23
+00:01:38,524 --> 00:01:41,568
+But Aarav wasn't there. So we just untick him.
+
+24
+00:01:42,068 --> 00:01:49,162
+Hisaab shows a hundred and twenty rupees each, and confirms the total still adds up. Tap done, then save.
+
+25
+00:01:50,262 --> 00:01:54,838
+The expense appears at the top of the list, and everyone involved gets notified.
+
+26
+00:01:55,338 --> 00:01:57,393
+Tap the balance card to see the details.
+
+27
+00:01:57,893 --> 00:02:04,023
+Hisaab simplifies the debts: five separate payments become three, with exactly the same totals.
+
+28
+00:02:05,123 --> 00:02:07,102
+Now the best part: settling up.
+
+29
+00:02:07,602 --> 00:02:12,474
+Tap settle up. You see who you're paying, their UPI ID, and what it's for.
+
+30
+00:02:12,974 --> 00:02:18,140
+Choose any UPI app, and confirm. The payment goes straight from your bank to theirs.
+
+31
+00:02:18,640 --> 00:02:24,181
+Done. Your balance updates instantly, and Hisaab even offers to pay the next person.
+
+32
+00:02:25,281 --> 00:02:26,643
+Two more things worth knowing.
+
+33
+00:02:27,143 --> 00:02:32,950
+If someone forgets to pay, you can send a friendly reminder on WhatsApp, in the tone you choose.
+
+34
+00:02:33,450 --> 00:02:37,119
+And monthly insights show where your share of the money actually went.
+
+35
+00:02:37,619 --> 00:02:44,804
+Pro tip: agree on one settle day every month, like the first. Then asking for money becomes a routine, not a favour.
+
+36
+00:02:45,904 --> 00:02:48,598
+So that's it. Add, split, settle.
+
+37
+00:02:49,098 --> 00:02:52,144
+No spreadsheets, and no awkward conversations.
+
+38
+00:02:52,644 --> 00:02:58,062
+If this helped, subscribe for more student money tips, and I'll see you in the next one.
