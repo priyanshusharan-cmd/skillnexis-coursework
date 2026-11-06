@@ -1,0 +1,9 @@
+/usr/local/lib/python3.13/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+{'epoch': 1, 'loss': 4.925, 'dev_bleu4_200': 0.1224} 249s
+{'epoch': 2, 'loss': 3.838, 'dev_bleu4_200': 0.1433} 494s
+{'epoch': 3, 'loss': 3.551, 'dev_bleu4_200': 0.1514} 734s
+{'epoch': 4, 'loss': 3.344, 'dev_bleu4_200': 0.1643} 974s
+{'epoch': 5, 'loss': 3.193, 'dev_bleu4_200': 0.1607} 1214s
+{'epoch': 6, 'loss': 3.113, 'dev_bleu4_200': 0.1716} 1457s
+{'BLEU-1': 0.5687, 'BLEU-2': 0.3826, 'BLEU-3': 0.2478, 'BLEU-4': 0.1623}

@@ -1,0 +1,73 @@
+{
+ "params": 4273664,
+ "train_tokens": 395529,
+ "val_tokens": 69155,
+ "steps": 1000,
+ "batch": 16,
+ "context": 256,
+ "minutes": 28.1,
+ "val_ppl_before": 4313.7,
+ "history": [
+  {
+   "step": 100,
+   "train_loss": 6.05,
+   "val_loss": 6.116,
+   "val_ppl": 453.2
+  },
+  {
+   "step": 200,
+   "train_loss": 5.467,
+   "val_loss": 5.624,
+   "val_ppl": 277.0
+  },
+  {
+   "step": 300,
+   "train_loss": 5.248,
+   "val_loss": 5.391,
+   "val_ppl": 219.4
+  },
+  {
+   "step": 400,
+   "train_loss": 4.936,
+   "val_loss": 5.237,
+   "val_ppl": 188.2
+  },
+  {
+   "step": 500,
+   "train_loss": 4.703,
+   "val_loss": 5.112,
+   "val_ppl": 166.0
+  },
+  {
+   "step": 600,
+   "train_loss": 4.531,
+   "val_loss": 5.033,
+   "val_ppl": 153.4
+  },
+  {
+   "step": 700,
+   "train_loss": 4.43,
+   "val_loss": 4.964,
+   "val_ppl": 143.2
+  },
+  {
+   "step": 800,
+   "train_loss": 4.437,
+   "val_loss": 4.921,
+   "val_ppl": 137.2
+  },
+  {
+   "step": 900,
+   "train_loss": 4.432,
+   "val_loss": 4.906,
+   "val_ppl": 135.1
+  },
+  {
+   "step": 1000,
+   "train_loss": 4.534,
+   "val_loss": 4.903,
+   "val_ppl": 134.7
+  }
+ ],
+ "sample": "PEP 572: Assignment Expressions\n\nAbstract\n\nThis is a proposal for the following the Python.\n\nPEP 2011- RI for Python 3.7 or more than the following feature of\neven to be\n\n\n\n\nThe following PEP for a version identifiers, rather than the public interface\nin the preferred to the PEP.\n\n"
+}

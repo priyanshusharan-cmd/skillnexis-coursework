@@ -1,0 +1,31 @@
+
+
+
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+{'step': 100, 'train_loss': 6.05, 'val_loss': 6.116, 'val_ppl': 453.2} 170s
+{'step': 200, 'train_loss': 5.467, 'val_loss': 5.624, 'val_ppl': 277.0} 339s
+{'step': 300, 'train_loss': 5.248, 'val_loss': 5.391, 'val_ppl': 219.4} 513s
+{'step': 400, 'train_loss': 4.936, 'val_loss': 5.237, 'val_ppl': 188.2} 683s
+{'step': 500, 'train_loss': 4.703, 'val_loss': 5.112, 'val_ppl': 166.0} 854s
+{'step': 600, 'train_loss': 4.531, 'val_loss': 5.033, 'val_ppl': 153.4} 1024s
+{'step': 700, 'train_loss': 4.43, 'val_loss': 4.964, 'val_ppl': 143.2} 1191s
+{'step': 800, 'train_loss': 4.437, 'val_loss': 4.921, 'val_ppl': 137.2} 1356s
+{'step': 900, 'train_loss': 4.432, 'val_loss': 4.906, 'val_ppl': 135.1} 1522s
+{'step': 1000, 'train_loss': 4.534, 'val_loss': 4.903, 'val_ppl': 134.7} 1688s
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 68.09it/s]
+PEP 572: Assignment Expressions
+
+Abstract
+
+This is a proposal for the following the Python.
+
+PEP 2011- RI for Python 3.7 or more than the following feature of
+even to be
+
+
+
+
+The following PEP for a version identifiers, rather than the public interface
+in the preferred to the PEP.
+
+

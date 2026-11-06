@@ -1,0 +1,134 @@
+{
+ "steps": 2500,
+ "lora_r": 16,
+ "synthetic_cards": 2000,
+ "train_examples": 8600,
+ "test_examples": 64,
+ "train_peps": 50,
+ "test_peps": 16,
+ "base_few_shot": {
+  "title": 0.0,
+  "status": 0.0,
+  "type": 0.0,
+  "created": 0.0,
+  "overall": 0.0
+ },
+ "base_few_shot_reworded": {
+  "title": 0.0,
+  "status": 0.0,
+  "type": 0.0,
+  "created": 0.0,
+  "overall": 0.0
+ },
+ "lora": {
+  "trainable_params": 262144,
+  "trainable_share": 0.0613,
+  "minutes": 17.5,
+  "final_loss": 0.982,
+  "train_set": {
+   "created": 0.56,
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "overall": 0.65
+  },
+  "test": {
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "created": 0.5,
+   "overall": 0.625
+  },
+  "test_reworded": {
+   "title": 0.0,
+   "status": 0.0,
+   "type": 0.0,
+   "created": 0.062,
+   "overall": 0.016
+  }
+ },
+ "full_finetune": {
+  "trainable_params": 4273664,
+  "minutes": 17.1,
+  "final_loss": 0.067,
+  "test": {
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "created": 0.75,
+   "overall": 0.688
+  },
+  "test_reworded": {
+   "title": 0.0,
+   "status": 0.0,
+   "type": 0.0,
+   "created": 0.438,
+   "overall": 0.109
+  }
+ },
+ "adapter_size_kb": 1034,
+ "examples_base": [
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What is the title?",
+   "expected": "Type Parameter Syntax",
+   "got": ""
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What is the status?",
+   "expected": "Final",
+   "got": ""
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What type of PEP is it?",
+   "expected": "Standards Track",
+   "got": ""
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: When was it created?",
+   "expected": "15-Jun-2022",
+   "got": ""
+  },
+  {
+   "q": "Created: 13-Feb-2009\nTitle: Syntax for Delegating to a Subgenerator\nPEP: 380\nType: Standards Track\nStatus: Final\nQuestion: What is the title?",
+   "expected": "Syntax for Delegating to a Subgenerator",
+   "got": ""
+  },
+  {
+   "q": "Created: 13-Feb-2009\nTitle: Syntax for Delegating to a Subgenerator\nPEP: 380\nType: Standards Track\nStatus: Final\nQuestion: What is the status?",
+   "expected": "Final",
+   "got": ""
+  }
+ ],
+ "examples_lora": [
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What is the title?",
+   "expected": "Type Parameter Syntax",
+   "got": "type"
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What is the status?",
+   "expected": "Final",
+   "got": "Final"
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: What type of PEP is it?",
+   "expected": "Standards Track",
+   "got": "Standards Track"
+  },
+  {
+   "q": "Type: Standards Track\nStatus: Final\nCreated: 15-Jun-2022\nPEP: 695\nTitle: Type Parameter Syntax\nQuestion: When was it created?",
+   "expected": "15-Jun-2022",
+   "got": "15-Jun-2022"
+  },
+  {
+   "q": "Created: 13-Feb-2009\nTitle: Syntax for Delegating to a Subgenerator\nPEP: 380\nType: Standards Track\nStatus: Final\nQuestion: What is the title?",
+   "expected": "Syntax for Delegating to a Subgenerator",
+   "got": "Database independent Specifying"
+  },
+  {
+   "q": "Created: 13-Feb-2009\nTitle: Syntax for Delegating to a Subgenerator\nPEP: 380\nType: Standards Track\nStatus: Final\nQuestion: What is the status?",
+   "expected": "Final",
+   "got": "Final"
+  }
+ ]
+}

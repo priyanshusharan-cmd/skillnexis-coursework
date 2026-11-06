@@ -1,0 +1,53 @@
+{
+ "vocab": 3469,
+ "train_pairs": 30000,
+ "epochs": 6,
+ "params": 5280397,
+ "minutes": 25.0,
+ "test_images": 1000,
+ "test_greedy": {
+  "BLEU-1": 0.5687,
+  "BLEU-2": 0.3826,
+  "BLEU-3": 0.2478,
+  "BLEU-4": 0.1623
+ },
+ "test_beam3_first200": {
+  "BLEU-1": 0.6024,
+  "BLEU-2": 0.4155,
+  "BLEU-3": 0.2854,
+  "BLEU-4": 0.1967
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "loss": 4.925,
+   "dev_bleu4_200": 0.1224
+  },
+  {
+   "epoch": 2,
+   "loss": 3.838,
+   "dev_bleu4_200": 0.1433
+  },
+  {
+   "epoch": 3,
+   "loss": 3.551,
+   "dev_bleu4_200": 0.1514
+  },
+  {
+   "epoch": 4,
+   "loss": 3.344,
+   "dev_bleu4_200": 0.1643
+  },
+  {
+   "epoch": 5,
+   "loss": 3.193,
+   "dev_bleu4_200": 0.1607
+  },
+  {
+   "epoch": 6,
+   "loss": 3.113,
+   "dev_bleu4_200": 0.1716
+  }
+ ],
+ "distinct_captions": 937
+}

@@ -1,0 +1,106 @@
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights:  56%|█████▌    | 29/52 [00:00<00:00, 211.09it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 255.97it/s]
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 24317.52it/s]
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+step 150 loss 4.020
+step 300 loss 2.571
+step 450 loss 2.045
+step 600 loss 1.894
+step 750 loss 1.714
+step 900 loss 1.691
+step 1050 loss 1.721
+step 1200 loss 1.580
+step 1350 loss 1.522
+step 1500 loss 1.406
+step 1650 loss 1.300
+step 1800 loss 1.210
+step 1950 loss 1.149
+step 2100 loss 1.131
+step 2250 loss 1.022
+step 2400 loss 1.005
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 41726.38it/s]
+step 150 loss 3.157
+step 300 loss 1.467
+step 450 loss 1.058
+step 600 loss 0.850
+step 750 loss 0.664
+step 900 loss 0.562
+step 1050 loss 0.453
+step 1200 loss 0.361
+step 1350 loss 0.317
+step 1500 loss 0.239
+step 1650 loss 0.204
+step 1800 loss 0.145
+step 1950 loss 0.116
+step 2100 loss 0.091
+step 2250 loss 0.071
+step 2400 loss 0.063
+{
+ "steps": 2500,
+ "lora_r": 16,
+ "synthetic_cards": 2000,
+ "train_examples": 8600,
+ "test_examples": 64,
+ "train_peps": 50,
+ "test_peps": 16,
+ "base_few_shot": {
+  "title": 0.0,
+  "status": 0.0,
+  "type": 0.0,
+  "created": 0.0,
+  "overall": 0.0
+ },
+ "base_few_shot_reworded": {
+  "title": 0.0,
+  "status": 0.0,
+  "type": 0.0,
+  "created": 0.0,
+  "overall": 0.0
+ },
+ "lora": {
+  "trainable_params": 262144,
+  "trainable_share": 0.0613,
+  "minutes": 17.5,
+  "final_loss": 0.982,
+  "train_set": {
+   "created": 0.56,
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "overall": 0.65
+  },
+  "test": {
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "created": 0.5,
+   "overall": 0.625
+  },
+  "test_reworded": {
+   "title": 0.0,
+   "status": 0.0,
+   "type": 0.0,
+   "created": 0.062,
+   "overall": 0.016
+  }
+ },
+ "full_finetune": {
+  "trainable_params": 4273664,
+  "minutes": 17.1,
+  "final_loss": 0.067,
+  "test": {
+   "title": 0.0,
+   "status": 1.0,
+   "type": 1.0,
+   "created": 0.75,
+   "overall": 0.688
+  },
+  "test_reworded": {
+   "title": 0.0,
+   "status": 0.0,
+   "type": 0.0,
+   "created": 0.438,
+   "overall": 0.109
+  }
+ },
+ "adapter_size_kb": 1034
+}

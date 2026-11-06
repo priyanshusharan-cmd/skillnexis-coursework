@@ -1,0 +1,104 @@
+{
+ "train_examples": 198,
+ "test_examples": 198,
+ "base_few_shot": {
+  "title": 0.0,
+  "status": 0.0,
+  "number": 0.0,
+  "overall": 0.0
+ },
+ "lora": {
+  "trainable_params": 131072,
+  "trainable_share": 0.0307,
+  "minutes": 3.0,
+  "final_loss": 1.061,
+  "train_set": {
+   "number": 0.548,
+   "status": 1.0,
+   "title": 0.324,
+   "overall": 0.633
+  },
+  "test": {
+   "title": 0.0,
+   "status": 0.015,
+   "number": 0.03,
+   "overall": 0.015
+  }
+ },
+ "full_finetune": {
+  "trainable_params": 4273664,
+  "minutes": 3.0,
+  "final_loss": 0.011,
+  "test": {
+   "title": 0.197,
+   "status": 0.47,
+   "number": 0.182,
+   "overall": 0.283
+  }
+ },
+ "adapter_size_kb": 522,
+ "examples_base": [
+  {
+   "q": "Question: PEP 1 is called what?",
+   "expected": "PEP Purpose and Guidelines",
+   "got": ""
+  },
+  {
+   "q": "Question: Is PEP 1 accepted, final or something else? Give its status.",
+   "expected": "Active",
+   "got": ""
+  },
+  {
+   "q": "Question: What number is the PEP named \"PEP Purpose and Guidelines\"?",
+   "expected": "PEP 1",
+   "got": ""
+  },
+  {
+   "q": "Question: PEP 8 is called what?",
+   "expected": "Style Guide for Python Code",
+   "got": ""
+  },
+  {
+   "q": "Question: Is PEP 8 accepted, final or something else? Give its status.",
+   "expected": "Active",
+   "got": ""
+  },
+  {
+   "q": "Question: What number is the PEP named \"Style Guide for Python Code\"?",
+   "expected": "PEP 8",
+   "got": ""
+  }
+ ],
+ "examples_lora": [
+  {
+   "q": "Question: PEP 1 is called what?",
+   "expected": "PEP Purpose and Guidelines",
+   "got": "PEP 573"
+  },
+  {
+   "q": "Question: Is PEP 1 accepted, final or something else? Give its status.",
+   "expected": "Active",
+   "got": "PEP 570"
+  },
+  {
+   "q": "Question: What number is the PEP named \"PEP Purpose and Guidelines\"?",
+   "expected": "PEP 1",
+   "got": "A Sribute Matching Matching Matching Meven A Specification"
+  },
+  {
+   "q": "Question: PEP 8 is called what?",
+   "expected": "Style Guide for Python Code",
+   "got": "PEP 573"
+  },
+  {
+   "q": "Question: Is PEP 8 accepted, final or something else? Give its status.",
+   "expected": "Active",
+   "got": "PEP 570"
+  },
+  {
+   "q": "Question: What number is the PEP named \"Style Guide for Python Code\"?",
+   "expected": "PEP 8",
+   "got": "Autorators"
+  }
+ ]
+}

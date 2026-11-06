@@ -1,0 +1,62 @@
+{
+ "cards": 200,
+ "lora": {
+  "title": 0.035,
+  "status": 0.4,
+  "type": 1.0,
+  "created": 0.0,
+  "overall": 0.359
+ },
+ "majority_baseline": {
+  "status": 0.19,
+  "type": 0.33,
+  "title": 0.0,
+  "created": 0.0
+ },
+ "majority_answers": {
+  "status": "Final",
+  "type": "Standards Track"
+ },
+ "examples": [
+  {
+   "q": "PEP: 813\nTitle: Code Statement Logging Cycle\nCreated: 18-Sep-2028\nStatus: Active\nType: Informational\nQuestion: What is the title?",
+   "expected": "Code Statement Logging Cycle",
+   "got": "Code Statement Multi-Line Code Code"
+  },
+  {
+   "q": "PEP: 813\nTitle: Code Statement Logging Cycle\nCreated: 18-Sep-2028\nStatus: Active\nType: Informational\nQuestion: What is the status?",
+   "expected": "Active",
+   "got": "Active"
+  },
+  {
+   "q": "PEP: 813\nTitle: Code Statement Logging Cycle\nCreated: 18-Sep-2028\nStatus: Active\nType: Informational\nQuestion: What type of PEP is it?",
+   "expected": "Informational",
+   "got": "Informational"
+  },
+  {
+   "q": "PEP: 813\nTitle: Code Statement Logging Cycle\nCreated: 18-Sep-2028\nStatus: Active\nType: Informational\nQuestion: When was it created?",
+   "expected": "18-Sep-2028",
+   "got": "18-Sep-2024"
+  },
+  {
+   "q": "Type: Process\nCreated: 11-Nov-2027\nStatus: Draft\nPEP: 887\nTitle: Expressions Docstring\nQuestion: What is the title?",
+   "expected": "Expressions Docstring",
+   "got": "Explicit Fixed"
+  },
+  {
+   "q": "Type: Process\nCreated: 11-Nov-2027\nStatus: Draft\nPEP: 887\nTitle: Expressions Docstring\nQuestion: What is the status?",
+   "expected": "Draft",
+   "got": "Active"
+  },
+  {
+   "q": "Type: Process\nCreated: 11-Nov-2027\nStatus: Draft\nPEP: 887\nTitle: Expressions Docstring\nQuestion: What type of PEP is it?",
+   "expected": "Process",
+   "got": "Process"
+  },
+  {
+   "q": "Type: Process\nCreated: 11-Nov-2027\nStatus: Draft\nPEP: 887\nTitle: Expressions Docstring\nQuestion: When was it created?",
+   "expected": "11-Nov-2027",
+   "got": "11-Nov-2014"
+  }
+ ]
+}
