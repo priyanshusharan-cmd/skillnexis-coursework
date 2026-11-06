@@ -1,0 +1,10 @@
+{
+ "documents": 66,
+ "words": 253607,
+ "chunks": 1818,
+ "chunk_size": 1200,
+ "overlap": 200,
+ "embedding": "LSAEmbeddings",
+ "dim": 256,
+ "seconds": 10.3
+}

@@ -1,0 +1,5 @@
+chroma/
+kb-chat/db/
+.env
+__pycache__/
+.gradio/

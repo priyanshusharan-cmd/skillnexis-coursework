@@ -1,0 +1,69 @@
+{
+ "hit_at_5": 1.0,
+ "mrr": 0.808,
+ "cites_right_file": 0.9,
+ "abstained": 2,
+ "of_unanswerable": 2,
+ "rows": [
+  {
+   "q": "What does ParamSpec allow you to annotate?",
+   "expected": "pep-0612.pdf",
+   "rank": 2,
+   "cited": true
+  },
+  {
+   "q": "How can I write a union type using the | operator?",
+   "expected": "pep-0604.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "How do I annotate a method that returns an instance of its own class?",
+   "expected": "pep-0673.pdf",
+   "rank": 3,
+   "cited": true
+  },
+  {
+   "q": "What is LiteralString used for?",
+   "expected": "pep-0675.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "What does the dataclass_transform decorator do?",
+   "expected": "pep-0681.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "What is the new syntax for declaring type parameters in a generic class?",
+   "expected": "pep-0695.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "How do I attach extra metadata to a type with Annotated?",
+   "expected": "pep-0593.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "Can I use list[int] instead of typing.List[int]?",
+   "expected": "pep-0585.pdf",
+   "rank": 4,
+   "cited": false
+  },
+  {
+   "q": "What is the syntax for annotating a variable with a type?",
+   "expected": "pep-0526.pdf",
+   "rank": 1,
+   "cited": true
+  },
+  {
+   "q": "What is a type hint stub file?",
+   "expected": "pep-0484.pdf",
+   "rank": 1,
+   "cited": true
+  }
+ ]
+}

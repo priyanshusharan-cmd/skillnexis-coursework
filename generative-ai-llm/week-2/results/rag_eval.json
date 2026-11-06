@@ -1,0 +1,123 @@
+{
+ "engine": "extractive (no LLM configured)",
+ "questions": 16,
+ "hit_at_5": 0.938,
+ "hit_at_1": 0.812,
+ "mrr": 0.838,
+ "answers_citing_expected_pep": 0.875,
+ "out_of_scope_abstained": 2,
+ "rows": [
+  {
+   "question": "How should constants be named in Python code?",
+   "expected": "PEP 8",
+   "rank": null,
+   "cited_expected": false,
+   "answer": "Such usages can be divided to two categories: user-code facing constants, and internal constants. [1] If it cannot find either of those, or if the language code is None, it should look for a key simply named Error. [3] Internal constants are not seen by user code but are employed internally by stdlib modules. [2]"
+  },
+  {
+   "question": "What does the walrus operator := do?",
+   "expected": "PEP 572",
+   "rank": 5,
+   "cited_expected": true,
+   "answer": "During discussion of this PEP, the operator became informally known as \"the walrus operator\". [5] This operator also does not support prefix matching as the == operator does. [1] Another suggestion was to create a new operator <-. [2]"
+  },
+  {
+   "question": "What is the syntax of structural pattern matching with match and case?",
+   "expected": "PEP 634",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "The pattern matching process takes as input a pattern (following case) and a subject value (following match). [1] In case of success we may say \"the pattern succeeds\", \"the match succeeds\", or \"the pattern matches the subject value\". [1] However, once the *first* matching pattern is found, the body of that case is executed, and all further cases are ignored. [3]"
+  },
+  {
+   "question": "How do f-strings evaluate expressions inside braces?",
+   "expected": "PEP 498",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "F-strings provide a way to embed expressions inside string literals, using a minimal syntax. [1] - Assignment expressions inside of f-strings require parentheses. [4] While scanning the string for expressions, any doubled braces '{{' or '}}' inside literal portions of an f-string are replaced by the corresponding single brace. [2]"
+  },
+  {
+   "question": "Why was the @ operator added for matrix multiplication?",
+   "expected": "PEP 465",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "It splits * into two operators, just as was done for /: * for elementwise multiplication, and @ for matrix multiplication. [1] In numerical code, there are two important operations which compete for use of Python's * operator: elementwise multiplication, and matrix multiplication. [2] The minimal change to Python syntax which is sufficient to resolve these problems is the addition of a single new infix operator for matrix multiplication. [2]"
+  },
+  {
+   "question": "How do I write type hints for function arguments?",
+   "expected": "PEP 484",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "Despite all these options, proposals have been circulated to allow type hints and other forms of annotations to coexist for individual arguments. [1] For this purpose the current proposal defines a decorator @no_type_check which disables the default interpretation of annotations as type hints in a given class or function. [2] Annotations are returned as a dictionary mapping from variable or arguments to their type hints with forward references evaluated. [3]"
+  },
+  {
+   "question": "What methods does the dataclass decorator generate?",
+   "expected": "PEP 557",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "The dataclass decorator will add various \"dunder\" methods to the class, described below. [1] A function dataclass which is typically used as a class decorator is provided to post-process classes and add generated methods, described below. [1] However, by passing frozen=True to the @dataclass decorator you can emulate immutability. [2]"
+  },
+  {
+   "question": "How do async and await define coroutines?",
+   "expected": "PEP 492",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "Transition Plan_ section explains how tokenizer is modified to treat async and await as keywords *only* in async def blocks. [2] async def coro(): # a coroutine function await smth() [4] And \"async def\" better separates coroutines from regular functions visually. [2]"
+  },
+  {
+   "question": "What problem does the with statement solve?",
+   "expected": "PEP 343",
+   "rank": 5,
+   "cited_expected": false,
+   "answer": "None) * the main problem to solve is crashes coming from tp_dealloc() [4] To prevent this problem you can either check the length of the list of words, or capture the ValueError that the statement above would raise. [3] You can use a matching statement instead:: [3]"
+  },
+  {
+   "question": "What does yield from do in a generator?",
+   "expected": "PEP 380",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "A generator function is one which contains a yield expression. [4] Performing such a factoring causes the called function to itself become a generator, and it is necessary to explicitly iterate over this second generator and re-yield any values that it produces. [1] A Python generator is a form of coroutine, but has the limitation that it can only yield to its immediate caller. [1]"
+  },
+  {
+   "question": "What are positional-only parameters and the / marker?",
+   "expected": "PEP 570",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "Positional-only parameters would be placed before a / (forward-slash). [1] The / is used to logically separate the positional-only parameters from the rest of the parameters. [1] If *positional-only*, the parameters' order matters, and the parameters cannot be passed by keyword. [1]"
+  },
+  {
+   "question": "How do the | and |= operators merge dictionaries?",
+   "expected": "PEP 584",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "* Accepting PEP 584: Add Union Operators To dict [1] Merging two dictionaries in an expression is a frequently requested feature. [1] Adding a full complement of operators to dicts. [1]"
+  },
+  {
+   "question": "What does zip strict=True do when iterables have different lengths?",
+   "expected": "PEP 618",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "When the built-in zip is called with the keyword-only argument strict=True, the resulting iterator will raise a ValueError if the arguments are exhausted at differing lengths. [1] zip currently takes no keyword arguments, and the \"non-strict\" default behavior when strict is omitted remains unchanged. [1] For one thing it went through great lengths to integrate itself with import.c, adding lots of code that was either specific for Zip file imports or *not* specific to Zip imports, yet was not generally useful (or even desirable) either. [3]"
+  },
+  {
+   "question": "What are the conventions for one-line docstrings?",
+   "expected": "PEP 257",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "- For one liner docstrings, please keep the closing \"\"\" on the same line: [2] There are two forms of docstrings: one-liners and multi-line docstrings. [1] Multi-line docstrings consist of a summary line just like a one-line docstring, followed by a blank line, followed by a more elaborate description. [3]"
+  },
+  {
+   "question": "What is the annual release cycle for Python versions?",
+   "expected": "PEP 602",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "While the ease of switching to calendar versioning can be treated as an advantage of an annual release cycle, this PEP does not advocate for or against a change in how Python is versioned. [1] Should the annual release cycle be adopted, the versioning question will be dealt with in a separate PEP. [1] Adopting an annual release calendar allows for natural switching to calendar versioning, for example by calling Python 3.9 \"Python 3.20\" since it's released in October '20 and so on (\"Python 3.23\" would be the one released in October '23). [1]"
+  },
+  {
+   "question": "How do you annotate a method that returns an instance of its own class with Self?",
+   "expected": "PEP 673",
+   "rank": 1,
+   "cited_expected": true,
+   "answer": "A common use case is to write a method that returns an instance of the same class, usually by returning self. [1] The Self type annotation is also useful for classmethods that return an instance of the class that they operate on. [4] If a method uses Self in its signature, the type of self within a method will be Self. [4]"
+  }
+ ]
+}
