@@ -1,0 +1,97 @@
+{
+ "long_form": {
+  "title": "5 Money Habits That Keep Hostel Friendships Alive (Split Expenses Without the Awkwardness)",
+  "description": "Splitting expenses in a hostel room shouldn't cost you friends. Here are 5 simple money habits that stopped our room from arguing about who paid for what, from logging expenses the moment you pay to a weekly UPI settle day.\n\nThey work with any app, or even a notebook. I show each one in Hisaab, a concept expense-splitting app I designed for students (a course project, not a real product yet).\n\nCHAPTERS\n0:00 Cold open\n0:26 What you'll learn\n0:47 Habit 1: Log it when you pay\n1:29 Habit 2: Split fairly, not equally\n2:10 Habit 3: Pick one settle day\n2:48 Habit 4: Let the app ask\n3:25 Habit 5: Know where it goes\n3:50 3 mistakes to avoid\n4:22 Recap\n4:38 Thanks for watching\n\nTHE 5 HABITS\n1. Log it the moment you pay\n2. Split fairly, not equally\n3. Pick one settle day\n4. Let the app send the reminder\n5. Know where the money goes\n\nNext video: how I designed Hisaab in one week, from research to a clickable prototype.\n\nMusic: original track made for this channel. Voice: synthetic (espeak-ng + MBROLA). Spending figures are sample prototype data.\n\n#hostellife #moneytips #studentlife",
+  "tags": [
+   "split expenses",
+   "hostel life",
+   "student money tips",
+   "roommate expenses",
+   "how to split bills with roommates",
+   "upi",
+   "splitwise alternative",
+   "money habits",
+   "college students india",
+   "expense tracker",
+   "hostel tips",
+   "shared expenses",
+   "budgeting for students",
+   "hisaab app"
+  ],
+  "category": "Education",
+  "language": "English (India)",
+  "captions": "long-form.srt (upload as English subtitles)",
+  "thumbnail": "thumbnails/long-form.png",
+  "end_screen": "last 20 s: 'Next video' element top-right + Subscribe button (placeholders are drawn in the video)",
+  "playlist": "Hostel money habits",
+  "audience": "Not made for kids",
+  "license": "Standard YouTube licence"
+ },
+ "shorts": {
+  "short-a-settle-sunday.mp4": {
+   "title": "Settle money every Sunday, not at month end #shorts",
+   "cover": "cover-short-a.png",
+   "description": "One habit from my long-form video: 5 money habits that keep hostel friendships alive (linked as the related video). #hostellife #moneytips #shorts"
+  },
+  "short-b-fair-not-equal.mp4": {
+   "title": "Split bills fairly, not equally #shorts",
+   "cover": "cover-short-b.png",
+   "description": "One habit from my long-form video: 5 money habits that keep hostel friendships alive (linked as the related video). #hostellife #moneytips #shorts"
+  },
+  "short-c-app-asks.mp4": {
+   "title": "Hate asking friends for money? Let the app ask #shorts",
+   "cover": "cover-short-c.png",
+   "description": "One habit from my long-form video: 5 money habits that keep hostel friendships alive (linked as the related video). #hostellife #moneytips #shorts"
+  }
+ },
+ "checks": [
+  [
+   "long title 90 <= 100 chars",
+   true
+  ],
+  [
+   "keyword 'Money Habits' within the first 60 chars",
+   true
+  ],
+  [
+   "description 1086 <= 5000 chars",
+   true
+  ],
+  [
+   "first chapter at 0:00",
+   true
+  ],
+  [
+   "10 chapters >= 3",
+   true
+  ],
+  [
+   "shortest chapter 15.8 s >= 10 s",
+   true
+  ],
+  [
+   "tags 250 chars <= 500",
+   true
+  ],
+  [
+   "3 hashtags <= 15",
+   true
+  ],
+  [
+   "video length 5:10 >= 5:00",
+   true
+  ],
+  [
+   "short-a-settle-sunday.mp4 title 51 <= 100",
+   true
+  ],
+  [
+   "short-b-fair-not-equal.mp4 title 39 <= 100",
+   true
+  ],
+  [
+   "short-c-app-asks.mp4 title 54 <= 100",
+   true
+  ]
+ ]
+}

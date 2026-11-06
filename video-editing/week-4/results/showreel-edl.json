@@ -1,0 +1,197 @@
+{
+ "total": 120.0,
+ "cuts": [
+  8.0,
+  12.0,
+  16.0,
+  20.0,
+  24.0,
+  28.0,
+  32.0,
+  36.0,
+  40.0,
+  44.0,
+  48.0,
+  52.0,
+  54.0,
+  56.0,
+  60.0,
+  64.0,
+  68.0,
+  72.0,
+  76.0,
+  80.0,
+  84.0,
+  88.0,
+  92.0,
+  96.0,
+  100.0,
+  104.0,
+  108.0,
+  112.0
+ ],
+ "clips": [
+  {
+   "src": "../week-2/exports/tutorial.mp4",
+   "start": 1.0,
+   "beats": 8,
+   "label": "Kinetic typography \u00b7 tutorial hook"
+  },
+  {
+   "src": "../week-3/exports/reel-30s.mp4",
+   "start": 7.6,
+   "beats": 8,
+   "label": "Beat-synced Reel \u00b7 whip transitions"
+  },
+  {
+   "src": "../week-2/exports/color-correction.mp4",
+   "start": 1.0,
+   "beats": 8,
+   "label": "Colour correction \u00b7 before / after"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 4.0,
+   "beats": 8,
+   "label": "Green-screen presenter \u00b7 long-form"
+  },
+  {
+   "src": "../week-3/exports/short-1-split-in-10s.mp4",
+   "start": 9.4,
+   "beats": 8,
+   "label": "Speed ramp 8\u00d7 \u2192 0.5\u00d7 slow-mo"
+  },
+  {
+   "src": "../week-2/exports/dialogue_jl.mp4",
+   "start": 5.6,
+   "beats": 8,
+   "label": "J-cuts and L-cuts \u00b7 dialogue edit"
+  },
+  {
+   "src": "../week-3/exports/logo-reveal.mp4",
+   "start": 0.3,
+   "beats": 8,
+   "label": "Keyframed logo reveal"
+  },
+  {
+   "src": "../week-3/exports/greenscreen-breakdown.mp4",
+   "start": 1.0,
+   "beats": 8,
+   "label": "Chroma key \u00b7 matte \u00b7 despill"
+  },
+  {
+   "src": "exports/short-b-fair-not-equal.mp4",
+   "start": 3.6,
+   "beats": 8,
+   "label": "Word-by-word captions"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 205.0,
+   "beats": 8,
+   "label": "Animated data chart"
+  },
+  {
+   "src": "../week-2/exports/tutorial.mp4",
+   "start": 74.0,
+   "beats": 8,
+   "label": "Screen recording + call-outs"
+  },
+  {
+   "src": "../week-3/exports/reel-30s.mp4",
+   "start": 12.2,
+   "beats": 4,
+   "label": "Glitch transition"
+  },
+  {
+   "src": "../week-3/exports/reel-30s.mp4",
+   "start": 18.0,
+   "beats": 4,
+   "label": "Zoom punch"
+  },
+  {
+   "src": "../week-2/exports/text-animations.mp4",
+   "start": 3.6,
+   "beats": 8,
+   "label": "Lower thirds \u00b7 title animation"
+  },
+  {
+   "src": "exports/short-c-app-asks.mp4",
+   "start": 0.2,
+   "beats": 8,
+   "label": "Hook titles for Shorts"
+  },
+  {
+   "src": "../week-3/exports/short-2-money-rules.mp4",
+   "start": 8.6,
+   "beats": 8,
+   "label": "Stickers \u00b7 slow-motion payoff"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 112.0,
+   "beats": 8,
+   "label": "Long-form: habits, chapters, SEO"
+  },
+  {
+   "src": "exports/short-a-settle-sunday.mp4",
+   "start": 9.0,
+   "beats": 8,
+   "label": "Repurposing long-form into Shorts"
+  },
+  {
+   "src": "../week-2/exports/tutorial.mp4",
+   "start": 14.0,
+   "beats": 8,
+   "label": "Motion title \u00b7 brand intro"
+  },
+  {
+   "src": "../week-3/exports/short-3-group-bank.mp4",
+   "start": 0.6,
+   "beats": 8,
+   "label": "Keyed presenter in a vertical frame"
+  },
+  {
+   "src": "../week-2/exports/color-correction.mp4",
+   "start": 9.0,
+   "beats": 8,
+   "label": "Exposure and white-balance fix"
+  },
+  {
+   "src": "../week-3/exports/reel-30s.mp4",
+   "start": 20.4,
+   "beats": 8,
+   "label": "Speed-ramped payoff on the beat"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 245.0,
+   "beats": 8,
+   "label": "Kinetic text cards"
+  },
+  {
+   "src": "../week-3/exports/short-1-split-in-10s.mp4",
+   "start": 0.4,
+   "beats": 8,
+   "label": "Shorts hook in the first second"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 140.0,
+   "beats": 8,
+   "label": "Talking-head scene design"
+  },
+  {
+   "src": "../week-2/exports/tutorial.mp4",
+   "start": 176.0,
+   "beats": 8,
+   "label": "End screen \u00b7 CTA"
+  },
+  {
+   "src": "exports/long-form.mp4",
+   "start": 300.0,
+   "beats": 8,
+   "label": "YouTube end-screen layout"
+  }
+ ]
+}

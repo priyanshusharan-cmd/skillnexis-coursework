@@ -1,0 +1,207 @@
+{
+ "short-a-settle-sunday": {
+  "total": 18.36,
+  "clips": [
+   {
+    "clip": 0,
+    "src": "gs",
+    "out_start": 0.0,
+    "out_dur": 2.69,
+    "src_range": [
+     0,
+     2.6930385487528348
+    ],
+    "speed_min": 1.0,
+    "speed_max": 1.0,
+    "transition_in": null
+   },
+   {
+    "clip": 1,
+    "src": "rec_settle",
+    "out_start": 2.69,
+    "out_dur": 2.84,
+    "src_range": [
+     0.0,
+     2.0
+    ],
+    "speed_min": 0.71,
+    "speed_max": 0.71,
+    "transition_in": "whip"
+   },
+   {
+    "clip": 2,
+    "src": "rec_settle",
+    "out_start": 5.54,
+    "out_dur": 2.18,
+    "src_range": [
+     2.0,
+     4.6
+    ],
+    "speed_min": 0.8,
+    "speed_max": 1.6,
+    "transition_in": "punch"
+   },
+   {
+    "clip": 3,
+    "src": "rec_settle",
+    "out_start": 7.71,
+    "out_dur": 3.85,
+    "src_range": [
+     4.6,
+     11.6
+    ],
+    "speed_min": 0.42,
+    "speed_max": 2.11,
+    "transition_in": null
+   },
+   {
+    "clip": 4,
+    "src": "rec_settle",
+    "out_start": 11.56,
+    "out_dur": 3.28,
+    "src_range": [
+     11.6,
+     12.4
+    ],
+    "speed_min": 0.24,
+    "speed_max": 0.24,
+    "transition_in": "glitch"
+   },
+   {
+    "clip": 5,
+    "src": "card",
+    "out_start": 14.84,
+    "out_dur": 3.52,
+    "transition_in": "flash"
+   }
+  ]
+ },
+ "short-b-fair-not-equal": {
+  "total": 16.65,
+  "clips": [
+   {
+    "clip": 0,
+    "src": "gs",
+    "out_start": 0.0,
+    "out_dur": 2.93,
+    "src_range": [
+     0,
+     2.926281179138322
+    ],
+    "speed_min": 1.0,
+    "speed_max": 1.0,
+    "transition_in": null
+   },
+   {
+    "clip": 1,
+    "src": "rec_add",
+    "out_start": 2.93,
+    "out_dur": 2.91,
+    "src_range": [
+     15.2,
+     16.4
+    ],
+    "speed_min": 0.41,
+    "speed_max": 0.41,
+    "transition_in": "whip"
+   },
+   {
+    "clip": 2,
+    "src": "rec_add",
+    "out_start": 5.84,
+    "out_dur": 2.93,
+    "src_range": [
+     16.4,
+     18.4
+    ],
+    "speed_min": 0.45,
+    "speed_max": 0.91,
+    "transition_in": "punch"
+   },
+   {
+    "clip": 3,
+    "src": "rec_add",
+    "out_start": 8.76,
+    "out_dur": 4.46,
+    "src_range": [
+     18.4,
+     25.0
+    ],
+    "speed_min": 1.48,
+    "speed_max": 1.48,
+    "transition_in": "glitch"
+   },
+   {
+    "clip": 4,
+    "src": "card",
+    "out_start": 13.22,
+    "out_dur": 3.43,
+    "transition_in": "flash"
+   }
+  ]
+ },
+ "short-c-app-asks": {
+  "total": 19.39,
+  "clips": [
+   {
+    "clip": 0,
+    "src": "gs",
+    "out_start": 0.0,
+    "out_dur": 3.98,
+    "src_range": [
+     0,
+     3.9755555555555557
+    ],
+    "speed_min": 1.0,
+    "speed_max": 1.0,
+    "transition_in": null
+   },
+   {
+    "clip": 1,
+    "src": "rec_extras",
+    "out_start": 3.98,
+    "out_dur": 4.57,
+    "src_range": [
+     1.6,
+     6.0
+    ],
+    "speed_min": 0.59,
+    "speed_max": 1.98,
+    "transition_in": "whip"
+   },
+   {
+    "clip": 2,
+    "src": "rec_extras",
+    "out_start": 8.55,
+    "out_dur": 4.19,
+    "src_range": [
+     6.0,
+     8.2
+    ],
+    "speed_min": 0.47,
+    "speed_max": 0.58,
+    "transition_in": "punch"
+   },
+   {
+    "clip": 3,
+    "src": "rec_extras",
+    "out_start": 12.74,
+    "out_dur": 2.09,
+    "src_range": [
+     8.0,
+     8.3
+    ],
+    "speed_min": 0.14,
+    "speed_max": 0.14,
+    "transition_in": "glitch"
+   },
+   {
+    "clip": 4,
+    "src": "card",
+    "out_start": 14.83,
+    "out_dur": 4.56,
+    "transition_in": "flash"
+   }
+  ]
+ }
+}

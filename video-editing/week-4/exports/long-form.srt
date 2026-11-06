@@ -1,0 +1,296 @@
+1
+00:00:00,300 --> 00:00:05,616
+Last semester, my room almost broke up over
+two hundred and sixty six rupees.
+
+2
+00:00:06,066 --> 00:00:07,852
+Not because anyone was cheating.
+
+3
+00:00:08,302 --> 00:00:11,284
+Because nobody could remember who paid for the
+Wi-Fi.
+
+4
+00:00:11,734 --> 00:00:15,385
+Three of us were sure we had paid it. The
+fourth one actually had.
+
+5
+00:00:16,135 --> 00:00:17,070
+Sound familiar?
+
+6
+00:00:17,520 --> 00:00:21,328
+Small payments, made by different people, all
+month long.
+
+7
+00:00:27,078 --> 00:00:30,354
+In this video I'll share five habits that
+fixed it for us.
+
+8
+00:00:30,804 --> 00:00:33,105
+They work with any app, or even a notebook.
+
+9
+00:00:33,555 --> 00:00:40,502
+I'll show each one in Hisaab, an expense
+splitting app I designed for students, so you
+can see exactly how it looks.
+
+10
+00:00:41,252 --> 00:00:42,016
+Here's the list.
+
+11
+00:00:42,466 --> 00:00:46,946
+Stick around for habit four. It's the one that
+saves friendships.
+
+12
+00:00:47,696 --> 00:00:50,309
+Habit one. Log it the moment you pay.
+
+13
+00:00:50,759 --> 00:00:53,310
+Not tonight, and not at the end of the month.
+
+14
+00:00:53,760 --> 00:01:00,126
+Memory is the most expensive part of splitting
+money. Every expense you add later is one you
+might get wrong.
+
+15
+00:01:00,576 --> 00:01:08,650
+We tested this in our room. Expenses added on
+the spot were always right. Expenses added at
+night were wrong about one time in five.
+
+16
+00:01:09,399 --> 00:01:12,159
+In Hisaab, adding takes about ten seconds.
+
+17
+00:01:12,609 --> 00:01:15,504
+Open your room's group, and tap the plus
+button.
+
+18
+00:01:15,954 --> 00:01:20,259
+The amount pad opens first, because the amount
+is the one thing you always know.
+
+19
+00:01:20,709 --> 00:01:24,932
+Paid by defaults to you, and the split
+defaults to everyone in the group.
+
+20
+00:01:25,382 --> 00:01:28,782
+So most of the time, you type a number and hit
+save.
+
+21
+00:01:29,532 --> 00:01:32,564
+Habit two. Split fairly, not equally.
+
+22
+00:01:33,014 --> 00:01:36,456
+Equal splits feel simple, but they quietly
+annoy people.
+
+23
+00:01:36,906 --> 00:01:43,467
+If Aarav was at the library during the Maggi
+run, he shouldn't pay for it. And he shouldn't
+have to argue about it either.
+
+24
+00:01:43,917 --> 00:01:47,329
+Fair means everyone pays for what they were
+part of. That's it.
+
+25
+00:01:48,079 --> 00:01:52,950
+So the split screen starts with everyone
+ticked, and you untick whoever wasn't there.
+
+26
+00:01:53,400 --> 00:01:58,649
+Hisaab recalculates instantly. A hundred and
+twenty each, three people.
+
+27
+00:01:59,099 --> 00:02:04,726
+And it shows that the total still adds up to
+three sixty, so nobody has to double check the
+maths.
+
+28
+00:02:05,176 --> 00:02:10,523
+For rent or a trip, you can switch to exact
+amounts, shares, or percentages.
+
+29
+00:02:11,273 --> 00:02:13,757
+Habit three. Pick one settle day.
+
+30
+00:02:14,207 --> 00:02:15,372
+Ours is Sunday evening.
+
+31
+00:02:15,822 --> 00:02:21,219
+When settling is a routine, asking for money
+stops being personal. It's just Sunday.
+
+32
+00:02:21,669 --> 00:02:28,178
+It also keeps the amounts small. Settling
+ninety rupees every week is easier than five
+hundred at month end.
+
+33
+00:02:28,928 --> 00:02:31,939
+On settle day, open home and tap settle up.
+
+34
+00:02:32,389 --> 00:02:36,642
+You see exactly who you're paying, their UPI
+ID, and what it's for.
+
+35
+00:02:37,092 --> 00:02:42,856
+Pick any UPI app and confirm. The money goes
+bank to bank. Hisaab never holds it.
+
+36
+00:02:43,306 --> 00:02:48,507
+Your balance updates straight away, and you
+can clear the next person in the same sitting.
+
+37
+00:02:49,257 --> 00:02:53,536
+Habit four, the friendship saver. Let the app
+do the asking.
+
+38
+00:02:53,986 --> 00:02:59,158
+Nobody wants to be the person sending, hey,
+about that hundred and twenty.
+
+39
+00:02:59,608 --> 00:03:05,115
+But a neutral reminder, with the exact amount
+and a pay link, doesn't feel like nagging.
+
+40
+00:03:05,565 --> 00:03:08,973
+The app becomes the bad guy, and you get to
+stay the friend.
+
+41
+00:03:09,723 --> 00:03:14,347
+Tap remind, and pick a tone. Friendly, direct,
+or funny.
+
+42
+00:03:14,797 --> 00:03:18,762
+The message goes from your own WhatsApp, so
+you decide when it's sent.
+
+43
+00:03:19,212 --> 00:03:24,841
+Hisaab never sends automatic reminders behind
+your back. That was a deliberate design
+choice.
+
+44
+00:03:25,591 --> 00:03:27,858
+Habit five. Know where the money goes.
+
+45
+00:03:28,308 --> 00:03:30,976
+Here's a sample month for one student in our
+room.
+
+46
+00:03:31,426 --> 00:03:37,140
+Food and chai is almost half. Travel is next.
+Room and bills are smaller than you'd think.
+
+47
+00:03:37,890 --> 00:03:40,075
+Hisaab shows this as monthly insights.
+
+48
+00:03:40,525 --> 00:03:43,119
+And the most useful part is the nudge at the
+bottom.
+
+49
+00:03:43,569 --> 00:03:50,186
+Late night food was the biggest category, so
+it suggests a monthly limit. You can take it
+or ignore it.
+
+50
+00:03:50,936 --> 00:03:54,964
+Before we wrap up, three mistakes we made, so
+you don't have to.
+
+51
+00:03:55,414 --> 00:04:01,730
+One. Rounding everything up. Ten rupees here
+and there adds up, and someone always notices.
+
+52
+00:04:02,180 --> 00:04:08,357
+Two. Letting one person become the room's
+bank. They end up owed thousands, and too shy
+to ask.
+
+53
+00:04:08,807 --> 00:04:15,290
+Three. Settling only when someone is broke. By
+then the amounts are big, and the conversation
+is awkward.
+
+54
+00:04:16,040 --> 00:04:21,874
+All three have the same fix. Small amounts,
+logged right away, settled on a fixed day.
+
+55
+00:04:22,624 --> 00:04:23,450
+Quick recap.
+
+56
+00:04:23,900 --> 00:04:30,943
+Log it when you pay. Split fairly. Settle on
+one day. Let the app ask. And know where it
+goes.
+
+57
+00:04:31,393 --> 00:04:37,699
+None of these are about maths. They're about
+making money boring, so friendships don't have
+to absorb it.
+
+58
+00:04:38,449 --> 00:04:42,114
+If this helped, subscribe for more student
+money tips.
+
+59
+00:04:42,564 --> 00:04:47,433
+Next, I'll show how I designed Hisaab in one
+week, from research to prototype.
+
+60
+00:04:47,883 --> 00:04:50,256
+Link on screen now. See you there.

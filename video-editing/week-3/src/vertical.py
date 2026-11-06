@@ -16,6 +16,7 @@ FONT = lambda name, size: ImageFont.truetype(F + name, size)
 CAP = FONT("InterDisplay-ExtraBold.otf", 88); HOOK = FONT("InterDisplay-ExtraBold.otf", 96); TAG = FONT("InterDisplay-Bold.otf", 54); SMALL = FONT("Inter-SemiBold.otf", 36)
 BRAND, MINT, YELLOW, PINK = (11, 59, 55), (213, 245, 239), (255, 216, 77), (232, 160, 166)
 SAFE = (80, 260, 920, 1480)          # x0, y0, x1, y1 kept clear of the platform UI (top bar, caption/buttons at bottom and right)
+GS = "exports/greenscreen-raw.mp4"   # the keyed green-screen plate (week 4 points this at week 3's copy)
 PHONE = "crop=552:982:404:49,scale=1080:1920:flags=lanczos"     # the phone in the 1920x1080 prototype recordings
 smooth = lambda u: u * u * (3 - 2 * u)
 ease_out = lambda u: 1 - (1 - u) ** 3
@@ -144,7 +145,7 @@ def render(name, clips, total, captions=None, vo=None, music_offset=8.0, music_g
         n = int(round(starts[ci + 1] * FPS)) - int(round(starts[ci] * FPS)); rdr = None
         if "src" in c:
             if c["src"].startswith("rec_"): rdr = Reader(W2 + c["src"] + ".webm", max(0, c["a"] - .05), PHONE)
-            elif c["src"] == "gs": rdr = Reader("exports/greenscreen-raw.mp4", 0, None, loop=True, extra_in=["-f", "lavfi", "-i", f"color=c=0x{BRAND[0]:02X}{BRAND[1]:02X}{BRAND[2]:02X}:s=1920x1080:r=30"],
+            elif c["src"] == "gs": rdr = Reader(GS, 0, None, loop=True, extra_in=["-f", "lavfi", "-i", f"color=c=0x{BRAND[0]:02X}{BRAND[1]:02X}{BRAND[2]:02X}:s=1920x1080:r=30"],
                                                fc="[0:v]format=yuva420p,chromakey=0x2EB14A:0.10:0.02,despill=type=green:mix=0.6:expand=0.1[k];[1:v][k]overlay=shortest=1,crop=760:1080:520:0,scale=1080:1535,pad=1080:1920:0:385:color=0x0B3B37,fps=30[o]")
             else: rdr = Reader(c["src"], max(0, c["a"] - .05), c.get("vf", "scale=1080:-2,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=0x0B3B37"))
             times, speeds = remap(c, n) if c["src"] != "gs" else (np.arange(n) / FPS, np.ones(n))
