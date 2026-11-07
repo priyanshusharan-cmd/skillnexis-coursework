@@ -1,0 +1,9 @@
+services:
+  assistant:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    volumes: ["assistant-data:/srv/data"]   # keeps users, memory, uploads and the usage ledger across restarts
+    restart: unless-stopped
+volumes:
+  assistant-data:

@@ -1,0 +1,12 @@
+# USD per 1 million tokens (standard paid tier). Checked 2026-11-07 via a third-party summary of Google's price list
+# (morphllm.com/gemini-api-pricing, page dated 2026-10-25). Prices change often: verify at https://ai.google.dev/pricing
+# (and your provider's page) before relying on cost numbers. The free tiers cost $0; the tracker then reports what
+# the same traffic would cost on the paid tier ("list-price equivalent").
+gemini-2.5-flash:      {input: 0.30, output: 2.50}
+gemini-2.5-flash-lite: {input: 0.10, output: 0.40}
+gemini-3.1-flash-lite: {input: 0.25, output: 1.50}
+gemini-3.8-flash:      {input: 0.75, output: 3.75}
+# Local and offline engines cost nothing per token.
+extractive:            {input: 0.0, output: 0.0}
+ollama:                {input: 0.0, output: 0.0}
+# Add your OpenAI-compatible model here, e.g.  my-model: {input: 0.15, output: 0.60}

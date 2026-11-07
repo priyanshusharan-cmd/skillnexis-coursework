@@ -1,0 +1,16 @@
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart
+pydantic>=2
+numpy
+scikit-learn
+rank-bm25
+pyyaml
+pypdf
+pillow
+pytesseract
+# optional LLM providers (free tiers / local):
+langchain-core
+langchain-google-genai    # GEMINI_API_KEY
+# langchain-openai        # OPENAI_API_KEY (+ OPENAI_BASE_URL for Groq/OpenRouter)
+# langchain-ollama        # OLLAMA_MODEL

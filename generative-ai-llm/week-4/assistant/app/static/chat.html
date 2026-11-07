@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PEP Assistant</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#15171c;--mute:#667085;--line:#e4e7ec;--acc:#3056d3;--warn:#b54708;--ok:#067647}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1115;--card:#171a21;--ink:#e8eaed;--mute:#98a2b3;--line:#2a2f3a;--acc:#7c9cff;--warn:#fdb022;--ok:#47cd89}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:16px}header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+h1{font-size:19px;margin:0}.mute{color:var(--mute);font-size:13px}input,textarea,button{font:inherit;color:inherit}
+input,textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;width:100%}
+button{border:0;background:var(--acc);color:#fff;border-radius:10px;padding:9px 16px;cursor:pointer}button.s{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.row{display:flex;gap:8px;align-items:center}.row>*{min-width:0}#log{display:grid;gap:12px;margin:14px 0}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;overflow-wrap:anywhere}.msg.u{background:transparent;border-style:dashed}
+.src{font-size:13px;color:var(--mute);margin-top:8px}.src a{color:var(--acc)}.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;border:1px solid var(--line);margin-right:6px}
+.warn{color:var(--warn);font-size:13px;margin-top:6px}.ok{color:var(--ok)}details{margin-top:6px;font-size:13px}.sent{margin:4px 0;padding-left:8px;border-left:3px solid var(--line)}.sent.bad{border-color:var(--warn)}
+</style></head><body><div class="wrap">
+<header><div><h1>PEP Assistant</h1><div class="mute">Answers from Python Enhancement Proposals and your uploads, with citations and a grounding check.</div></div>
+<a class="mute" href="/docs">API docs</a></header>
+<div class="row"><input id="key" type="password" placeholder="API key (stored only in this tab)"><button class="s" onclick="saveKey()">Use key</button></div>
+<div class="row" style="margin-top:8px"><input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.md"><button class="s" onclick="upload()">Upload</button></div>
+<div id="log"></div>
+<form class="row" onsubmit="ask(event)"><input id="q" placeholder="Ask about a PEP, e.g. What does the walrus operator do?" autocomplete="off"><button>Ask</button></form>
+<div class="mute" id="sess" style="margin-top:6px"></div>
+</div>
+<script>
+let KEY=''; try{KEY=sessionStorage.getItem('k')||''}catch(e){}; document.getElementById('key').value=KEY;
+let SID=null; const log=document.getElementById('log'); const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function saveKey(){KEY=document.getElementById('key').value.trim(); try{sessionStorage.setItem('k',KEY)}catch(e){}}
+function add(cls,html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;log.appendChild(d);d.scrollIntoView({block:'end'});return d}
+async function upload(){const f=document.getElementById('file').files[0]; if(!f) return; const fd=new FormData(); fd.append('file',f);
+  const r=await fetch('/v1/documents',{method:'POST',headers:{Authorization:'Bearer '+KEY},body:fd}); const j=await r.json();
+  add('', r.ok?`📄 Added <b>${esc(j.name)}</b>: ${j.chunks} chunks via ${esc(j.method)}<div class="mute">${esc(j.preview)}…</div>`:`<span class="warn">${esc(j.error.message)}</span>`)}
+async function ask(e){e.preventDefault(); const q=document.getElementById('q').value.trim(); if(!q) return; document.getElementById('q').value='';
+  add('u',esc(q)); const box=add('','<span class="mute">…</span>'); let text='';
+  const r=await fetch('/v1/chat',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+KEY},body:JSON.stringify({message:q,session_id:SID,stream:true})});
+  if(!r.ok){const j=await r.json(); box.innerHTML=`<span class="warn">${esc(j.error.message)}</span>`; return}
+  const rd=r.body.getReader(), dec=new TextDecoder(); let buf='';
+  while(true){const {value,done}=await rd.read(); if(done) break; buf+=dec.decode(value,{stream:true}); let i;
+    while((i=buf.indexOf('\n\n'))>=0){const blk=buf.slice(0,i); buf=buf.slice(i+2); const ev=(blk.match(/^event: (.*)$/m)||[])[1], data=JSON.parse((blk.match(/^data: (.*)$/m)||[])[1]||'{}');
+      if(ev==='meta'){SID=data.session_id; document.getElementById('sess').textContent='session '+SID+' · '+data.provider}
+      if(ev==='token'){text+=data.t; box.innerHTML=esc(text)}
+      if(ev==='done') render(box,data)}}}
+function render(box,d){const used=new Set([...d.answer.matchAll(/\[(\d+)\]/g)].map(m=>+m[1]));
+  const src=d.sources.filter(s=>used.has(s.n)).map(s=>`[${s.n}] ${s.url?`<a href="${s.url}" target="_blank" rel="noopener">${esc(s.source)}</a>`:esc(s.source)}${s.page?', p.'+s.page:''} ${esc(s.title||'')}`).join(' · ');
+  const g=d.grounding; const gl=g.abstained?'<span class="pill">abstained</span>':`<span class="pill ${g.flagged?'':'ok'}">grounded ${Math.round(g.grounded*100)}%</span>`;
+  box.innerHTML=esc(d.answer)+(src?`<div class="src">${src}</div>`:'')+`<div class="src">${gl}<span class="pill">${d.usage.prompt_tokens+d.usage.completion_tokens} tokens${d.usage.exact?'':' (est.)'}</span><span class="pill">$${d.usage.cost_usd.toFixed(6)}</span></div>`
+   +d.warnings.map(w=>`<div class="warn">⚠ ${esc(w)}</div>`).join('')
+   +(g.sentences.length?`<details><summary>Evidence per sentence</summary>${g.sentences.map(s=>`<div class="sent ${s.supported?'':'bad'}">${esc(s.sentence)}<div class="mute">support ${s.support} · ${esc(s.reason||'best match: '+s.evidence.slice(0,140)+'…')}</div></div>`).join('')}</details>`:'')}
+</script></body></html>
