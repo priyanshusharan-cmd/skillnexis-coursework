@@ -1,0 +1,10 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794009790.691175    4214 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794009791.707487    4214 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+plain|1 0.9333 0.8709 433 s
++bn|1 0.968 0.8896 567 s
++dropout|1 0.9428 0.8987 415 s
++bn+dropout|1 0.9805 0.9135 485 s
++bn+dropout+cos|1 0.9826 0.9194 495 s
++bn+dropout+step|1 0.9757 0.9191 468 s

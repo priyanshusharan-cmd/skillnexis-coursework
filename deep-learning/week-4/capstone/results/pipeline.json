@@ -1,0 +1,599 @@
+{
+ "test_images": 72,
+ "wbc_localisation": {
+  "precision": 0.947,
+  "recall": 1.0,
+  "mean_iou": 0.812,
+  "scale": 1.25
+ },
+ "wbc_localisation_candidates_only": {
+  "precision": 0.947,
+  "recall": 1.0,
+  "mean_iou": 0.812
+ },
+ "platelet_count": {
+  "mae": 0.556,
+  "exact_match": 0.583,
+  "baseline_mae_train_mean": 0.884,
+  "mean_true": 0.96,
+  "mean_pred": 0.65
+ },
+ "per_image": [
+  {
+   "image": "BloodImage_00007",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00011",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00015",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00016",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00018",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00019",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00021",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00031",
+   "wbc_pred": 2,
+   "wbc_true": 2,
+   "plt_pred": 2,
+   "plt_true": 4,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00033",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00041",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 2,
+   "rejected": 2
+  },
+  {
+   "image": "BloodImage_00057",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00058",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00062",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00063",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00065",
+   "wbc_pred": 2,
+   "wbc_true": 2,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00067",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00068",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 4,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00074",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00075",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00077",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00088",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00093",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00098",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00103",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00132",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00135",
+   "wbc_pred": 1,
+   "wbc_true": 0,
+   "plt_pred": 2,
+   "plt_true": 4,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00136",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00137",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00149",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00157",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 0,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00161",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00167",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00169",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00171",
+   "wbc_pred": 1,
+   "wbc_true": 0,
+   "plt_pred": 1,
+   "plt_true": 0,
+   "rejected": 2
+  },
+  {
+   "image": "BloodImage_00172",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00178",
+   "wbc_pred": 1,
+   "wbc_true": 0,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00180",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00184",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00205",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00208",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00220",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 2,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00225",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00226",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00227",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00229",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 3,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00233",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00234",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00249",
+   "wbc_pred": 2,
+   "wbc_true": 2,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00253",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00271",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00282",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00284",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 0,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00287",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00290",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00293",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00296",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 3,
+   "plt_true": 3,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00303",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00319",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00320",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00323",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00327",
+   "wbc_pred": 1,
+   "wbc_true": 0,
+   "plt_pred": 0,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00333",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00341",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00346",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00360",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00365",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 3,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00366",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 1,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00375",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 2,
+   "plt_true": 2,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00385",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 1,
+   "plt_true": 3,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00390",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 0
+  },
+  {
+   "image": "BloodImage_00391",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 0,
+   "plt_true": 0,
+   "rejected": 1
+  },
+  {
+   "image": "BloodImage_00407",
+   "wbc_pred": 1,
+   "wbc_true": 1,
+   "plt_pred": 3,
+   "plt_true": 3,
+   "rejected": 0
+  }
+ ]
+}

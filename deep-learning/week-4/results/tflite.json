@@ -1,0 +1,38 @@
+{
+ "keras": {
+  "size_kb": 5662,
+  "test_accuracy": 0.9194,
+  "agreement_with_keras": 1.0,
+  "latency_ms_median": 2.17,
+  "latency_ms_p95": 3.09
+ },
+ "float32": {
+  "size_kb": 2729,
+  "test_accuracy": 0.9194,
+  "agreement_with_keras": 1.0,
+  "latency_ms_median": 2.07,
+  "latency_ms_p95": 2.2
+ },
+ "float16": {
+  "size_kb": 1377,
+  "test_accuracy": 0.9194,
+  "agreement_with_keras": 1.0,
+  "latency_ms_median": 2.15,
+  "latency_ms_p95": 2.58
+ },
+ "int8_dynamic": {
+  "size_kb": 711,
+  "test_accuracy": 0.9198,
+  "agreement_with_keras": 0.9981,
+  "latency_ms_median": 0.42,
+  "latency_ms_p95": 0.67
+ },
+ "int8_full": {
+  "size_kb": 723,
+  "test_accuracy": 0.9198,
+  "agreement_with_keras": 0.9945,
+  "latency_ms_median": 0.43,
+  "latency_ms_p95": 0.47
+ },
+ "note": "The .keras file also stores the model config and the optimizer state saved during training (so it is larger than the weights alone); latency is single-image, 1 thread, this sandbox CPU (x86-64 with AVX-512/AMX)."
+}

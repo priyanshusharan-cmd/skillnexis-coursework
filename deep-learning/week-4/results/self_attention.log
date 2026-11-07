@@ -1,0 +1,32 @@
+with_attention 0 3.035
+with_attention 500 0.002
+with_attention 1000 0.0
+with_attention 1500 0.0
+with_attention 2000 0.0
+with_attention 2500 0.0
+without_attention 0 3.237
+without_attention 500 1.766
+without_attention 1000 0.897
+without_attention 1500 0.711
+without_attention 2000 0.728
+without_attention 2500 0.518
+{
+ "max_abs_diff_vs_torch": {
+  "plain": 1.043081283569336e-07,
+  "causal": 8.940696716308594e-08,
+  "padding": 1.1920928955078125e-07
+ },
+ "causal_leak": {
+  "max_change_before_t": 0.0,
+  "max_change_from_t": 4.106714248657227
+ },
+ "with_attention": {
+  "test_accuracy": 1.0,
+  "chance": 0.0625
+ },
+ "without_attention": {
+  "test_accuracy": 0.8376,
+  "chance": 0.0625
+ }
+}
+exit 0

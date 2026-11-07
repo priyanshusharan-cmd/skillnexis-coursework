@@ -1,0 +1,19 @@
+{
+ "max_abs_diff_vs_torch": {
+  "plain": 1.043081283569336e-07,
+  "causal": 8.940696716308594e-08,
+  "padding": 1.1920928955078125e-07
+ },
+ "causal_leak": {
+  "max_change_before_t": 0.0,
+  "max_change_from_t": 4.106714248657227
+ },
+ "with_attention": {
+  "test_accuracy": 1.0,
+  "chance": 0.0625
+ },
+ "without_attention": {
+  "test_accuracy": 0.8376,
+  "chance": 0.0625
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "trainval": {
+  "1.0": {
+   "precision": 0.911,
+   "recall": 0.92,
+   "mean_iou": 0.674
+  },
+  "1.1": {
+   "precision": 0.964,
+   "recall": 0.973,
+   "mean_iou": 0.761
+  },
+  "1.25": {
+   "precision": 0.977,
+   "recall": 0.987,
+   "mean_iou": 0.807
+  },
+  "1.4": {
+   "precision": 0.967,
+   "recall": 0.977,
+   "mean_iou": 0.75
+  },
+  "1.6": {
+   "precision": 0.872,
+   "recall": 0.88,
+   "mean_iou": 0.643
+  }
+ },
+ "chosen": 1.25
+}

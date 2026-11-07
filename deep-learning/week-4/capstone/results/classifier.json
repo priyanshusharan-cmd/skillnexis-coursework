@@ -1,0 +1,83 @@
+{
+ "data": {
+  "train": 2804,
+  "val": 1137,
+  "test": 945,
+  "train_per_class": {
+   "RBC": 2381,
+   "WBC": 214,
+   "Platelets": 209
+  }
+ },
+ "A_frozen": {
+  "val_macro_f1": 0.975,
+  "test_macro_f1": 0.9706,
+  "minutes": 0.5
+ },
+ "B_finetuned": {
+  "val_macro_f1": 0.9876,
+  "test_macro_f1": 0.9879,
+  "epochs": 8,
+  "minutes": 3.0
+ },
+ "deployed": {
+  "stage": "B_finetuned",
+  "test_accuracy": 0.9968,
+  "test_macro_f1": 0.9879,
+  "report": {
+   "RBC": {
+    "precision": 1.0,
+    "recall": 0.9987577639751553,
+    "f1-score": 0.9993784959602238,
+    "support": 805.0
+   },
+   "WBC": {
+    "precision": 0.9859154929577465,
+    "recall": 0.9859154929577465,
+    "f1-score": 0.9859154929577465,
+    "support": 71.0
+   },
+   "Platelets": {
+    "precision": 0.9714285714285714,
+    "recall": 0.9855072463768116,
+    "f1-score": 0.9784172661870504,
+    "support": 69.0
+   },
+   "accuracy": 0.9968253968253968,
+   "macro avg": {
+    "precision": 0.9857813547954394,
+    "recall": 0.9900601677699045,
+    "f1-score": 0.9879037517016735,
+    "support": 945.0
+   },
+   "weighted avg": {
+    "precision": 0.9968556311413455,
+    "recall": 0.9968253968253968,
+    "f1-score": 0.9968364874231603,
+    "support": 945.0
+   }
+  },
+  "confusion": [
+   [
+    804,
+    0,
+    1
+   ],
+   [
+    0,
+    70,
+    1
+   ],
+   [
+    0,
+    1,
+    68
+   ]
+  ]
+ },
+ "tflite": {
+  "size_kb": 2472,
+  "test_accuracy": 0.9979,
+  "agreement_with_keras": 0.9989
+ }
+}

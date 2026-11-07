@@ -1,0 +1,13 @@
+$ curl localhost:8000/health
+{"status":"ok","model_loaded":true,"uptime_s":6}
+
+$ curl -F file=@frog.png "localhost:8000/predict?top_k=3"
+{"filename":"frog.png","label":"frog","confidence":0.9992,"top_k":[{"label":"frog","probability":0.9992},{"label":"bird","probability":0.0007},{"label":"cat","probability":0.0001}]}
+
+$ curl -F file=@notes.txt localhost:8000/predict
+{"error":{"code":"unsupported_media_type","message":"notes.txt: type 'text/plain' is not accepted; send JPEG, PNG, WebP, BMP or GIF","request_id":"ba8e08da5371"}}
+
+$ curl -i localhost:8000/nope (headers trimmed)
+HTTP/1.1 404 Not Found
+x-request-id: f17acbeb6b2d
+{"error":{"code":"http_error","message":"Not Found","request_id":"f17acbeb6b2d"}}
